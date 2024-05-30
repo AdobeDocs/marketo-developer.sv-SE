@@ -1,0 +1,66 @@
+---
+title: "Paging Tokens"
+feature: REST API
+description: "Visa data för sidindelningstoken."
+source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+workflow-type: tm+mt
+source-wordcount: '345'
+ht-degree: 0%
+
+---
+
+
+# Utskriftstoken
+
+Om du vill bläddra igenom resultaten, eller hämta data som har uppdaterats i förhållande till en viss data, tillhandahåller Marketo växlingstoken.
+
+I vissa fall kan långa växlingstokensträngar returneras. Detta kan göra att du får en HTTP 414-felkod. Mer information om hur du hanterar dessa finns [fel](error-codes.md).
+
+## Tokentyper
+
+Det finns två relaterade, men distinkta, typer av växlingstoken som Marketo tillhandahåller:
+
+- Datumbaserad
+- Positionsbaserad
+
+## Datumbaserad
+
+Den första är en växlingstoken som representerar ett datum. Dessa används för att hämta aktiviteter, ändringar av datavärden och borttagna leads som har inträffat efter det datum som representeras av sidindelningstoken. Den här typen av sidindelningstoken genereras genom att anropa [Hämta växlingstoken](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) slutpunkt och inklusive datetime.
+
+```
+GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
+```
+
+```json
+{
+    "requestId": "1607c#14884f3e74e",
+    "success": true,
+    "nextPageToken": "GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ"
+}
+```
+
+Formatet på `sinceDateTime` parametern måste överensstämma med [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standarddatumnotering. Bäst resultat får du om du använder en fullständig datetime som innehåller tidszonen. Tidszonen kan representeras som en förskjutning från GMT i följande format:
+
+`yyyy-mm-ddThh:mm:ss+|-hh:mm`
+
+Eller använda ett stort&quot;Z&quot; som kortskrift för att representera UTC så här:
+
+`yyyy-mm-ddThh:mm:ssZ`
+
+Exempel
+
+`2016-09-15T15:53:00+05:00`
+
+`2016-09-15T10:53:00Z`
+
+För `sinceDateTime` är en frågeparameter, den måste vara URL-kodad.
+
+The `nextPageToken` strängen anges sedan till en [Hämta leadaktiviteter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [Hämta leadändringar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET), eller [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) anrop och aktiviteter hämtas från efter datetime-värdet som anges till API:t Get Paging Token.
+
+```
+GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12
+```
+
+## Positionsbaserad
+
+Den andra typen av växlingstoken kan returneras av alla batchhämtningsanrop till en lead-databas-API. Den här typen av sidindelningstoken påminner om en databasmarkör, som gör det möjligt att gå igenom poster. Ett anrop av typen Hämta leads efter filtertyp kan till exempel representera en uppsättning som är större än den angivna gruppstorleken, vanligtvis maxvärdet och standardvärdet 300. När det finns fler resultat är fältet moreResult true i svaret och ett `nextPageToken` returneras. Om du vill hämta ytterligare poster i resultatuppsättningen, ett ytterligare anrop med `nextPageToken` med det mottagna värdet från föregående svar i det nya anropet. Svaret returnerar nästa sida i resultatuppsättningen.

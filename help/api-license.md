@@ -1,0 +1,106 @@
+---
+title: "API-licens"
+description: API-licens för Marketo
+source-git-commit: 158e24dc9b3f7d590b6f3568fe1b06fe481194e2
+workflow-type: tm+mt
+source-wordcount: '3108'
+ht-degree: 0%
+
+---
+
+
+# API-licens
+
+MARKETO
+
+API-LICENSAVTAL
+
+Detta Marketo API-licensavtal (&quot;Avtalet&quot;) reglerar implementeringen och användningen av Marketo API:er och API-specifikationen så att ett programvaruprogram kan samverka med Marketo Solution för intern utveckling eller testning. Om du ingår det här avtalet på uppdrag av en organisation har du behörighet att binda din organisation till det här avtalet. Om du inte har den behörigheten, eller om du inte godkänner villkoren i detta Avtal, får du inte implementera Marketo API:er eller använda API-specifikationen. Genom att klicka på en knapp som anger att du godkänner detta Avtal, eller genom att implementera, hämta eller på annat sätt få tillgång till Marketo API:er, godkänner du villkoren i detta Avtal. Detta avtal gäller mellan dig och Marketo, Inc. (&quot;Marketo&quot;) från och med den dag du godkänner. Ni och Marketo kallas var och en för sig&quot;part&quot; och tillsammans&quot;parter&quot;.
+
+1. Definitioner
+
+&quot;API-gränser&quot; innebär begränsningar (t.ex. hastighetsbegränsningar och samtidighetsgränser) för dina API-anrop enligt beskrivningen på Marketo Developer-webbplatsen som beskrivs på https://developer.adobe.com/marketo-apis/.
+
+&quot;Programmeringsgränssnitt&quot; eller &quot;API&quot; innebär en samling rutiner, klasser, funktionsparametrar, protokoll, webhooks, relaterade bibliotek och andra instruktioner som finns i källkoden eller objektkodsformuläret.
+
+&quot;API-specifikation&quot; innebär en skriftlig beskrivning eller definition av rutiner, klasser, funktionsparametrar, protokoll, webbhooks, relaterade bibliotek och andra instruktioner som gör att ett programvaruprogram kan interagera med Marketo-lösningen, och som beskrivs utförligt på: https://developer.adobe.com/marketo-apis/.
+
+&quot;Feedback&quot; innebär förslag eller kommentarer från dig till Marketo som är relaterade till Marketo produkter (t.ex. Marketo API:er eller Marketo Solution).
+
+&quot;Forking&quot; innebär att skapa en distinkt och/eller separat uppsättning API:er som är baserade på, härledda från eller en ändring av Marketo API:er.
+
+&quot;Marketo API&quot; innebär en samling rutiner, klasser, funktionsparametrar, protokoll, relaterade bibliotek, verktyg och andra instruktioner i källkodsformuläret eller objektkodsformuläret som tillåter åtkomst till eller interoperabilitet med Marketo Solution genom ett programvaruprogram, vilket beskrivs och görs tillgängligt på: https://developer.adobe.com/marketo-apis/.
+
+&quot;Marketo Solution&quot; är en tjänst eller tjänster som du får tillgång till via Marketo API:er och som beskrivs i huvudsak på: http://www.marketo.com/software/.
+
+&quot;Objektkod&quot; betyder källkod som har tolkats, kompilerats eller på annat sätt översatts till ett maskinläsbart format.
+
+&quot;Programvaruprogram&quot; innebär programvara som skapats av dig i formuläret Object Code eller Source Code och som har åtkomst till eller på annat sätt samverkar med Marketo Solution via Marketo API:er.
+
+&quot;Källkod&quot; innebär datorkod i läsbar form och som sådan datorkod som inte har tolkats eller kompilerats.
+
+&quot;Användning&quot; innebär en rätt att utföra eller reproducera (enligt definition i 17 U.S.C. § 101 et seq.) eller annan tillämplig upphovsrättslag, men inte rätt till underlicens eller distribution.
+
+&quot;Du&quot; eller &quot;Din&quot; innebär dig, den person som deltar i detta avtal eller, om du ingår detta avtal på uppdrag av en organisation (eller implementerar API-specifikationen och tillhörande Marketo API:er på uppdrag av eller i en produkt som ägs eller licensieras av en organisation), den organisationen.
+
+1. Licenser och begränsningar
+
+Svar: Marketo API-licens. Med förbehåll för bestämmelserna i detta Avtal ger Marketo dig en världsomspännande, återkallbar, icke-exklusiv licens, under Marketo upphovsrätt, att använda Marketo API:er för att underlätta interoperabiliteten mellan Marketo Solution och programvaruprogrammet enbart för interna utvecklings- eller testningsändamål. Du beviljas den här licensen under förutsättning att du följer API-gränserna som ett villkor för att få den här licensen och att du inte försöker kringgå sådana API-begränsningar. Du får, men har ingen skyldighet, skapa ett program.
+
+B. Marketo API Specification License. Marketo ger er en icke-exklusiv, royaltyfri, återkallningsbar licens i hela världen, under Marketo upphovsrätt, att använda API-specifikationen för att möjliggöra interoperabilitet mellan programvaran och Marketo-lösningen.
+
+C. Feedback License för Marketo. Om du ger Marketo feedback ger du Marketo alla juridiska rättigheter, rättigheter och intressen i feedback-programmet. Om Marketo dessutom kräver att en eller flera juridiska dokument som krävs för att fullgöra dessa juridiska rättigheter verkställs, samtycker du till att exekvera alla sådana dokument för Marketo.
+
+D. Marketo API-licensbegränsningar. Marketo behåller upphovsrätten till Marketo API:er enligt detta Avtal och du samtycker till att inte ta bort eller ändra upphovsrätt (t.ex. &quot;© Marketo, Inc.&quot;) eller andra företagsinterna meddelanden som anger att Marketo äger denna upphovsrätt. Dessutom godkänner och godkänner du följande licensbegränsningar: i) ingen rätt att kommersiellt utföra, distribuera eller använda Marketo API:er (eller underlicensiera någon av de föregående rättigheterna) beviljas enligt detta Avtal; ii) under inga omständigheter kommer du att göra Marketo API:er i källkodsformuläret tillgängliga för en slutanvändare eller någon annan tredje part; iii) ingen av följande rättigheter beviljas med avseende på Marketo API:er: för att distribuera, offentligt visa eller skapa derivat (t.ex. en supermängd eller delmängd av Marketo API:er), och iv) Marketo API:er får inte användas för att få tillgång till någon annan tjänst än Marketo Solution. Marketo kan begränsa antalet och/eller frekvensen av API-begäranden till Marketo Solution, eller användning av API:er som kan skada, inaktivera, överbelasta, skada eller på annat sätt störa Marketo Solution. Om du vill att en kommersiell Marketo API-licens ska underlicensiera Marketo API:er i kombination med dina produkter (inklusive ditt program) går du till http://launchpoint.marketo.com/ och får mer information om hur du går med i Marketo LaunchPoint.
+
+E. Licensbegränsningar för API-specifikationer. Marketo har fortfarande laglig rätt till API-specifikationen enligt detta Avtal och du samtycker till att inte ta bort eller ändra någon upphovsrätt (t.ex. &quot;© Marketo, Inc.&quot;) eller andra företagsinterna meddelanden som anger att Marketo äger denna upphovsrätt. Dessutom godkänner du följande licensbegränsning: Du ska inte göra ett orimligt antal reproduktioner av API-specifikationen. För att undvika tvivel ges dessutom ingen rätt att i) distribuera, ii) underlicensiera, iii) offentligt visa eller iv) skapa derivat av API-specifikationen till dig nedan.
+
+1. Garanti, ansvarsfriskrivning, ansvarsfriskrivning och ansvarsbegränsning
+
+A. Forking. Du garanterar att du inte har och inte kommer att använda Forking eller på annat sätt försöka modifiera eller bakåtkompilera Marketo API:er. Dessutom garanterar ni att ni inte har och inte kommer att distribuera en uppsättning API:er eller ett utvecklingspaket som baseras på eller på annat sätt modifierar Marketo API:er, inklusive att de är en delmängd eller en överordnad uppsättning till Marketo API:er.
+
+B. Varumärke. Du samtycker till att följa eller på annat sätt följa varumärkesriktlinjerna (se http://legal.marketo.com/legal-notices/Trademark-and-Guidelines.pdf) för användning av Marketo varumärken (registrerade eller på annat sätt), logotyper eller ordmärken (gemensamt&quot;varumärken&quot;) och den goodwill som är kopplad till dem. Ni medger dessutom att om ni inte förhandlar separat med Marketo, tillhandahålls ingen licens (underförstådd eller explicit) att använda varumärkena och den goodwill som är kopplad till dem här.
+
+C. Friskrivande av garantier. Du bekräftar att Marketo API:er OCH API-SPECIFIKATIONEN tillhandahålls i befintligt skick, utan garantier av något slag, och kanske inte fungerar på någon dator eller i någon miljö. I DEN TAKT SOM TILLÅTS ENLIGT TILLÄMPLIG LAG, FRÅNSÄGER MARKETO ALLA GARANTIER SOM RÖR MARKETO-LÖSNINGAR, UTTALADE ELLER UNDERFÖRSTÅDDA, INKLUSIVE, MEN INTE BEGRÄNSAT, ALLA GARANTIER MOT ÖVERTRÄDELSE AV TREDJE PARTS RÄTTIGHETER, SÄLJBARHET OCH LÄMPLIGHET FÖR EN VISS R SYFTE. Marketo lämnar inga utfästelser eller garantier beträffande Marketo API:ers ELLER API-SPECIFIKATIONENS lämplighet för dina avsedda behov eller syften, inklusive för användning med ditt program. Marketo ger heller inga utfästelser eller garantier beträffande integriteten hos data som du överför, överför, lagrar, erhåller eller tar emot via Marketo API:er. Marketo är inte skyldigt att underhålla eller ge support för Marketo API:er, eller att tillhandahålla uppdateringar, korrigeringar eller tjänster som är kopplade till dem. Ni tar på er alla risker som följer av användningen av Marketo API:er, inklusive, utan begränsning, risken för skador på ert datorsystem, programvaruprogram, skador eller förlust av data och efterlevnad av ALLA tillämpliga lagar och bestämmelser (inklusive lagar och förordningar som rör sekretess och dataskydd).
+
+D. Ersättning. Ni ska försvara, gottgöra och hålla Marketo, dess dotterbolag och deras respektive tjänstemän, direktörer, anställda, agenter och representanter skadeslösa från alla anspråk, skador, skulder, kostnader och avgifter (inklusive rimliga advokatarvoden) som följer av Programvaruansökan. Parterna är överens om att följa följande förfarande när Marketo begär skadestånd enligt detta avsnitt och särskilt att Marketo ska:- i) utan dröjsmål meddela dig skriftligt om fordran, ii) ge dig ensam kontroll över försvaret och avvecklingen av fordran (förutsatt att du inte får betala några anspråk såvida du inte villkorslöst frigör Marketo från allt ansvar) och iii) tillhandahålla dig, till din kostnad, all rimlig hjälp.
+
+E. Ansvarsbegränsning. I DEN TAKT SOM TILLÄMPLIG RÄTT TILLÅTER FÅR MARKETO INTE I NÅGOT FALL ANSVARA ELLER ANSVARA FÖR NÅGOT ÄMNE I DETTA AVTAL ENLIGT NÅGOT AVTAL, NEGLIGENT, STRIKT ANSVAR ELLER ANNAT AVTAL FÖR I) FÖRLUST ELLER INACCURATION AV UPPGIFTER ELLER PROCESSKOSTND UTBETALNING AV ERSÄTTANDE VAROR, TJÄNSTER ELLER TEKNIK, ELLER II) ALLA INDIREKTA, OAVSIKTLIGA ELLER FÖLJDSKADOR, INKLUSIVE, MEN INTE BEGRÄNSAT TILL FÖRLUST AV INTÄKTER ELLER VINSTER, III) ALLA FRÅGOR UTÖVER DESS RIFTSLIGA KONTROLL, ELLER MÄNGDEN I AGGREGATET ÖVER 100 DOLLAR.
+
+1. Sekretess. Som används här innebär Konfidentiell information:- (i) alla synpunkter som du lämnar till Marketo i enlighet med avsnitt 2.C, och (ii) all företagsinformation eller teknisk information från Marketo som du får tillgång till i samband med detta Avtal, inklusive, men inte begränsat till, all information som rör Marketo planer, affärsmöjligheter eller forskning och utveckling. Konfidentiell information utesluter all information som- (a) är eller blir allmänt känd för allmänheten, annat än som ett resultat av din överträdelse av detta avtal, (b) är rättmätigt känd för dig vid tidpunkten för offentliggörandet utan restriktioner för användning eller offentliggörande, (c) är självständigt framtagen av dig, utan tillgång till eller användning av någon konfidentiell information, eller (d) är lagenligt inhämtad av dig från en tredje part som har rätt att lämna ut och som är obehöriga använder det utan begränsningar för användning eller offentliggörande. Ni kommer att behålla all konfidentiell information i strikt förtroende och kommer inte att lämna ut konfidentiell information till någon tredje part, annan än en entreprenör som behöver veta för detta avtals syften och som skriftligen samtycker till att behandla konfidentiell information på villkor som inte är mindre skyddande än detta avtal. Ni kommer att hållas ansvariga för varje sådan entreprenörs underlåtenhet att behandla den konfidentiella informationen i enlighet med detta Avtal. Du kommer inte att använda Konfidentiell information, förutom vad som är nödvändigt för att genomföra detta avtal.
+
+1. Term och uppsägning
+
+A. Term. Avtalet börjar gälla det datum då du implementerar Marketo API:er eller API-specifikationen och fortsätter tills det avslutas enligt avsnitt 5.B eller avsnitt 5.C.
+
+B. Uppsägning för bekvämlighet. Marketo kan säga upp detta Avtal av vilken anledning som helst med trettio (30) dagars förhandsmeddelande till dig. Marketo kan efter eget gottfinnande återskapa din möjlighet att använda API:erna eller API-specifikationen. Du kan säga upp avtalet när som helst genom att sluta använda Marketo API:er, API-specifikationen och inaktivera programprogrammets möjlighet att använda Marketo API:er.
+
+C. Uppsägning för brott. Marketo kan säga upp detta avtal omedelbart efter skriftligt meddelande om Ni bryter mot detta Avtal. Marketo kan, efter eget gottfinnande, återställa din förmåga att använda API:erna eller API-specifikationen om du visar att du har åtgärdat en sådan överträdelse.
+
+D. Nödavstängning. Om Marketo får kännedom om en situation där din användning av Marketo API:er kan störa leveransen av Marketo Solution till tredje part (t.ex. Marketo kunder) i allmänhet, eller om Marketo upptäcker obehörig åtkomst till Marketo Solution (som gemensamt kallas&quot;kris&quot;), kan Marketo omedelbart avbryta den felaktiga användningen (och eventuella rättigheter som licensierats enligt detta Avtal och som möjliggör sådan användning). En sådan avstängning ska vara så lång och kortvarig som krävs för att hantera nödsituationen. Marketo får, efter eget gottfinnande, återinföra användningen (och de rättigheter som ges i detta Avtal och som möjliggör sådan användning) där nödsituationen har åtgärdats.
+
+E. Överlevnad vid uppsägning. När detta avtal upphör, upphör dina licenser till Marketo API:er och API-specifikationen under avsnitten 2.A (Marketo API License) och 2.B (Marketo API Specification License) omedelbart. Oaktat det föregående kommer avsnitt 2.C (Feedback License to Marketo), 3 (Warranty, Disclaimer, Indemunity, and Limitation of Liability), 4 (Confidential) och 6 (Diverse) att överleva om detta Avtal sägs upp.
+
+1. Diverse
+
+A. Injunktiv relief. Ni erkänner att ni bryter mot detta Avtal kan orsaka obotliga skador för Marketo som inte kan kompenseras på ett tillfredsställande sätt genom penningskador. Utöver andra lättnader medger ni att tillfälliga och permanenta förestående lättnader kan vara en lämplig åtgärd för att förhindra faktiska eller hotade överträdelser härunder.
+
+B. Inget stöd. Om inget annat skriftligen överenskommits ansvarar Marketo inte för att tillhandahålla support, underhåll eller andra tjänster (eller tjänstenivå) till dig eller en användare av Programvaruprogrammet för Marketo API:er. C. Exportlagar. Ni samtycker till att till fullo följa alla amerikanska exportlagar och exportförordningar för att säkerställa att varken Marketo API:er eller andra tekniska uppgifter som hör till dessa eller någon direkt produkt av dessa exporteras eller återexporteras direkt eller indirekt i strid med, eller används för något ändamål som är förbjudet enligt, sådana lagar och förordningar.
+
+D. Integration; Prioritetsordning. Om inte annat skriftligen överenskommits mellan parterna utgör detta avtal hela avtalet och ersätter eventuella tidigare avtal (inklusive Marketo Application Programming Interface License Agreement) samt eventuella tidigare eller samtida överenskommelser, framställningar och annan kommunikation (oavsett om den är skriftlig eller oral) mellan parterna vad gäller ämnet i detta avtal. Detta avtal får inte ändras eller ändras annat än genom en skrift som undertecknas av båda parter. Villkoren i detta Avtal ska ersätta och ha kontroll över eventuella motstridiga eller kompletterande villkor i form av order, bekräftelser, bekräftelser eller andra dokument som utfärdats av Ni, såvida inte parterna skriftligen kommer överens om att dessa villkor ska ändras, ersättas och kontrolleras i händelse av bristande överensstämmelse med detta avtal.
+
+E. Allvarlighetsgrad. Om någon bestämmelse i detta avtal, eller dess tillämpning, förklaras eller förklaras vara olaglig, ogiltig eller ej verkställbar av en behörig domstol, kommer återstoden av detta avtal att fortsätta att gälla i full kraft och ha verkan, och tillämpningen av en sådan bestämmelse kommer att tolkas så att den rimligen påverkar parternas avsikter.
+
+F. Force Majeure. Om endera parten hindras från att fullgöra, eller inte kan fullgöra, någon av sina skyldigheter enligt detta avtal på grund av någon orsak som inte står under den partens rimliga kontroll och som åberopar denna bestämmelse (inklusive, utan begränsning, orsaker som beror på krig, brand, jordbävning, översvämning, orkan, upplopp, Guds handlingar, fel eller förseningar hos internetleverantören, denial of service-attacker eller andra liknande orsaker), kommer den berörda partens prestanda att bortfalla och tiden Prestanda kommer att förlängas för en period av fördröjning eller oförmåga att utföra på grund av en sådan händelse, under förutsättning att den berörda parten:- i) utan dröjsmål informerar den andra parten om händelsens art och förväntade varaktighet, ii) använder kommersiellt rimliga ansträngningar för att åtgärda och mildra orsaken till och effekten av en sådan händelse, iii) tillhandahåller periodiskt meddelande om relevant utveckling och iv) snabbt meddelar att en sådan händelse är avslutad.
+
+G. Pressmeddelande; referenser. Såvida inte parterna har kommit överens om ett skriftligt undantag, kommer ingendera parten att utfärda ett offentligt uttalande eller pressmeddelande om detta avtal utan den andra partens förhandsmedgivande. Oaktat det föregående, kommer Marketo under avtalsperioden att få göra en offentlig lista över dig som kund och du ger härmed Marketo licens att använda din standardlogotyp för Marketo marknadsförings- och marknadsföringsändamål i samband med detta Avtal och programvarans samverkan med Marketo Solution. När du har Marketo en skriftlig begäran från samarbetar du med Marketo för att ta fram en skriftlig beskrivning av din användning av Marketo Solutions eller Marketo API:er, och Marketo kan ge en sådan beskrivning till andra potentiella kunder. Marketo kommer att följa varumärkesanvändningskraven för din logotyp om du får en sådan från Marketo.
+
+H. Marketo modifieringsrätt. Efter Marketo gottfinnande kan Marketo ändra villkoren i detta Avtal med trettio (30) dagars varsel till dig. Om du fortsätter att använda Marketo API:er efter det datum då sådana ändringar börjar gälla, anses du ha godkänt ändringarna. Om du inte vill acceptera sådana ändringar kan du säga upp detta avtal i enlighet med avsnitt 5.B.
+
+I. Uppdrag. Ni får överlåta detta Avtal i sin helhet, oavsett om det sker genom lag eller på annat sätt, med skriftligt medgivande från Marketo (utan att oskäligt hållas inne). Alla försök att överlåta dina rättigheter eller skyldigheter enligt detta Avtal i strid med detta avsnitt är ogiltiga och har ingen effekt. Marketo får överlåta detta Avtal i sin helhet, oavsett om det sker genom lag eller på annat sätt utan föregående skriftligt medgivande.
+
+J. Underförstådd licens och Estoppel. Inget i detta avtal ska tolkas som att en licens beviljas via doktrinerna Underförstådd licens eller Rättsligt stopp för rättigheter utöver vad som uttryckligen medges enligt detta avtal. Inget i detta Avtal ska heller anses utgöra ett undantag från Marketo immateriella rättigheter i Marketo Solution eller annan teknik från Marketo. Dessa immateriella rättigheter är förbehållna Marketo. Genom att godkänna villkoren i detta Avtal bekräftar ni att ni endast är licensierade till de rättigheter som uttryckligen anges i detta Avtal och att parternas åtgärder och/eller den ersättning som beviljas enligt detta Avtal endast gäller dessa rättigheter och inte andra.
+
+K. Tillämplig lag; meddelanden. Detta Avtal ska regleras av lagstiftningen i delstaten Kalifornien, utan hänsyn till val eller lagkonflikter. Den exklusiva jurisdiktionen och platsen för alla rättsliga frågor som rör detta avtal ska vara antingen överdomstolen för San Mateo County, Kalifornien eller USA:s distriktsdomstol för det nordliga distriktet i Kalifornien. Meddelanden enligt detta avtal måste vara skriftliga och ska anses ha lämnats på (i) personlig leverans, (ii) den tredje arbetsdagen efter utskicket, (ii) den första arbetsdagen efter utskicket via e-post. Meddelanden till Marketo ska skickas till:&quot;Application Programming Interface License Agreement&quot; och Marketo, Inc., 901 Mariner&#39;s Island Boulevard, Suite 500, San Mateo, CA 94404, med en kopia till vår General Counsel på samma adress.
+
+Arkiverade versioner av API-licensavtalet finns här: [https://developers.marketo.com/api-license-archived](https://developers.marketo.com/api-license-archived)
