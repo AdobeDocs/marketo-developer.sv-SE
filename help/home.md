@@ -1,7 +1,7 @@
 ---
 title: "Hem"
 description: "Marketo API-hemsida"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+source-git-commit: 89511b5f9c538866ae42bb1966c6895ed4bbd3d7
 workflow-type: tm+mt
 source-wordcount: '121'
 ht-degree: 0%
@@ -13,45 +13,12 @@ ht-degree: 0%
 
 Detaljerad dokumentation som hjälper dig att hantera Marketo API
 
-<table>
-  <tr>
-    <td width="150"><img alt="Komma igång" src="assets/Smock_Book_18_N.svg" width="120px"/></td>
-    <td><a href="getting-started.md"><strong>Komma igång</strong></a>
-      <div>Bekanta dig med Marketo API:er.</div></td>
-  </tr>
-  <tr>
-    <td><img alt="Klientbibliotek" src="assets/Smock_Code_18_N.svg" width="120px"></td>
-    <td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Klientbibliotek</strong></a>
-      <div>Använd kod med öppen källkod för att utöka möjligheterna i Marketo.</div></td>
-  </tr>
-  <tr>
-    <td width="150px"><img alt="E-postskript" src="assets/Smock_EmailGear_18_N.svg" width="120px"/></td>
-    <td><a href="rest-api/emails.md"><strong>E-postskript</strong></a>
-      <div>Använd Marketo API:er för att skapa och redigera e-post och e-postmallar.</div></td>
-  </tr>
-  <tr>
-    <td width="150px"><img alt="Spårning av leads" src="assets/Smock_PeopleGroup_18_N.svg" width="120px"></td>
-    <td><a href="javascript-api/lead-tracking.md"><strong>Spårning av leads</strong></a><br>
-      <div>Hantera era kundleads.</div></td>
-  </tr>
-  <tr>
-    <td width="150px"><img alt="Mobile Marketo" src="assets/Smock_MobileServices_18_N.svg" width="120px"/></td>
-    <td><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a>
-      <div>Använd Marketo Mobile för att lyssna på och svara kunderna på deras mobila enheter.</div></td>
-  </tr>
-  <tr>
-    <td width="150"><img alt="REST API" src="assets/Smock_AppleFiles_18_N.svg" width="120px"/></td>
-    <td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a>
-      <div>Läs, skriv och uppdatera dina Marketo-data via REST API.</div></td>
-  </tr>
-  <tr>
-    <td width="150px"><img alt="Webhooks" src="assets/Smock_SocialNetwork_18_N.svg" width="120px"/></td>
-    <td><a href="webhooks/webhooks.md"><strong>Webhooks</strong></a>
-      <div>Kommunicera med webbtjänster från tredje part med webbhooks.</div></td>
-  </tr>
-  <tr>
-    <td width="150px"><img alt="Webbanpassning" src="assets/Smock_PersonalizationField_18_N.svg" width="120px"></td>
-    <td><a href="javascript-api/web-personalization.md"><strong>Webbanpassning</strong></a>
-      <div>Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida.</div></td>
-  </tr>
-</table>
+| ![Komma igång](assets/Smock_Book_18_N.svg){width="120" align="center"} | [**Komma igång**](getting-started.md)  Bekanta dig med Marketo API:er. |
+|---|---|
+| ![Klientbibliotek](assets/Smock_Code_18_N.svg){width="120" align="center"} | [**Klientbibliotek**](https://github.com/Marketo/Community-Supported-Client-Libraries) Använd kod med öppen källkod för att utöka möjligheterna i Marketo. |
+| ![E-postskript](assets/Smock_EmailGear_18_N.svg){width="120" align="center"} | [**E-postskript**](rest-api/emails.md) Använd Marketo API:er för att skapa och redigera e-post och e-postmallar. |
+| ![Spårning av leads](assets/Smock_PeopleGroup_18_N.svg){width="120" align="center"} | [**Spårning av leads**](javascript-api/lead-tracking.md) Hantera era kundleads. |
+| ![Mobile Marketo](assets/Smock_MobileServices_18_N.svg){width="120" align="center"} | [**Mobile Marketo**](mobile/mobile.md) Använd Marketo Mobile för att lyssna på och svara kunderna på deras mobila enheter. |
+| ![REST API](assets/Smock_AppleFiles_18_N.svg){width="120" align="center"} | [**REST API**](https://developer.adobe.com/marketo-apis/) Läs, skriv och uppdatera dina Marketo-data via REST API. |
+| ![Webhooks](assets/Smock_SocialNetwork_18_N.svg){width="120" align="center"} | [**Webhooks**](webhooks/webhooks.md) Kommunicera med webbtjänster från tredje part med webbhooks. |
+| ![Webbanpassning](assets/Smock_PersonalizationField_18_N.svg){width="120" align="center"} | [**Webbanpassning**](javascript-api/web-personalization.md) Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida. |
