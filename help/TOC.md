@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 7fffdfd7a74950b00a012400560add330ac5e22b
+source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '254'
 ht-degree: 0%
 
 ---
@@ -47,7 +47,8 @@ ht-degree: 0%
    - [Reagera internt](mobile/react-native.md)
    - [Användarprofiler](mobile/user-profiles.md)
 - REST{#rest}
-   - [REST API](rest-api/rest-api.md)
+   - [REST API - översikt](rest-api/rest-api.md)
+   - [REST API-referens](https://developer.adobe.com/marketo-apis/)
    - Resurser {#assets}
       - [Resurser](rest-api/assets.md)
       - [Dynamiskt innehåll](rest-api/dynamic-content.md)

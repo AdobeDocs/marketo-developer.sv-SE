@@ -1,17 +1,17 @@
 ---
-title: "Komma igång"
-description: "Komma igång med Marketo API:er"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Komma igång
+description: Komma igång med Marketo Engage API:er
+exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
+source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
 workflow-type: tm+mt
-source-wordcount: '1239'
+source-wordcount: '1243'
 ht-degree: 0%
 
 ---
 
-
 # Komma igång
 
-Marketo är en automatiserad marknadsföringsplattform som gör det möjligt för marknadsförare att hantera personaliserade flerkanalsprogram och kampanjer för potentiella kunder och kunder. Marketo-plattformen kan utökas med integreringspunkter. Här nedan hittar du kärnenheterna och deras relationer.
+Marketo Engage är en automatiserad marknadsföringsplattform som gör det möjligt för marknadsförare att hantera personaliserade flerkanalsprogram och kampanjer för potentiella kunder och kunder. Plattformen Marketo Engage kan utökas med integreringspunkter. Här nedan hittar du kärnenheterna och deras relationer.
 
 Följande objekt är inte tillgängliga via REST API när intern synkronisering är aktiverad: Företag, Möjligheter, Affärsmöjlighet, Säljare
 
