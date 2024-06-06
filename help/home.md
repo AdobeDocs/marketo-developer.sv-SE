@@ -2,7 +2,7 @@
 title: Startsida
 description: Marketo Engage API-startsida
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
+source-git-commit: c8de36d73ca2dc4ead29e6e25946bf138723e4b1
 workflow-type: tm+mt
 source-wordcount: '128'
 ht-degree: 0%
@@ -16,8 +16,8 @@ Detaljerad dokumentation som hjälper dig att hantera Marketo Engage API
 <table>
 <tbody>
 <tr>
-<th><img src="assets/Smock_Book_18_N.svg" alt="Komma igång"></th>
-<th><a href="getting-started.md"><strong>Komma igång</strong></a>  Bekanta dig med Marketo Engage API:er.</th>
+<td><img src="assets/Smock_Book_18_N.svg" alt="Komma igång"></td>
+<td><a href="getting-started.md"><strong>Komma igång</strong></a>  Bekanta dig med Marketo Engage API:er.</td>
 </tr>
 <tr>
 <td><img src="assets/Smock_Code_18_N.svg" alt="Klientbibliotek"></td>
