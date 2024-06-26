@@ -1,14 +1,14 @@
 ---
-title: "[!DNLAdobe Launch] Extension Installation"
-feature: "Mobile Marketing"
-description: "[!DNL Adobe Launch] installationsöversikt för tillägg"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: '''[!DNL Adobe Launch] Tilläggsinstallation'
+feature: Mobile Marketing
+description: '[!DNL Adobe Launch] installationsöversikt för tillägg'
+exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
+source-git-commit: 2b6fd22becb0eb692dbcf48686c23f7a878cd812
 workflow-type: tm+mt
-source-wordcount: '703'
+source-wordcount: '701'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL Adobe Launch] Tilläggsinstallation
 
@@ -109,7 +109,7 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
 
 ## Installera Marketo SDK på Android
 
-### Installationsprogram för Android-tillägg
+### Installationsprogram för Android Extension
 
 Följ instruktionerna i [!DNL Adobe Launch] portal
 
@@ -134,7 +134,7 @@ Om du använder ProGuard för din app lägger du till följande rader i din `pro
 -keep class com.marketo.**{ *; }
 ```
 
-## Android-testenheter
+## Android Test Devices
 
 Lägg till MarketoActivity i `AndroidManifest.xml` inuti programtaggen.
 
@@ -151,27 +151,27 @@ Lägg till MarketoActivity i `AndroidManifest.xml` inuti programtaggen.
 
 ## Stöd för Firebase Cloud Messaging
 
-MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya ingenjörsfunktioner för din Apputvecklare i Android.
+MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya tekniska funktioner för din Android-apputvecklare.
 
-Apputvecklare för Android kan nu använda Google direkt [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
+Android apputvecklare kan nu använda Google direkt [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
 
 ### Lägga till FCM i ditt program
 
-1. Integrera den senaste Marketo Android SDK i Android-appen.  Steg finns på [GitHub](https://github.com/Marketo/android-sdk).
+1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg finns på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
    1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
       1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera [!UICONTROL Add Project].
       1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj [!UICONTROL Add Firebase].
-      1. I Firebase-välkomstskärmen väljer du Lägg till Firebase i din Android-app.
+      1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
       1. Ange ditt paketnamn och SHA-1, och välj [!UICONTROL Add App]. En ny `google-services.json` filen för din Firebase-app hämtas.
       1. Välj [!UICONTROL Continue] och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
 
    1. Navigera till Projektinställningar i projektöversikten
       1. Klicka på fliken Allmänt. Ladda ned `google-services.json` -fil.
       1. Klicka på fliken Cloud Messaging. Kopiera servernyckel och avsändar-ID. Ange dessa servernycklar och avsändar-ID till Marketo.
-   1. Konfigurera FCM-ändringar i Android-appen
-      1. Växla till projektvyn i Android Studio för att se projektets rotkatalog
-         1. Flytta den hämtade filen `google-services.json` till rotkatalogen i Android-appmodulen
+   1. Konfigurera FCM-ändringar i Android App
+      1. Växla till projektvyn i Android Studio för att visa projektets rotkatalog
+         1. Flytta den hämtade filen `google-services.json` till rotkatalogen för Android-programmodulen
          1. På projektnivå `build.gradle` lägga till följande:
 
             ```
