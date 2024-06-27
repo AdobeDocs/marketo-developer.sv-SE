@@ -1,14 +1,14 @@
 ---
-title: "PhoneGap"
-feature: "Mobile Marketing"
-description: "Använda PhoneGap med Marketo på mobila enheter"
-source-git-commit: 2e4eb416846de3ad62ff0626f536630278e1c0cd
+title: PhoneGap
+feature: Mobile Marketing
+description: Använda PhoneGap med Marketo på mobila enheter
+exl-id: 99f14c76-9438-4942-9309-643bca434d07
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '797'
 ht-degree: 0%
 
 ---
-
 
 # PhoneGap
 
@@ -67,13 +67,13 @@ Kontrollera listan över plattformar som lagts till `$cordova platform ls`
 
 1. Konfigurera Firebase-appen på Firebase Console.
    1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase Console.
-      1. I [Firebase-konsol](https://console.firebase.google.com/), markera [!UICONTROL Add Project].
-      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj [!UICONTROL Add Firebase].
-      1. I Firebase-välkomstskärmen väljer du Lägg till Firebase i din Android-app.
-      1. Ange ditt paketnamn och SHA-1, och välj [!UICONTROL Add App]. En ny `google-services.json` filen för din Firebase-app hämtas.
-   1. Navigera till Projektinställningar i projektöversikten
-      1. Klicka på fliken Allmänt. Hämta filen google-services.json.
-      1. Klicka på fliken Cloud Messaging. Kopiera servernyckel och avsändar-ID. Ange dessa servernycklar och avsändar-ID till Marketo.
+      1. I [Firebase-konsol](https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
+      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
+      1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
+      1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny `google-services.json` filen för din Firebase-app hämtas.
+   1. Navigera till **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
+      1. Klicka på **[!UICONTROL General]** -fliken. Hämta filen google-services.json.
+      1. Klicka på **[!UICONTROL Cloud Messaging]** -fliken. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Ange dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
    1. Konfigurera FCM-ändringar i PhoneGap-appen
       1. Flytta den hämtade Google-services.json-filen till rotkatalogen i appmodulen Phonegap
       1. Ta bort filen MyFirebaseInstanceIDService från platsen `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Föråldrat)
@@ -148,7 +148,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5. Initiera Marketo Framework
 
-Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` i JavaScript-huvudfilen.
+Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` fungerar i JavaScript huvudfil.
 
 Observera att vi måste godkänna `phonegap` som ramverkstyp för PhoneGap-appar.
 
@@ -180,7 +180,7 @@ marketo.onStart(
 
 ### 6. Initiera push-meddelanden för Marketo
 
-För att vara säker på att Marketo push-meddelanden initieras lägger du till följande kod efter initieringsfunktionen i JavaScript-huvudfilen.
+För att vara säker på att Marketo push-meddelanden initieras lägger du till följande kod efter initieringsfunktionen i JavaScript huvudfil.
 
 ### Syntax
 

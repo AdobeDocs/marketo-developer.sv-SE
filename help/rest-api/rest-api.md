@@ -1,14 +1,14 @@
 ---
-title: "REST API"
+title: REST API
 feature: REST API
-description: "REST API overview"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: REST API - översikt
+exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '643'
+source-wordcount: '626'
 ht-degree: 0%
 
 ---
-
 
 # REST API
 
@@ -30,15 +30,15 @@ När du ringer till Marketo får du en leadpost. Om du vill börja arbeta med Ma
 
 ![Administratörsanvändare och roller](assets/admin-users-and-roles.png)
 
-Klicka på [!UICONTROL Roles] och sedan Ny roll och tilldela minst behörigheten&quot;Skrivskyddad lead&quot; (eller&quot;Skrivskyddad person&quot;) till rollen i Access API-gruppen. Ge den ett beskrivande namn och klicka på [!UICONTROL Create].
+Klicka på **[!UICONTROL Roles]** och sedan Ny roll och tilldela minst behörigheten&quot;Skrivskyddad lead&quot; (eller&quot;Skrivskyddad person&quot;) till rollen i Access API-gruppen. Ge den ett beskrivande namn och klicka på **[!UICONTROL Create]**.
 
 ![Ny roll](assets/new-role.png)
 
-Gå tillbaka till fliken Användare och klicka på Bjud in ny användare. Ge användaren ett beskrivande namn som anger att det är en API-användare och en e-postadress och klicka på **[!UICONTROL Next]**.
+Tillbaka till [!UICONTROL Users] och klicka **[!UICONTROL Invite New User]**. Ge användaren ett beskrivande namn som anger att det är en API-användare och en e-postadress och klicka på **[!UICONTROL Next]**.
 
 ![Ny användarinformation](assets/new-user-info.png)
 
-Markera sedan alternativet Endast API och tilldela användaren den API-roll som du skapade och klicka på **[!UICONTROL Next]**.
+Kontrollera sedan [!UICONTROL API Only] och tilldela användaren den API-roll som du skapade och klicka på **[!UICONTROL Next]**.
 
 ![Nya användarbehörigheter](assets/new-user-permissions.png)
 
@@ -46,23 +46,23 @@ Klicka på **[!UICONTROL Send]**.
 
 ![Nytt användarmeddelande](assets/new-user-message.png)
 
-Gå sedan till Admin-menyn och klicka på **[!UICONTROL LaunchPoint]**.
+Gå till [!UICONTROL Admin] meny och klicka **[!UICONTROL LaunchPoint]**.
 
 ![Startpunkt](assets/admin-launchpoint.png)
 
-Klicka på menyn Nytt och välj [!UICONTROL New Service]. Ge tjänsten ett beskrivande namn och välj Anpassad i listrutan Tjänst. Ge den en beskrivning och välj sedan den nya användaren i listrutan Endast API-användare och klicka på [!UICONTROL Create].
+Klicka på **[!UICONTROL New]** meny och välj **[!UICONTROL New Service]**. Ge tjänsten ett beskrivande namn och välj **[!UICONTROL Custom]** från [!UICONTROL Service] listrutemeny. Ge den en beskrivning och välj sedan din nya användare i [!UICONTROL API Only User] listrutemeny och klicka på **[!UICONTROL Create]**.
 
 ![Ny startpunktstjänst](assets/admin-launchpoint-new-service.png)
 
-Klicka på Visa detaljer för den nya tjänsten för att få åtkomst till klient-ID och klienthemlighet. Nu kan du klicka på [!UICONTROL Get Token] för att generera en åtkomsttoken som är giltig i en timme. Spara variabeln i en anteckning tills vidare.
+Klicka **[!UICONTROL View Details]** för att din nya tjänst ska få tillgång till klient-ID och klienthemlighet. Nu kan du klicka på **[!UICONTROL Get Token]** för att generera en åtkomsttoken som är giltig i en timme. Spara variabeln i en anteckning tills vidare.
 
 ![Hämta token](assets/get-token.png)
 
-Gå sedan till Admin-menyn och till **[!UICONTROL Web Services]**.
+Gå till **[!UICONTROL Admin]** meny, sedan till **[!UICONTROL Web Services]**.
 
 ![Webbtjänster](assets/admin-web-services.png)
 
-Hitta slutpunkten i rutan REST API och spara den i en anteckning för tillfället.
+Hitta [!UICONTROL Endpoint] i rutan REST API och spara i en anteckning för tillfället.
 
 ![REST-slutpunkt](assets/admin-web-services-rest-endpoint-1.png)
 

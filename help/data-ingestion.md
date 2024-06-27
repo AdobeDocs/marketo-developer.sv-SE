@@ -1,9 +1,9 @@
 ---
 title: "Datainmatning"
 description: "API-översikt för datainmatning"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '952'
+source-wordcount: '945'
 ht-degree: 1%
 
 ---
@@ -132,7 +132,7 @@ Slutpunkt som används för att infoga personposter.
 
 | Bana |
 |---|
-| /subscriptions/{munchkinId}/personer |
+| `/subscriptions/{munchkinId}/persons` |
 
 | HeadersKey | Värde |
 |---|---|
@@ -201,7 +201,7 @@ Slutpunkt som används för att infoga anpassade objektposter.
 
 | Bana |
 |---|
-| /subscriptions/{munchkinId}/customobjects/{customObjectAPIName} |
+| `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
 Sidhuvuden
 
@@ -210,7 +210,13 @@ Sidhuvuden
 | Content-Type | application/json |
 | X-MKTO-User-Token | {accessToken} |
 
-Begärandetext | Nyckel | Datatyp | Obligatoriskt | Värde | Standardvärde | |—|—|—|—|—|—| | prioritet | Sträng | Nej | Förfrågans prioritet:normal hög | normal | | dedupeBy | Sträng | Nej | Attribut som ska dedupliceras på:deduplicpeFieldMarketoGUID | dedupeFields | | customObjects | Objektmatris | Ja | Lista över attributnamnvärdespar för objektet. | - |
+Begärandetext
+
+| Nyckel | Datatyp | Obligatoriskt | Värde | Standardvärde |
+|---|---|---|---|---|
+| prioritet | Sträng | Nej | Förfrågans prioritet:normal hög | normal |
+| dedupeBy | Sträng | Nej | Attribut som ska dedupliceras på:deduplicpeFieldMarketoGUID | dedupeFields |
+| customObjects | Objektmatris | Ja | Lista över attributnamnvärdespar för objektet. | - |
 
 | Behörighet |
 |---|

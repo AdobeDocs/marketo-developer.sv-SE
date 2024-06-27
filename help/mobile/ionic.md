@@ -1,30 +1,30 @@
 ---
-title: "Ionic"
-feature: "Mobile Marketing"
-description: "Using Ionic with Marketo for mobile devices"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: '[!DNL Ionic]'
+feature: Mobile Marketing
+description: Använda [!DNL Ionic] med Marketo för mobila enheter
+exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '613'
+source-wordcount: '606'
 ht-degree: 0%
 
 ---
 
-
 # Ionic
 
-I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet. Ionic-kondensator stöds för närvarande inte.
+I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet. [!DNL Ionic] kondensatorn stöds för närvarande inte.
 
 ## Förutsättningar
 
 1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID).
 1. Konfigurera push-meddelanden ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
-1. Installera [Ionic](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
+1. Installera [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanvisningar
 
-### Konfigurera Marketo Ionic Plugin
+### Konfigurera Marketo [!DNL Ionic] Plugin
 
-1. Förutsatt att Cordova CLI är installerat går du till programkatalogen för Ionic och kör följande kommando för att lägga till Marketo Plugin i programmet:
+1. Om Cordova CLI är installerat går du till [!DNL Ionic] och kör följande kommando för att lägga till Marketo-plugin-programmet i ditt program:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Initiera Marketo Framework
 
-Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` i JavaScript-huvudfilen.
+Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` fungerar i JavaScript huvudfil.
 
-Du måste godkänna `ionicCordova` som ramverkstyp för Ionic Cordova-appar.
+Du måste godkänna `ionicCordova` som ramverkstyp för [!DNL Ionic] Cordova-appar.
 
 #### Syntax
 
@@ -104,7 +104,7 @@ marketo.onStart(
 
 ### Initiera push-meddelanden för Marketo
 
-För att vara säker på att Marketo push-meddelanden initieras lägger du till följande kod efter den initierade funktionen i JavaScript-huvudfilen.
+För att vara säker på att Marketo push-meddelanden initieras lägger du till följande kod efter den initierade funktionen i JavaScript huvudfil.
 
 #### Syntax
 

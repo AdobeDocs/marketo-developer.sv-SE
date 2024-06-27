@@ -1,14 +1,14 @@
 ---
-title: "E-postskript"
+title: E-postskript
 feature: Email Programs
-description: "Översikt över e-postskript"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Översikt över e-postskript
+exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '961'
+source-wordcount: '947'
 ht-degree: 0%
 
 ---
-
 
 # E-postskript
 
@@ -98,7 +98,7 @@ Snabbhetsskript inkluderas i e-postmeddelanden med hjälp av e-postskripttoken. 
 
 ![Skripttoken](assets/script-token.png)
 
-Här kan du redigera namnet på variabeln och öppna redigeraren via alternativet Klicka för att redigera:
+Här kan du redigera namnet på variabeln och öppna redigeraren via [!UICONTROL Click to Edit] alternativ:
 
 ![Redigera skript](assets/script-edit.png)
 
@@ -112,11 +112,11 @@ När du har definierat skriptet i en Program My Token kan du referera till det i
 
 ![E-postmeddelande](assets/email-script-marketo-email.png)
 
-Du kan testa skriptet med e-poståtgärden&quot;Skicka exempel på e-post&quot; i Marketo e-postdesigner. För att skriptet ska kunna behandlas på rätt sätt måste du välja ett befintligt lead som personifieras i fältet Lead. Om du testar med `$TriggerObject`kan du välja utlösarobjektet via parametern Trigger. Detta använder data från det senast uppdaterade objektet av den typen som `$TriggerObject` variabel.
+Du kan testa skriptet med [!UICONTROL Send Sample Email] e-poståtgärd i Marketo e-postdesigner. För att skriptet ska kunna behandlas på rätt sätt måste du välja ett befintligt lead som personifieras i [!UICONTROL Lead] fält. Om du testar med `$TriggerObject`kan du välja utlösarobjektet via [!UICONTROL Trigger] param. Detta använder data från det senast uppdaterade objektet av den typen som `$TriggerObject` variabel.
 
 ![Testa e-postskript](assets/velocity-test.png)
 
-Du kan också använda e-postförhandsvisningen för att testa skriptet. Om du vill göra det måste du välja Visa som: Leaddetalj och välja en lead från en tillgänglig statisk lista. Detta medför även en fördel med att skriva ut eventuella undantag som kan ha inträffat under skriptkörningen:
+Du kan också använda [!UICONTROL Email Preview] för att testa skriptet. Om du vill göra det måste du välja **[!UICONTROL View As: Lead Detail]** och välj ett lead i en tillgänglig statisk lista. Detta medför även en fördel med att skriva ut eventuella undantag som kan ha inträffat under skriptkörningen:
 
 ![Visa e-post som](assets/view-as.png)
 

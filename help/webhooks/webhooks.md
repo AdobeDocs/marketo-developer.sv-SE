@@ -1,14 +1,14 @@
 ---
-title: "Webhooks"
+title: Webhooks
 feature: Webhooks
-description: "Översikt över webbhooks"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Översikt över webhooks
+exl-id: fd283c66-05a1-4aa4-8412-0d41b8d1e3c8
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '581'
+source-wordcount: '562'
 ht-degree: 0%
 
 ---
-
 
 # Webhooks
 
@@ -20,12 +20,12 @@ Marketo tillåter att webbhooks används för att kommunicera med tredjepartstj�
 
 Varje enskild webkrok har följande egenskaper:
 
-- URL - Ange den URL som du använder för att skicka din begäran till webbtjänsten.
-- Typ av begäran - HTTP-metoden.
-- Nyttolastmall - Om du vill överföra information i POSTENS brödtext anger du mallen. Använd valfritt dataformat som stöder HTTP-POST, inklusive XML, JSON eller SOAP. Serialiseringsformatet måste tillåta dubbla citattecken runt strängar. Om du vill infoga en token i mallen klickar du på Infoga token.  Token av strängtyp omsluts automatiskt av dubbla citattecken.
-- Begär tokenkodning - Om tokenvärdena innehåller specialtecken (t.ex. ett et-tecken (&amp;)) anger du formatet för din begäran (JSON eller formulär/URL). Korrekt kodning bör väljas för brödtexten för att säkerställa att Webkroken kommunicerar korrekt med webbtjänsten.
-- Svarstyp - Välj formatet för det svar som du får från tjänsten (JSON eller XML). Du måste välja rätt svarstyp för att mappa egenskaper för svaret tillbaka till lead-fält i Marketo
-- Anpassade rubriker - Åtkomst via Webhooks-åtgärder -> Ange anpassat huvud. På den här menyn kan du lägga till valfritt antal anpassade nyckelvärdepar som HTTP-rubriker.
+- [!UICONTROL URL] - Ange den URL som du använder för att skicka din begäran till webbtjänsten.
+- [!UICONTROL Request Type] - HTTP-metoden.
+- [!UICONTROL Payload Template] - Om du vill skicka information i POSTENS brödtext anger du mallen. Använd valfritt dataformat som stöder HTTP-POST, inklusive XML, JSON eller SOAP. Serialiseringsformatet måste tillåta dubbla citattecken runt strängar. Om du vill infoga en variabel i mallen klickar du på **[!UICONTROL Insert Token]**.  Token av strängtyp omsluts automatiskt av dubbla citattecken.
+- [!UICONTROL Request Token Encoding] - Om tokenvärdena innehåller specialtecken (t.ex. ett et-tecken (&amp;)) anger du formatet för din begäran (JSON eller Form/Url). Korrekt kodning bör väljas för brödtexten för att säkerställa att Webkroken kommunicerar korrekt med webbtjänsten.
+- [!UICONTROL Response Type] - Välj formatet för det svar som du får från tjänsten (JSON eller XML). Du måste välja rätt svarstyp för att mappa egenskaper för svaret tillbaka till lead-fält i Marketo
+- [!UICONTROL Custom Headers] - Åtkomst via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header]På den här menyn kan du lägga till valfritt antal anpassade nyckelvärdepar som HTTP-huvuden.
 
 Data kan skrivas tillbaka till leads från webbtjänstsvar med hjälp av [Svarsmappningar](response-mappings.md)
 

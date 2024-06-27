@@ -3,9 +3,9 @@ title: '''[!DNL Adobe Launch] Tilläggsinstallation'
 feature: Mobile Marketing
 description: '[!DNL Adobe Launch] installationsöversikt för tillägg'
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 2b6fd22becb0eb692dbcf48686c23f7a878cd812
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '701'
+source-wordcount: '665'
 ht-degree: 0%
 
 ---
@@ -25,11 +25,11 @@ Installationsanvisningar för [!DNL Adobe Launch] Marketo. Stegen nedan krävs f
 
 ### Ställ in Swift Bridging Header
 
-1. Gå till Arkiv > Nytt > Arkiv och välj &quot;Huvudfil&quot;.
+1. Gå till [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] och välj **[!UICONTROL Header File]**.
 
 1. Namnge filen &quot;&lt;_ProjectName_>-Bridging-Header&quot;.
 
-1. Gå till Project > Target > Build Settings > Swift Compiler > Code Generation. Lägg till följande sökväg i sidhuvudet &quot;Objective-Bridging&quot;:
+1. Gå till [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]. Lägg till följande sökväg i sidhuvudet &quot;Objective-Bridging&quot;:
 
 `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
 
@@ -63,7 +63,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 ## iOS Test Devices
 
-1. Välj [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Info] > URL-typer.
+1. Välj **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
 1. Lägg till identifierare: ${PRODUCT_NAME}
 1. Ange URL-scheman: mkto-&lt;s_ecret key_=&quot;&quot;>
 1. Inkludera `application:openURL:sourceApplication:annotation:` till `AppDelegate.m file` (Mål-C)
@@ -160,15 +160,15 @@ Android apputvecklare kan nu använda Google direkt [Firebase Cloud Messaging](h
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg finns på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
    1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera [!UICONTROL Add Project].
-      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj [!UICONTROL Add Firebase].
-      1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
-      1. Ange ditt paketnamn och SHA-1, och välj [!UICONTROL Add App]. En ny `google-services.json` filen för din Firebase-app hämtas.
-      1. Välj [!UICONTROL Continue] och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
+      1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
+      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
+      1. I Firebase-välkomstskärmen väljer du **[!UICONTROL Add Firebase to your Android App]**.
+      1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny `google-services.json` filen för din Firebase-app hämtas.
+      1. Välj **[!UICONTROL Continue]** och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
 
-   1. Navigera till Projektinställningar i projektöversikten
-      1. Klicka på fliken Allmänt. Ladda ned `google-services.json` -fil.
-      1. Klicka på fliken Cloud Messaging. Kopiera servernyckel och avsändar-ID. Ange dessa servernycklar och avsändar-ID till Marketo.
+   1. Navigera till **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
+      1. Klicka **[!UICONTROL General]** -fliken. Ladda ned `google-services.json` -fil.
+      1. Klicka på **[!UICONTROL Cloud Messaging]** -fliken. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Ange dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
    1. Konfigurera FCM-ändringar i Android App
       1. Växla till projektvyn i Android Studio för att visa projektets rotkatalog
          1. Flytta den hämtade filen `google-services.json` till rotkatalogen för Android-programmodulen
@@ -192,7 +192,7 @@ Android apputvecklare kan nu använda Google direkt [Firebase Cloud Messaging](h
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klicka slutligen på &quot;[!UICONTROL Sync now]&quot; i fältet som visas i ID:t
+         1. Klicka slutligen på **[!UICONTROL Sync now]** i fältet som visas i ID:t
    1. Redigera appens manifest FCM SDK lägger automatiskt till alla nödvändiga behörigheter och den nödvändiga mottagarfunktionen. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest:
 
       ```xml
@@ -224,7 +224,7 @@ Vanliga frågor och svar om stöd för Firebase Cloud Messaging.
 
 **F: Hur påverkar det befintliga MME-kunder som har publicerat Android-appar som är integrerade med Marketo Android SDK?** De kan migrera en befintlig GCM-klientapp på Android till Firebase Cloud Messaging (FCM) enligt följande:
 
-1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera [!UICONTROL Add Project].
+1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
 1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
 1. I Firebase-välkomstskärmen väljer du **[!UICONTROL Add Firebase to your Android App]**.
 1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny Google-services.json-fil för

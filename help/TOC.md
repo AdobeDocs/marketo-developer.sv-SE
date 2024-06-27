@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 15ac16ab4f8153ee069335951a84cf1691469c6d
+source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
-source-wordcount: '255'
+source-wordcount: '231'
 ht-degree: 0%
 
 ---
@@ -31,7 +31,7 @@ ht-degree: 0%
    - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
    - [Utlösare](javascript-api/triggers.md)
-   - [Webbanpassning](javascript-api/web-personalization.md)
+   - [Web Personalization](javascript-api/web-personalization.md)
 - Mobil {#mobile}
    - [Installera [!DNL Adobe Launch] Tillägg](mobile/adobe-launch-extension-installation.md)
    - [[!DNL Adobe Launch] Tillägg](mobile/adobe-launch-extension.md)
@@ -40,17 +40,17 @@ ht-degree: 0%
    - [Djupa länkar](mobile/enabling-deep-links-in-your-app.md)
    - [Meddelanden i appen](mobile/in-app-messages.md)
    - [Installation](mobile/installation.md)
-   - [Ionic](mobile/ionic.md)
+   - [[!DNL Ionic]](mobile/ionic.md)
    - [Mobil](mobile/mobile.md)
    - [Phonegap](mobile/phonegap.md)
    - [Push-meddelanden](mobile/push-notifications.md)
-   - [Reagera internt](mobile/react-native.md)
+   - [React Native](mobile/react-native.md)
    - [Användarprofiler](mobile/user-profiles.md)
 - REST{#rest}
    - [REST API - översikt](rest-api/rest-api.md)
    - [REST API-referens](https://developer.adobe.com/marketo-apis/)
-   - Resurser {#assets}
-      - [Resurser](rest-api/assets.md)
+   - Assets {#assets}
+      - [Assets](rest-api/assets.md)
       - [Dynamiskt innehåll](rest-api/dynamic-content.md)
       - [E-post](rest-api/emails.md)
       - [E-postmallar](rest-api/email-templates.md)
@@ -109,43 +109,43 @@ ht-degree: 0%
 - SOAP {#soap}
    - Verksamhet {#activities}
       - [Verksamhet](soap-api/activities.md)
-      - [getLeadActivity](soap-api/getleadactivity.md)
-      - [getLeadChanges](soap-api/getleadchanges.md)
+      - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
+      - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [Filter för aktivitetstyp](soap-api/activity-type-filters.md)
    - [Autentiseringssignatur](soap-api/authentication-signature.md)
    - Kampanjer {#campaigns}
-      - [getCampaignsForSource](soap-api/getcampaignsforsource.md)
-      - [requestCampaign](soap-api/requestcampaign.md)
-      - [scheduleCampaign](soap-api/schedulecampaign.md)
+      - [[!DNL getCampaignsForSource]](soap-api/getcampaignsforsource.md)
+      - [[!DNL requestCampaign]](soap-api/requestcampaign.md)
+      - [[!DNL scheduleCampaign]](soap-api/schedulecampaign.md)
    - Anpassade objekt {#custom-objects}
       - [Anpassade objekt](soap-api/custom-objects.md)
-      - [deleteCustomObjects](soap-api/deletecustomobjects.md)
-      - [getCustomObjects](soap-api/getcustomobjects.md)
-      - [syncCustomObjects](soap-api/synccustomobjects.md)
+      - [[!DNL deleteCustomObjects]](soap-api/deletecustomobjects.md)
+      - [[!DNL getCustomObjects]](soap-api/getcustomobjects.md)
+      - [[!DNL syncCustomObjects]](soap-api/synccustomobjects.md)
    - [Felkoder](soap-api/error-codes.md)
    - Leads {#leads}
-      - [getLead](soap-api/getlead.md)
-      - [getMultipleLeads](soap-api/getmultipleleads.md)
-      - [mergeLeads](soap-api/mergeleads.md)
+      - [[!DNL getLead]](soap-api/getlead.md)
+      - [[!DNL getMultipleLeads]](soap-api/getmultipleleads.md)
+      - [[!DNL mergeLeads]](soap-api/mergeleads.md)
       - [Leads](soap-api/leads.md)
-      - [syncLead](soap-api/synclead.md)
-      - [syncMultipleLeads](soap-api/syncmultipleleads.md)
+      - [[!DNL syncLead]](soap-api/synclead.md)
+      - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
    - Marketo Objects {#marketo-objects}
-      - [deleteMObjects](soap-api/deletemobjects.md)
-      - [describeMObjects](soap-api/describemobject.md)
-      - [getMObjects](soap-api/getmobjects.md)
-      - [listMObjects](soap-api/listmobjects.md)
+      - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
+      - [[!DNL describeMObjects]](soap-api/describemobject.md)
+      - [[!DNL getMObjects]](soap-api/getmobjects.md)
+      - [[!DNL listMObjects]](soap-api/listmobjects.md)
       - [Marketo Objects](soap-api/marketo-objects.md)
-      - [syncMObjects](soap-api/syncmobjects.md)
+      - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
    - Program {#programs}
-      - [getChannels](soap-api/getchannels.md)
-      - [getTags](soap-api/gettags.md)
+      - [[!DNL getChannels]](soap-api/getchannels.md)
+      - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
    - [Vanliga frågor om SOAP](soap-api/soap-faq.md)
    - Statiska listor {#static-lists}
-      - [getImportToListStatus](soap-api/getimporttoliststatus.md)
-      - [importToList](soap-api/importtolist.md)
-      - [listOperation](soap-api/listoperation.md)
+      - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
+      - [[!DNL importToList]](soap-api/importtolist.md)
+      - [[!DNL listOperation]](soap-api/listoperation.md)
    - [Strömposition](soap-api/stream-position.md)
 - Webhooks {#webhooks}
    - [Fel](webhooks/errors.md)
