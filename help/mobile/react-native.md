@@ -1,16 +1,16 @@
 ---
-title: "React Native"
-feature: "Mobile Marketing"
-description: "Installing React Native for Marketo"
-source-git-commit: 416044a6cce4dac229640058a9cb0013070c9d9c
+title: React Native
+feature: Mobile Marketing
+description: Installera React Native för Marketo
+exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '822'
 ht-degree: 0%
 
 ---
 
-
-# Reagera internt
+# React Native
 
 Den här artikeln innehåller information om hur du installerar och konfigurerar Marketo SDK för att integrera din mobilapp med vår plattform.
 
@@ -20,7 +20,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## SDK-integrering
 
-### Android SDK-integrering
+### Integrering med Android SDK
 
 **Konfigurera med Gradle**
 
@@ -47,7 +47,7 @@ Synka sedan projektet med grå filer.
 
 #### Integrering med iOS SDK
 
-Innan du skapar en bro för ditt projekt React Native är det viktigt att du ställer in SDK i Xcode-projektet.
+Innan du skapar en bro för ditt React Native-projekt är det viktigt att du ställer in SDK i Xcode-projektet.
 
 **SDK-integrering - Använda CocoaPods**
 
@@ -81,11 +81,11 @@ Om du vill hämta och installera programmet startar du en kommandoradsterminal p
 
 ## Installationsanvisningar för inbyggd modul
 
-Ibland behöver ett React Native-program ha åtkomst till ett API för en inbyggd plattform som inte är tillgängligt som standard i JavaScript, till exempel de inbyggda API:erna för åtkomst till Apple eller Google Pay. Du kanske vill återanvända vissa befintliga Objective-C-, Swift-, Java- eller C++-bibliotek utan att behöva implementera om dem i JavaScript, eller skriva högpresterande, flertrådig kod för exempelvis bildbearbetning.
+Ibland behöver en React Native-app ha åtkomst till ett API för en inbyggd plattform som inte är tillgängligt som standard i JavaScript, till exempel de inbyggda API:erna för åtkomst till Apple eller Google Pay. Du kanske vill återanvända vissa befintliga Objective-C-, Swift-, Java- eller C++-bibliotek utan att behöva implementera om dem i JavaScript, eller skriva högpresterande, flertrådig kod för exempelvis bildbearbetning.
 
-NativeModule-systemet exponerar instanser av Java/Objective-C/C++ (native)-klasser för JavaScript (JS) som JS-objekt, vilket gör att du kan köra godtycklig ursprunglig kod inifrån JS. Även om vi inte förväntar oss att den här funktionen ska ingå i den vanliga utvecklingsprocessen är det viktigt att den finns. Om React Native inte exporterar ett inbyggt API som JS-appen behöver bör du kunna exportera det själv!
+NativeModule-systemet exponerar instanser av Java/Objective-C/C++ (native)-klasser för JavaScript (JS) som JS-objekt, vilket gör att du kan köra godtycklig ursprunglig kod inifrån JS. Även om vi inte förväntar oss att den här funktionen ska ingå i den vanliga utvecklingsprocessen är det viktigt att den finns. Om React Native inte exporterar ett systemspecifikt API som JS-appen behöver, bör du kunna exportera det själv!
 
-React Native Bridge används för kommunikation mellan JSX-lagren och inbyggda applager. I vårt fall kan värdappen skriva JSX-koden som kan anropa Marketo SDK:s metoder.
+React Native bridge används för kommunikation mellan JSX-lagren och inbyggda applager. I vårt fall kan värdappen skriva JSX-koden som kan anropa Marketo SDK:s metoder.
 
 ### Android
 
@@ -226,7 +226,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 I följande guide skapar du en systemspecifik modul: _RNMarketoModule_, som ger dig tillgång till Marketo API:er från JavaScript.
 
-Kom igång genom att öppna iOS-projektet i programmet React Native i Xcode. Du hittar ditt iOS-projekt här i en React Native-app. Vi rekommenderar att du använder Xcode för att skriva din egen kod. Xcode är skapat för iOS-utveckling och med det kan du snabbt åtgärda mindre fel som kodsyntax.
+Kom igång genom att öppna iOS-projektet i ditt React Native-program i Xcode. Du hittar ditt iOS-projekt här inifrån en React Native-app. Vi rekommenderar att du använder Xcode för att skriva din egen kod. Xcode är skapat för iOS-utveckling och med det kan du snabbt åtgärda mindre fel som kodsyntax.
 
 Skapa vår huvudrubrik och implementeringsfiler för den egna modulen. Skapa en ny fil med namnet `MktoBridge.h` och lägg till följande i den:
 
