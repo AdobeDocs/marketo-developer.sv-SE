@@ -67,9 +67,9 @@ En organisation, som ibland kallas ett konto i Marketo, avser den organisation s
 
 Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies), [SOAP](soap-api/leads.md)
 
-## Resurser
+## Assets
 
-Resurser avser landningssidor, e-post, formulär och bilder som används inom ett program. Resurserna kan antingen vara lokala till ett visst program eller globala. Globala resurser är tillgängliga i alla program.
+Assets avser landningssidor, e-post, formulär och bilder som används i ett program. Assets kan antingen vara lokalt eller globalt. Globala resurser är tillgängliga i alla program.
 
 Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
