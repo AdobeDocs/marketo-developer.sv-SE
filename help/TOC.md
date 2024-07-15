@@ -1,6 +1,6 @@
 ---
 user-guide-title: "[!DNL Marketo] Utvecklarhandbok"
-user-guide-description: "Den här guiden innehåller anvisningar om hur du använder [!DNL Marketo] API."
+user-guide-description: "Den här handboken innehåller anvisningar om hur du använder [!DNL Marketo] API:er."
 breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
@@ -13,11 +13,11 @@ ht-degree: 0%
 ---
 
 
-# [!DNL Marketo] Utvecklare {#marketo}
+# [!DNL Marketo]-utvecklare {#marketo}
 
 - [Startsida](home.md)
 - [Komma igång](getting-started.md)
-- Javascript API {#javascriptapi}
+- JavaScript API {#javascriptapi}
    - [Konfiguration](javascript-api/configuration.md)
    - [Anpassade datahändelser](javascript-api/custom-data-events.md)
    - [Exempel](javascript-api/examples.md)
@@ -33,8 +33,8 @@ ht-degree: 0%
    - [Utlösare](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobil {#mobile}
-   - [Installera [!DNL Adobe Launch] Tillägg](mobile/adobe-launch-extension-installation.md)
-   - [[!DNL Adobe Launch] Tillägg](mobile/adobe-launch-extension.md)
+   - [Installera [!DNL Adobe Launch] tillägg](mobile/adobe-launch-extension-installation.md)
+   - [[!DNL Adobe Launch]-tillägg](mobile/adobe-launch-extension.md)
    - [Avancerat säkerhetsläge](mobile/advanced-security-access-mode.md)
    - [Anpassade åtgärder](mobile/custom-actions.md)
    - [Djupa länkar](mobile/enabling-deep-links-in-your-app.md)
@@ -72,7 +72,7 @@ ht-degree: 0%
    - [Autentiseringssignatur](rest-api/authentication-signature.md)
    - [Bas-URL](rest-api/base-url.md)
    - [Bästa praxis](rest-api/marketo-integration-best-practices.md)
-   - Massextrahering {#bulk-extract}
+   - Massextrahera {#bulk-extract}
       - [Massaktivitet](rest-api/bulk-activity-extract.md)
       - [Gruppera anpassat objekt](rest-api/bulk-custom-object-extract.md)
       - [Massextrahering](rest-api/bulk-extract.md)
@@ -88,7 +88,7 @@ ht-degree: 0%
    - [Hämta Swagger-definitioner](rest-api/swagger.md)
    - [Referens för slutpunkt](rest-api/endpoint-reference.md)
    - [Felkoder](rest-api/error-codes.md)
-   - Lead-databas {#lead-database}
+   - Leaddatabas {#lead-database}
       - [Företag](rest-api/companies.md)
       - [Fältlista](rest-api/fields.md)
       - [Fälttyper](rest-api/field-types.md)
@@ -108,7 +108,7 @@ ht-degree: 0%
    - [Användarsammanhang](rest-api/user-context.md)
    - [Användarhantering](rest-api/user-management.md)
 - SOAP {#soap}
-   - Verksamhet {#activities}
+   - Aktiviteter {#activities}
       - [Verksamhet](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
@@ -131,7 +131,7 @@ ht-degree: 0%
       - [Leads](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Marketo Objects {#marketo-objects}
+   - Marketo-objekt {#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
@@ -148,7 +148,7 @@ ht-degree: 0%
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
    - [Strömposition](soap-api/stream-position.md)
-- Webhooks {#webhooks}
+- Webbhooks {#webhooks}
    - [Fel](webhooks/errors.md)
    - [Svarsmappningar](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
