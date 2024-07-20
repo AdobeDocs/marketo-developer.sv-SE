@@ -1,14 +1,14 @@
 ---
-title: "Taggar"
+title: Taggar
 feature: REST API, Tags
-description: "Hantera taggar för program i Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Hantera taggar för program i Marketo.
+exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '205'
 ht-degree: 0%
 
 ---
-
 
 # Taggar
 
@@ -77,7 +77,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 
 ## Uppdatera
 
-The [Uppdatera programtagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) kan du uppdatera värdet för en viss taggtyp. Slutpunkten har en `id` och `tagType` sökvägsparametrar som anger program-id:t och den taggtyp som ska uppdateras. A `tagValue` frågeparametern används för att ange det nya värdet för taggtypen. Alla parametrar är obligatoriska.
+Med slutpunkten [Uppdatera programtagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) kan du uppdatera värdet för en viss taggtyp. Slutpunkten har en `id`- och `tagType`-sökvägsparameter som anger program-ID:t och den taggtyp som ska uppdateras. En `tagValue`-frågeparameter används för att ange det nya värdet för taggtypen. Alla parametrar är obligatoriska.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
@@ -97,11 +97,11 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Taggar kan uppdateras en massa med [Uppdatera programmetadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) slutpunkt. Ett exempel på det finns [här](programs.md#update).
+Taggar kan uppdateras en massa med slutpunkten [Uppdatera programmetadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Ett exempel på det finns [här](programs.md#update).
 
 ## Ta bort
 
-The [Ta bort programtagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) kan du ta bort en taggtyp som inte är obligatorisk. Slutpunkten tar `id` och `tagType` sökvägsparametrar som anger program-id:t och taggtypen som ska tas bort.
+Med slutpunkten [Ta bort programtagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/deleteProgramUsingPOST) kan du ta bort en taggtyp som inte behövs. Slutpunkten har `id`- och `tagType`-sökvägsparametrar som anger program-id:t och den taggtyp som ska tas bort.
 
 ```
 POST /rest/asset/v1/program/{id}/tag/{tagType}/delete.json

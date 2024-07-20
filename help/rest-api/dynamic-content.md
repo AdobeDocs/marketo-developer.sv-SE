@@ -1,14 +1,14 @@
 ---
-title: "Dynamiskt innehåll"
+title: Dynamiskt innehåll
 feature: REST API, Dynamic Content
-description: "Konfigurera dynamiskt innehåll med Marketo API:er."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Konfigurera dynamiskt innehåll med Marketo API:er.
+exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '426'
 ht-degree: 0%
 
 ---
-
 
 # Dynamiskt innehåll
 
@@ -24,7 +24,7 @@ Dynamiskt innehåll implementeras på avsnittsnivå genom att ange specifika var
 
 ## Exempel
 
-Som exempel kan vi titta på ett exempel på ett e-postmeddelande där vi har en regionssegmentering (USA) och bara vill visa en eventkampanj för leads som hamnar i sydvästsegmentet, som omfattar leads i Kalifornien, Nevada, Utah, Colorado, Arizona och New Mexico. För att göra detta skapar vi ett redigerbart avsnitt i vårt e-postmeddelande med ID&quot;Q1-Promote-banner&quot; till ett DynamicContent-avsnitt. För att göra detta måste vi använda [Uppdatera avsnitt med e-postinnehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) slutpunkt för vår e-post. The `value` används för att ange ID för segmenteringen.
+Som exempel kan vi titta på ett exempel på ett e-postmeddelande där vi har en regionssegmentering (USA) och bara vill visa en eventkampanj för leads som hamnar i sydvästsegmentet, som omfattar leads i Kalifornien, Nevada, Utah, Colorado, Arizona och New Mexico. För att göra detta skapar vi ett redigerbart avsnitt i vårt e-postmeddelande med ID&quot;Q1-Promote-banner&quot; till ett DynamicContent-avsnitt. För att göra detta måste vi använda slutpunkten [Uppdatera e-postinnehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST) för e-postmeddelandet. Parametern `value` används för att ange ID för segmenteringen.
 
 Obs! Både e-post och landningssidor följer det här mönstret. Kodfragment har ett annat mönster, vilket beskrivs i API-dokumentationen för fragment.
 
@@ -52,7 +52,7 @@ type=DynamicContent&value=1001
 }
 ```
 
-Om du vill lägga till innehåll för enskilda segment måste vi ringa [Uppdatera avsnitt för dynamiskt e-postinnehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) slutpunkt för det specifika avsnittet.
+Om du vill lägga till innehåll för enskilda segment måste vi anropa slutpunkten [Uppdatera avsnitt för dynamiskt e-postinnehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailDynamicContentUsingPOST) för det specifika avsnittet.
 
 Följande exempel ställer in avsnittet så att det visar vår speciella banderollbild för leads i segmentet sydväst i stället för standardbilden. Om vi vill skapa fler variationer för fler segment anropar vi den här slutpunkten igen för varje segment och avsnitt.
 

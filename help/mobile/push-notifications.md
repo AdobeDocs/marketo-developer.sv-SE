@@ -1,14 +1,14 @@
 ---
-title: "Push Notifications"
-feature: "Mobile Marketing"
-description: "Aktivera push-meddelanden för Marketo Mobile"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Push-meddelanden
+feature: Mobile Marketing
+description: Aktivera push-meddelanden för Marketo Mobile
+exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
 
 ---
-
 
 # Push-meddelanden
 
@@ -24,27 +24,27 @@ Det finns tre steg för att aktivera push-meddelanden:
 
 ### Konfigurera push-meddelanden på Apple Developer Account
 
-1. Logga in på Apple Developer [Medlemscenter](http://developer.apple.com/membercenter).
+1. Logga in på Apple Developer [Member Center](http://developer.apple.com/membercenter).
 1. Klicka på Certifikat, Identifierare och profiler.
 1. Klicka på mappen &quot;Certificates->All&quot; under &quot;iOS, tvOS, watchOS&quot;.
-1. Markera plustecknet (+) längst upp till vänster bredvid certifikaten ![](assets/certificates-plus.png)
+1. Markera plustecknet (+) på den övre vänstra skärmen bredvid certifikaten ![](assets/certificates-plus.png)
 1. Aktivera kryssrutan&quot;Apple Push Notification service SSL (Sandbox &amp; Production)&quot; och klicka på&quot;Continue&quot;.
-1. Välj den programidentifierare som du använder för att skapa appen.![](assets/push-appid.png)
+1. Välj det program-ID som du använder för att skapa appen.![](assets/push-appid.png)
 1. Skapa och överför CSR för att generera push-certifikatet. ![](assets/push-ssl.png)
 1. Hämta certifikatet till den lokala datorn och dubbelklicka för att installera. ![](assets/certificate-download.png)
-1. Öppna Nyckelhanteraren, högerklicka på certifikatet och exportera 2 objekt till `.p12` -fil.![key_chain](assets/key-chain.png)
+1. Öppna Nyckelhanterare, högerklicka på certifikatet och exportera 2 objekt till filen `.p12`.![key_chain](assets/key-chain.png)
 1. Ladda upp den här filen via Marketo Admin Console för att konfigurera meddelanden.
 1. Uppdatera provisioneringsprofiler för appar.
 
 ### Aktivera push-meddelanden i xCode
 
-Aktivera funktionen för push-meddelanden i xCode-projekt.![](assets/push-xcode.png)
+Aktivera funktionen för push-meddelanden i xCode-projektet.![](assets/push-xcode.png)
 
 ### Aktivera push-meddelanden i appen med Marketo SDK
 
-Lägg till följande kod i `AppDelegate.m` för att skicka push-meddelanden till kundens enheter.
+Lägg till följande kod i filen `AppDelegate.m` för att leverera push-meddelanden till dina kunders enheter.
 
-**Anteckning** - Om du använder [!DNL Adobe Launch] tillägg, använda `ALMarketo` som klassnamn
+**Obs!** - Använd `ALMarketo` som klassnamn om du använder tillägget [!DNL Adobe Launch]
 
 Importera följande i `AppDelegate.h`.
 
@@ -64,7 +64,7 @@ import UserNotifications
 
 >[!ENDTABS]
 
-Lägg till `UNUserNotificationCenterDelegate` till `AppDelegate` enligt nedan.
+Lägg till `UNUserNotificationCenterDelegate` i `AppDelegate` enligt nedan.
 
 >[!BEGINTABS]
 
@@ -125,9 +125,9 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 
 >[!ENDTABS]
 
-Anropa den här metoden för att initiera registreringsprocessen med Apple Push Service. Om registreringen lyckas anropar appen ditt programdelegatobjekts `application:didRegisterForRemoteNotificationsWithDeviceToken:` och skickar en enhetstoken.
+Anropa den här metoden för att initiera registreringsprocessen med Apple Push Service. Om registreringen lyckas anropar appen `application:didRegisterForRemoteNotificationsWithDeviceToken:`-metoden för ditt programdelegatobjekt och skickar den som en enhetstoken.
 
-Om registreringen misslyckas anropar appens programdelegaters `application:didFailToRegisterForRemoteNotificationsWithError:` i stället.
+Om registreringen misslyckas anropar appen i stället appdelegatens `application:didFailToRegisterForRemoteNotificationsWithError:`-metod.
 
 Registrera push-token hos Marketo. För att få push-meddelanden från Marketo måste du registrera enhetstoken hos Marketo.
 
@@ -259,17 +259,17 @@ Om ditt program körs i bakgrunden (eller inte är aktivt) får enheten ett push
 
 ![mobile8](assets/mobile8.png)
 
-Om enheten får ett push-meddelande skickas det till `application:didReceiveRemoteNotification:` återanrop till din appdelegat.
+Om enheten får ett push-meddelande skickas det till `application:didReceiveRemoteNotification:`-återanropet på din appdelegat.
 
 Här följer en aktivitetslogg från Marketo från Marketo som visar programhändelser och push-meddelandehändelser.
 
 ![mobile9](assets/mobile9.png)
 
-## Konfigurera push-meddelanden på Android
+## Konfigurera push-meddelande för Android
 
 1. Lägg till följande behörighet i programtaggen.
 
-   Öppna `AndroidManifest.xml` och lägga till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
+   Öppna `AndroidManifest.xml` och lägg till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
 
    ```xml
    <uses‐permission android:name="android.permission.INTERNET"/>
@@ -285,14 +285,14 @@ Här följer en aktivitetslogg från Marketo från Marketo som visar programhän
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Konfigurera FCM med HTTPv1 (Google har [borttaget XMPP-protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) den 12 juni 2023 och kommer att tas bort i juni 2024) 
+1. Konfigurera FCM med HTTPv1 (Google har [föråldrat XMPP-protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) den 12 juni 2023 och kommer att tas bort i juni 2024) 
 
-- Aktivera MME FCM HTTPv1 i Marketo funktionshanterare ![](assets/feature-manager.png)
+- Aktivera MME FCM HTTPv1 i Marketo-funktionshanteraren ![](assets/feature-manager.png)
    - Överför JSON-fil för tjänstkonto för appen i MLM.
    - Du kan hämta JSON-filen för tjänstkontot från Firebase Console.   ![](assets/fcm-console.png)
    - Vänta i en timme efter att Json-filen för tjänstkontot har överförts till Marketo innan du skickar push-meddelanden.  
 
-## Android-testenheter
+## Android Test Devices
 
 Lägg till Marketo Activity i manifestfilen inuti programtaggen.
 
@@ -323,7 +323,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    </service>
    ```
 
-1. Lägga till Marketo SDK-metoder i filen `MyFirebaseMessagingService` enligt följande
+1. Lägg till Marketo SDK-metoder i filen `MyFirebaseMessagingService` enligt följande
 
    ```java
    import com.marketo.Marketo;
@@ -348,7 +348,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    }
    ```
 
-   **Anteckning** - Om du använder tillägget Adobe lägger du till enligt nedan
+   **Obs!** - Om du använder tillägget Adobe lägger du till enligt nedan
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    }
    ```
 
-**ANMÄRKNING**: FCM SDK lägger automatiskt till alla nödvändiga behörigheter samt den nödvändiga mottagarfunktionen. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest om du använde tidigare versioner av SDK
+**OBS!** FCM SDK lägger automatiskt till alla nödvändiga behörigheter samt de nödvändiga mottagarfunktionerna. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest om du använde tidigare versioner av SDK
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -399,14 +399,14 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    marketoSdk.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Om du använder [!DNL Adobe Launch] Använd dessa instruktioner för tillägget
+   Om du använder [!DNL Adobe Launch]-tillägget ska du följa dessa instruktioner
 
    ```java
    // Enable push notification here. The push notification channel name can by any string
    ALMarketo.initializeMarketoPush(SENDER_ID,"ChannelName");
    ```
 
-   Om du inte har något SENDER_ID aktiverar du Google Cloud Messaging Service genom att slutföra stegen som beskrivs i [denna självstudiekurs](https://developers.google.com/cloud-messaging/).
+   Om du inte har något SENDER_ID aktiverar du Google Cloud Messaging Service genom att slutföra stegen som beskrivs i [den här självstudiekursen](https://developers.google.com/cloud-messaging/).
 
    Token kan också avregistreras när användaren loggar ut.
 
@@ -414,7 +414,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    marketoSdk.uninitializeMarketoPush();
    ```
 
-   Om du använder [!DNL Adobe Launch] tillägg, använd instruktionen nedan
+   Använd instruktionerna nedan om du använder tillägget [!DNL Adobe Launch]
 
    ```java
    ALMarketo.uninitializeMarketoPush();
@@ -464,7 +464,7 @@ Kontrollera konfigurationen för att kontrollera att du har rätt certifikat inl
 
 ### .p12-filen saknar certifikat eller nyckel (iOS)
 
-Kontrollera att du exporterar nyckeln när du exporterar certifikatet _och_ certifikatet.
+När du exporterar certifikatet kontrollerar du att du har exporterat nyckeln _och_ till certifikatet.
 
 ### Etablerar inaktuella profiler (iOS)
 

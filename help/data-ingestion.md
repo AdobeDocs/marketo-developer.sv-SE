@@ -13,11 +13,11 @@ ht-degree: 1%
 
 API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning. 
 
-Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo observability Data Stream](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
+Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
 
 Gränssnitt erbjuds för två objekttyper: Personer, Egna objekt. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
-API:t för datainmatning finns i en privat beta. Inbjudna måste ha ett berättigande för [Marketo Engage Performance Tier-paket](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+API:t för datainmatning finns i en privat beta. Inbjudna måste ha ett berättigande för [Marketo Engage Performance Tier Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Autentisering
 
@@ -61,7 +61,7 @@ Datarepresentationen är inkluderad i begärandetexten som application/json.
 
 Domännamnet är: `mkto-ingestion-api.adobe.io`
 
-Sökvägen börjar med `/subscriptions/_MunchkinId_` där `_MunchkinId_` är specifikt för din Marketo-instans. Du hittar ditt Munchkin-ID i användargränssnittet för Marketo Engage under **Administratör** >**Mitt konto** > **Supportinformation**. Resten av sökvägen används för att ange den givna resursen.
+Sökvägen börjar med `/subscriptions/_MunchkinId_` där `_MunchkinId_` är specifik för din Marketo-instans. Du hittar ditt Munchkin-ID i användargränssnittet för Marketo Engage under **Admin** >**Mitt konto** > **Supportinformation**. Resten av sökvägen används för att ange den givna resursen.
 
 Exempel-URL för personer:
 
@@ -73,7 +73,7 @@ Exempel-URL för anpassade objekt:
 
 ## Svar
 
-Alla svar returnerar ett unikt begärande-ID via `X-Request-Id` header.
+Alla svar returnerar ett unikt begärande-ID via huvudet `X-Request-Id`.
 
 Exempel på begärande-ID via rubrik:
 
@@ -89,7 +89,7 @@ Exempel på lyckat svar:
 
 ### Fel
 
-När ett anrop genererar ett fel returneras en status som inte är 202 tillsammans med ett svarstext med ytterligare felinformation. Svarstexten är application/json och innehåller ett enda objekt med medlemmar `error_code` och `message`.
+När ett anrop genererar ett fel returneras en status som inte är 202 tillsammans med ett svarstext med ytterligare felinformation. Svarstexten är application/json och innehåller ett enda objekt med medlemmarna `error_code` och `message`.
 
 Nedan visas återanvända felkoder från Adobe Developer Gateway.
 
@@ -145,7 +145,7 @@ Begärandetext
 |---|---|---|---|---|
 | prioritet | Sträng | Nej | Förfrågans prioritet:normal hög | normal |
 | partitionName | Sträng | Nej | Namn på personpartition | Standard |
-| dedupeFields | Objekt | Nej | Attribut som inte ska dupliceras. Ett eller två attributnamn tillåts. Två attribut används i en AND-åtgärd. Om till exempel båda `email` och `firstName` anges används båda för att leta upp en person med operationen AND. Attributen stöds:`idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attribut (&quot;string&quot; och&quot;integer&quot;) | e-post |
+| dedupeFields | Objekt | Nej | Attribut som inte ska dupliceras. Ett eller två attributnamn tillåts. Två attribut används i en AND-åtgärd. Om till exempel både `email` och `firstName` anges, används båda för att leta upp en person med operationen AND. Attribut som stöds är: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attribut (&quot;string&quot; och&quot;integer&quot;) | e-post |
 | personer | Objektmatris | Ja | Lista över attributnamnvärdespar för personen | - |
 
 | Behörighet |
@@ -224,7 +224,7 @@ Begärandetext
 
 #### Personen finns inte
 
-Om ett länkfält till en person anges i begäran och den personen inte finns, görs flera försök. Om den personen läggs till under återförsöksfönstret (65 minuter) slutförs uppdateringen. Om länkfältet till exempel är `email` på Person, och personen finns inte, görs nya försök.
+Om ett länkfält till en person anges i begäran och den personen inte finns, görs flera försök. Om den personen läggs till under återförsöksfönstret (65 minuter) slutförs uppdateringen. Om länkfältet till exempel är `email` för person och personen inte finns, görs nya försök.
 
 #### Exempel på anpassade objekt
 
@@ -279,10 +279,10 @@ Här följer en lista över användning av skyddsräcken:
 Här är en lista över skillnader mellan API:t för datainmatning och andra Marketo REST-API:er:
 
 - Det här är inte ett fullständigt CRUD-gränssnitt, det stöder endast upsert
-- Du måste skicka åtkomsttoken med `X-Mkto-User-Token` header
+- Om du vill autentisera måste du skicka åtkomsttoken med hjälp av huvudet `X-Mkto-User-Token`
 - URL-domännamnet är `mkto-ingestion-api.adobe.io`
 - URL-sökvägen börjar med `/subscriptions/_MunchkinId_`
 - Det finns inga frågeparametrar
 - Om anropet lyckas returneras status 202 och svarstexten är tom
 - Om anropet misslyckas returneras en status som inte är 202 och svarstexten innehåller `{ "error_code" : "_Error Code_", "message" : "_Message_" }`
-- Begärande-ID returneras via `X-Request-Id` header
+- Begärande-ID returneras via rubriken `X-Request-Id`

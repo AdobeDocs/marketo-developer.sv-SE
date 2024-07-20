@@ -1,18 +1,18 @@
 ---
-title: "syncMObjects"
+title: syncMObjects
 feature: SOAP
-description: "syncMObjects SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMObjects SOAP call
+exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '421'
 ht-degree: 0%
 
 ---
 
-
 # syncMObjects
 
-Accepterar en array med [MObjects](marketo-objects.md) som ska skapas eller uppdateras, upp till 100 per anrop och returnerar åtgärdens resultat (status) (CREATED, UPDATED, FAILED, UNCHANGED, SKIPPED) och MObjects Marketo ID:n. API:t kan anropas i ett av tre åtgärdslägen:
+Accepterar en matris med [MObjects](marketo-objects.md) som ska skapas eller uppdateras, upp till 100 per anrop, och returnerar åtgärdens resultat (status) (CREATED, UPDATED, FAILED, UNCHANGED, HOPPED) och MObjects-objektens Marketo-ID. API:t kan anropas i ett av tre åtgärdslägen:
 
 1. INSERT - Infoga bara nya objekt, hoppa över befintliga objekt
 1. UPPDATERA - Uppdatera endast befintliga objekt, hoppa över nya objekt.
@@ -25,10 +25,10 @@ För UPDATE- och UPSERT-åtgärderna används ID som nyckel. I ett enda API-anro
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| mObjectList->mObject->type | Obligatoriskt | Kan vara något av:`Program`, `Opportunity`, `OpportunityPersonRole` |
+| mObjectList->mObject->type | Obligatoriskt | Kan vara en av:`Program`, `Opportunity`, `OpportunityPersonRole` |
 | mObjectList->mObject->id | Obligatoriskt | ID för MObject. Du kan ange upp till 100 MObjects per anrop. |
 | mObjectList->mObject->typeAttribList->typeAttrib->attrType | Obligatoriskt | Kostnad (används endast vid uppdatering av programmets MObject) Kan vara något av: `Cost`, `Tag` |
-| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attribute->name | Obligatoriskt | För Program MObject kan följande attribut skickas som namn/värde-par. Kostnad:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. För tagg/kanal: `Type (Required)`, `Value (Required)`. För MObject för affärsmöjlighet, alla fält från utdata för [describeMObject](describemobject.md) kan skickas som namn/värde-par. Nedan visas alla valfria fält och standarduppsättningen med attribut. Du kan ha ytterligare fält på det säljprojektsobjekt som skapades via en supportförfrågan. |
+| mObjectList->mObject->typeAttribList->typeAttrib->attrList->attribute->name | Obligatoriskt | För Program MObject kan följande attribut skickas som namn/värde-par. För kostnad:`Month (Required)`, `Amount (Required)`, `Id (Cost Id - Optional)`, `Note (Optional)`. För tagg/kanal: `Type (Required)`, `Value (Required)`. För MObject för affärsmöjlighet kan alla fält från utdata för [describeMObject](describemobject.md) skickas som namnvärdespar. Nedan visas alla valfria fält och standarduppsättningen med attribut. Du kan ha ytterligare fält på det säljprojektsobjekt som skapades via en supportförfrågan. |
 
 1. Belopp
 1. CloseDate
@@ -50,7 +50,7 @@ För UPDATE- och UPSERT-åtgärderna används ID som nyckel. I ett enda API-anro
 1. Scen
 1. Typ
 
-För OpportunityPersonRole MObject kan du ange alla fält från utdata från [describeMObject](./describemobject.md) som namnvärdespar. Standarduppsättningen med attribut för OpportunityPersonRole MObject visas här:
+För OpportunityPersonRole MObject kan du ange alla fält från utdata för [describeMObject](./describemobject.md) som namnvärdespar. Standarduppsättningen med attribut för OpportunityPersonRole MObject visas här:
 
 1. OpportunityId (obligatoriskt)
 1. PersonId (obligatoriskt)
@@ -60,7 +60,10 @@ För OpportunityPersonRole MObject kan du ange alla fält från utdata från [de
 1. IsPrimary (valfritt)
 1. Roll (valfritt)
 
-| | mObjAssociationList->mObjAssociation->mObjType | Valfritt | Används för att uppdatera MObjects för säljprojekt/säljprojektPersonRole med ID eller extern nyckel för ett associerat objekt. Associerade objekt kan vara ett av: Företag (för att uppdatera MObject för affärsmöjlighet), Lead (för att uppdatera MObject för säljprojektPersonRole), Möjlighet (för att uppdatera MObject för säljprojektPersonRole)| | mObjAssociationList->mObjAssociation->id | Valfritt | ID för det associerade objektet (Lead/Company/Opportunity) | | mObjAssociationList->mObjAssociation->externalKey | Valfritt | Ett anpassat attribut för det associerade objektet |
+|
+| mObjAssociationList->mObjAssociation->mObjType | Valfritt | Används för att uppdatera MObjects för säljprojekt/säljprojektPersonRole med ID eller extern nyckel för ett associerat objekt. Associerade objekt kan vara ett av: Företag (för att uppdatera MObject för affärsmöjlighet), Lead (för att uppdatera MObject för säljprojektPersonRole), Möjlighet (för att uppdatera MObject för säljprojektPersonRole)|
+| mObjAssociationList->mObjAssociation->id | Valfritt | ID för det associerade objektet (Lead/Company/Opportunity) |
+| mObjAssociationList->mObjAssociation->externalKey | Valfritt | Ett anpassat attribut för det associerade objektet |
 
 ## Begär XML
 

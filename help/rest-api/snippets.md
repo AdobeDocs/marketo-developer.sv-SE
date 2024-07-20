@@ -1,24 +1,24 @@
 ---
-title: "Kodfragment"
+title: Fragment
 feature: REST API, Snippets
-description: "Hantera kodfragment via Marketo API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Hantera kodfragment via Marketo API.
+exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '438'
 ht-degree: 0%
 
 ---
 
-
 # Fragment
 
-[Utdragsslutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[Referens för utdragsslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
 Kodavsnitt är återanvändbara HTML-komponenter som kan bäddas in i e-postmeddelanden och landningssidor och som kan segmenteras för dynamiskt innehåll. Fragment har inga associerade mallar och kan skapas och distribueras i andra resurser i Marketo.
 
 ## Fråga
 
-När du frågar efter fragment används standardmönstret för resurser, förutom att det inte har någon By Name-metod. Båda [Efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) och [Bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) metoder gör att du kan använda statusfältet för att hämta antingen godkända versioner eller utkastversioner av fragmentet.
+När du frågar efter fragment används standardmönstret för resurser, förutom att det inte har någon By Name-metod. Med metoderna [Efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) och [Bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) kan du använda statusfältet för att hämta antingen godkända versioner eller utkastversioner av fragmentet.
 
 ### Efter ID
 
@@ -139,11 +139,11 @@ GET /rest/asset/v1/snippet/{id}/content.json
 }
 ```
 
-Anropet returnerar en lista med innehållsavsnitt, som består av avsnitt av typen HTML eller DynamicContent, och eventuellt ett avsnitt med typen Text.
+Anropet returnerar en lista med innehållsavsnitt,  som består av avsnitt av typen HTML eller DynamicContent, och eventuellt ett avsnitt med typen Text.
 
 ## Skapa och uppdatera
 
-Kodfragment följer det komplexa mönstret för att skapa resurser, där anrop till [skapa fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST)och dess innehåll görs separat, så det första anropet måste vara till slutpunkten create, med en valfri beskrivning.   Data skickas som x-www-form-urlencoded, inte som JSON.
+Fragment följer det komplexa mönstret för att skapa resurser, där anropet till [skapa fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) och dess innehåll görs separat, så det första anropet måste vara till slutpunkten för att skapa, med en valfri beskrivning.   Data skickas som x-www-form-urlencoded, inte som JSON.
 
 ```
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[Uppdaterar metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) görs också av id. Endast namn och beskrivning kan uppdateras:
+[Uppdatering av metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) utförs även av ID. Endast namn och beskrivning kan uppdateras:
 
 ```
 POST /rest/asset/v1/snippet/{id}.json
@@ -344,7 +344,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 ### Ogodkänd
 
-The `unapprove` slutpunkten kan bara användas på godkända fragment.
+Slutpunkten `unapprove` kan bara användas på godkända fragment.
 
 ```
 POST /rest/asset/v1/snippet/{id}/unapprove.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Klona
 
-[Klona ett fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) med API:t är enkelt och följer standardmönstret, med ett obligatoriskt namn, ID:t för det ursprungliga fragmentet och den ursprungliga mappen, samt en valfri beskrivning.  Om det inte finns någon godkänd version klonas utkastversionen.
+[Klona ett fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) med API:t är enkelt och följer standardmönstret med ett obligatoriskt namn, ID:t för det ursprungliga fragmentet och mappen, samt en valfri beskrivning.  Om det inte finns någon godkänd version klonas utkastversionen.
 
 ```
 POST /rest/asset/v1/snippet/{id}/clone.json

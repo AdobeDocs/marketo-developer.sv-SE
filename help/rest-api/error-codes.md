@@ -1,14 +1,14 @@
 ---
-title: "Felkoder"
+title: Felkoder
 feature: REST API
-description: "Marketo felkodbeskrivningar."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Marketo felkodbeskrivningar.
+exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '2272'
 ht-degree: 2%
 
 ---
-
 
 # Felkoder
 
@@ -22,7 +22,7 @@ När du utvecklar för Marketo är det viktigt att begäranden och svar loggas n
 
 Marketo REST API kan returnera tre olika typer av fel vid normal användning:
 
-* HTTP-nivå: Dessa fel indikeras av en `4xx` kod.
+* HTTP-nivå: Dessa fel indikeras av en `4xx`-kod.
 * Svarsnivå: Dessa fel ingår i arrayen &quot;errors&quot; i JSON-svaret.
 * Postnivå: Dessa fel ingår i arrayen &quot;result&quot; i JSON-svaret och anges på individuell postbasis med arrayen &quot;status&quot; och &quot;reasons&quot;.
 
@@ -30,12 +30,12 @@ För feltyperna Svarsnivå och Postnivå returneras HTTP-statuskoden 200. För a
 
 ### HTTP-nivåfel
 
-Under normala driftförhållanden bör Marketo endast returnera två HTTP-statuskodfel. `413 Request Entity Too Large`och `414 Request URI Too Long`. Båda kan återställas genom att felet identifieras, begäran ändras och nya försök görs, men med smart kodning bör du aldrig stöta på detta i verkligheten.
+Under normala driftförhållanden bör Marketo endast returnera två HTTP-statuskodfel, `413 Request Entity Too Large` och `414 Request URI Too Long`. Båda kan återställas genom att felet identifieras, begäran ändras och nya försök görs, men med smart kodning bör du aldrig stöta på detta i verkligheten.
 
 Marketo returnerar 413 om nyttolasten för begäran överstiger 1 MB, eller 10 MB vid import av lead. I de flesta fall är det osannolikt att de här gränserna kommer att nås, men om man lägger till en kontroll av begärans storlek och flyttar poster, vilket gör att gränsen överskrids för en ny begäran, bör det inte finnas några omständigheter som kan leda till att felet returneras av någon slutpunkt.
 
-414 returneras när URI:n för en GET-begäran överstiger 8 kB. För att undvika det bör du kontrollera mot längden på frågesträngen för att se om den överskrider den här gränsen. Om den ändrar din begäran till en POST-metod anger du frågesträngen som begärandebrödtexten med den extra parametern `_method=GET`. Detta innebär att begränsningen för URI:er ignoreras. I de flesta fall är det ovanligt att den här gränsen nås, men det är något vanligt när du hämtar stora grupper med poster med långa enskilda filtervärden som GUID.
-The [Identitet](https://developer.adobe.com/marketo-apis/api/identity/) slutpunkten kan returnera ett otillåtet 401-fel. Detta beror vanligtvis på ett ogiltigt klient-ID eller ogiltig klienthemlighet. Felkoder på HTTP-nivå
+414 returneras när URI:n för en GET-begäran överstiger 8 kB. För att undvika det bör du kontrollera mot längden på frågesträngen för att se om den överskrider den här gränsen. Om den ändrar din begäran till en POST-metod anger du frågesträngen som begärandebrödtext med den extra parametern `_method=GET`. Detta innebär att begränsningen för URI:er ignoreras. I de flesta fall är det ovanligt att den här gränsen nås, men det är något vanligt när du hämtar stora grupper med poster med långa enskilda filtervärden som GUID.
+[Identity](https://developer.adobe.com/marketo-apis/api/identity/)-slutpunkten kan returnera ett 401 otillåtet fel. Detta beror vanligtvis på ett ogiltigt klient-ID eller ogiltig klienthemlighet. Felkoder på HTTP-nivå
 
 <table>
   <thead>
@@ -62,7 +62,7 @@ The [Identitet](https://developer.adobe.com/marketo-apis/api/identity/) slutpunk
 
 #### Fel på svarsnivå
 
-Svarsnivåfel uppstår när `success` svarsparametern är inställd på false och är strukturerad på följande sätt:
+Svarsnivåfel förekommer när parametern `success` i svaret är inställd på false och är strukturerade på följande sätt:
 
 ```json
 {
@@ -77,7 +77,7 @@ Svarsnivåfel uppstår när `success` svarsparametern är inställd på false oc
 }
 ```
 
-Varje objekt i arrayen &quot;errors&quot; har två medlemmar, `code`, som är ett heltal med citattecken mellan 601 och 799 och ett `message` ange varför felet beror på texten. 6xx-koder anger alltid att en begäran misslyckades helt och inte kördes. Ett exempel är 601, &quot;Åtkomsttoken invalid&quot;, som kan återställas genom återautentisering och genom att skicka den nya åtkomsttoken med begäran. 7xx-fel indikerar att begäran misslyckades, antingen på grund av att inga data returnerades, eller på grund av att begäran parametriserades felaktigt, till exempel att ett ogiltigt datum inkluderades, eller att en obligatorisk parameter saknades.
+Varje objekt i arrayen &quot;errors&quot; har två medlemmar, `code`, som är ett heltal med citattecken mellan 601 och 799, och en `message` som anger varför felet beror på texten. 6xx-koder anger alltid att en begäran misslyckades helt och inte kördes. Ett exempel är 601, &quot;Åtkomsttoken invalid&quot;, som kan återställas genom återautentisering och genom att skicka den nya åtkomsttoken med begäran. 7xx-fel indikerar att begäran misslyckades, antingen på grund av att inga data returnerades, eller på grund av att begäran parametriserades felaktigt, till exempel att ett ogiltigt datum inkluderades, eller att en obligatorisk parameter saknades.
 
 #### Felkoder på svarsnivå
 
@@ -110,7 +110,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="603"></a>603</td>
       <td>Åtkomst nekad</td>
-      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> kan vara aktiverat.</td>
+      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller så kan <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> aktiveras.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -155,7 +155,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="612"></a>612</td>
       <td>Ogiltig innehållstyp</td>
-      <td>Om det här felet uppstår lägger du till en innehållstypsrubrik som anger JSON-format i din begäran. Prova till exempel med "innehållstyp: program/json". <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">Se den här StackOverflow-frågan</a> för mer information.</td>
+      <td>Om det här felet uppstår lägger du till en innehållstypsrubrik som anger JSON-format i din begäran. Prova till exempel med "innehållstyp: program/json". <a href="https://stackoverflow.com/questions/28181325/why-invalid-content-type">Mer information finns i den här StackOverflow-frågan</a>.</td>
     </tr>
     <tr>
       <td><a name="613"></a>613</td>
@@ -207,7 +207,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
       <td>Anropet kan inte utföras eftersom det bryter mot ett krav på att skapa eller uppdatera en resurs, till exempel att försöka skapa ett e-postmeddelande utan en mall. Det går också att få följande fel när du försöker:
         <ul>
           <li>Hämta innehåll för landningssidor som innehåller socialt innehåll.</li>
-          <li>Klona ett program som innehåller vissa tillgångstyper (se <a href="programs.md#clone">Programkloning</a> för mer information).</li>
+          <li>Klona ett program som innehåller vissa resurstyper (mer information finns i <a href="programs.md#clone">Programklon</a>).</li>
           <li>Godkänn en tillgång som inte har något utkast (det vill säga som redan har godkänts).</li>
         </ul></td>
     </tr>
@@ -352,8 +352,8 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Ogiltigt cookie-värde "%s"</td>
-      <td>Kan inträffa vid anrop av <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associera lead</a> med ett ogiltigt värde för cookie-parametern.
-        Detta inträffar även vid anrop <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Hämta leads efter filtertyp</a> med filterType=cookies och ogiltigt värde för parametern filterValues.</td>
+      <td>Kan inträffa när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> anropas med ett ogiltigt värde för cookie-parametern.
+        Detta inträffar också när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Hämta leads efter filtertyp</a> anropas med filterType=cookies och ogiltigt värde för parametern filterValues.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -469,19 +469,20 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
     </tr>
     <tr>
       <td><a name="1076"></a>1076</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Sammanfoga leads</a> anropet med mergeInCRM-flaggan är 4.</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Anropet </a> Merge Leads med mergeInCRM-flaggan är 4.</td>
       <td>Du skapar en dubblettpost. Du bör använda en befintlig post i stället.
         Detta är felmeddelandet som Marketo får när de sammanfogar i Salesforce.</td>
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Sammanfoga leads</a> anropet misslyckades på grund av längden "SFDC-fält"</td>
+      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Anropet mellan kopplade leads</a> misslyckades på grund av SFDC-fältets längd</td>
       <td>Ett anrop av typen Merge Leads med mergeInCRM inställt på true misslyckades på grund av att SFDC-fältet överskrider gränsen för tillåtna tecken. Korrigera genom att minska längden på SFDC-fält eller ange mergeInCRM till false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Sammanfoga leads</a> anropet misslyckades på grund av borttagen entitet, inte en lead/kontakt eller att fältfiltervillkoren inte matchar.</td>
-      <td>Sammanfogningsfel, det går inte att utföra sammanfogningsåtgärd i internt synkroniserad CRM Detta är felmeddelandet som Marketo får när de sammanfogar i Salesforce.</td>
+      <td>Anropet <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Kopplingsleads</a> misslyckades på grund av att entiteten tagits bort, inte en lead/kontakt eller att fältfiltervillkoren inte matchar.</td>
+      <td>Sammanfogningsfel, det gick inte att utföra sammanfogningsåtgärden i det internt synkroniserade CRM
+        Detta är felmeddelandet som Marketo får när de sammanfogar i Salesforce.</td>
     </tr>
   </tbody>
 </table>

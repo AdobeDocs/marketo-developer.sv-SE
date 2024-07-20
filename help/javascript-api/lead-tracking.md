@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # API för lead-spårning
 
-Marketo Munchkin JavaScript gör det möjligt att följa upp besök och klickningar på Marketo landningssidor och externa webbsidor. Dessa spelas in i Marketo som aktiviteter av typen&quot;Besök webbsida&quot; och&quot;Länka på webbsida&quot; som du klickat på&quot;, som sedan kan användas i utlösare och filter för smarta kampanjer och smarta listor.
+Marketo Munchkin JavaScript gör det möjligt att spåra besök och klickningar på Marketo landningssidor och externa webbsidor. Dessa spelas in i Marketo som aktiviteter av typen&quot;Besök webbsida&quot; och&quot;Länka på webbsida&quot; som du klickat på&quot;, som sedan kan användas i utlösare och filter för smarta kampanjer och smarta listor.
 
 ## Bädda in koden
 
-Din Marketo-instans innehåller automatiskt förkonfigurerade spårningskod för att bädda in kod på dina externa sidor som spårar aktiviteten tillbaka till din Marketo-instans. Användning av inbäddningskoden regleras av detta [licensavtal](../munchkin-license.pdf).
+Din Marketo-instans innehåller automatiskt förkonfigurerade spårningskod för att bädda in kod på dina externa sidor som spårar aktiviteten tillbaka till din Marketo-instans. Användning av inbäddningskoden regleras av det här [licensavtalet](../munchkin-license.pdf).
 
 Det finns tre typer av spårningskod:
 
@@ -24,11 +24,11 @@ Det finns tre typer av spårningskod:
 1. Asynkron - läser in asynkront
 1. Asynkron jQuery - laddar asynkront och kräver att jQuery läses in i förväg
 
-Vi rekommenderar starkt att den asynkrona spårningskoden används för att bädda in Munchkin på externa sidor. För att säkerställa högsta möjliga lyckade hastighet för körning bäddar du in den asynkrona spårningskoden i `<head>` av varje sida.
+Vi rekommenderar starkt att den asynkrona spårningskoden används för att bädda in Munchkin på externa sidor. För att säkerställa högsta möjliga lyckade hastighet för körning bäddar du in den asynkrona spårningskoden i `<head>` på varje sida.
 
 Vissa innehållshanteringssystem kan ha specifika metoder eller begränsningar när du bäddar in godtyckliga skript.
 
-Som referens bör den sista sidan innehålla kod som liknar den här i `<head>` av ditt HTML-dokument:
+Som referens bör den sista sidan innehålla kod som liknar den här i `<head>` i ditt HTML-dokument:
 
 ```html
 <head>
@@ -66,15 +66,15 @@ Marketo Munchkins standardbeteende är att göra följande vid sidinläsning:
 1. Skicka en&quot;Besök webbsida&quot;-händelse till den angivna Marketo-instansen med hjälp av informationen från den aktuella sidan och webbläsaren. Detta registrerar en aktivitet till motsvarande post i Marketo.
 1. Skicka händelsen&quot;Klicka på Länk på webbsida&quot; för alla användarklick som inträffar på länkar.
 
-Munchkins beteende kan ändras genom användningen av Munchkin [Konfigurationsinställningar](lead-tracking.md#lead-tracking-api), till exempel om en cookie skapas för alla leads när du besöker sidan med `cookieAnon` ställa in eller ändra klickfördröjningen med `clickTime` inställning. Det går inte att skicka besöksaktiviteten genom att ange inställningen apiOnly till true. Från och med version 162 (augusti 2022) klickar du på `tel` och `mailto` länkar spåras utöver `http/s` länkar.
+Munchkins beteende kan ändras med [konfigurationsinställningarna ](lead-tracking.md#lead-tracking-api) för Munchkin, till exempel om en cookie skapas för alla leads när du besöker sidan med inställningen `cookieAnon` eller om klickfördröjningen ändras med inställningen `clickTime` . Det går inte att skicka besöksaktiviteten genom att ange inställningen apiOnly till true. Från och med version 162 (augusti 2022) spåras både länkar för `tel` och `mailto` förutom länkar för `http/s`.
 
 ## Kända och anonyma leads
 
-På en leads första besök på en sida på din domän skapas en ny anonym lead-post i Marketo. Primärnyckeln för den här posten är Munchkins cookie (`_mkto_trk`) som skapas i användarens webbläsare. Alla efterföljande webbaktiviteter i den webbläsaren registreras mot den här anonyma posten. För att kunna kopplas till en känd post i Marketo måste något av följande inträffa:
+På en leads första besök på en sida på din domän skapas en ny anonym lead-post i Marketo. Primärnyckeln för den här posten är Munchkin-cookien (`_mkto_trk`) som skapas i användarens webbläsare. Alla efterföljande webbaktiviteter i den webbläsaren registreras mot den här anonyma posten. För att kunna kopplas till en känd post i Marketo måste något av följande inträffa:
 
-- Ledaren måste besöka en Munchkin-spårad sida med en `mkt_tok` i frågesträngen från en spårad e-postlänk från Marketo.
+- Ledningen måste besöka en Munchkin-spårad sida med en `mkt_tok`-parameter i frågesträngen från en spårad e-postlänk från Marketo.
 - Lead-blanketten måste fylla i ett Marketo-formulär.
-- En SOAP [syncLead](../soap-api/leads.md) eller REST [Associera lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) samtal måste skickas.
+- SOAP [syncLead](../soap-api/leads.md) eller REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) måste skickas.
 
 När ett av dessa villkor är uppfyllt kopplas cookien och all tillhörande webbaktivitet till det kända leadet.
 
@@ -82,22 +82,22 @@ En ny anonym webbaktivitetspost skapas för varje enskild webbläsare, så om en
 
 ## Domäner
 
-Munchkin skapar och spårar enskilda cookies per domän, så för att kända leads ska kunna spåras över domäner måste en lead-associationshändelse inträffa för varje domän. Om jag till exempel kontrollerar två domäner, `marketo.com`och `example.com`och ett lead fyller i ett formulär på `marketo.com`navigerar sedan till `example.com` senare, sedan deras aktivitet på `marketo.com` spåras på en känd lead-post, men deras aktivitet på `example.com` är anonym. Kända leads kvarstår dock över underdomäner, så en känd lead på `www.example.com` är också ett känt lead på `info.example.com`.
+Munchkin skapar och spårar enskilda cookies per domän, så för att kända leads ska kunna spåras över domäner måste en lead-associationshändelse inträffa för varje domän. Om jag till exempel kontrollerar två domäner, `marketo.com`, och `example.com`, och en lead fyller i ett formulär på `marketo.com`, navigerar sedan till `example.com`, spåras deras aktivitet på `marketo.com` på en känd lead-post, men deras aktivitet på `example.com` är anonym. Kända leads finns dock över underdomäner, så ett känt lead på `www.example.com` är också ett känt lead på `info.example.com`.
 
-Om din toppnivådomän är två delar, till exempel `.co.uk`lägger du sedan till en domainLevel-parameter i Munchkin-kodavsnittet så att koden kan spåras korrekt. Se [här](lead-tracking.md#domains) för mer information.
+Om din toppnivådomän är två delar, till exempel `.co.uk`, lägger du sedan till en domainLevel-parameter i Munchkin-fragmentet för att koden ska kunna spåras korrekt. Mer information finns [här](lead-tracking.md#domains).
 
 ## Cookie
 
-Munchkins cookie använder nyckeln `_mkto_trk`och har ett värde som följer detta mönster:
+Munchkin-cookien använder nyckeln `_mkto_trk` och har ett värde som följer det här mönstret:
 
 `id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
 
-Munchkin-cookies är specifika för varje domännivå, det vill säga, `example.com`. Kakans standardlivscykel är 2 år (730 dagar).
+Munchkin-cookies är specifika för varje sekundärdomän, det vill säga `example.com`. Kakans standardlivscykel är 2 år (730 dagar).
 
 ## Beta
 
-Om du vill gå med i Munchkins beta channel för dina landningssidor går du till [Admin -> Skatteklass](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot;. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** så att du kan använda betaversionen på externa webbplatser.
+Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor i Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
 
 ## Avanmäl dig
 
-Besökarna kan avanmäla sig helt från Munchkins spårning genom att lägga till `querystring` parametern&quot;marketo_opt_out=true&quot; till URL:en i webbläsaren. När Munchkin JavaScript identifierar den här inställningen försöker den ange en ny cookie &quot;mkto_opt_out&quot; med värdet `true`. Alla andra Marketo-spårningscookies tas bort, inga nya cookies anges och inga HTTP-begäranden görs av Munchkin när den här inställningen identifieras.
+Besökare kan välja bort helt Munchkin-spårning genom att lägga till parametern `querystring` &quot;marketo_opt_out=true&quot; i URL:en i webbläsaren. När Munchkin JavaScript identifierar den här inställningen försöker den att ange en ny cookie med värdet `true`. Alla andra Marketo-spårningscookies tas bort, inga nya cookies anges och inga HTTP-begäranden görs av Munchkin när den här inställningen identifieras.

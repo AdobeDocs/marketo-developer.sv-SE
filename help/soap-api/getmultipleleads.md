@@ -1,32 +1,32 @@
 ---
-title: "getMultipleLeads"
+title: getMultipleLeads
 feature: SOAP
-description: "getMultipleLeads SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMultipleLeads SOAP anrop
+exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '384'
 ht-degree: 0%
 
 ---
 
-
 # getMultipleLeads
 
-Gilla `getLead`, `getMultipleLeads` hämtar lead-poster från Marketo. I stället för data för en enstaka lead returnerar det här anropet data för en grupp leads som matchar villkoren som skickas till parametern leadSelector. Kriterierna kan vara ett datumintervall, t.ex. det senaste uppdaterade datumet, en matris med lead-nycklar eller en statisk lista.
+Precis som `getLead` hämtar `getMultipleLeads` lead-poster från Marketo. I stället för data för en enstaka lead returnerar det här anropet data för en grupp leads som matchar villkoren som skickas till parametern leadSelector. Kriterierna kan vara ett datumintervall, t.ex. det senaste uppdaterade datumet, en matris med lead-nycklar eller en statisk lista.
 
 Obs! Om du använder en array med huvudnycklar begränsas du till 100 per grupp. Ytterligare nycklar ignoreras.
 
-Om bara en delmängd av leadfälten krävs `includeAttributes` -parametern ska användas för att ange de önskade fälten.
+Om bara en delmängd av lead-fälten krävs, ska parametern `includeAttributes` användas för att ange önskade fält.
 
-Varje `getMultipleLeads` funktionsanropet returnerar upp till 1 000 leads. Om du måste hämta fler än 1000 leads returnerar resultatet ett [dataströmposition](stream-position.md), som kan användas i efterföljande anrop för att hämta nästa batch på 1 000 leads. Det återstående antalet i resultatet anger exakt hur många leads som återstår. Vid hämtning från en statisk lista är det avslutande villkoret remainCount == 0.
+Varje `getMultipleLeads`-funktionsanrop returnerar upp till 1 000 leads. Om du måste hämta fler än 1000 leads returnerar resultatet en [strömposition](stream-position.md), som kan användas i efterföljande anrop för att hämta nästa grupp med 1000 leads. Det återstående antalet i resultatet anger exakt hur många leads som återstår. Vid hämtning från en statisk lista är det avslutande villkoret remainCount == 0.
 
-Ett vanligt användningsexempel för den här slutpunkten är att hitta leads som har uppdaterats på specifika datum. The `LastUpdateAtSelector` gör det här.
+Ett vanligt användningsexempel för den här slutpunkten är att hitta leads som har uppdaterats på specifika datum. Med `LastUpdateAtSelector` kan du göra detta.
 
 ## Begäran
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| leadSelector | Obligatoriskt | Kan vara någon av följande tre typer:`LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
+| leadSelector | Obligatoriskt | Kan vara någon av följande 3 typer: `LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
 | keyType | Obligatoriskt | ID-typen som du vill fråga. Värdena är IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID och SFDCOPPTYID. |
 | keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga&quot;lead@email.com&quot; |
 | LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Obligatoriskt | Tidsstämpeln som anger&quot;sedan&quot;-villkoret. Det vill säga returnera alla leads som har uppdaterats sedan den angivna tiden. (W3C WSDL, datum- och tidsformat) |
@@ -35,8 +35,8 @@ Ett vanligt användningsexempel för den här slutpunkten är att hitta leads so
 | StaticListSelector: leadSelector->staticListId | Valfritt när `leadSelector->staticListName` finns | ID för den statiska listan |
 | lastUpdatedAt | **Föråldrat** | Använd `LastUpdateAtSelector` i stället |
 | includeAttributes | Valfritt | Lista med attribut som du vill hämta. Genom att begränsa antalet lead-fält som returneras kan svarstiden för API:t förbättras. |
-| batchSize | Valfritt | Maximalt antal poster som ska returneras. Systemgränsen är 100 eller `batchSize`, beroende på vad som är mindre |
-| streamPosition | Valfritt | Används för att paginera genom ett stort antal lead-svar. The `streamPosition` värdet returneras av föregående svarsfält för anrop `newStreamPosition` |
+| batchSize | Valfritt | Maximalt antal poster som ska returneras. Systemgränsen är 100 eller `batchSize`, beroende på vilket som är lägst |
+| streamPosition | Valfritt | Används för att paginera genom ett stort antal lead-svar. Värdet `streamPosition` returneras av föregående svarsfält för anrop `newStreamPosition` |
 
 ## Begär XML
 

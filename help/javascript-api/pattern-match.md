@@ -1,20 +1,20 @@
 ---
-title: "Mönstermatchning"
-description: "Mönstermatchning"
+title: Mönstermatchning
+description: Mönstermatchning
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 4ebd13e3-375b-449b-850f-3b18f570ca75
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '134'
 ht-degree: 0%
 
 ---
 
-
 # Mönstermatchning
 
 RTP visar en verktygsfunktion som kontrollerar om mönstret matchar en viss sträng. Verktyget kan inte användas i asynkront eftersom det returnerar en indikation om det finns en matchning eller inte.
 
-Du måste bli webbkund och ha [RTP-taggen har distribuerats](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) på din webbplats innan du använder API:t för användarkontext.
+Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
 
 ## Användning
 

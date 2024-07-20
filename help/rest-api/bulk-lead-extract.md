@@ -1,18 +1,18 @@
 ---
-title: "Massutdrag av lead"
+title: Bulkladsextrahering
 feature: REST API
-description: "Batchextrahering av lead-data."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Batchextrahering av lead-data.
+exl-id: 42796e89-5468-463e-9b67-cce7e798677b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 0%
 
 ---
 
-
 # Bulkladsextrahering
 
-[Referens för massutdrag för slutpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[Referens för extrahering av slutpunkt i grupplead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
 
 Uppsättningen REST API:er för Bulk Lead Extract utgör ett programmatiskt gränssnitt för att hämta stora uppsättningar lead-/personposter från Marketo. Den kan också användas för att hämta leads inkrementellt baserat på postens skapandedatum, senaste uppdatering, statiskt listmedlemskap eller smart listmedlemskap. Det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
@@ -22,12 +22,12 @@ API:erna för extrahering av grupplead kräver att den ägande API-användaren h
 
 ## Filter
 
-Leads har stöd för olika filteralternativ. Vissa filter, inklusive `updatedAt`, `smartListName`och `smartListId` kräva ytterligare infrastrukturkomponenter som ännu inte har lanserats för alla prenumerationer. Endast en filtertyp kan anges per exportjobb.
+Leads har stöd för olika filteralternativ. Vissa filter, bland annat `updatedAt`, `smartListName` och `smartListId`, kräver ytterligare infrastrukturkomponenter som ännu inte har lanserats för alla prenumerationer. Endast en filtertyp kan anges per exportjobb.
 
 | Filtertyp | Datatyp | Anteckningar |
 |---|---|---|
-| createdAt | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar lågvattenstämpeln, och `endAt` använder ett datetime-värde som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Jobb med den här filtertypen returnerar alla tillgängliga poster som skapades inom datumintervallet. |
-| updatedAt* | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar lågvattenstämpeln, och `endAt` använder ett datetime-värde som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Obs! Det här filtret filtrerar inte på det synliga&quot;updatedAt&quot;-fältet som bara återger uppdateringar av standardfält. Den filtrerar baserat på när den senaste fältuppdateringen gjordes för en lead-postJobs med den här filtertypen returnerar alla tillgängliga poster som senast uppdaterades inom datumintervallet. |
+| createdAt | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Jobb med den här filtertypen returnerar alla tillgängliga poster som skapades inom datumintervallet. |
+| updatedAt* | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Obs! Det här filtret filtrerar inte på det synliga&quot;updatedAt&quot;-fältet som bara återger uppdateringar av standardfält. Den filtrerar baserat på när den senaste fältuppdateringen gjordes för en lead-postJobs med den här filtertypen returnerar alla tillgängliga poster som senast uppdaterades inom datumintervallet. |
 | staticListName | Sträng | Accepterar namnet på en statisk lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i den statiska listan när jobbet börjar bearbetas. Hämta statiska listnamn med slutpunkten Hämta listor. |
 | staticListId | Heltal | Accepterar ID:t för en statisk lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i den statiska listan när jobbet börjar bearbetas. Hämta statiska list-ID:n med slutpunkten Hämta listor. |
 | smartListName* | Sträng | Accepterar namnet på en smart lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i de smarta listorna när jobbet börjar bearbetas. Hämta smarta listnamn med slutpunkten Hämta smarta listor. |
@@ -42,14 +42,14 @@ Slutpunkten Skapa exportlead-jobb innehåller flera formateringsalternativ som g
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
 |---|---|---|---|
-| fält | Array[Sträng] | Ja | Parametern fields accepterar en JSON-array med strängar. Varje sträng måste vara REST API-namnet för ett Marketo lead-fält. De listade fälten inkluderas i den exporterade filen. Kolumnrubriken för varje fält blir REST API-namnet för varje fält, såvida det inte åsidosätts av columnHeader. Obs! När [!DNL Adobe Experience Cloud Audience Sharing] funktionen är aktiverad, en cookie-synkroniseringsprocess inträffar som associerar [!DNL Adobe Experience Cloud] ID (ECID) med Marketo leads. Du kan ange att fältet &quot;ecids&quot; ska innehålla ECID:n i exportfilen. |
+| fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. Varje sträng måste vara REST API-namnet för ett Marketo lead-fält. De listade fälten inkluderas i den exporterade filen. Kolumnrubriken för varje fält blir REST API-namnet för varje fält, såvida det inte åsidosätts av columnHeader. Obs! När funktionen [!DNL Adobe Experience Cloud Audience Sharing] är aktiverad utförs en cookie-synkroniseringsprocess som associerar [!DNL Adobe Experience Cloud] ID (ECID) med Marketo leads. Du kan ange att fältet &quot;ecids&quot; ska innehålla ECID:n i exportfilen. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Detta är API-namnet för fältet som kan hämtas genom att anropa Beskriv lead. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 
 
 ## Skapa ett jobb
 
-Parametrarna för jobbet definieras innan exporten avbryts med [Skapa exporthuvudjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST) slutpunkt. Vi måste definiera `fields` som behövs för export, typen av parametrar för `filter`, `format` för filen och kolumnrubriknamnen, om sådana finns.
+Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa exporthuvudjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST). Vi måste definiera de `fields` som behövs för export, parametertypen för `filter`, `format` för filen och kolumnrubriknamnen, om det finns några.
 
 ```
 POST /bulk/v1/leads/export/create.json
@@ -79,7 +79,7 @@ POST /bulk/v1/leads/export/create.json
 }
 ```
 
-Denna begäran börjar exportera en uppsättning leads som skapats mellan 1 januari 2017 och 31 januari 2017, inklusive värdena från motsvarande `firstName`, `lastName`, `id`och `email` fält.
+Denna begäran börjar exportera en uppsättning leads som skapats mellan 1 januari 2017 och 31 januari 2017, inklusive värdena från motsvarande `firstName`-, `lastName`-, `id`- och `email`-fält.
 
 ```json
 {
@@ -97,7 +97,7 @@ Denna begäran börjar exportera en uppsättning leads som skapats mellan 1 janu
 }
 ```
 
-Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. För att göra det [Kör exporthuvudjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) slutpunkten måste anropas med exportId från svaret på status när den skapades:
+Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Om du vill göra det måste slutpunkten [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) anropas med exportId från svaret på status när projektet skapades:
 
 ```
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
@@ -119,13 +119,13 @@ POST /bulk/v1/leads/export/{exportId}/enqueue.json
 }
 ```
 
-Detta svarar med en `status` &quot;Köad&quot; efter vilken det kommer att ställas in på &quot;Bearbetning&quot; när det finns en tillgänglig exportplats.
+Detta svarar med `status` i kö, varefter det ställs in på Bearbetning när det finns en tillgänglig exportplats.
 
 ## Avsökningsjobbstatus
 
-`Note:` Status kan bara hämtas för jobb som har skapats av samma API-användare.
+Status för `Note:` kan bara hämtas för jobb som har skapats av samma API-användare.
 
-Eftersom det här är en asynkron slutpunkt måste vi avfråga status när vi har skapat jobbet för att avgöra hur det förlöper. Rulla med [Hämta status för exportlead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) slutpunkt. Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Låt oss ta en snabb titt på enkäten.
+Eftersom det här är en asynkron slutpunkt måste vi avfråga status när vi har skapat jobbet för att avgöra hur det förlöper. Avsök med slutpunkten [Hämta status för Lead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Låt oss ta en snabb titt på enkäten.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/status.json
@@ -160,7 +160,7 @@ Statusfältet kan svara med något av följande:
 
 ## Hämtar data
 
-Om du vill hämta filen för en slutförd leadexport anropar du bara [Hämta exportleadfil](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) slutpunkt med `exportId`.
+Om du vill hämta filen för en slutförd leadexport anropar du [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) -slutpunkten med din `exportId`.
 
 ```
 GET /bulk/v1/leads/export/{exportId}/file.json
@@ -168,18 +168,18 @@ GET /bulk/v1/leads/export/{exportId}/file.json
 
 Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll.
 
-Om ett begärt lead-fält är tomt (innehåller inga data) `null` placeras i motsvarande fält i exportfilen. I exemplet nedan är e-postfältet för den returnerade leadet tomt.
+Om ett begärt lead-fält är tomt (innehåller inga data) placeras `null` i motsvarande fält i exportfilen. I exemplet nedan är e-postfältet för den returnerade leadet tomt.
 
 ```csv
 firstName,lastName,email,cookies
 Russell,Wilson,null,_mch-localhost-1536605780000-12105
 ```
 
-Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extraherade data, kan filslutpunkten (om så önskas) ha stöd för HTTP-rubrikintervallet för bytetypen. Om rubriken inte är inställd returneras hela innehållet. Läs mer om hur du använder Range-rubriken med Marketo [Massextrahering](bulk-extract.md).
+Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extraherade data, kan filslutpunkten (om så önskas) ha stöd för HTTP-rubrikintervallet för bytetypen. Om rubriken inte är inställd returneras hela innehållet. Läs mer om hur du använder intervallhuvudet med Marketo [Massextrahering](bulk-extract.md).
 
 ## Avbryta ett jobb
 
-Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med [Avbryt export av lead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) slutpunkt:
+Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av lead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) :
 
 ```
 POST /bulk/v1/leads/export/{exportId}/cancel.json

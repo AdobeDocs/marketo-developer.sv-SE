@@ -1,14 +1,14 @@
 ---
-title: "mergeLeads"
+title: mergeLeads
 feature: SOAP
-description: "mergeLeads SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: mergeLeads SOAP anrop
+exl-id: a667cb76-525d-4583-b26a-1181d320a68c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '83'
 ht-degree: 0%
 
 ---
-
 
 # mergeLeads
 

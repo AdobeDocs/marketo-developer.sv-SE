@@ -1,27 +1,27 @@
 ---
-title: "Referens för slutpunkt"
+title: Referens för slutpunkt
 feature: REST API
-description: "Marketo API-slutpunktsreferenser"
-source-git-commit: 2454f126dc4275697ef6773420453ad8853eae73
+description: Marketo API-slutpunktsreferenser
+exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '216'
 ht-degree: 0%
 
 ---
 
-
 # Referens för slutpunkt
 
-- [Tillgång](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Resurs](https://developer.adobe.com/marketo-apis/api/asset/)
 - [Identitet](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/)
 - [Användarhantering](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Referens för slutpunkt
 
 Marketo använder Swagger för att tillhandahålla en formell definition av det publika gränssnittet för sina REST API:er. Swagger har en omfattande definitionsmodell för URL-strukturer, frågemodeller och svarsmodeller och har ett utvecklat ekosystem av verktyg för användning med API-interaktion, testning och klientgenerering.
 
-Slutpunktsreferensen använder [Swagger-UI](https://swagger.io/tools/swagger-ui/) JavaScript-paket som genererar referenssidorna på klientsidan. Varje publik slutpunkt listas och ger strukturen för svarsmodellen, obligatoriska frågeparametrar och förfrågningsmodellen om det behövs.
+Slutpunktsreferensen använder JavaScript-paketet [Swagger-UI](https://swagger.io/tools/swagger-ui/) för att generera referenssidorna på klientsidan. Varje publik slutpunkt listas och ger strukturen för svarsmodellen, obligatoriska frågeparametrar och förfrågningsmodellen om det behövs.
 
 ## Använda Marketo Swagger-definitioner
 
@@ -31,4 +31,4 @@ Swagger-standarden kräver att en värd anges eller att värden genereras av den
 
 ## Resurs-API:er
 
-API:erna för Marketo-resurser använder `application/x-www-url-formencoded` formatparametrar i begäranden för slutpunkter som kräver en POST-metod. I vissa fall, till exempel mappparametrar, kan värdet för parametern vara en JSON-array eller ett JSON-objekt. Dessa parametrar anges i slutpunktsreferensen.
+Marketo Resurs-API:erna använder `application/x-www-url-formencoded`-formatparametrar i begäranden för slutpunkter som kräver en POST-metod. I vissa fall, till exempel mappparametrar, kan värdet för parametern vara en JSON-array eller ett JSON-objekt. Dessa parametrar anges i slutpunktsreferensen.

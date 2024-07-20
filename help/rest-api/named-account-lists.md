@@ -1,14 +1,14 @@
 ---
-title: "Listor för namngivna konton"
+title: Namngivna kontolistor
 feature: REST API
-description: "Konfigurera listor med namngivna konton."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Konfigurera listor med namngivna konton.
+exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 0%
 
 ---
-
 
 # Namngivna kontolistor
 
@@ -37,7 +37,7 @@ Namngivna kontolistor har ett begränsat antal standardfält och kan inte utöka
 
 ## Fråga
 
-Det är enkelt och enkelt att fråga kontolistor. För närvarande finns det bara två giltiga filterTypes för att fråga efter namngivna kontolistor: dedupliceringsfält och idField. Fältet som ska filtreras anges i `filterType` frågeparameter, och värdena anges i `filterValues as` en kommaavgränsad lista. The `nextPageToken` och `batchSize` filter är också valfria parametrar.
+Det är enkelt och enkelt att fråga kontolistor. För närvarande finns det bara två giltiga filterTypes för att fråga efter namngivna kontolistor: dedupliceringsfält och idField. Fältet som ska filtreras anges i parametern `filterType` i frågan och värdena anges i `filterValues as` en kommaavgränsad lista. Filtren `nextPageToken` och `batchSize` är också valfria parametrar.
 
 ```
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
@@ -74,9 +74,9 @@ GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f99
 
 När du skapar och uppdaterar poster för namngivna kontolistor följer du de etablerade mönstren för andra åtgärder för att skapa och uppdatera lead-databas. Tänk på att namngivna kontolistor bara har ett uppdateringsbart fält, `name`.
 
-Slutpunkten tillåter de två standardåtgärdstyperna: &quot;createOnly&quot; och &quot;updateOnly&quot;.  The `action defaults` till&quot;createOnly&quot;.
+Slutpunkten tillåter de två standardåtgärdstyperna: &quot;createOnly&quot; och &quot;updateOnly&quot;.  `action defaults` till&quot;createOnly&quot;.
 
-Valfritt `dedupeBy parameter` kan anges om åtgärden är `updateOnly`.  Tillåtna värden är &quot;deduplicpeFields&quot; (motsvarar &quot;name&quot;) eller &quot;idField&quot; (motsvarar &quot;marketoGUID&quot;).  I `createOnly` lägen, endast &quot;name&quot; tillåts som `dedupeBy` fält. Du kan skicka upp till 300 poster åt gången.
+Den valfria `dedupeBy parameter` kan anges om åtgärden är `updateOnly`.  Tillåtna värden är &quot;deduplicpeFields&quot; (motsvarar &quot;name&quot;) eller &quot;idField&quot; (motsvarar &quot;marketoGUID&quot;).  I `createOnly`-lägen tillåts bara &quot;name&quot; som `dedupeBy`-fält. Du kan skicka upp till 300 poster åt gången.
 
 ```
 POST /rest/v1/namedAccountLists.json
@@ -118,7 +118,7 @@ POST /rest/v1/namedAccountLists.json
 
 ## Ta bort
 
-Det är enkelt att ta bort listor med namngivna konton, och du kan göra det utifrån antingen `name`eller `marketoGUID` av listan. Om du vill välja den nyckel du vill använda skickar du antingen &quot;dedupeFields&quot; för namn eller &quot;idField&quot; för marketoGUID i dialogrutan`deleteB` medlem av din förfrågan. Om den tas bort används dedupliceringsfält som standard. Du kan ta bort upp till 300 poster åt gången.
+Det är enkelt att ta bort listor med namngivna konton. Du kan göra det utifrån antingen `name` eller `marketoGUID` i listan. Om du vill välja den nyckel du vill använda skickar du antingen &quot;dedupeFields&quot; för namn eller &quot;idField&quot; för marketoGUID i `deleteB`-medlemmen i din begäran. Om den tas bort används dedupliceringsfält som standard. Du kan ta bort upp till 300 poster åt gången.
 
 ```
 POST /rest/v1/namedAccountLists/delete.json
@@ -170,17 +170,19 @@ POST /rest/v1/namedAccountLists/delete.json
 }
 ```
 
-Om det inte går att hitta en post för en viss nyckel, kommer motsvarande resultatartikel att ha en`status` av&quot;överhoppad&quot; och en orsak med en kod och ett meddelande som beskriver felet, vilket visas i exemplet ovan.
+Om det inte går att hitta en post för en viss nyckel kommer motsvarande resultatobjekt att ha `status` &quot;överhoppad&quot; och en orsak med en kod och ett meddelande som beskriver felet, vilket visas i exemplet ovan.
 
 ## Hantera medlemskap
 
 ### Frågemedlemskap
 
-Det är enkelt att fråga om medlemskap i en lista med namngivna konton, vilket endast kräver`i` av kontolistan. Valfria parametrar är:
+Det är enkelt att fråga om medlemskap i en lista med namngivna konton, vilket bara kräver `i` i kontolistan. Valfria parametrar är:
 
--`field` - en kommaavgränsad lista med fält som ska inkluderas i svarsposterna -`nextPageToke` - för sidindelning genom resultatuppsättningen -`batchSiz` - för att ange antalet poster som ska returneras
+-`field` - en kommaavgränsad lista med fält som ska inkluderas i svarsposterna
+-`nextPageToke` - för att växla genom resultatuppsättningen
+- `batchSiz` - för att ange antalet poster som ska returneras
 
-If`field` tas bort, sedan`marketoGUI`,`nam`, `createdA`och`updatedA` kommer att returneras. `batchSiz` har ett högsta och standardvärde på 300.
+Om `field` inte anges returneras `marketoGUI`,`nam`, `createdA` och `updatedA`. `batchSiz` har ett högsta och standardvärde på 300.
 
 ```
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
@@ -251,7 +253,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 ### Ta bort medlemmar
 
-Att ta bort poster från en kontolista har en annan sökväg, men samma gränssnitt, vilket kräver en`marketoGUI` för varje post som du vill ta bort. Du kan ta bort upp till 300 poster åt gången.
+Borttagning av poster från en kontolista har en annan sökväg, men samma gränssnitt, som kräver `marketoGUI` för varje post som du vill ta bort. Du kan ta bort upp till 300 poster åt gången.
 
 ```
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json

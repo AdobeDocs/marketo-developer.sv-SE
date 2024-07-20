@@ -1,14 +1,14 @@
 ---
-title: "Installation"
-feature: "Mobile Marketing"
-description: "Så här installerar du SDK:er för Mobile Marketo"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Installation
+feature: Mobile Marketing
+description: Installera SDK:er för Mobile Marketo
+exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '758'
 ht-degree: 0%
 
 ---
-
 
 # Installation
 
@@ -18,8 +18,8 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 ### Förutsättningar
 
-1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID)
-1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ### Installera Framework via CocoaPods
 
@@ -39,17 +39,17 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 1. Lägg till Marketo-paket från denna repo. Lägg till den här URL:en för den här databasen: https://github.com/Marketo/ios-sdk.
 
-   ![URL för svar](assets/dependency-manager-url.png)
+   ![Repo URL](assets/dependency-manager-url.png)
 
-1. Lägg nu till resurspaketet enligt följande: Sök `MarketoFramework.XCframework` i projektnavigeraren och öppna den i Finder. Dra och släpp `MKTResources.bundle` för att kopiera källmaterial.
+1. Lägg nu till resurspaketet så som visas: Leta reda på `MarketoFramework.XCframework` i projektnavigeraren och öppna det i Finder. Dra och släpp `MKTResources.bundle` för att kopiera källresurser.
 
 ### Ställ in Swift Bridging Header
 
 1. Gå till Arkiv > Nytt > Arkiv och välj &quot;Huvudfil&quot;.
 
-   ![Välj &quot;Huvudfil&quot;](assets/choose-header-file.png)
+   ![Välj Huvudfil](assets/choose-header-file.png)
 
-1. Namnge filen &quot;&lt;_ProjectName_>-Bridging-Header&quot;.
+1. Ge filen namnet &lt;_ProjectName_>-Bridging-Header.
 
 1. Gå till Project > Target > Build Phases > Swift Compiler > Code Generation. Lägg till följande sökväg till Objective-Bridging Header:
 
@@ -67,7 +67,7 @@ Innan du kan använda Marketo iOS SDK måste du initiera det med ditt konto-ID f
    #import <MarketoFramework/MarketoFramework.h>
    ```
 
-1. Klistra in följande kod i `application:didFinishLaunchingWithOptions`: function.
+1. Klistra in följande kod i funktionen `application:didFinishLaunchingWithOptions`:.
 
    Observera att vi måste skicka&quot;native&quot; som ramverkstyp för Native Apps.
 
@@ -91,14 +91,14 @@ sharedInstance.initialize(withMunchkinID: "munchkinAccountId", appSecret: "secre
 
 >[!ENDTABS]
 
-1. Ersätt `munkinAccountId` och `secretKey` ovan med ditt konto-ID för Munchkin och Hemlig nyckel som finns i Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]** -avsnitt.
+1. Ersätt `munkinAccountId` och `secretKey` ovan med ditt konto-ID för Munchkin och Hemlig nyckel som finns i avsnittet Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]**.
 
 ## iOS Test Devices
 
 1. Välj Projekt > Mål > Info > URL-typer.
 1. Lägg till identifierare: ${PRODUCT_NAME}
 1. Ange URL-scheman: `mkto-<Secret Key_>`
-1. Inkludera program:openURL:sourceApplication:annotation: till filen AppDelegate.m (Objective-C)
+1. Inkludera programmet :openURL:sourceApplication:annotation: i filen AppDelegate.m (mål-C)
 
 ## Hantera anpassad URL-typ i AppDelegate
 
@@ -132,17 +132,17 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Förutsättningar
 
-1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID)
-1. [Konfigurera push-meddelanden](push-notifications.md#android_setup_push) (valfritt)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Konfigurera push-meddelanden](push-notifications.md#android_setup_push) (valfritt)
 1. [Hämta Marketo SDK för Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
-### Android SDK-inställningar med Gradle
+### Installation av Android SDK med Gradle
 
 1. Lägg till under avsnittet Beroenden i filen build.gradle på programnivå
 
 `implementation 'com.marketo:MarketoSDK:0.8.9'`
 
-1. Roten `build.gradle` filen ska ha
+1. Rotfilen `build.gradle` bör ha
 
    ```
    buildscript {
@@ -156,7 +156,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Konfigurera behörigheter
 
-Öppna `AndroidManifest.xml` och lägga till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
+Öppna `AndroidManifest.xml` och lägg till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -175,7 +175,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 1. ProGuard-konfiguration (valfritt)
 
-   Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg` -fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
+   Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
 
    ```
    -dontwarn com.marketo.*
@@ -183,9 +183,9 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
    -keep class com.marketo.`{ *; }
    ```
 
-## Android-testenheter
+## Android Test Devices
 
-Lägg till MarketoActivity i `AndroidManifest.xml` -fil inuti programtagg.
+Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity"  android:configChanges="orientation|screenSize" >
@@ -200,26 +200,26 @@ Lägg till MarketoActivity i `AndroidManifest.xml` -fil inuti programtagg.
 
 ## Stöd för Firebase Cloud Messaging
 
-MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya ingenjörsfunktioner för din Apputvecklare i Android.
+MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya tekniska funktioner för din Android-apputvecklare.
 
-Apputvecklare för Android kan nu använda Google direkt [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
+Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
 
 ### Lägga till FCM i ditt program
 
-1. Integrera den senaste Marketo Android SDK i Android-appen.  Steg finns på [GitHub](https://github.com/Marketo/android-sdk).
+1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera `Add Project`.
-      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
-      1. I Firebase-välkomstskärmen väljer du `Add Firebase to your Android App`.
-      1. Ange ditt paketnamn och SHA-1, och välj `Add App`. En ny `google-services.json` filen för din Firebase-app hämtas.
-      1. Välj `Continue` och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj `Add Project` i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
+      1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
+      1. Välj `Add Firebase to your Android App` på välkomstskärmen i Firebase.
+      1. Ange ditt paketnamn och SHA-1 och välj `Add App`. En ny `google-services.json`-fil för din Firebase-app hämtas.
+      1. Välj `Continue` och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
 
    1. Navigera till Projektinställningar i projektöversikten
       1. Klicka på fliken Allmänt. Hämta filen google-services.json.
       1. Klicka på fliken Cloud Messaging. Kopiera servernyckel och avsändar-ID. Ange dessa servernycklar och avsändar-ID till Marketo.
-   1. Konfigurera FCM-ändringar i Android-appen
-      1. Växla till projektvyn i Android Studio för att se projektets rotkatalog
+   1. Konfigurera FCM-ändringar i Android App
+      1. Växla till projektvyn i Android Studio för att visa projektets rotkatalog
          1. Flytta den hämtade Google-services.json-filen till rotkatalogen i Android-appmodulen
          1. Lägg till följande i build.gradle på projektnivå:
 

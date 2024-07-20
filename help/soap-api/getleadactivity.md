@@ -1,31 +1,31 @@
 ---
-title: "getLeadActivity"
+title: getLeadActivity
 feature: SOAP
-description: "getLeadActivity SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadActivity SOAP anrop
+exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '346'
 ht-degree: 0%
 
 ---
 
-
 # getLeadActivity
 
 Den här funktionen hämtar aktivitetshistoriken för ett enskilt lead som identifieras av den angivna nyckeln. Du kan ange vilka aktivitetstyper du vill returnera i resultatet. Om du vill att alla aktivitetstyper ska skickas ett tomt värde. Om du har mer än en aktivitetstyp skickar du en lista med aktivitetstyper. När du begär flera aktiviteter är det återstående antalet inte ett korrekt tal, utan bör behandlas som en flagga som anger att det finns fler aktiviteter när det återstående antalet är > 0.
 
-A [dataströmposition](stream-position.md) kan användas för att numrera genom stora resultatuppsättningar.
+En [strömposition](stream-position.md) kan användas för att paginera genom stora resultatuppsättningar.
 
 ## Begäran
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| leadKey->keyType | Obligatoriskt | keyType gör att du kan ange fältet som du vill fråga lead efter. Möjliga värden är:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
-| leadKey->keyValue | Obligatoriskt | `keyValue` är det värde som du vill fråga lead efter. |
+| leadKey->keyType | Obligatoriskt | keyType gör att du kan ange fältet som du vill fråga lead efter. Möjliga värden är: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyValue | Obligatoriskt | `keyValue` är det värde som du vill fråga om leadet efter. |
 | activityFilter->includeAttributes->activityType | Valfritt | Begränsar svaret till att endast inkludera de aktivitetstyper som anges. Se WSDL för alla aktivitetstyper. |
-| activityFilter->excludeAttributes->activityType | Valfritt | Begränsar svaret så att de aktivitetstyper som anges exkluderas. Se WSDL för alla aktivitetstyper. Obs! Du kan inte ange båda `includeAttributes` och `excludeAttributes` inom samma samtal. |
+| activityFilter->excludeAttributes->activityType | Valfritt | Begränsar svaret så att de aktivitetstyper som anges exkluderas. Se WSDL för alla aktivitetstyper. Obs! Du kan inte ange både `includeAttributes` och `excludeAttributes` inom samma anrop. |
 | batchSize | Valfritt | Maximalt antal poster som ska returneras. Systemet kommer att begränsas till 100 eller `batchSize`, beroende på vilket som är lägst. |
-| startPosition->offset | Valfritt | Används för att paginera genom ett stort antal aktivitetssvar. Förskjutningsvärdet returneras av föregående svarsfält för anrop `newStartPosition->offset`. |
+| startPosition->offset | Valfritt | Används för att paginera genom ett stort antal aktivitetssvar. Förskjutningsvärdet returneras av föregående svarsfält `newStartPosition->offset` för anrop. |
 | startPosition->aktivitetCreatedAt | Valfritt | Används för att paginera genom ett stort antal aktivitetssvar. activityCreatedAt returneras av det föregående anropets svarsfält `newStartPosition->activityCreatedAt`. (W3C WSDL-datumformat). |
 | startPosition->senasteSkapadVid | Valfritt | Används för att paginera genom ett stort antal aktivitetssvar. Den senasteCreatedAt returneras av det föregående anropets svarsfält `newStartPosition->latestCreatedAt`. (W3C WSDL-datumformat). |
 | startPosition->äldstCreatedAt | Valfritt | Används för att paginera genom ett stort antal aktivitetssvar. Den äldstaCreatedAt returneras av det föregående anropets svarsfält `newStartPosition->oldestCreatedAt`. (W3C WSDL-datumformat). |
@@ -668,7 +668,7 @@ A [dataströmposition](stream-position.md) kan användas för att numrera genom 
 </SOAP-ENV:Envelope>
 ```
 
-Observera att inom `activityRecord` -element, `id` -elementet ersätts av `marketoGUID` element som unik identifierare.  Denna ändring kommer att ske i vårversionen 2017.
+Observera att elementet `id` i `activityRecord`-elementen ersätts av elementet `marketoGUID` som en unik identifierare.  Denna ändring kommer att ske i vårversionen 2017.
 
 ## Exempelkod - PHP
 

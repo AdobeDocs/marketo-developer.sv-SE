@@ -1,23 +1,23 @@
 ---
-title: "Marketo Mobile Extension for [!DNL Adobe Launch]"
+title: Marketo Mobile Extension för  [!DNL Adobe Launch]
 feature: Mobile Marketing
-description: "Marketo Mobile Extension for [!DNL Adobe Launch] overview"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Marketo Mobile Extension för  [!DNL Adobe Launch] översikt
+exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '269'
 ht-degree: 0%
 
 ---
 
-
-# Marketo Mobile Extension for [!DNL Adobe Launch]
+# Marketo Mobile Extension för [!DNL Adobe Launch]
 
 Installationsanvisningar för Marketo Mobile SDK-tillägg i [!DNL Adobe Launch]. Stegen nedan krävs för att skicka push-meddelanden och/eller meddelanden i appen.
 
 ## Förutsättningar
 
-- [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID)
-- Följ instruktionerna i [!DNL Adobe Launch] portal för installation
+- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+- Följ anvisningarna i [!DNL Adobe Launch]-portalen för installation
 - [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ## iOS
@@ -25,7 +25,7 @@ Installationsanvisningar för Marketo Mobile SDK-tillägg i [!DNL Adobe Launch].
 ### Ställ in Swift Bridging Header
 
 1. Gå till Arkiv > Nytt > Arkiv och välj &quot;Huvudfil&quot;.
-1. Namnge filen &quot;&lt;_ProjectName_>-Bridging-Header&quot;.
+1. Ge filen namnet &lt;_ProjectName_>-Bridging-Header.
 1. Gå till Project > Target > Build Phases > Swift Compiler > Code Generation. Lägg till följande sökväg till Objective-Bridging Header:
 
    `$(PODS_ROOT)/<_ProjectName_>-Bridging-Header.h`
@@ -36,7 +36,7 @@ För Swift-användare: Ta bort följande import-sats eftersom brygghuvudet lägg
 
 ### iOS Test Devices
 
-Följ instruktionerna på [Lägga till iOS testenheter](installation.md#ios_test_devices)
+Följ anvisningarna på [Lägga till iOS testenheter](installation.md#ios_test_devices)
 
 ### Hantera anpassad URL-typ i AppDelegate
 
@@ -44,13 +44,13 @@ Följ instruktionerna [här](installation.md#ios_test_devices)
 
 ### Konfigurera push-meddelanden på iOS
 
-Följ instruktionerna [här](push-notifications.md) och använd klassnamnet&quot;ALMarketo&quot; i stället för&quot;Marketo&quot;
+Följ instruktionerna [här](push-notifications.md) och använd klassnamnet ALMarketo i stället för Marketo
 
 ## Android
 
 ### Konfigurera behörigheter
 
-Öppna `AndroidManifest.xml` och lägga till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
+Öppna `AndroidManifest.xml` och lägg till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -59,7 +59,7 @@ Följ instruktionerna [här](push-notifications.md) och använd klassnamnet&quot
 
 ### ProGuard-konfiguration (valfritt)
 
-Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg` -fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
+Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
 
 ```
 -dontwarn com.marketo.*
@@ -67,12 +67,12 @@ Om du använder ProGuard för din app lägger du till följande rader i din `pro
 -keep class com.marketo.**{ *; }
 ```
 
-### Android-testenheter
+### Android Test Devices
 
 Följ instruktionerna [här](installation.md#android_test_devices)
 
 ## Konfigurera push-meddelanden på Android
 
-Följ instruktionerna [här](installation.md#android_firebase_cloud_messaging_support) och använd klassnamnet&quot;ALMarketo&quot; i stället för&quot;Marketo&quot;
+Följ instruktionerna [här](installation.md#android_firebase_cloud_messaging_support) och använd klassnamnet ALMarketo i stället för Marketo
 
-Följ instruktionerna för hur du konfigurerar användarprofiler [här](user-profiles.md) och för anpassade åtgärder följ instruktionerna [här](custom-actions.md#android_custom_action). I följande instruktioner använder du klassnamnet&quot;ALMarketo&quot; i stället för&quot;Marketo&quot;
+Följ instruktionerna [här](user-profiles.md) och för anpassade åtgärder [här](custom-actions.md#android_custom_action) för att konfigurera användarprofiler. I följande instruktioner använder du klassnamnet&quot;ALMarketo&quot; i stället för&quot;Marketo&quot;

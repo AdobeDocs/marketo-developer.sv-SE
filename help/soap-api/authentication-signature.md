@@ -1,14 +1,14 @@
 ---
-title: "Autentiseringssignatur"
+title: Autentiseringssignatur
 feature: SOAP
-description: "API-säkerhet med autentiseringssignaturer"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: API-säkerhet med autentiseringssignaturer
+exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
 
 ---
-
 
 # Autentiseringssignatur
 
@@ -20,7 +20,7 @@ HMAC-SHA1-signaturer kräver följande:
 * En delad hemlig nyckel (kallas även krypteringsnyckel) som inte överförs med tjänstbegäran
 
 Den här säkerhetsinformationen bekräftas via Admin > SOAP API i Marketo.
-Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla ett SOAP-huvud, AuthenticationHeaderInfo, för att kunna skicka autentiseringsinformation med SOAP-meddelandet.
+Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla SOAP, AuthenticationHeaderInfo, för att autentiseringsinformationen ska kunna skickas med det SOAP meddelandet.
 I följande pseudokod demonstreras algoritmen:
 
 ```
@@ -42,7 +42,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 |--- |--- |--- |
-| mktowsUserId | Obligatoriskt | Marketo klientåtkomst-ID finns på SOAP API-panelen i Marketo Admin under Integration. |
+| mktowsUserId | Obligatoriskt | Marketo klientåtkomst-ID finns på API-panelen för Marketo SOAP under Integrering. |
 | requestSignature | Obligatoriskt | HMAC-SHA1-signatur baserad på delad hemlig nyckel, requestTimestamp och Marketo användar-ID |
 | requestTimestamp | Obligatoriskt | Begär tidsstämpel (W3C WSDL-datumformat Ex. &quot;2013-06-09T14:04:54-08:00&quot;) |
 | partnerId | Valfritt | LaunchPoint Technology Partner API Key. |

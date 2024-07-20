@@ -1,14 +1,14 @@
 ---
-title: "Filer"
+title: Filer
 feature: REST API
-description: "Lagra och hantera Marketo-filer."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Lagra och ändra Marketo-filer.
+exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '267'
 ht-degree: 0%
 
 ---
-
 
 # Filer
 
@@ -18,7 +18,7 @@ Med Marketo prenumerationer kan du lagra godtyckliga filer som bilder, skript, d
 
 ## Fråga
 
-Det är enkelt att fråga efter filer och standardfrågetyperna för resurser i [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET)och [surfning](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET).
+Det är enkelt att fråga efter filer och standardfrågetyperna för resurserna [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFileByNameUsingGET) och [bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/getFilesUsingGET) följs.
 
 ### Efter ID
 
@@ -53,7 +53,7 @@ GET /rest/asset/v1/file/{id}.json
 
 ### Efter namn
 
-Ange namnet på filen med det obligatoriska `name` parameter.
+Ange namnet på filen med den obligatoriska parametern `name`.
 
 ```
 GET /rest/asset/v1/file/byName.json?name=foo.png
@@ -155,7 +155,7 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 ## Skapa och uppdatera
 
-[Skapa en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) görs med en multipart/form-data-typ av begäran. Som ett minimum krävs namnet, mappen och filen i begäran, med en valfri beskrivning och en insertOnly-flagga, vilket förhindrar att ett anrop till create uppdaterar en befintlig fil med samma namn. För filparametern krävs ett filnamn i Content-Disposition-huvudet, förutom name-parametern. Du måste också skicka en Content-Type-rubrik för filen, som är den MIME-typ som Marketo ska använda för att hantera filen med.
+[Skapandet av en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) görs med en begäran av typen multipart/form-data. Som ett minimum krävs namnet, mappen och filen i begäran, med en valfri beskrivning och en insertOnly-flagga, vilket förhindrar att ett anrop till create uppdaterar en befintlig fil med samma namn. För filparametern krävs ett filnamn i Content-Disposition-huvudet, förutom name-parametern. Du måste också skicka en Content-Type-rubrik för filen, som är den MIME-typ som Marketo ska använda för att hantera filen med.
 
 ```
 POST /rest/asset/v1/files.json
@@ -208,7 +208,7 @@ This is a test file
 }
 ```
 
-[Uppdatera en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) kan göras utifrån dess ID. Den enda parametern är en filparameter som har samma krav som när filen skapas.
+[Det går att uppdatera en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) baserat på dess ID. Den enda parametern är en filparameter som har samma krav som när filen skapas.
 
 ```
 POST /rest/asset/v1/file/{id}/content.json

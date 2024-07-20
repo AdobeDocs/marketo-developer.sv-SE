@@ -1,7 +1,7 @@
 ---
-title: '''[!DNL Adobe Launch] Tilläggsinstallation'
+title: '[!DNL Adobe Launch]-tilläggsinstallation'
 feature: Mobile Marketing
-description: '[!DNL Adobe Launch] installationsöversikt för tillägg'
+description: Installationsöversikt för tillägget [!DNL Adobe Launch]
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
 source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
 workflow-type: tm+mt
@@ -10,24 +10,24 @@ ht-degree: 0%
 
 ---
 
-# [!DNL Adobe Launch] Tilläggsinstallation
+# [!DNL Adobe Launch]-tilläggsinstallation
 
-Installationsanvisningar för [!DNL Adobe Launch] Marketo. Stegen nedan krävs för att skicka push-meddelanden och/eller meddelanden i appen.
+Installationsanvisningar för tillägget [!DNL Adobe Launch] Marketo. Stegen nedan krävs för att skicka push-meddelanden och/eller meddelanden i appen.
 
 ## Förutsättningar
 
-1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID)
-1. [Konfigurera egenskapen i [!DNL Adobe Launch] portal](https://experience.adobe.com/#/@amc/data-collection/home)
-1. Konfigurera programhemlig nyckel och Munchkin-ID för egenskapen i [!DNL Adobe Launch] portal
-1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Konfigurera egenskapen i [!DNL Adobe Launch] portalen](https://experience.adobe.com/#/@amc/data-collection/home)
+1. Konfigurera programhemlig nyckel och Munchkin-ID för egenskapen i portalen [!DNL Adobe Launch]
+1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ## Installera Marketo Extension på iOS
 
 ### Ställ in Swift Bridging Header
 
-1. Gå till [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] och välj **[!UICONTROL Header File]**.
+1. Gå till [!UICONTROL File] > [!UICONTROL New] > [!UICONTROL File] och markera **[!UICONTROL Header File]**.
 
-1. Namnge filen &quot;&lt;_ProjectName_>-Bridging-Header&quot;.
+1. Ge filen namnet &lt;_ProjectName_>-Bridging-Header.
 
 1. Gå till [!UICONTROL Project] > [!UICONTROL Target] > [!UICONTROL Build Settings] > [!UICONTROL Swift Compiler] > [!UICONTROL Code Generation]. Lägg till följande sökväg i sidhuvudet &quot;Objective-Bridging&quot;:
 
@@ -39,7 +39,7 @@ Installationsanvisningar för [!DNL Adobe Launch] Marketo. Stegen nedan krävs f
 
 >[!TAB Mål C]
 
-Uppdatera `applicationDidBecomeActive` metod som nedan
+Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
 ```
 (void)applicationDidBecomeActive:(UIApplication*) application
@@ -50,7 +50,7 @@ Uppdatera `applicationDidBecomeActive` metod som nedan
 
 >[!TAB Swift]
 
-Uppdatera `applicationDidBecomeActive` metod som nedan
+Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
 ```
 func applicationDidBecomeActive(_ application: UIApplication)
@@ -65,8 +65,8 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 1. Välj **[!UICONTROL Project]** > **[!UICONTROL Target]** > **[!UICONTROL Info]** > **[!UICONTROL URL Types]**.
 1. Lägg till identifierare: ${PRODUCT_NAME}
-1. Ange URL-scheman: mkto-&lt;s_ecret key_=&quot;&quot;>
-1. Inkludera `application:openURL:sourceApplication:annotation:` till `AppDelegate.m file` (Mål-C)
+1. Ange URL-scheman: mkto-&lt;S_ecret Key_>
+1. Inkludera `application:openURL:sourceApplication:annotation:` i `AppDelegate.m file` (mål-C)
 
 ### Hantera anpassad URL-typ i AppDelegate
 
@@ -111,11 +111,11 @@ func application(_ application: UIApplication, open url: URL, sourceApplication:
 
 ### Installationsprogram för Android Extension
 
-Följ instruktionerna i [!DNL Adobe Launch] portal
+Följ instruktionerna i portalen [!DNL Adobe Launch]
 
 ### Konfigurera behörigheter
 
-Öppna `AndroidManifest.xml` och lägga till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
+Öppna `AndroidManifest.xml` och lägg till följande behörigheter. Ditt program måste begära behörigheterna INTERNET och ACCESS_NETWORK_STATE. Om appen redan begär dessa behörigheter hoppar du över det här steget.
 
 ```xml
 <uses‐permission android:name="android.permission.INTERNET"></uses‐permission>
@@ -126,7 +126,7 @@ Följ instruktionerna i [!DNL Adobe Launch] portal
 
 ProGuard-konfiguration (valfritt)
 
-Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg` -fil. Filen finns i din `project` mapp. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
+Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i mappen `project`. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
 
 ```
 -dontwarn com.marketo.*
@@ -134,7 +134,7 @@ Om du använder ProGuard för din app lägger du till följande rader i din `pro
 -keep class com.marketo.**{ *; }
 ```
 
-## Android Test Devices
+## Android  Testa  Enheter
 
 Lägg till MarketoActivity i `AndroidManifest.xml` inuti programtaggen.
 
@@ -153,26 +153,26 @@ Lägg till MarketoActivity i `AndroidManifest.xml` inuti programtaggen.
 
 MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya tekniska funktioner för din Android-apputvecklare.
 
-Android apputvecklare kan nu använda Google direkt [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
+Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
 
 ### Lägga till FCM i ditt program
 
-1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg finns på [GitHub](https://github.com/Marketo/android-sdk).
+1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase Console.
-      1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
-      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
-      1. I Firebase-välkomstskärmen väljer du **[!UICONTROL Add Firebase to your Android App]**.
-      1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny `google-services.json` filen för din Firebase-app hämtas.
-      1. Välj **[!UICONTROL Continue]** och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
+      1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
+      1. Välj **[!UICONTROL Add Firebase to your Android App]** på välkomstskärmen i Firebase.
+      1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny `google-services.json`-fil för din Firebase-app hämtas.
+      1. Välj **[!UICONTROL Continue]** och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
 
-   1. Navigera till **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
-      1. Klicka **[!UICONTROL General]** -fliken. Ladda ned `google-services.json` -fil.
-      1. Klicka på **[!UICONTROL Cloud Messaging]** -fliken. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Ange dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
+   1. Navigera till **[!UICONTROL Project Settings]** i [!UICONTROL Project Overview]
+      1. Klicka på fliken **[!UICONTROL General]**. Hämta filen `google-services.json`.
+      1. Klicka på fliken **[!UICONTROL Cloud Messaging]**. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Tillhandahåll dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
    1. Konfigurera FCM-ändringar i Android App
       1. Växla till projektvyn i Android Studio för att visa projektets rotkatalog
-         1. Flytta den hämtade filen `google-services.json` till rotkatalogen för Android-programmodulen
-         1. På projektnivå `build.gradle` lägga till följande:
+         1. Flytta den hämtade `google-services.json`-filen till rotkatalogen för Android-appmodulen
+         1. Lägg till följande på projektnivå `build.gradle`:
 
             ```
             buildscript {
@@ -218,16 +218,16 @@ Android apputvecklare kan nu använda Google direkt [Firebase Cloud Messaging](h
 
 Vanliga frågor och svar om stöd för Firebase Cloud Messaging.
 
-**F: Var hittar jag instruktioner om att uppdatera till den senaste versionen av MME SDK?** Instruktioner finns på Marketo Developer Site [HÄR](installation.md).
+**F: Var hittar jag instruktioner om att uppdatera till den senaste versionen av MME SDK?** instruktioner finns på Marketo Developer Site [HERE](installation.md).
 
-**F: Måste jag publicera en uppdaterad version av mitt Android-program till mina befintliga användare om jag uppdaterar till den senaste versionen av SDK?** Nej.
+**F: Måste jag publicera en uppdaterad version av mitt Android-program till mina befintliga användare för att uppdatera till den senaste versionen av SDK?** Nej
 
 **F: Hur påverkar det befintliga MME-kunder som har publicerat Android-appar som är integrerade med Marketo Android SDK?** De kan migrera en befintlig GCM-klientapp på Android till Firebase Cloud Messaging (FCM) enligt följande:
 
-1. I [Firebase-konsol](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
-1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
-1. I Firebase-välkomstskärmen väljer du **[!UICONTROL Add Firebase to your Android App]**.
-1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny Google-services.json-fil för
+1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
+1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
+1. Välj **[!UICONTROL Add Firebase to your Android App]** på välkomstskärmen i Firebase.
+1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny Google-services.json-fil för
 1. Firebase-programmet har laddats ned.
 1. Välj **[!UICONTROL Continue]** och följ instruktionerna för hur du lägger till Google Services-pluginprogrammet i Android Studio.
 

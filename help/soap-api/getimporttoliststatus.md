@@ -1,20 +1,20 @@
 ---
-title: "getImportToListStatus"
+title: getImportToListStatus
 feature: SOAP
-description: "getImportToListStatus SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getImportToListStatus SOAP anrop
+exl-id: 17a62f65-dfa0-4f40-89b2-154f7734a2dc
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '76'
 ht-degree: 0%
 
 ---
 
-
 # getImportToListStatus
 
-Den här funktionen kontrollerar statusen för en viss `importToList` funktionsanrop.
+Den här funktionen kontrollerar statusen för ett specifikt `importToList`-funktionsanrop.
 
-Slutför `importToList` API-anrop först och avsökning sedan `getImportToListStatus` regelbundet. Avfråga inte `getImportToListStatus` mer än en gång per minut.
+Slutför API-anropet `importToList` först och avfråga sedan `getImportToListStatus` regelbundet. Avfråga inte `getImportToListStatus` mer än en gång per minut.
 
 ## Begäran
 

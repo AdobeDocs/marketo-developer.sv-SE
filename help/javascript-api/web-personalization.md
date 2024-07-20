@@ -1,20 +1,20 @@
 ---
-title: "Webbanpassning"
-description: "Webbanpassning"
+title: Web Personalization
+description: Web Personalization
 feature: Web Personalization, Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 0%
 
 ---
 
+# Web Personalization
 
-# Webbanpassning
+Personalization JavaScript API utökar plattformens automatiserade personaliseringsfunktion. Det gör det möjligt att spåra händelser och anpassa en webbsida dynamiskt. Ytterligare funktioner: [Anpassade datahändelser](custom-data-events.md), [dynamiskt innehåll](web-personalization.md), [Hämta besöksdata](get-visitor-data.md), [Uteslut tagg för specifika startsidor](#exclude_tag_for_specific_bots).
 
-JavaScript-API:t för webbpersonalisering utökar plattformens automatiserade personaliseringsfunktion. Det gör det möjligt att spåra händelser och anpassa en webbsida dynamiskt. Ytterligare funktioner: [Anpassade datahändelser](custom-data-events.md), [Dynamiskt innehåll](web-personalization.md), [Hämta besöksdata](get-visitor-data.md), [Exkludera tagg för specifika startpunkter](#exclude_tag_for_specific_bots).
-
-- Du måste bli webbkund och ha [RTP-taggen har distribuerats](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) på webbplatsen innan du använder API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Tagginställningar
@@ -71,9 +71,9 @@ rtp('send', 'view', page);
 
 ## Exkludera tagg för specifika startpunkter (användaragenter)
 
-Om du vill utesluta vissa webbläsare från att skicka data till webbpersonaliseringsplattformen (när det gäller identifierade botar) lägger du till följande IF-programsats i taggskriptet.
+Om du inte vill att vissa webbläsare ska kunna skicka data till Personalization-plattformen (för identifierade robotar) lägger du till följande IF-programsats i taggskriptet.
 
-I kodexemplet nedan används&quot;Googlebot|msnbot&quot; som båda exempel för att exkludera webbpersonaliseringsaktiviteter.
+I kodexemplet nedan används&quot;Googlebot|msnbot&quot; som båda exempel för att exkludera Personalization-aktiviteter från Web.
 
 ```javascript
 <!-- RTP tag --> 
@@ -91,9 +91,9 @@ if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
 <!-- End of RTP tag -->
 ```
 
-## JavaScript-anrop förklaras
+## JavaScript-samtal förklaras
 
-Beskrivning av JavaScript som läggs till på en webbplats när du använder webbpersonalisering och prediktivt innehåll.
+Beskrivning av JavaScript som läggs till på en webbplats när du använder Web Personalization och Predictive Content.
 
 ### Core/Dependent JavaScript
 
@@ -115,4 +115,3 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder web
 | insightera-bar-2.1.js | Används om rekommendationsfältet för prediktivt innehåll är aktiverat | Kontrolleras av Marketo |
 | froogaloop2.min.js | Används om innehållsspårning är aktiverat och Vimeo-spelaren finns på sidan | - |
 | iframe-api-v1.js | Används om innehållsspårning är aktiverat och YouTube-spelaren finns på sidan | - |
-

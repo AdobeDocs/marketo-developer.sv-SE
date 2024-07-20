@@ -12,17 +12,17 @@ ht-degree: 0%
 
 # SOAP API
 
-SOAP-API:t är inte längre under aktiv utveckling. Anropen fungerar fortfarande, men vår utveckling fokuserar på [REST](https://developer.adobe.com/marketo-apis/) gå framåt.
+SOAP-API:t är inte längre under aktiv utveckling. Anropen fungerar fortfarande, men vår utveckling fokuserar på att [REST](https://developer.adobe.com/marketo-apis/) ska gå framåt.
 
-Med Marketo SOAP API kan du skapa, hämta och ta bort enheter och data som lagras i Marketo. Du hittar [Marketo-SOAP-SDK](https://github.com/Marketo/SOAP-API-Java-Client) på GitHub. Det finns också [klientbibliotek](https://github.com/Marketo/Community-Supported-Client-Libraries) för att spara tid åt dig.
+Med Marketo SOAP API kan du skapa, hämta och ta bort enheter och data som lagras i Marketo. Du hittar [Marketo-SOAP-SDK](https://github.com/Marketo/SOAP-API-Java-Client) på GitHub. Det finns också [klientbibliotek](https://github.com/Marketo/Community-Supported-Client-Libraries) som du kan spara tid i.
 
 Senaste API-version: 3_1
 
 ## SOAP WSDL
 
-Hämta din SOAP API-slutpunkt från din dator för att hämta det SOAP WSDL-dokumentet **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** -menyn.
+Hämta SOAP API-slutpunkten från menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** om du vill hämta det SOAP WSDL-dokumentet.
 
-![SOAP](assets/endpoint-soap.png)
+![SOAP slutpunkt](assets/endpoint-soap.png)
 
 WSDL-URL:
 
@@ -40,10 +40,10 @@ Vi rekommenderar att gruppstorlekarna inte är större än 300. Större storleka
 
 ## SOAP API-inställningar i Marketo
 
-1. Gå till **[!UICONTROL Admin]** och klicka **[!UICONTROL Web Services]**.
+1. Gå till avsnittet **[!UICONTROL Admin]** och klicka på **[!UICONTROL Web Services]**.
 
 ![admin-web-services2](assets/admin-web-services2.png)
 
-1. Ange lämplig [!UICONTROL Encryption Key], klicka **[!UICONTROL Save Changes]** och använda SOAP API [!UICONTROL Endpoint], [!UICONTROL User ID]och [!UICONTROL Encryption Key] värden för att generera rätt [autentiseringssignatur](authentication-signature.md) för varje SOAP API-anrop.
+1. Ange ett lämpligt [!UICONTROL Encryption Key], klicka på **[!UICONTROL Save Changes]** och använd SOAP API [!UICONTROL Endpoint] -, [!UICONTROL User ID] - och [!UICONTROL Encryption Key] -värden för att generera rätt [autentiseringssignatur](authentication-signature.md) för varje SOAP API-anrop.
 
 ![admin-web-services3](assets/admin-web-services3.png)

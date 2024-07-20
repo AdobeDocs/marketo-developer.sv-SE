@@ -1,14 +1,14 @@
 ---
-title: "Lead Database"
+title: Lead-databas
 feature: REST API, Database
-description: "Hantera huvuddatabasen för lead."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Ändra huvuddatabasen för lead.
+exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1345'
 ht-degree: 0%
 
 ---
-
 
 # Lead-databas
 
@@ -32,7 +32,7 @@ De flesta av dessa objekt omfattar åtminstone metoderna Skapa, Läs, Uppdatera 
 
 ## API
 
-En fullständig lista över Lead Database-API-slutpunkter, inklusive parametrar och modelleringsinformation finns i [API-slutpunktsreferens för lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/).
+En fullständig lista över Lead Database API-slutpunkter, inklusive parametrar och modelleringsinformation finns i [API-slutpunktsreferens för lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft Dynamics eller Salesforce.com) är API:erna Company, Opportunity, Opportunity Role och Sales Person inaktiverade. Posterna hanteras via CRM när de är aktiverade och kan inte öppnas eller uppdateras via Marketo API:er.
 
@@ -44,7 +44,7 @@ För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft 
 
 ## Beskriv
 
-För Leads, Companies, Opportunity, Roles, SalesPeople och Custom Objects finns en beskrivning av API:t. Anrop till detta hämtar metadata för objektet och en lista över fält som är tillgängliga för uppdatering och fråga. Att beskriva är en viktig del i utformningen av en bra integrering med Marketo. Det innehåller omfattande metadata om hur objekt kan och inte kan interagera med dem samt om hur de kan skapas, uppdateras och frågas. Förutom Beskriv leads, returnerar vart och ett av dessa en lista med nycklar som är tillgängliga för `deduplication` i `dedupeFields` svarsparameter. En lista med fält är tillgänglig som nycklar för frågor i `searchableFields` svarsparameter.
+För Leads, Companies, Opportunity, Roles, SalesPeople och Custom Objects finns en beskrivning av API:t. Anrop till detta hämtar metadata för objektet och en lista över fält som är tillgängliga för uppdatering och fråga. Att beskriva är en viktig del i utformningen av en bra integrering med Marketo. Det innehåller omfattande metadata om hur objekt kan och inte kan interagera med dem samt om hur de kan skapas, uppdateras och frågas. Förutom Beskriv leads returnerar vart och ett av dessa en lista med nycklar som är tillgängliga för `deduplication` i svarsparametern `dedupeFields`. En lista med fält är tillgänglig som nycklar för frågor i svarsparametern `searchableFields`.
 
 ```
 GET /rest/v1/opportunities/roles/describe.json
@@ -128,9 +128,9 @@ GET /rest/v1/opportunities/roles/describe.json
 }
 ```
 
-I detta exempel `dedupeFields` är faktiskt en sammansatt nyckel. Detta innebär att i framtida uppdateringar och skapanden, när du använder `dedupeFields` måste du ta med alla tre `externalOpportunityId`, `leadId`och `role` för varje roll. The `searchableFields` finns även en lista med fält som är tillgängliga för frågor om rollposter. Detta inkluderar även den sammansatta nyckeln för `externalOpportunityId`, `leadId`och `role`.
+I det här exemplet är `dedupeFields` i själva verket en sammansatt nyckel. Det innebär att du i framtida uppdateringar och skapar, när du använder läget `dedupeFields`, måste inkludera alla tre av `externalOpportunityId`, `leadId` och `role` för varje roll. Arrayen `searchableFields` innehåller även en lista med fält som är tillgängliga för frågor om rollposter. Detta inkluderar även den sammansatta nyckeln för `externalOpportunityId`, `leadId` och `role`.
 
-Det finns också en fältsvarsparameter som anger namnet på varje fält, `displayName` som det visas i Marketo-gränssnittet, fälttypen, om den kan uppdateras efter att den har skapats och fältets längd om tillämpligt.
+Det finns också en fältsvarsparameter som ger namnet på varje fält, `displayName` som det visas i Marketo-gränssnittet, fältets datatyp, om det kan uppdateras efter att det har skapats och fältets längd om tillämpligt.
 
 ## Fråga
 
@@ -142,10 +142,10 @@ GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separat
 
 För alla objekt utom leads kan du välja {field to query} från sökbara fält i motsvarande describe-anrop och skapa en kommaseparerad lista på upp till 300 värden. Det finns även följande valfria frågeparametrar:
 
-- `batchSize` - Ett heltal som anger antalet resultat som ska returneras. Standard och Maximum är 300.
-- `nextPageToken` - Token returnerades från ett tidigare anrop för sidindelning. Se [Utskriftstoken](paging-tokens.md) för mer information.
+- `batchSize` - Ett heltal av antalet resultat som ska returneras. Standard och Maximum är 300.
+- `nextPageToken` - Token returnerades från ett tidigare anrop för sidindelning. Mer information finns i [Utskriftstoken](paging-tokens.md).
 - `fields` - En kommaavgränsad lista med fältnamn som ska returneras för varje post. Se motsvarande beskrivning för en lista över giltiga fält. Om ett visst fält begärs, men inte returneras, anges värdet som null.
-- `_method` - Används för att skicka frågor med POSTENS HTTP-metod. Se avsnittet _method=GET nedan för mer information.
+- `_method` - Används för att skicka frågor med HTTP-metoden POST. Se avsnittet _method=GET nedan för mer information.
 
 Låt oss titta på möjligheterna:
 
@@ -180,13 +180,13 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 }
 ```
 
-The `filterType` som anges i det här anropet är&quot;idField&quot; och inte&quot;marketoGUID&quot;. Detta och&quot;dedupliceraFields&quot; är båda speciella fall, där fältet som motsvarar idField, eller dedupliceraFields kan kantutjämnas på det här sättet. MarketoGUID är fortfarande det resulterande sökfältet i anropet, men det anges inte explicit i anropet. De fält och/eller uppsättningar av fält som anges av `idField` och `dedupeFields` för en objektbeskrivning är alltid giltig `filterTypes` för en fråga. Det här anropet söker efter poster som matchar de GUID som ingår i filterValues och returnerar alla matchande poster. Om inga poster hittas med den här metoden kommer svaret fortfarande att visa att åtgärden lyckades, men resultatarrayen kommer att vara tom eftersom sökningen lyckades, men det finns inga poster att returnera.
+`filterType` som anges i det här anropet är&quot;idField&quot; och inte&quot;marketoGUID&quot;. Detta och&quot;dedupliceraFields&quot; är båda speciella fall, där fältet som motsvarar idField, eller dedupliceraFields kan kantutjämnas på det här sättet. MarketoGUID är fortfarande det resulterande sökfältet i anropet, men det anges inte explicit i anropet. De fält och/eller uppsättningar av fält som anges av `idField` och `dedupeFields` för en objektbeskrivning är alltid giltiga `filterTypes` för en fråga. Det här anropet söker efter poster som matchar de GUID som ingår i filterValues och returnerar alla matchande poster. Om inga poster hittas med den här metoden kommer svaret fortfarande att visa att åtgärden lyckades, men resultatarrayen kommer att vara tom eftersom sökningen lyckades, men det finns inga poster att returnera.
 
-Om uppsättningen med poster i frågan överstiger 300 eller `batchSize` som har angetts, beroende på vilket som är minst, har svaret en medlem `moreResult` med värdet true, och `nextPageToken`, som kan inkluderas i ett efterföljande anrop för att hämta mer av uppsättningen. Se [Utskriftstoken](paging-tokens.md) för mer information.
+Om uppsättningen med poster i frågan överstiger 300 eller `batchSize` som har angetts, beroende på vilket som är minst, har svaret en medlem `moreResult` med värdet true och en `nextPageToken` som kan inkluderas i ett efterföljande anrop för att hämta mer av uppsättningen. Mer information finns i [Utskriftstoken](paging-tokens.md).
 
 ### Långa URI:er
 
-Ibland, t.ex. vid sökning med GUID, kan din URI vara lång och överskrida 8 kB som tillåts av REST-tjänsten. I det här fallet måste du använda metoden HTTP-POST i stället för GET och lägga till en frågeparameter `_method=GET`. Dessutom måste resten av frågeparametrarna skickas i POSTEN som en &quot;application/x-www-form-urlencoded&quot;-sträng, och den associerade Content-type-rubriken skickas.
+Ibland, t.ex. vid sökning med GUID, kan din URI vara lång och överskrida 8 kB som tillåts av REST-tjänsten. I det här fallet måste du använda metoden HTTP-POST i stället för GET och lägga till en frågeparameter, `_method=GET`. Dessutom måste resten av frågeparametrarna skickas i POSTEN som en &quot;application/x-www-form-urlencoded&quot;-sträng, och den associerade Content-type-rubriken skickas.
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -204,7 +204,7 @@ Förutom långa URI:er krävs den här parametern även när sammansatta nycklar
 
 ### Sammansatta tangenter
 
-Mönstret för att fråga efter sammansatta tangenter skiljer sig från enkla tangenter, eftersom en POST med JSON-brödtext måste skickas. Detta är inte nödvändigt i alla fall, endast i de fall där `dedupeFields` med flera fält används som `filterType`. För närvarande används sammansatta nycklar bara av säljprojektsroller och vissa anpassade objekt. Låt oss titta på ett exempel på en fråga om säljprojektsroller med den sammansatta nyckeln från `dedupeFields`:
+Mönstret för att fråga efter sammansatta tangenter skiljer sig från enkla tangenter, eftersom en POST med JSON-brödtext måste skickas. Detta är inte nödvändigt i alla fall, endast i de fall där ett `dedupeFields`-alternativ med flera fält används som `filterType`. För närvarande används sammansatta nycklar bara av säljprojektsroller och vissa anpassade objekt. Vi tittar på ett exempel på en fråga om säljprojektsroller med den sammansatta nyckeln från `dedupeFields`:
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
@@ -239,15 +239,15 @@ POST /rest/v1/opportunities/roles.json?_method=GET
 }
 ```
 
-Strukturen för JSON-objektet är oftast platt och alla frågeparametrar för frågor med enkla nycklar är giltiga medlemmar, förutom `filterValues`. I stället för ett filtervärde finns det en inmatningsarray med JSON-objekt, som var och en måste ha en medlem för vart och ett av fälten i den sammansatta nyckeln. I det här fallet är de `externalOpportunityId`, `leadId`och `role`. Detta kör en fråga för `roles`, mot angivna indata och returnera matchande resultat. Om svaret returnerar en parameter med `moreResult=true`och en `nextPageToken`måste du ta med alla ursprungliga indata och `nextPageToken` för att frågan ska köras korrekt.
+JSON-objektets struktur är oftast platt, och alla frågeparametrar för frågor med enkla nycklar är giltiga medlemmar, förutom `filterValues`. I stället för ett filtervärde finns det en inmatningsarray med JSON-objekt, som var och en måste ha en medlem för vart och ett av fälten i den sammansatta nyckeln. I det här fallet är de `externalOpportunityId`, `leadId` och `role`. Detta kör en fråga för `roles`, mot angivna indata och returnerar matchande resultat. Om svaret returnerar en parameter med `moreResult=true` och en `nextPageToken` måste du ta med alla ursprungliga indata och `nextPageToken` för att frågan ska köras korrekt.
 
 ## Skapa och uppdatera
 
 Skapar och uppdaterar lead-databasposter, som alla utförs via POST med JSON-kroppar. Gränssnittet för säljprojekt, roller, anpassade objekt, företag och säljare är detsamma. Leadens gränssnitt är lite annorlunda och du kan läsa mer om det där specifikt.
 
-Den enda obligatoriska parametern är en array som kallas `input` som innehåller upp till 300 objekt, var och en med de fält som du vill infoga/uppdatera som medlemmar. Du kan även inkludera en `action` parameter som kan vara någon av: `createOnly`, `updateOnly`, eller `createOrUpdate`. Om funktionsmakrot utelämnas blir läget som standard `createOrUpdate`. `dedupeBy` är en annan valfri parameter som kan användas när åtgärden är inställd på createOnly eller `createOrUpdate`. ` dedupeBy` kan vara antingen `idField`, eller `dedupeFields`. If `idField` är markerad och sedan `idField` som anges i beskrivningen används för borttagning av dubbletter och måste inkluderas i varje post. `idField` läget är inte kompatibelt med `createOnly` läge. If `dedupeFields` markeras och sedan `dedupeFields` som anges i objektbeskrivningen som används, och var och en måste inkluderas i varje post. Om `dedupeBy` parametern utelämnas, används läget som standard `dedupeFields`.
+Den enda obligatoriska parametern är en array med namnet `input` som innehåller upp till 300 objekt, var och en med de fält som du vill infoga/uppdatera som medlemmar. Du kan också inkludera en `action`-parameter som kan vara någon av: `createOnly`, `updateOnly` eller `createOrUpdate`. Om åtgärden utelämnas blir läget som standard `createOrUpdate`. `dedupeBy` är en annan valfri parameter som kan användas när åtgärden är inställd på createOnly eller `createOrUpdate`. ` dedupeBy` kan vara antingen `idField` eller `dedupeFields`. Om `idField` väljs används `idField` i beskrivningen för borttagning av dubbletter och måste inkluderas i varje post. Läget `idField` är inte kompatibelt med läget `createOnly`. Om `dedupeFields` väljs används `dedupeFields` i objektbeskrivningen och vart och ett måste inkluderas i varje post. Om parametern `dedupeBy` utelämnas blir läget som standard `dedupeFields`.
 
-När du skickar en lista med fältvärden är värdet `null`, eller en tom sträng, skrivs till databasen som `null`.
+När du skickar en lista med fältvärden skrivs värdet `null`, eller en tom sträng, till databasen som `null`.
 
 ```
 POST /rest/v1/opportunities.json
@@ -295,11 +295,11 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-Anrop till att skapa eller uppdatera lead-databasobjekt returnerar en `seq` fält i varje objekt i `result` array. Numret som visas motsvarar ordningen för den uppdaterade posten i begäran. Varje objekt returnerar värdet för `idField` för objekttypen och `status`. Statusfältet anger något av alternativen &quot;skapat&quot;, &quot;uppdaterat&quot; eller &quot;Överhoppat&quot;.  Om statusen hoppas över finns det också en motsvarande &quot;reasons&quot;-array med ett eller flera orsaksobjekt som innehåller en kod och ett meddelande som anger varför en post hoppades över. Se [felkoder](error-codes.md) om du vill ha mer information.
+Anrop om att skapa eller uppdatera lead-databasobjekt returnerar, förutom lead-API:t, ett `seq`-fält i varje objekt i `result`-arrayen. Numret som visas motsvarar ordningen för den uppdaterade posten i begäran. Varje objekt returnerar värdet för `idField` för objekttypen och ett `status`. Statusfältet anger något av alternativen &quot;skapat&quot;, &quot;uppdaterat&quot; eller &quot;Överhoppat&quot;.  Om statusen hoppas över finns det också en motsvarande &quot;reasons&quot;-array med ett eller flera orsaksobjekt som innehåller en kod och ett meddelande som anger varför en post hoppades över. Mer information finns i [felkoder](error-codes.md).
 
 ### Ta bort
 
-Gränssnittet för borttagningar är standard för Lead Database-objekt, förutom leads. Förutom indata finns det bara en obligatorisk parameter `deleteBy,` som kan ha värdet idField eller dedupeFields. Låt oss titta på hur du tar bort några anpassade objekt.
+Gränssnittet för borttagningar är standard för Lead Database-objekt, förutom leads. Förutom indata finns det bara en obligatorisk parameter, `deleteBy,`, som kan ha värdet idField eller dedupeFields. Låt oss titta på hur du tar bort några anpassade objekt.
 
 ```
 POST /rest/v1/customobjects/{name}/delete.json
@@ -351,6 +351,6 @@ POST /rest/v1/customobjects/{name}/delete.json
 }
 ```
 
-The `seq`, `status`, `marketoGUID`och `reasons` borde alla vara bekanta för dig vid det här laget.
+`seq`, `status`, `marketoGUID` och `reasons` bör vara bekanta för dig vid det här laget.
 
 Mer information om hur du arbetar med CRUD-åtgärder för varje enskild objekttyp finns på respektive sidor.

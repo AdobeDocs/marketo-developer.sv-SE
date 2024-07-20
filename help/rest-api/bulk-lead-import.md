@@ -1,18 +1,18 @@
 ---
-title: "Importera massutskick"
+title: Import av massutr
 feature: REST API
-description: "Batchimport av lead-data."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Batchimport av lead-data.
+exl-id: 615f158b-35f9-425a-b568-0a7041262504
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '803'
 ht-degree: 0%
 
 ---
 
-
 # Import av massutr
 
-[Slutpunktsreferens för bulkimport](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Slutpunktsreferens för masslead-import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
 För stora mängder lead-poster kan leads importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
@@ -29,9 +29,9 @@ email,firstName,lastName
 test@example.com,John,Doe
 ```
 
-The `externalCompanyId` kan användas för att länka lead-posten till en företagspost. The `externalSalesPersonId` fält kan användas för att länka lead-posten till en säljpersonspost.
+Fältet `externalCompanyId` kan användas för att länka lead-posten till en företagspost. Fältet `externalSalesPersonId` kan användas för att länka lead-posten till en säljpersonspost.
 
-Själva anropet görs med `multipart/form-data` innehållstyp.
+Själva anropet görs med innehållstypen `multipart/form-data`.
 
 Den här typen av begäran kan vara svår att implementera, så vi rekommenderar att du använder en befintlig biblioteksimplementering.
 
@@ -90,7 +90,7 @@ Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
 ```
 
-Du kan även inkludera `lookupField`, `listId`och `partitionName` parametrar i din begäran. `lookupField` Med kan du markera ett specifikt fält som du vill deduplicera, precis som med Synkronisera leads, och som standard med e-post. Du kan ange `id` as `lookupField` för att ange en åtgärd som endast uppdaterar. `listId` gör att du kan välja en statisk lista att importera listan med leads till. Detta gör att leads i listan blir medlemmar i den statiska listan, förutom eventuella skapelser eller uppdateringar som orsakas av importen. `partitionName` väljer en specifik partition att importera till. Mer information finns i avsnittet Arbetsytor och partitioner.
+Du kan även inkludera parametrarna `lookupField`, `listId` och `partitionName` i din begäran. Med `lookupField` kan du markera ett specifikt fält som du vill deduplicera, precis som med Synkronisera leads, och som standard med e-post. Du kan ange `id` som `lookupField` om du vill ange en åtgärd som endast uppdaterar. Med `listId` kan du välja en statisk lista att importera listan med leads till. Detta leder till att leads i listan blir medlemmar i den statiska listan, utöver eventuella skapelser eller uppdateringar som orsakas av importen. `partitionName` väljer en specifik partition att importera till. Mer information finns i avsnittet Arbetsytor och partitioner.
 
 Observera i svaret på vårt anrop att det inte finns en lista över lyckade eller misslyckade åtgärder som Sync Leads, utan ett batchId och ett statusfält för posten i resultatarrayen. Detta beror på att detta API är asynkront och kan returnera statusen Köat, Importerat eller Misslyckat. Du måste behålla batchId för att få status för importjobbet och för att kunna hämta fel och/eller varningar när det är klart. batchId är giltigt i sju dagar.
 

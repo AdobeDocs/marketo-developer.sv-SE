@@ -1,39 +1,39 @@
 ---
-title: "getMObjects"
+title: getMObjects
 feature: SOAP
-description: "getMObjects SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getMObjects SOAP anrop
+exl-id: 5cf18161-f590-4dc3-bba1-ee3ed9fd7e9f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
 
 ---
 
-
 # getMObjects
 
-Hämtar en eller flera [MObjects](marketo-objects.md) med en kombination av kriterier som består av
+Hämtar ett eller flera [MObjects](marketo-objects.md) med en kombination av villkor som består av:
 
 - Noll eller ett unikt ID, antingen Marketo-ID eller externt ID
 - Noll eller fler attributfilter som namn/värde/jämförelsetester
 - Noll eller fler associerade objektfilter som objektnamn/ID-par
 
-Returnerar en lista med matchande MObjects, alla av en typ, upp till 100 i en grupp och en [dataströmposition](stream-position.md) token för att hämta efterföljande batchar.
+Returnerar en lista med matchande MObjects, alla av en enda typ, upp till 100 i en batch och en [strömposition](stream-position.md)-token för att hämta efterföljande batchar.
 
 ## Begäran
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| type | Obligatoriskt | Den objekttyp som du vill fråga. Kan vara något av följande: `Opportunity`, `OpportunityPersonRole`, eller `Program` |
+| type | Obligatoriskt | Den objekttyp som du vill fråga. Kan vara något av följande: `Opportunity`, `OpportunityPersonRole` eller `Program` |
 | id | Valfritt | ID för MObject |
 | includeDetails | Valfritt | När true returneras alla attribut för ett givet MObject. Den här parametern gäller endast när den används med MObjects-program |
-| mObjCriteriaList->mObjCriteria->attrName | Valfritt | En eller flera av följande indataparametrar kan användas:`Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` eller `Tag Type` (endast en kan anges), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
+| mObjCriteriaList->mObjCriteria->attrName | Valfritt | En eller flera av följande indataparametrar kan användas: `Name`, `Role`, `Type`, `Stage`, `CRM Id`, `Created At`, `Updated At` eller `Tag Type` (endast en kan anges), `Tag Value`, `Workspace Name`, `Workspace Id`, `Include Archive` |
 | mObjCriteriaList->mObjCriteria->attrValue | Valfritt | Värdet som du vill använda för filtrering |
-| mObjCriteriaList->mObjCriteria->comparison | Valfritt | En av `EQ`, `NE`, `LT` ,`LE`, `GT`, `GE` |
+| mObjCriteriaList->mObjCriteria->comparison | Valfritt | En av `EQ`, `NE`, `LT`,`LE`, `GT`, `GE` |
 | mObjAssociationList->mObjAssociation->mObjType | Valfritt |  |
 | mObjAssociationList->mObjAssociation->id | Valfritt | ID för det associerade objektet (Lead/Company/Opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Valfritt | Ett anpassat attribut för det associerade objektet |
-| streamPosition | Valfritt | Används för att numrera genom flera resultatuppsättningar. Det skickade värdet är det värde som returnerades av föregående `getMObjects` ring. |
+| streamPosition | Valfritt | Används för att numrera genom flera resultatuppsättningar. Det skickade värdet är det värde som returnerades av det föregående `getMObjects`-anropet. |
 
 ## Begär XML
 

@@ -16,7 +16,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## Förutsättningar
 
-[Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID).
+[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 
 ## SDK-integrering
 
@@ -24,7 +24,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 **Konfigurera med Gradle**
 
-Lägg till Marketo SDK-beroendet med den senaste versionen: På programnivå `build.gradle` -fil, under avsnittet Beroenden, lägga till (inklusive lämplig version av Marketo SDK)
+Lägg till Marketo SDK-beroendet med den senaste versionen: Lägg till (inklusive lämplig version av Marketo SDK) i filen på programnivå `build.gradle` under avsnittet Beroenden
 
 ```
 implementation 'com.marketo:MarketoSDK:0.x.x'
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **Lägg till mavencentral-databas**
 
-Marketo SDK finns på [maven central databas](https://mvnrepository.com/). Om du vill synkronisera de filerna lägger du till `mavencentral` databas till rot `build.gradle`
+Marketo SDK är tillgängligt på [maven central databas](https://mvnrepository.com/). Om du vill synkronisera dessa filer lägger du till databasen `mavencentral` i roten `build.gradle`
 
 ```
 build script {
@@ -49,11 +49,11 @@ Synka sedan projektet med grå filer.
 
 Innan du skapar en bro för ditt React Native-projekt är det viktigt att du ställer in SDK i Xcode-projektet.
 
-**SDK-integrering - Använda CocoaPods**
+**SDK-integrering - Använder CocoaPods**
 
 Det är enkelt att använda iOS SDK i appen. Utför följande steg för att konfigurera den i appens Xcode-projekt med CocoaPods, så att du kan integrera vår plattform med appen.
 
-Ladda ned [CocoaPods](https://cocoapods.org/) - Distribueras som Ruby Gem och är en beroendehanterare för Objective-C och Swift som förenklar processen att använda tredjepartsbibliotek i koden, till exempel iOS SDK.
+Hämta [CocoaPods](https://cocoapods.org/) - Distribueras som en Ruby Gem, det är en beroendehanterare för Objective-C och Swift som förenklar processen att använda tredjepartsbibliotek i koden, till exempel iOS SDK.
 
 Om du vill hämta och installera programmet startar du en kommandoradsterminal på din Mac och kör följande kommando på den:
 
@@ -81,9 +81,9 @@ Om du vill hämta och installera programmet startar du en kommandoradsterminal p
 
 ## Installationsanvisningar för inbyggd modul
 
-Ibland behöver en React Native-app ha åtkomst till ett API för en inbyggd plattform som inte är tillgängligt som standard i JavaScript, till exempel de inbyggda API:erna för åtkomst till Apple eller Google Pay. Du kanske vill återanvända vissa befintliga Objective-C-, Swift-, Java- eller C++-bibliotek utan att behöva implementera om dem i JavaScript, eller skriva högpresterande, flertrådig kod för exempelvis bildbearbetning.
+Ibland behöver en React Native-app ha åtkomst till ett API för en intern plattform som inte är tillgängligt som standard i JavaScript, till exempel de inbyggda API:erna för åtkomst till Apple eller Google Pay. Du kanske vill återanvända vissa befintliga Objective-C-, Swift-, Java- eller C++-bibliotek utan att behöva implementera om dem i JavaScript, eller skriva högpresterande, flertrådig kod för exempelvis bildbearbetning.
 
-NativeModule-systemet exponerar instanser av Java/Objective-C/C++ (native)-klasser för JavaScript (JS) som JS-objekt, vilket gör att du kan köra godtycklig ursprunglig kod inifrån JS. Även om vi inte förväntar oss att den här funktionen ska ingå i den vanliga utvecklingsprocessen är det viktigt att den finns. Om React Native inte exporterar ett systemspecifikt API som JS-appen behöver, bör du kunna exportera det själv!
+NativeModule-systemet exponerar instanser av Java/Objective-C/C++ (native)-klasser för JavaScript (JS) som JS-objekt, vilket gör att du kan köra godtycklig systemspecifik kod inifrån JS. Även om vi inte förväntar oss att den här funktionen ska ingå i den vanliga utvecklingsprocessen är det viktigt att den finns. Om React Native inte exporterar ett systemspecifikt API som JS-appen behöver, bör du kunna exportera det själv!
 
 React Native bridge används för kommunikation mellan JSX-lagren och inbyggda applager. I vårt fall kan värdappen skriva JSX-koden som kan anropa Marketo SDK:s metoder.
 
@@ -224,7 +224,7 @@ public class MainApplication extends Application implements ReactApplication {
 
 ### iOS
 
-I följande guide skapar du en systemspecifik modul: _RNMarketoModule_, som ger dig tillgång till Marketo API:er från JavaScript.
+I följande guide skapar du en intern modul, _RNMarketoModule_, som gör att du kan komma åt Marketo API:er från JavaScript.
 
 Kom igång genom att öppna iOS-projektet i ditt React Native-program i Xcode. Du hittar ditt iOS-projekt här inifrån en React Native-app. Vi rekommenderar att du använder Xcode för att skriva din egen kod. Xcode är skapat för iOS-utveckling och med det kan du snabbt åtgärda mindre fel som kodsyntax.
 
@@ -401,7 +401,7 @@ Lägg till följande tjänst i `AndroidManifest.xml`
 </activity/>
 ```
 
-Skapa en klass med ett namn `FirebaseMessagingService.java` och lägg till följande kod
+Skapa en klass med namnet `FirebaseMessagingService.java` och lägg till följande kod
 
 ```java
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -427,15 +427,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 Behörigheter måste vara aktiverade i Xcode-projektet för att skicka push-meddelanden till användarens enhet.
 
-Skicka push-meddelanden [lägg till push-meddelanden](push-notifications.md).
+Om du vill skicka push-meddelanden [lägger du till push-meddelanden](push-notifications.md).
 
-Nu i `AppDelegate.m` i XCode, importera Marketo
+Importera Marketo nu i din `AppDelegate.m`-fil i XCode
 
 ```
 #import <MarketoFramework/MarketoFramework.h> 
 ```
 
-Lägg till `UNUserNotificationCenterDelegate` till AppDelegate-gränssnittet enligt följande för att hantera delegater
+Lägg till `UNUserNotificationCenterDelegate` i AppDelegate-gränssnittet enligt följande för att hantera delegater
 
 ```
 @interface AppDelegate () <UNUserNotificationCenterDelegate>
@@ -443,7 +443,7 @@ Lägg till `UNUserNotificationCenterDelegate` till AppDelegate-gränssnittet enl
 @end
 ```
 
-Registrera dig för fjärrmeddelanden i `didFinishLaunchingWithOptions` -metod.
+Registrera dig för fjärrmeddelanden i metoden `didFinishLaunchingWithOptions`.
 
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -485,7 +485,7 @@ Registrera dig för fjärrmeddelanden i `didFinishLaunchingWithOptions` -metod.
 }
 ```
 
-Inkludera följande `UNUserNotificationCenter` delegera obligatoriska meddelandedelegeringsmetoder.
+Inkludera följande `UNUserNotificationCenter` delegatmetoder som krävs för att delegera meddelanden.
 
 ```
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
@@ -516,7 +516,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 
 **Android**
 
-Lägg till MarketoActivity i `AndroidManifest.xml` -fil inuti programtagg.
+Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 ```xml
 <activity android:name="com.marketo.MarketoActivity" android:configChanges="orientation|screenSize" android:exported="true">
@@ -537,7 +537,7 @@ Lägg till MarketoActivity i `AndroidManifest.xml` -fil inuti programtagg.
 
 1. Ange URL-scheman: `mkto-<S_ecret Key_>`
 
-1. Inkludera `application:openURL:sourceApplication:annotation:` till `AppDelegate.m` fil (mål-C)
+1. Inkludera `application:openURL:sourceApplication:annotation:` i filen `AppDelegate.m` (mål-C)
 
 **iOS - Hantera anpassad URL-typ/anpassade URL-länkar i AppDelegate** 
 

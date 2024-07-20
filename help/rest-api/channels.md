@@ -1,20 +1,20 @@
 ---
-title: "Kanaler"
+title: Kanaler
 feature: REST API
-description: "Konfigurera kanaldata med Marketo API:er."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Konfigurera kanaldata med Marketo API:er.
+exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '125'
 ht-degree: 0%
 
 ---
 
-
 # Kanaler
 
 [Referens för kanalslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
 
-Kanaler är ett standardfält och obligatoriskt fält för alla programtyper. Varje kanaltyp kan bara användas med den angivna `applicableProgramType` och innehåller en lista över tillgängliga programstatusar som är giltiga för programmedlemmar i varje program. Om en kanals programstatus ändras efter att ett program har skapats, kommer listan över programstatusvärden som en lead kan ändras till att matcha den lista som kanalen angav vid den tidpunkten, men den kommer inte att ändra programstatus retroaktivt för befintliga poster för programmedlemskap.
+Kanaler är ett standardfält och obligatoriskt fält för alla programtyper. Varje kanaltyp kan bara användas med angiven `applicableProgramType` och innehåller en lista över tillgängliga programstatusvärden som är giltiga för programmedlemmar i varje program. Om en kanals programstatus ändras efter att ett program har skapats, kommer listan över programstatusvärden som en lead kan ändras till att matcha den lista som kanalen angav vid den tidpunkten, men den kommer inte att ändra programstatus retroaktivt för befintliga poster för programmedlemskap.
 
 ## Fråga
 

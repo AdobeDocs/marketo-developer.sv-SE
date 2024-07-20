@@ -1,20 +1,20 @@
 ---
-title: "Importera anpassat objekt gruppvis"
+title: Importera anpassat objekt gruppvis
 feature: Custom Objects
-description: "Batchimport av anpassade objekt."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Batchimport av anpassade objekt.
+exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '855'
 ht-degree: 0%
 
 ---
 
-
 # Importera anpassat objekt gruppvis
 
 [Slutpunktsreferens för gruppanpassad objektimport](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects)
 
-När du har många anpassade objektposter att importera är det bäst att importera dem asynkront med hjälp av bulk-API:t. Det gör du genom att importera en platt fil som innehåller avgränsade poster (komma, tabb eller semikolon). Filen kan innehålla valfritt antal poster, förutsatt att storleken är mindre än 10 MB (annars returneras en HTTP 413-statuskod). Innehållet i filen beror på din anpassade objektdefinition. Den första raden innehåller alltid en rubrik som visar de fält som värdena för varje rad ska mappas till. Alla fältnamn i huvudet måste matcha ett API-namn (vilket beskrivs nedan). Resterande rader innehåller de data som ska importeras, en post per rad. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
+När du har många anpassade objektposter till  import är det bäst att importera dem asynkront med hjälp av bulk-API:t. Det gör du genom att importera en platt fil som innehåller avgränsade poster (komma, tabb eller semikolon). Filen kan innehålla valfritt antal poster, förutsatt att storleken är mindre än 10 MB (annars en HTTP  413-statuskod returneras). Innehållet i filen beror på din anpassade objektdefinition. Den första raden innehåller alltid en rubrik som visar de fält som värdena för varje rad ska mappas till. Alla fältnamn i huvudet måste matcha ett API-namn (vilket beskrivs nedan). Resterande rader innehåller de data som ska importeras, en post per rad. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
 ## Bearbetningsgränser
 
@@ -22,7 +22,7 @@ Du får skicka in mer än en bulkimportbegäran inom gränsen. Varje begäran l�
 
 ## Exempel på anpassat objekt
 
-Innan du använder satsgränssnittet måste du använda användargränssnittet för Marketo Admin för att [skapa ett anpassat objekt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
+Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
 
 ![Infoga anpassat objekt](assets/bulk-insert-co-car-1.png)
 
@@ -32,7 +32,7 @@ Här är de anpassade objektfälten som visas i administratörsgränssnittet.
 
 ### API-namn
 
-Du kan hämta API-namn via programmering genom att skicka det anpassade objektets API-namn till [Beskriv anpassat objekt](#describe) slutpunkt.
+Du kan hämta API-namn programmatiskt genom att skicka det anpassade objektets API-namn till slutpunkten [Beskriv anpassat objekt](#describe).
 
 ```
 /rest/v1/customobjects/{apiName}/describe.json
@@ -130,7 +130,7 @@ Rad 1 är rubriken, och raderna 2-4 är de anpassade objektdataposterna.
 
 ## Skapa ett jobb
 
-Om du vill göra en begäran om massimport måste du inkludera det anpassade objektets API-namn i sökvägen till [Importera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST) slutpunkt. Du måste också inkludera en file-parameter som refererar till namnet på importfilen och en format-parameter som anger hur importfilen avgränsas (&quot;csv&quot;, &quot;tsv&quot; eller &quot;ssv&quot;).
+Om du vill göra en begäran om massimport måste du inkludera det anpassade objektets API-namn i sökvägen till slutpunkten [Importera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST). Du måste också inkludera en file-parameter som refererar till namnet på importfilen och en format-parameter som anger hur importfilen avgränsas (&quot;csv&quot;, &quot;tsv&quot; eller &quot;ssv&quot;).
 
 ```
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
@@ -171,7 +171,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 I det här exemplet angav vi formatet&quot;csv&quot; och gav importfilen namnet&quot;custom_object_import.csv&quot;.
 
-Observera i svaret på vårt anrop att det inte finns någon lista över lyckade eller misslyckade åtgärder, som när du kom tillbaka från slutpunkten Synkronisera anpassade objekt. I stället får du en `batchId`. Detta beror på att anropet är asynkront och kan returnera en `status` av&quot;Köad&quot;,&quot;Importerar&quot; eller&quot;Misslyckades&quot;. Du bör behålla batchId så att du kan hämta status för importjobbet eller hämta fel och/eller varningar när det är klart. batchId är giltigt i sju dagar.
+Observera i svaret på vårt anrop att det inte finns någon lista över lyckade eller misslyckade åtgärder, som när du kom tillbaka från slutpunkten Synkronisera anpassade objekt. Du får i stället en `batchId`. Detta beror på att anropet är asynkront och kan returnera `status` av &quot;Köad&quot;, &quot;Importerar&quot; eller &quot;Misslyckades&quot;. Du bör behålla batchId så att du kan hämta status för importjobbet eller hämta fel och/eller varningar när det är klart. batchId är giltigt i sju dagar.
 
 Ett enkelt sätt att replikera begäran om bulkimport är att använda url från kommandoraden:
 
@@ -190,7 +190,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 ## Avsökningsjobbstatus
 
-När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka API-namnet för det anpassade objektet och `batchId` i sökvägen till [Hämta status för anpassat objekt för import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) slutpunkt.
+När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka API-namnet för det anpassade objektet och `batchId` i sökvägen till slutpunkten [Hämta anpassad objektstatus](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) .
 
 ```
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
@@ -216,11 +216,11 @@ GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 }
 ```
 
-Det här svaret visar en slutförd import, men `status` kan vara något av: Slutförd, Köad, Importerad, Misslyckad. Om jobbet har slutförts finns en lista med antalet rader som har bearbetats, fel och varningar. Meddelandeattributet är också en bra plats att söka efter ytterligare jobbinformation på.
+Det här svaret visar en slutförd import, men `status` kan vara något av: Fullständigt, Köat, Importerar, Misslyckades. Om jobbet har slutförts finns en lista med antalet rader som har bearbetats, fel och varningar. Meddelandeattributet är också en bra plats att söka efter ytterligare jobbinformation på.
 
 ## Fel
 
-Fel anges av `numOfRowsFailed` attribute in [Hämta status för anpassat objekt för import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) svar. Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod. Utlysning [Fel vid import av anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) slutpunkt för att hämta en fil med felinformation. Även här måste du skicka det anpassade objektets API-namn och `batchId` i banan. Om det inte finns någon felfil returneras en HTTP 404-statuskod.
+Fel indikeras av attributet `numOfRowsFailed` i svaret [Hämta status för anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET). Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod. Anropa slutpunkten [Hämta anpassade objektfel](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectFailuresUsingGET) för att hämta en fil med felinformation. Även här måste du skicka det anpassade objekt-API:t och `batchId` i sökvägen. Om det inte finns någon felfil returneras en HTTP 404-statuskod.
 
 Som fortsättning på exemplet kan vi tvinga fram ett misslyckande genom att ändra rubriken och ändra &quot;vin&quot; till &quot; vin&quot; (genom att lägga till ett blanksteg mellan kommatecknet och &quot;vin&quot;).
 
@@ -267,11 +267,11 @@ yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
 blue,bmw,325i,WBS3U9C52HP970604,missing.dedupe.fields
 ```
 
-Och vi ser att vi missar vårt dedupliceringsfält `vin`.
+Vi ser att vi saknar dedupliceringsfältet `vin`.
 
 ## Varningar
 
-Varningar indikeras av `numOfRowsWithWarning` i Get Import Custom Object Status response. Om numOfRowsWithWarning är större än noll visar det värdet antalet varningar som inträffade. Utlysning [Hämta varningar för anpassade objekt vid import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) slutpunkt för att få en fil med varningsinformation. Även här måste du skicka det anpassade objektets API-namn och `batchId` i banan. Om det inte finns någon varningsfil returneras en HTTP 404-statuskod.
+Varningar indikeras av attributet `numOfRowsWithWarning` i svaret Hämta status för anpassat objekt. Om numOfRowsWithWarning är större än noll visar det värdet antalet varningar som inträffade. Anropa slutpunkten [Hämta importvarningar för anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) om du vill hämta en fil med varningsdetaljer. Även här måste du skicka det anpassade objekt-API:t och `batchId` i sökvägen. Om det inte finns någon varningsfil returneras en HTTP 404-statuskod.
 
 ```
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json

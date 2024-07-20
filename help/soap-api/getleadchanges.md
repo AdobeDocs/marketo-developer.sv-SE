@@ -1,20 +1,20 @@
 ---
-title: "getLeadChanges"
+title: getLeadChanges
 feature: SOAP
-description: "getLeadChanges SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLeadChanges SOAP anrop
+exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '402'
 ht-degree: 0%
 
 ---
 
-
 # getLeadChanges
 
-Detta API är som `getLeadActivity` förutom att den arbetar på flera leads samtidigt. Åtgärden söker efter nya leads som har skapats, uppdateringar av lead-fält och andra aktiviteter.
+Detta API är som `getLeadActivity` förutom att det fungerar på flera leads samtidigt. Åtgärden söker efter nya leads som har skapats, uppdateringar av lead-fält och andra aktiviteter.
 
-Resultatet innehåller aktiviteter som orsakade ändringen tillsammans med en [dataströmposition](stream-position.md) för att numrera genom stora resultatuppsättningar.
+Resultatet innehåller aktiviteter som orsakade ändringen tillsammans med en [strömposition](stream-position.md) att sidnumrera genom stora resultatuppsättningar.
 
 Du måste inkludera en indataparameter som identifierar vilka aktivitetsfilter du vill returnera i resultatet. Om du vill ha alla aktiviteter kan ett tomt värde skickas. För mer än ett aktivitetsfilter anger du en lista med aktivitetsfilter.
 
@@ -22,24 +22,24 @@ Exempel på aktivitetstyper är: &#39;Besök webbsida&#39;, &#39;Fyll i formulä
 
 Efter SOAP API version 2_2 kan du inkludera en `leadSelector`.
 
-För `LastUpdateAtSelector`, `oldestUpdatedAt` värdet motsvarar `oldestCreatedAt` värdet i `startPosition`. Och `latestUpdatedAt` värdet motsvarar `latestCreatedAt` värdet i `startPosition`.
+För `LastUpdateAtSelector` skulle värdet `oldestUpdatedAt` motsvara värdet `oldestCreatedAt` i `startPosition`. Värdet `latestUpdatedAt` motsvarar värdet `latestCreatedAt` i `startPosition`.
 
-Obs! Begränsningen för antalet leads som stöds i en `LeadKeySelector` är hundra. Om antalet leads överstiger 100 genereras ett felaktigt parameterundantag och ett SOAP-fel returneras.
+Obs! Det maximala antalet leads som stöds i en `LeadKeySelector` är 100. Om antalet leads överstiger 100 genereras ett felaktigt parameterundantag och ett SOAP returneras.
 
 ## Begäran
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| activityFilter->includeAttributes->activityType | Valfri (utgått) användning `activityNameFilter` i stället | Begränsar svaret till att endast inkludera de aktivitetstyper som anges. Se WSDL för alla aktivitetstyper. |
-| activityFilter->excludeAttributes->activityType | Valfritt | Begränsar svaret till att exkludera de angivna aktivitetstyperna. Se WSDL för alla aktivitetstyper. Obs! Du kan inte ange båda `includeAttributes` och `excludeAttributes` inom samma samtal. |
+| activityFilter->includeAttributes->activityType | Valfri (inaktuell) Använd `activityNameFilter` i stället | Begränsar svaret till att endast inkludera de aktivitetstyper som anges. Se WSDL för alla aktivitetstyper. |
+| activityFilter->excludeAttributes->activityType | Valfritt | Begränsar svaret till att exkludera de angivna aktivitetstyperna. Se WSDL för alla aktivitetstyper. Obs! Du kan inte ange både `includeAttributes` och `excludeAttributes` inom samma anrop. |
 | activityNameFilter | Valfritt | Begränsar svaret till att endast inkludera de angivna aktivitetsfiltren. |
-| batchSize | Valfritt | Maximalt antal poster som ska returneras. Endast 1 000 eller `batchSize`, beroende på vilket som är lägst. |
+| batchSize | Valfritt | Maximalt antal poster som ska returneras. Systemet är begränsat till 1 000 eller `batchSize`, beroende på vilket som är lägst. |
 | startPosition | Obligatoriskt | Används för att paginera genom ett stort antal aktivitetssvar. |
 | startPosition->offset | Valfritt | Förskjutningsvärdet returneras av föregående anrop till svarsfältet newStartPosition->offset. |
-| startPosition->äldstCreatedAt | Valfritt | Den tidsstämpel som används för att filtrera resultat så att endast leads som skapats sedan den äldsta CreatedAt inkluderas. Obs! Du kan använda `LastUpdateAtSelector->oldestUpdatedAt` tidsstämpel att ange `oldestCreatedAt`. |
-| startPosition->aktivitetCreatedAt | Valfritt | Den tidsstämpel som används för att filtrera resultat så att endast leads med aktivitet sedan activityCreatedAt inkluderas. Obs! Du kan använda `LastUpdateAtSelector->latestUpdatedAt` tidsstämpel att ange `activityCreatedAt`. |
-| leadSelector | Valfritt | Kan vara någon av följande tre typer: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
-| LeadKeySelector: leadSelector->keyType | Obligatoriskt | ID-typen som du vill fråga. Värdena inkluderar `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
+| startPosition->äldstCreatedAt | Valfritt | Den tidsstämpel som används för att filtrera resultat så att endast leads som skapats sedan den äldsta CreatedAt inkluderas. Obs! Du kan använda tidsstämpeln `LastUpdateAtSelector->oldestUpdatedAt` för att ange `oldestCreatedAt`. |
+| startPosition->aktivitetCreatedAt | Valfritt | Den tidsstämpel som används för att filtrera resultat så att endast leads med aktivitet sedan activityCreatedAt inkluderas. Obs! Du kan använda tidsstämpeln `LastUpdateAtSelector->latestUpdatedAt` för att ange `activityCreatedAt`. |
+| leadSelector | Valfritt | Kan vara någon av följande 3 typer: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
+| LeadKeySelector: leadSelector->keyType | Obligatoriskt | ID-typen som du vill fråga. Värdena är `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
 | LeadKeySelector: leadSelector->keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga&quot;lead@email.com&quot; |
 | StaticListSelector: leadSelector->staticListName | Valfritt när `leadSelector->staticListId` finns | Namnet på den statiska listan |
 | StaticListSelector: leadSelector->staticListId | Valfritt när `leadSelector->staticListName` finns | ID för den statiska listan |

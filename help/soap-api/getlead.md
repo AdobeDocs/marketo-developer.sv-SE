@@ -1,14 +1,14 @@
 ---
-title: "getLead"
+title: getLead
 feature: SOAP
-description: "getLead SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getLead SOAP anrop
+exl-id: 1a3eab26-7994-455d-bc7a-80e43e6ef4a7
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '127'
 ht-degree: 0%
 
 ---
-
 
 # getLead
 
@@ -20,7 +20,7 @@ Obs! Leadattribut som är av strängdatatyp och tomma returneras inte som en del
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| leadKey->keyType | Obligatoriskt | keyType gör att du kan ange fältet som du vill fråga lead efter. Möjliga värden är:`IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadKey->keyType | Obligatoriskt | keyType gör att du kan ange fältet som du vill fråga lead efter. Möjliga värden är: `IDNUM`, `COOKIE`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
 | leadKey->keyValue | Obligatoriskt | keyValue är det värde som du vill fråga lead efter. |
 
 ## Begär XML

@@ -1,14 +1,14 @@
 ---
-title: "Marketo Objects"
+title: Marketo Objects
 feature: SOAP
-description: "Marketo Objects overview"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Marketo Objects - översikt
+exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
 
 ---
-
 
 # Marketo Objects
 

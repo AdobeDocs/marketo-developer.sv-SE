@@ -1,18 +1,18 @@
 ---
-title: "Leads"
+title: Leads
 feature: SOAP
-description: "Leads SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Leads SOAP samtal
+exl-id: 412fa16c-bd6e-4344-83ed-33dd5381fda4
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '21'
 ht-degree: 0%
 
 ---
 
-
 # Leads
 
-Följande SOAP-anrop kan användas för att interagera med leads.
+Följande SOAP kan användas för att interagera med leads.
 
 - [getLead](getlead.md)
 - [getMultipleLeads](getmultipleleads.md)

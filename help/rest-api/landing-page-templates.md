@@ -1,14 +1,14 @@
 ---
-title: "Landing Page Templates"
+title: Mallar för landningssidor
 feature: REST API, Landing Pages
-description: "Bygg och redigera mallar för landningssidor."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Skapa och redigera mallar för landningssidor.
+exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '533'
 ht-degree: 0%
 
 ---
-
 
 # Mallar för landningssidor
 
@@ -22,7 +22,7 @@ Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mal
 
 ## Fråga
 
-Mallar för landningssidor har stöd för standardfrågetyper för resurser i [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET)och [surfning](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av mallarnas HTML-innehåll måste göras per mall via dess ID.
+Mallar för landningssidor har stöd för standardfrågetyper för resurser i [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) och [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av mallarnas HTML-innehåll måste göras per mall via dess ID.
 
 ## Skapa och uppdatera
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Innehållet i mallen måste fyllas i separat via [Uppdatera innehåll för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST) slutpunkt.
+Innehåll för mallen måste fyllas i separat via slutpunkten [Uppdatera innehåll för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST).
 
 ### Uppdatera metadata
 
-Metadata för landningssidmallar kan uppdateras via [Uppdatera metadata för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) slutpunkt. Namn, beskrivning och enableMunchkin-inställning kan uppdateras på det här sättet.
+Metadata för landningssidmallar kan uppdateras via [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) -slutpunkten. Namn, beskrivning och enableMunchkin-inställning kan uppdateras på det här sättet.
 
 ### Uppdatera innehåll
 
@@ -114,13 +114,13 @@ Content-Type: text/plain
 
 Marketo erbjuder en enkel metod för kloning av landningssidmallar. Det här är en begäran om POST av typen application/x-www-url-formencoded.
 
-The `id` path-parametern anger ID:t för den Landing Page Template som ska klonas.
+Sökvägsparametern `id` anger ID:t för den Landing Page Template som ska klonas.
 
-The `name` -parametern används för att ange namnet på den nya mallen för landningssida.
+Parametern `name` används för att ange namnet på den nya mallen för landningssida.
 
-The `folder` -parametern används för att ange den överordnade mappen där den nya mallen för landningssida finns. Detta är i form av ett inbäddat JSON-objekt som innehåller  `id` och `type`.
+Parametern `folder` används för att ange den överordnade mappen där den nya mallen för landningssidor finns. Detta är i form av ett inbäddat JSON-objekt som innehåller  `id` och `type`.
 
-Valfritt `description` används för att beskriva den nya mallen för landningssidor.
+Den valfria parametern `description` används för att beskriva den nya mallen för landningssidor.
 
 ```
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
@@ -167,7 +167,7 @@ Mallar för landningssidor följer standardmodellen för utkast, där det kan fi
 
 För att en mall ska kunna godkännas måste den följa reglerna för sin typ, antingen i form av kostnadsfria guider. Mer information om kraven för att skapa och godkänna mallar av respektive typ finns i respektive dokument:
 
-- [Mallar för kostnadsfria startsidor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
 - [Guided Landing Page Templates](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
 - [Exempel på guidade mallar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 

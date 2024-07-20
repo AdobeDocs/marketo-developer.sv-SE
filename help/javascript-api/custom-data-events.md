@@ -1,20 +1,20 @@
 ---
-title: "Anpassade datahändelser"
-description: "API för anpassade datahändelser"
+title: Anpassade datahändelser
+description: API för anpassade datahändelser
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '223'
 ht-degree: 0%
 
 ---
 
-
 # Anpassade datahändelser
 
 Den här metoden skickar anpassade händelser för spårning och personalisering i realtid. Den kan användas för att skicka data från tredje part eller för att utlösa en egen anpassad händelse utifrån besökarens beteende. Anpassade datahändelser räknas en gång i en besökares session.
 
-Du måste bli webbkund och ha [RTP-taggen har distribuerats](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) på webbplatsen innan du använder API:t för användarkontext.
+Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
 |---|---|---|---|

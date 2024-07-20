@@ -1,13 +1,13 @@
 ---
-title: "Dataströmmar"
-description: "Data Stams overview"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Dataströmmar
+description: Översikt över dataströmmar
+exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1589'
 ht-degree: 0%
 
 ---
-
 
 # Dataströmmar
 
@@ -19,7 +19,7 @@ Förutom fördelarna med nära realtidsdata finns det produktrelaterade fördela
 - Minskar scenariot för API-gränser och genererar färre varningsmeddelanden.
 - Inga massexporter måste utföras för att extrahera data på grund av dataströmningsfunktionen.
 
-Dataströmmar är tillgängliga för dem som har köpt en [Marketo Engage Performance Tier-paket](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
+Dataströmmar är tillgängliga för dem som har köpt ett [Marketo Engage Performance Tier Package](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835).
 
 ## Översikt över dataströmmen för huvudaktivitet
 
@@ -192,7 +192,7 @@ Adobe aktiverar sedan dataströmmen, då kunderna börjar ta emot data.
 
 UML-diagram över ett typiskt dataströmanrop för lead-aktivitet:
 
-![Dataströmsdiagram för lead-aktivitet](assets/lead-activity-data-stream.png)
+![Dataströmsdiagram för huvudaktivitet](assets/lead-activity-data-stream.png)
 
 Exempel på att skapa URL-slutpunkter:
 
@@ -254,26 +254,26 @@ Användargranskningshändelser skickas till Adobe IO och kan användas genom att
    1. Det här steget kräver en Adobe Org
    1. Kräver att Adobe Org User har rollen Developer eller System Admin
 
-Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) i delen Offentlig dokumentation.
+Mer information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) i avsnittet Offentlig dokumentation.
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
-Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns i [Produktbeskrivningssida](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
+Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
 
 ### Konfigurera Adobe I/O
 
 [Se Komma igång med Adobe I/O-händelser](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
-Grundläggande instruktioner för det här användningsexemplet, från [console.adobe.io](https://developer.adobe.com/console):
+Grundläggande instruktioner för det här användningsfallet från [console.adobe.io](https://developer.adobe.com/console):
 
-Välj antingen **[!UICONTROL Create New Project]** eller **[!UICONTROL Add Event]**.
+Välj antingen **[!UICONTROL Create New Project]** eller **[!UICONTROL Add Event]** när du uppmanas till detta.
 
 ### Kom igång med ditt nya projekt
 
-Om du vill börja använda Adobe-tjänster lägger du till ett API, händelser eller en runtime-modul i [dokumentation](https://developer.adobe.com/runtime/docs/).
+Om du vill börja använda Adobe-tjänster lägger du till ett API, händelser eller en körningsversion i [dokumentationen](https://developer.adobe.com/runtime/docs/).
 
 ## Offentlig dokumentation
 
-- [Marketo dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [Marketo-dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [Introduktion till Adobe iO-händelser och webbhooks](https://developer.adobe.com/events/docs/guides/)
 - [Bloggen Dataströmmar](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

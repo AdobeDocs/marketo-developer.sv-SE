@@ -1,22 +1,22 @@
 ---
-title: "listMObjects"
+title: listMObjects
 feature: SOAP
-description: "listMObjects SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: listMObjects SOAP call
+exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '48'
 ht-degree: 0%
 
 ---
 
-
 # listMObjects
 
-Den här funktionen returnerar namnen på Marketo-objekt som kan användas som indata i [describeMObjects](./describemobject.md) funktion för schemaidentifieringsåtgärder.
+Den här funktionen returnerar namnen på Marketo-objekt som kan användas som indata i funktionen [describeMObjects](./describemobject.md) för schemaidentifieringsåtgärder.
 
 ## Begäran
 
-_Det finns inga indata till detta API_
+_Det finns inga indata i detta API_
 
 ## Begär XML
 

@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # E-postskript
 
-Obs! Vi rekommenderar att du läser [Användarhandbok för snabbhet](https://velocity.apache.org/engine/devel/user-guide.html) för att få en djupdykning i hur språket i snabbhetsmallen fungerar.
+Obs! Vi rekommenderar att du läser användarhandboken [Snabb](https://velocity.apache.org/engine/devel/user-guide.html) för att få en djupdykning i hur Snabblingsmallspråket fungerar.
 
 [Apache-hastighet](https://velocity.apache.org/) är ett språk som bygger på Java och som är utformat för att malla och skripta HTML. Marketo tillåter att den används i e-postsammanhang med hjälp av skripttokens. Detta ger åtkomst till data som lagras i säljprojekt och anpassade objekt och gör det möjligt att skapa dynamiskt innehåll i e-postmeddelanden. Hastigheten ger ett högnivåkontrollflöde med if/else, for, and for each som tillåter villkorsstyrd och iterativ manipulering av innehåll. Här är ett enkelt exempel på hur du skriver ut en hälsningsfras:
 
@@ -51,7 +51,7 @@ $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
 ```
 
-Det finns också en tyst referensnotation, där det finns en `!` Ingår efter `$`. När hastigheten påträffar en odefinierad referens lämnas strängen som representerar referensen på plats. Om en odefinierad referens påträffas med tyst referensnotation genereras inget värde:
+Det finns också en tyst referensnotation, där det finns en `!` inkluderad efter `$`. När hastigheten påträffar en odefinierad referens lämnas strängen som representerar referensen på plats. Om en odefinierad referens påträffas med tyst referensnotation genereras inget värde:
 
 ```
 ##Defined Reference
@@ -68,15 +68,15 @@ $baz ##outputs "$baz"
 $!baz ##outputs nothing
 ```
 
-Mer information om hur du refererar till variabler finns i [Användarhandbok för Apache](https://velocity.apache.org/engine/devel/user-guide.html#formal-reference-notation).
+Mer information om hur du refererar till variabler finns i [användarhandboken för Apache](https://velocity.apache.org/engine/devel/user-guide.html#formal-reference-notation).
 
 ## Snabbhetsverktyg
 
-Med snabbprojektet Apache blir funktionaliteten tillgänglig genom användning av [Snabbhetsverktyg](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html). Dessa är helt enkelt wrappers för Java-objekt och visar deras metoder med globala variabler som är tillgängliga för alla skript.
+Apache-snabbprojekt gör funktioner tillgängliga med [snabbverktyg](https://velocity.apache.org/tools/devel/apidocs/overview-summary.html). Dessa är helt enkelt wrappers för Java-objekt och visar deras metoder med globala variabler som är tillgängliga för alla skript.
 
 - [AlternatorTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
 - [ComparisonDateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
-- [Konverteringsverktyg](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
+- [ConversionTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
 - [DateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
 - [DisplayTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DisplayTool.html)
 - [MathTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
@@ -84,7 +84,7 @@ Med snabbprojektet Apache blir funktionaliteten tillgänglig genom användning a
 - [EscapeTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/EscapeTool.html)
 - [LoopTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/LoopTool.html)
 
-Om du till exempel vill använda en metod från `ComparisonDateTool`, få åtkomst om från `$date` variabel i en skripttoken:
+Om du till exempel vill använda en metod från `ComparisonDateTool` måste du få åtkomst till den från variabeln `$date` i en skripttoken:
 
 ```
 #set($birthday = $convert.parseDate("2015-08-07","yyyy-MM-dd"))
@@ -94,11 +94,11 @@ $date.whenIs($birthday).days ##outputs 1
 
 ## Skapa en skripttoken
 
-Snabbhetsskript inkluderas i e-postmeddelanden med hjälp av e-postskripttoken. Dessa kan skapas i marknadsföringsaktiviteter i antingen en marknadsföringsmapp eller ett program. För att en token ska kunna användas i ett e-postmeddelande måste e-postmeddelandet vara underordnat ett program som antingen äger token eller ärver den från en marknadsföringsmapp. Om du vill skapa en token går du till en mapp eller ett program och väljer [!UICONTROL My Tokens] -fliken. Dra alternativet E-postskript från den högra menyn till tokenlistan
+Snabbhetsskript inkluderas i e-postmeddelanden med hjälp av e-postskripttoken. Dessa kan skapas i marknadsföringsaktiviteter i antingen en marknadsföringsmapp eller ett program. För att en token ska kunna användas i ett e-postmeddelande måste e-postmeddelandet vara underordnat ett program som antingen äger token eller ärver den från en marknadsföringsmapp. Om du vill skapa en token går du till en mapp eller ett program och väljer fliken [!UICONTROL My Tokens]. Dra alternativet E-postskript från den högra menyn till tokenlistan
 
 ![Skripttoken](assets/script-token.png)
 
-Här kan du redigera namnet på variabeln och öppna redigeraren via [!UICONTROL Click to Edit] alternativ:
+Här kan du redigera namnet på token och öppna redigeraren med alternativet [!UICONTROL Click to Edit]:
 
 ![Redigera skript](assets/script-edit.png)
 
@@ -110,13 +110,13 @@ När du är i redigeraren kan du skapa ett skript med åtkomst till alla variabl
 
 När du har definierat skriptet i en Program My Token kan du referera till det i ett visst e-postmeddelande med hjälp av Marketo e-postredigerare.
 
-![E-postmeddelande](assets/email-script-marketo-email.png)
+![E-postskript](assets/email-script-marketo-email.png)
 
-Du kan testa skriptet med [!UICONTROL Send Sample Email] e-poståtgärd i Marketo e-postdesigner. För att skriptet ska kunna behandlas på rätt sätt måste du välja ett befintligt lead som personifieras i [!UICONTROL Lead] fält. Om du testar med `$TriggerObject`kan du välja utlösarobjektet via [!UICONTROL Trigger] param. Detta använder data från det senast uppdaterade objektet av den typen som `$TriggerObject` variabel.
+Du kan testa skriptet med e-poståtgärden [!UICONTROL Send Sample Email] i Marketo e-postdesigner. För att skriptet ska kunna behandlas korrekt måste du välja ett befintligt lead som personifieras i fältet [!UICONTROL Lead]. Om du testar med `$TriggerObject` kan du välja det utlösande objektet via parametern [!UICONTROL Trigger]. Detta använder data från det senast uppdaterade objektet av den typen som variabeln `$TriggerObject`.
 
 ![Testa e-postskript](assets/velocity-test.png)
 
-Du kan också använda [!UICONTROL Email Preview] för att testa skriptet. Om du vill göra det måste du välja **[!UICONTROL View As: Lead Detail]** och välj ett lead i en tillgänglig statisk lista. Detta medför även en fördel med att skriva ut eventuella undantag som kan ha inträffat under skriptkörningen:
+Du kan också använda [!UICONTROL Email Preview] för att testa skriptet. Om du vill göra det måste du välja **[!UICONTROL View As: Lead Detail]** och välja en lead från en tillgänglig statisk lista. Detta medför även en fördel med att skriva ut eventuella undantag som kan ha inträffat under skriptkörningen:
 
 ![Visa e-post som](assets/view-as.png)
 
@@ -126,15 +126,15 @@ Den sammanlagda längden för alla e-postskripttoken i ett visst e-postmeddeland
 
 - Variablerna som refereras i e-postskriptet måste finnas i Marketo på ett av de objekt som är tillgängliga för skriptet.
 - Du kan referera till anpassade objekt på första och andra nivån som härstammar från det inbyggda integrerade CRM-systemet och som är direkt kopplade till lead- eller kontaktpersonen, men inte till anpassade objekt på tredje nivån. Anpassade objekt får inte vara överordnade leads eller företag
-- För anpassade Marketo-objekt kan du referera till anpassade objekt på andra nivån med en överordnad-underordnad relation. Till exempel `Lead <- Parent <- Child`. Du kan inte referera till anpassade objekt på andra nivån med Edge-Bridge-relationen. exempelvis,  `Lead <- Bridge -> Edge`
+- För anpassade Marketo-objekt kan du referera till anpassade objekt på andra nivån med en överordnad-underordnad relation. Till exempel `Lead <- Parent <- Child`. Du kan inte referera till anpassade objekt på andra nivån med Edge-Bridge-relationen. t.ex., `Lead <- Bridge -> Edge`
 - Du kan referera till anpassade objekt som är kopplade till ett lead, en kontakt eller ett konto, men inte till fler än ett.
 - Anpassade objekt kan bara refereras via en enda anslutning, lead, kontakt eller konto
 - Du måste markera kryssrutan i skriptredigeraren för de fält som du använder, annars kommer de inte att bearbeta
-- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga av [följa instruktionerna](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga genom att [följa instruktionerna](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Om du inkluderar mer än ett e-postskript i ett e-postmeddelande körs de uppifrån och ned. Variabelomfånget som definieras i det första skriptet som ska köras är tillgängligt i efterföljande skript.
-- Systemreferens: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
+- Verktygsreferens: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - En anteckning om variabler som innehåller radmatningstecken &quot;\\n&quot; eller &quot;\\r\\n&quot;. När ett e-postmeddelande skickas via Skicka exempel eller via en gruppkampanj ersätts radmatningstecken med blanksteg. När e-post skickas via Trigger Campaign lämnas radmatningstecken orörda.
-- För att URL-adresserna ska kunna tolkas korrekt bör hela sökvägen anges som en variabel och sedan skrivas ut, och variabeln får inte skrivas ut i URL-referenser. Protokollet (http:// eller https://) måste inkluderas och måste vara separat från resten av URL:en. URL:en måste också vara en del av ett helt format ankare (<a>). Skriptet måste skriva ut en fullt formaterad ankartagg för att länkarna ska kunna spåras. Länkar spåras inte om de skrivs ut från en for- eller foreach-slinga.
+- För att URL-adresserna ska kunna tolkas korrekt bör hela sökvägen anges som en variabel och sedan skrivas ut, och variabeln får inte skrivas ut i URL-referenser. Protokollet (http:// eller https://) måste inkluderas och måste vara separat från resten av URL:en. URL:en måste också ingå i en fullt formaterad ankarpunktstagg (<a>). Skriptet måste skriva ut en fullt formaterad ankartagg för att länkarna ska kunna spåras. Länkar spåras inte om de skrivs ut från en for- eller foreach-slinga.
 
 ```html
 <!-- Correct -->

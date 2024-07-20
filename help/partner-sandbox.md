@@ -1,19 +1,19 @@
 ---
-title: "Partnersandlåda"
-description: "Översikt över Partner Sandbox"
-source-git-commit: e141ed1178019339640986fb7e6fa95ca7b35fe7
+title: Partnersandlåda
+description: Översikt över Partner Sandbox
+exl-id: a8f36cb5-d288-4b8b-b4bf-037faa3fe73f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '184'
 ht-degree: 0%
 
 ---
 
-
 # Partnersandlåda
 
-En partnersandlåda är Marketo Engage-instans som används av partner under programutvecklingens livscykel. Partners använder sin sandlåda för att lära sig Marketo Engage användargränssnittets in- och utdata och för att få tillgång till Marketo Engage API-tjänster.
+En partnersandlåda är Marketo Engage-instans som används av partner under programutvecklingens livscykel. Partners använder sin sandlåda för att lära sig  och Marketo Engage och få tillgång till Marketo Engage API-tjänster.
 
-En sandlåda etableras efter att en partner har godkänts i [Adobe Exchange Partner Program, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). I de flesta fall är partnersandlådor funktionellt ekvivalenta med en produktionsinstans. Partnersandlådor har inga tilläggsmoduler installerade och har fasta kapacitetsbegränsningar. Nedan visas vanliga frågor och svar följt av en sammanfattning av partnersandlådefunktioner.
+En sandlåda etableras efter att en partner har accepterats i  [Adobe Exchange Partner Program, Digital Experience](http://partners.adobe.com/technologyprogram/experiencecloud.html). I de flesta fall är partnersandlådor funktionellt ekvivalenta med en produktionsinstans. Partnersandlådor har inga tilläggsmoduler installerade och har fasta kapacitetsbegränsningar. Nedan visas vanliga frågor och svar följt av en sammanfattning av partnersandlådefunktioner.
 
 ## Sammanfattning av funktioner
 

@@ -14,20 +14,20 @@ ht-degree: 0%
 
 Marketo tillåter att webbhooks används för att kommunicera med tredjepartstjänster. Webhooks stöder användningen av HTTP-verb för GET eller POST för att skicka eller hämta data från en viss URL. Detaljerade instruktioner om hur du skapar webbböcker i programmet och hur du lägger till dem i smarta kampanjer finns i följande artiklar:
 
-- [Skapa en webbkrok](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
-- [Ring webkrok](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
-- [Använda en webkrok i en smart kampanj](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
+- [Skapa en webkrok](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-webhook)
+- [Anropa webkrok](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/call-webhook)
+- [Använd en webkrok i en smart kampanj](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/use-a-webhook-in-a-smart-campaign)
 
 Varje enskild webkrok har följande egenskaper:
 
 - [!UICONTROL URL] - Ange den URL som du använder för att skicka din begäran till webbtjänsten.
 - [!UICONTROL Request Type] - HTTP-metoden.
-- [!UICONTROL Payload Template] - Om du vill skicka information i POSTENS brödtext anger du mallen. Använd valfritt dataformat som stöder HTTP-POST, inklusive XML, JSON eller SOAP. Serialiseringsformatet måste tillåta dubbla citattecken runt strängar. Om du vill infoga en variabel i mallen klickar du på **[!UICONTROL Insert Token]**.  Token av strängtyp omsluts automatiskt av dubbla citattecken.
+- [!UICONTROL Payload Template] - Om du vill överföra information i POSTENS brödtext anger du mallen. Använd valfritt dataformat som stöder HTTP-POST, inklusive XML, JSON eller SOAP. Serialiseringsformatet måste tillåta dubbla citattecken runt strängar. Om du vill infoga en token i mallen klickar du på **[!UICONTROL Insert Token]**.  Token av strängtyp omsluts automatiskt av dubbla citattecken.
 - [!UICONTROL Request Token Encoding] - Om tokenvärdena innehåller specialtecken (t.ex. ett et-tecken (&amp;)) anger du formatet för din begäran (JSON eller Form/Url). Korrekt kodning bör väljas för brödtexten för att säkerställa att Webkroken kommunicerar korrekt med webbtjänsten.
 - [!UICONTROL Response Type] - Välj formatet för det svar som du får från tjänsten (JSON eller XML). Du måste välja rätt svarstyp för att mappa egenskaper för svaret tillbaka till lead-fält i Marketo
-- [!UICONTROL Custom Headers] - Åtkomst via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header]På den här menyn kan du lägga till valfritt antal anpassade nyckelvärdepar som HTTP-huvuden.
+- [!UICONTROL Custom Headers] - Den här menyn används via [!UICONTROL Webhooks Actions] -> [!UICONTROL Set Custom Header] och tillåter att valfritt antal anpassade nyckelvärdepar läggs till som HTTP-huvuden.
 
-Data kan skrivas tillbaka till leads från webbtjänstsvar med hjälp av [Svarsmappningar](response-mappings.md)
+Data kan skrivas tillbaka till leads från webbtjänstsvar med [svarsmappningar](response-mappings.md)
 
 ## Tokens
 
@@ -35,13 +35,13 @@ Alla utgående fält i en webkrok (URL, Mall och Anpassade rubriker) fyller i in
 
 - [Översikt över token](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/personalizing-landing-pages/tokens-overview)
 - [Ordlista för systemtoken](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/system-tokens-glossary)
-- [Token för intressanta ögonblick](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
+- [Tokens för intressanta ögonblick](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/marketo-sales-insight/msi-for-salesforce/features/tabs-in-the-msi-panel/interesting-moments/trigger-tokens-for-interesting-moments)
 
-Ett vanligt fall för detta är när ett program eller en kampanj uttryckligen mappas till en tredjepartsresurs. Ett ID kan anges på programnivå som ett `My Token`och skickades sedan in i Webkroks begäran som en token.
+Ett vanligt fall för detta är när ett program eller en kampanj uttryckligen mappas till en tredjepartsresurs. Ett ID kan anges på programnivå som `My Token` och sedan skickas till Webkrok-begäran som en token.
 
 ## Anpassade rubriker
 
-På webbhooks kan valfritt antal anpassade rubrikfält skickas tillsammans med den utgående begäran. Dessa kan läggas till genom **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**. Varje rubrik registreras som ett enkelt nyckelvärdepar. Token kan användas i det här området.
+På webbhooks kan valfritt antal anpassade rubrikfält skickas tillsammans med den utgående begäran. Dessa kan läggas till via **[!UICONTROL Webhooks Actions]** > **[!UICONTROL Set Custom Header]**. Varje rubrik registreras som ett enkelt nyckelvärdepar. Token kan användas i det här området.
 
 ![Anpassade rubriker](assets/custom-headers.png)
 

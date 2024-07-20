@@ -1,26 +1,26 @@
 ---
-title: "Felkoder"
+title: Felkoder
 feature: SOAP
-description: "Felkoder för SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Felkoder för SOAP
+exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '390'
 ht-degree: 6%
 
 ---
 
-
 # Felkoder
 
 När du utvecklar för Marketo är det mycket viktigt att begäranden och svar loggas när ett oväntat undantag inträffar.  Vissa typer av undantag, som autentisering som har upphört att gälla, kan hanteras säkert genom återautentisering, men andra kan kräva supportinteraktioner, och begäranden och svar kommer alltid att begäras i det här scenariot.
 
-Nedan finns en lista med felkoder för SOAP API.
+Nedan finns en lista SOAP API-felkoder.
 
 | Code | Meddelande | Anteckningar |
 |--- |--- |--- |
 | 10001 | Internt fel | Allvarligt systemfel |
 | 20011 | Internt fel | API-tjänstfel |
-| 20012 | Förfrågan är inte förstådd | Oväntat SOAP-meddelande |
+| 20012 | Förfrågan är inte förstådd | Oväntat SOAP |
 | 20013 | Åtkomst nekad | Klienten blockeras från API-åtkomst |
 | 20014 | Autentiseringen misslyckades | Klienten angav inte giltiga autentiseringsuppgifter |
 | 20015 | Gränsen för begäran överskreds | Antalet samtal idag överskred prenumerationens kvot. Standardprenumerationskvoten är 10 000/dag. |

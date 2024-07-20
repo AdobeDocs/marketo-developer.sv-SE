@@ -1,14 +1,14 @@
 ---
-title: "getTags"
+title: getTags
 feature: SOAP, Tags
-description: "getTags SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getTags SOAP anrop
+exl-id: 4fd9de1a-9362-479a-afe1-09ef0aaf5e6e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '94'
 ht-degree: 0%
 
 ---
-
 
 # getTags
 
@@ -23,7 +23,7 @@ Du kan hämta information om alla icke-kanaltaggar eller ange en specifik lista 
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| tagList->tag | Valfritt | Lista med taggar som du vill fråga efter. Varje tagg kan ha en typ och en array med värden som strängar. If `<tagList>` utelämnas får du information om alla kanaler |
+| tagList->tag | Valfritt | Lista med taggar som du vill fråga efter. Varje tagg kan ha en typ och en array med värden som strängar. Om `<tagList>` utelämnas får du information om alla kanaler |
 
 ## Begär XML
 

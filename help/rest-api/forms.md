@@ -1,18 +1,18 @@
 ---
-title: "Forms"
+title: Forms
 feature: REST API, Forms
-description: "Skapa och hantera formulär via API:t."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Skapa och hantera formulär med API:t.
+exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 0%
 
 ---
 
-
 # Forms
 
-[Forms Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms-slutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
 [Slutpunktsreferens för formulärfält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
@@ -20,11 +20,11 @@ Marketo-blanketter har en komplex uppsättning slutpunkter som ger fullständig 
 
 ## Fråga
 
-Forms stöder standardmetoderna för hämtning av resurser, [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET)och [genom att bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). Varje formulärsvar innehåller alla egenskaper förutom fältlistan.
+Forms har stöd för standardmetoderna för hämtning av resurser, [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) och [genom att bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET). Varje formulärsvar innehåller alla egenskaper förutom fältlistan.
 
 ### Efter ID
 
-[Hämta formulär efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) använder ett formulär `id` som en sökvägsparameter och returnerar en formulärpost.
+[Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByIdUsingGET) har formen `id` som en sökvägsparameter och returnerar en formulärpost.
 
 ```
 GET /rest/asset/v1/form/{id}.json
@@ -78,7 +78,7 @@ GET /rest/asset/v1/form/{id}.json
 
 ### Efter namn
 
-[Hämta formulär efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) använder ett formulär `name` som en sökvägsparameter och returnerar en formulärpost.
+[Get Form by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) har formen `name` som en sökvägsparameter och returnerar en formulärpost.
 
 ```
 GET /rest/asset/v1/form/byName.json?name=newForm
@@ -132,7 +132,7 @@ GET /rest/asset/v1/form/byName.json?name=newForm
 
 ### Bläddra
 
-[Skaffa Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET) -formulär fungerar som andra Resurs-API:er och tillåter valfri filtrering på `status`, `maxReturn`och `offset`. Status kan vara: godkänd, godkänd med utkast eller utkast.
+[Hämta Forms](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/browseForms2UsingGET)-formulär fungerar på samma sätt som andra bläddringsslutpunkter för resurs-API, och tillåter valfri filtrering på `status`, `maxReturn` och `offset`. Status kan vara: godkänd, godkänd med utkast eller utkast.
 
 ```
 GET /rest/asset/v1/forms.json
@@ -309,7 +309,7 @@ När du redigerar fält, eller deras beteende i ett formulär, ska fältlistan a
 
 ### Beroenden
 
-The [Hämta formulär som används av](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) slutpunkten har ett formulär `id` som sökvägsparameter och returnerar listan med resurser som är beroende av formuläret. Forms kan användas av följande resurstyper: landningssidor, smarta listor, smarta kampanjer, rapporter, e-postprogram.
+Slutpunkten [Hämta formulär som används av](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getFormUsedByUsingGET) har formen `id` som sökvägsparameter och returnerar listan med resurser som är beroende av formuläret. Forms kan användas av följande resurstyper: landningssidor, smarta listor, smarta kampanjer, rapporter, e-postprogram.
 
 ```
 GET /rest/asset/v1/form/{id}/usedBy.json
@@ -335,7 +335,7 @@ GET /rest/asset/v1/form/{id}/usedBy.json
 
 ## Skapa och uppdatera
 
-När [skapa ett formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) Det finns bara två obligatoriska fält: den överordnade mappen för formuläret, formulärets namn. Alla andra parametrar är valfria med standardvärdet. När formuläret skapas innehåller det tre standardfält: Förnamn, Efternamn, E-post.
+När [skapar ett formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/createLpFormsUsingPOST) finns det bara två obligatoriska fält: den överordnade mappen till formuläret, formulärets namn. Alla andra parametrar är valfria med standardvärdet. När formuläret skapas innehåller det tre standardfält: Förnamn, Efternamn, E-post.
 
 ```
 POST /rest/asset/v1/forms.json
@@ -395,7 +395,7 @@ name=newForm&description=test&folder={"type": "Folder","id": 293}&language=Frenc
 }
 ```
 
-Forms är [uppdaterad](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) med ett liknande samtal via deras ID. När du skapar eller uppdaterar är valfri basformateringsparameter tillgänglig och redigerbar, vilket gör att du kan ändra hur formuläret visas för slutanvändaren.
+Forms [uppdateras](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormsUsingPOST) med ett liknande samtal via deras ID. När du skapar eller uppdaterar är valfri basformateringsparameter tillgänglig och redigerbar, vilket gör att du kan ändra hur formuläret visas för slutanvändaren.
 
 ```
 POST /rest/asset/v1/form/736.json
@@ -460,7 +460,7 @@ Sidbeteendena besökare och tack kan inte ändras via formuläranropen för att 
 
 Om du vill lägga till eller redigera fält som tillhör ett formulär på rätt sätt måste du hämta listan över giltiga fält för målinstansen. Fältinteraktioner utförs alltid baserat på fältets id-egenskap, som visas för varje objekt i resultatet.
 
-För Lead-fält görs detta med [Hämta tillgängliga formulärfält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) slutpunkten och innehåller datatypen och standardmetadata för fältet när det läggs till i ett formulär.
+För Lead-fält görs detta med slutpunkten [Hämta tillgängliga formulärfält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllFieldsUsingGET) och inkluderar datatypen och standardmetadata för fältet när det läggs till i ett formulär.
 
 ```
 GET /rest/asset/v1/form/fields.json
@@ -592,7 +592,7 @@ GET /rest/asset/v1/form/fields.json
 }
 ```
 
-För anpassade fält för programmedlemmar, ring [Hämta tillgängliga medlemsfält för formulärprogram](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET)  slutpunkt för att hämta anpassade fältdatatyper och standardmetadata för programmedlemmar. Om du vill använda dessa fält i ett formulär måste formuläret finnas under ett program (inte i Design Studio). Landningssidor som innehåller formulär som använder dessa fält måste också ligga under ett program (kan inte finnas i Design Studio eller klonas i Design Studio).
+Anropa [Hämta tillgängliga formulärprogrammedlemsfält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getAllProgramMemberFieldsUsingGET) för anpassade fält för programmedlemmar.  slutpunkt för att hämta anpassade fältdatatyper och standardmetadata för programmedlemmar. Om du vill använda dessa fält i ett formulär måste formuläret finnas under ett program (inte i Design Studio). Landningssidor som innehåller formulär som använder dessa fält måste också ligga under ett program (kan inte finnas i Design Studio eller klonas i Design Studio).
 
 ```
 GET /rest/asset/v1/form/programMemberFields.json
@@ -631,7 +631,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Varje formulär innehåller en redigerbar lista med fält som visas för slutanvändaren när de läses in. Varje fält läggs till, uppdateras eller tas bort från fältlistan en åt gången via respektive slutpunkter.
 
-[Lägga till ett fält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) kräver bara ID:t för det överordnade formuläret och fieldId för fältet. Alla andra fält kommer antingen att vara tomma eller ha standardvärden som baseras på datatyp och fältmetadata. Data skickas som POSTEN x-www-form-urlencoded, inte som JSON.
+[Om du lägger till ett fält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) krävs bara ID:t för det överordnade formuläret och fieldId:t för fältet. Alla andra fält kommer antingen att vara tomma eller ha standardvärden som baseras på datatyp och fältmetadata. Data skickas som POSTEN x-www-form-urlencoded, inte som JSON.
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -715,9 +715,9 @@ label=enter the last name here
 }
 ```
 
-I exemplet ovan uppdaterar vi fältet LastName som är en enkel sträng. Vissa formulärfält är mer komplexa. Fältet Hälsningsfras är till exempel en&quot;select&quot;-fälttyp som innehåller en lista med objekt och ett standardvärde. Om du lägger till eller uppdaterar ett markerat textfält, såvida du inte anger något av alternativen som ett `isDefault` värdet true, har det första alternativet inget värde och får etiketten&quot;Select...&quot;
+I exemplet ovan uppdaterar vi fältet LastName som är en enkel sträng. Vissa formulärfält är mer komplexa. Fältet Hälsningsfras är till exempel en&quot;select&quot;-fälttyp som innehåller en lista med objekt och ett standardvärde. Om du lägger till eller uppdaterar ett markerat typfält, såvida du inte anger att ett av alternativen har värdet `isDefault` true, har det första alternativet inget värde och får etiketten&quot;Välj..&quot;.
 
-![Hälsning](assets/form-field-salutation.png)
+![Hälsningsfras](assets/form-field-salutation.png)
 
 För att uppdatera listobjekten är formatet för parametern &quot;values&quot; följande:
 
@@ -795,7 +795,7 @@ Om du vill veta hur du formaterar ett komplext formulärfält kan du titta på s
 
 ### Ordna om fält
 
-Fälten i ett formulär måste ordnas om som en enda enhet via [Ändra formulärfältspositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST) slutpunkt. Slutpunkten kräver en parameter som kallas `positions`, som är en JSON-array med objekt med tre medlemmar:
+Fält i ett formulär måste ordnas om som en enda enhet via slutpunkten [Ändra formulärfältspositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). Slutpunkten kräver en parameter med namnet `positions`, som är en JSON-array med objekt med tre medlemmar:
 
 - columnNumber
 - rowNumber
@@ -833,7 +833,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### RTF
 
-RTF-fält läggs till via en [separat slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) från leadfält. Fältinnehållet skickas som multipart/form-data. Det ska vara strukturerat som HTML-innehåll som inte innehåller några skript-, meta- eller link-taggar.
+RTF-fält läggs till via en [separat slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) från lead-fält. Fältinnehållet skickas som multipart/form-data. Det ska vara strukturerat som HTML-innehåll som inte innehåller några skript-, meta- eller link-taggar.
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +874,7 @@ Content-Type: text/html
 
 Marketo-formulär har en valfri komponent som kallas fältuppsättningar. Fältuppsättningar är grupper av fält som behandlas som ett enda fält i den översta fältlistan för att kunna flyttas och behandlas enligt synlighetsregler. Om det till exempel finns ett fält för Krav på efterlevnad, och en klient väljer Ja, kan en fältuppsättning som innehåller fält för kompatibilitetskraven för HIPAA och PCI visas.
 
-Fält i fältuppsättningar är unika för formuläret som helhet, så dubblettfält kanske inte finns både i formulärets överordnade fältlista och i en underordnad fältuppsättning. Fältuppsättningar läggs till via [Lägg till fältuppsättning i formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) slutpunkt och visas sedan i resultatet av [Hämta fält för formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fält läggs till i en fältuppsättning genom att de flyttas till fältuppsättningens fieldList via [Uppdatera fältpositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). För dessa slutpunkter skickas data som POSTEN x-www-form-urlencoded, inte som JSON.
+Fält i fältuppsättningar är unika för formuläret som helhet, så dubblettfält kanske inte finns både i formulärets överordnade fältlista och i en underordnad fältuppsättning. Fältuppsättningar läggs till via slutpunkten [Lägg till fältuppsättning i formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) och visas sedan i resultatet [Hämta fält för formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fält läggs till i en fältuppsättning genom att de flyttas till fältuppsättningens fieldList via [Uppdatera fältpositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). För dessa slutpunkter skickas data som POSTEN x-www-form-urlencoded, inte som JSON.
 
 ## Synlighetsregel
 
@@ -921,11 +921,11 @@ En fullständig lista över tillgängliga operatorer finns på slutpunktsreferen
 
 ## Uppföljning
 
-Marketo-formulär kan ha en dynamisk uppföljningssidfunktion där regler för att omdirigera till en viss sida, eller behålla den aktuella sidan, kan tillämpas baserat på innehållet i angivna fält när de skickas. Regler kan kallas för Tack-sidan eller Regler för Uppföljningssida. Dessa regler representeras som en JSON-array med medlemmarna `followupType`, `followupValue`, `operator`, `subjectField`, `values`och `default`. `default` är ett booleskt värde för vilket endast en post i arrayen kan vara true. När en besökare inte kvalificerar sig för några andra regler, kommer den regel som angetts som standard att användas. `followupType` kan vara antingen lp eller url, där lp anger ett Marketo Landing Page-id för `followupValue`och URL:en anger en URL till en annan sida. Operatorn används för att jämföra värdet i ämnesfältet med listan med värden som anges.
+Marketo-formulär kan ha en dynamisk uppföljningssidfunktion där regler för att omdirigera till en viss sida, eller behålla den aktuella sidan, kan tillämpas baserat på innehållet i angivna fält när de skickas. Regler kan kallas för Tack-sidan eller Regler för Uppföljningssida. Dessa regler representeras som en JSON-array med medlemmarna `followupType`, `followupValue`, `operator`, `subjectField`, `values` och `default`. `default` är ett booleskt värde där endast en post i arrayen kan vara sann. När en besökare inte kvalificerar sig för några andra regler, kommer den regel som angetts som standard att användas. `followupType` kan vara antingen lp eller url, där lp anger ett Marketo Landing Page-id för `followupValue` och url anger en URL till en annan sida. Operatorn används för att jämföra värdet i ämnesfältet med listan med värden som anges.
 
 ## Skicka-knapp
 
-Formulärets Skicka-knappformat hanteras med [Uppdatera Skicka-knapp](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) slutpunkt. ButtonPosition, buttonStyle, label och waitingLabel (etiketten som visas när överföringen väntar) kan ändras.
+Formulärets Skicka-knappformat hanteras med slutpunkten [Uppdatera Skicka-knapp](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/updateFormSubmitButtonUsingPOST) . ButtonPosition, buttonStyle, label och waitingLabel (etiketten som visas när överföringen väntar) kan ändras.
 
 Det här är en destruktiv uppdatering.
 

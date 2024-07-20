@@ -16,8 +16,8 @@ Integrering av Marketo PhoneGap Plugin
 
 ## Förutsättningar
 
-1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID).
-1. Konfigurera push-meddelanden ([iOS](push-notifications.md) | [Android](push-notifications.md)).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
 1. [Installera PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanvisningar
@@ -36,7 +36,7 @@ Integrering av Marketo PhoneGap Plugin
 
    `$ cordova plugin ls com.marketo.plugin 0.X.0 "MarketoPlugin" cordova-plugin-fcm 2.1.2 "FCMPlugin"`
 
-**Migrera till nyare version (valfritt)**
+**Migrera till senare version (valfritt)**
 
 Om du vill ta bort ett befintligt plugin-program kör du följande kommando:
 
@@ -48,7 +48,7 @@ Kör följande kommando om du vill lägga till plugin-programmet igen:
 
 **Cordova version 8.0.0 (Cordova@Android7.0.0) och senare**
 
-När Cordova Android-plattformen har byggts öppnar du appen med Android Studio och uppdaterar `dirs` värdet på `Marketo.gradle` filen finns i `com.marketo.plugin` mapp.
+När Cordova Android-plattformen har byggts öppnar du appen med Android Studio och uppdaterar värdet `dirs` för filen `Marketo.gradle` som finns i mappen `com.marketo.plugin`.
 
 ```
 repositories{    
@@ -59,24 +59,24 @@ repositories{
 }
 ```
 
-Lägg till de plattformar som programmet ska ha som mål `$cordova platform add android` `$ cordova platform add ios`
+Lägg till de plattformar som ska användas för appen `$cordova platform add android` `$ cordova platform add ios`
 
 Kontrollera listan över plattformar som lagts till `$cordova platform ls`
 
 1. Stöd för Firebase Cloud Messaging
 
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase Console.
-      1. I [Firebase-konsol](https://console.firebase.google.com/), markera **[!UICONTROL Add Project]**.
-      1. Välj GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
+   1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://console.firebase.google.com/).
+      1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
-      1. Ange ditt paketnamn och SHA-1, och välj **[!UICONTROL Add App]**. En ny `google-services.json` filen för din Firebase-app hämtas.
-   1. Navigera till **[!UICONTROL Project Settings]** in [!UICONTROL Project Overview]
-      1. Klicka på **[!UICONTROL General]** -fliken. Hämta filen google-services.json.
-      1. Klicka på **[!UICONTROL Cloud Messaging]** -fliken. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Ange dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
+      1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny `google-services.json`-fil för din Firebase-app hämtas.
+   1. Navigera till **[!UICONTROL Project Settings]** i [!UICONTROL Project Overview]
+      1. Klicka på fliken **[!UICONTROL General]**. Hämta filen google-services.json.
+      1. Klicka på fliken **[!UICONTROL Cloud Messaging]**. Kopiera [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID]. Tillhandahåll dessa [!UICONTROL Server Key] &amp; [!UICONTROL Sender ID] till Marketo.
    1. Konfigurera FCM-ändringar i PhoneGap-appen
       1. Flytta den hämtade Google-services.json-filen till rotkatalogen i appmodulen Phonegap
-      1. Ta bort filen MyFirebaseInstanceIDService från platsen `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (Föråldrat)
+      1. Ta bort filen MyFirebaseInstanceIDService från platsen `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` (inaktuell)
       1. Ändra filen MyFirebaseMessagingService på platsen `platforms/android/app/src/main/java/com/gae/scaffolder/plugin` enligt följande:
 
          ```
@@ -120,13 +120,13 @@ Aktivera funktionen för push-meddelanden i xCode-projekt.
 
 ### 4. Spåra push-meddelanden
 
-Klistra in följande kod i `application:didFinishLaunchingWithOptions:` funktion.
+Klistra in följande kod i funktionen `application:didFinishLaunchingWithOptions:`.
 
 >[!BEGINTABS]
 
 >[!TAB Mål C]
 
-Uppdatera `applicationDidBecomeActive` metod som nedan
+Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
 ```
 Marketo *sharedInstance = [Marketo sharedInstance];
@@ -136,7 +136,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 >[!TAB Swift]
 
-Uppdatera `applicationDidBecomeActive` metod som nedan
+Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
 ```
 let sharedInstance: Marketo = Marketo.sharedInstance()
@@ -148,9 +148,9 @@ sharedInstance.trackPushNotification(launchOptions)
 
 ### 5. Initiera Marketo Framework
 
-Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` fungerar i JavaScript huvudfil.
+Om du vill vara säker på att Marketo-ramverket initieras när appen startas lägger du till följande kod under funktionen `onDeviceReady` i JavaScript huvudfil.
 
-Observera att vi måste godkänna `phonegap` som ramverkstyp för PhoneGap-appar.
+Observera att vi måste skicka `phonegap` som ramverkstyp för PhoneGap-appar.
 
 ### Syntax
 
@@ -197,7 +197,7 @@ marketo.initializeMarketoPush(
 
 - Callback: funktionen körs om Marketo push-meddelande initieras utan fel.
 - Fel vid återanrop: funktionen körs om Marketo push-meddelande inte kan initieras.
-- GCM_PROJECT_ID : GCM-projekt-ID hittades i [Google Developers Console](https://console.developers.google.com/) efter att du skapat programmet.
+- GCM_PROJECT_ID: GCM-projekt-ID hittades i [Google Developers Console](https://console.developers.google.com/) efter att appen har skapats.
 
 Token kan också avregistreras vid utloggning.
 
@@ -255,7 +255,7 @@ marketo.associateLead(
 
 ## Rapportåtgärd
 
-Du kan rapportera alla användaråtgärder som har utförts genom att anropa `reportaction` funktion.
+Du kan rapportera alla användaråtgärder som har utförts genom att anropa funktionen `reportaction`.
 
 ### Syntax
 

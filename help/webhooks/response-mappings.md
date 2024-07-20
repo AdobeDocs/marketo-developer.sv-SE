@@ -1,18 +1,18 @@
 ---
-title: "Svarsmappningar"
+title: Svarsmappningar
 feature: Webhooks
-description: "Svarsmappningar för Marketo"
-source-git-commit: bcc0c0c8e8209cf9fb962a85c8e7da354d95a8fe
+description: Svarsmappningar för Marketo
+exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '460'
 ht-degree: 0%
 
 ---
 
-
 # Svarsmappningar
 
-Marketo kan översätta data som tagits emot av en Webkrok från två innehållstyper och returnera dessa värden till ett lead-fält: JSON och XML. Parametern Marketo Field kommer alltid att använda [SOAP API-namn](../rest-api/fields.md) av fältet. Varje webkrok kan ha ett obegränsat antal svarsmappningar som läggs till och redigeras genom att klicka på [!UICONTROL Edit] i rutan Svarsmappningar på din webkrok:
+Marketo kan översätta data som tagits emot av en Webkrok från två innehållstyper och returnera dessa värden till ett lead-fält: JSON och XML. Marketo Field-parametern kommer alltid att använda fältets [SOAP API-namn](../rest-api/fields.md). Varje webkrok kan ha ett obegränsat antal svarsmappningar som läggs till och redigeras genom att klicka på knappen [!UICONTROL Edit] i rutan Svarsmappningar på din webkrok:
 
 ![Svarsmappning](assets/response-mapping.png)
 
@@ -28,7 +28,7 @@ JSON-egenskaper nås med punktnotation och arraynotation. Matrisnotation i Mark
 { "foo":"bar"}
 ```
 
-Så här öppnar du `foo` -egenskapen i en svarsmappning använder du `name` för egenskapen eftersom den är på JSON-objektets första nivå, `foo`. Så här ser det ut i Marketo:
+Om du vill komma åt egenskapen `foo` i en svarsmappning använder du egenskapen `name` eftersom den är på JSON-objektets första nivå, `foo`. Så här ser det ut i Marketo:
 
 ![Svarsmappning](assets/json-resp.png)
 
@@ -54,7 +54,7 @@ Här är ett mer komplicerat exempel med en array:
 }
 ```
 
-Vi vill komma åt orderDate från det första elementet i orderarrayen. Använd följande för att få åtkomst till den här egenskapen: `orders[0].orderDate`
+Vi vill komma åt orderDate från det första elementet i orderarrayen. Använd följande om du vill komma åt den här egenskapen: `orders[0].orderDate`
 
 ## XML-mappningar
 
@@ -67,9 +67,9 @@ Du kan komma åt värden från enskilda element i XML-dokument. Detta använder 
 </example>
 ```
 
-Använd följande om du vill få åtkomst till egenskapen foo här: `example.foo`
+Använd följande om du vill få åtkomst till fooegenskapen här: `example.foo`
 
-Exempelelementet måste refereras innan åtkomst sker `foo`. Om du vill komma åt en egenskap måste du referera till alla element i hierarkin i mappningen. XML-dokument med arrayer är lite mer komplicerade. Använd följande exempel:
+Exempelelementet måste refereras innan `foo` kan användas. Om du vill komma åt en egenskap måste du referera till alla element i hierarkin i mappningen. XML-dokument med arrayer är lite mer komplicerade. Använd följande exempel:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -86,8 +86,8 @@ Exempelelementet måste refereras innan åtkomst sker `foo`. Om du vill komma å
 </elementList>
 ```
 
-Dokumentet består av den överordnade arrayen `elementList`, med underordnade element, element som innehåller en egenskap: `foo`. I Marketo svarsmappningar kallas arrayen `elementList.element`, så att underordnade elementList nås via `elementList.element[i]`. För att hämta foovärdet från det första underordnade elementetList använder vi det här svarsattributet: `elementList.element[0].foo` Detta returnerar värdet &quot;baz&quot; till det angivna fältet. Om du försöker komma åt egenskaper i element som innehåller både unika och icke-unika elementnamn resulterar det i ett odefinierat beteende. Varje element måste vara en enda egenskap eller en array. Typerna kan inte blandas.
+Dokumentet består av den överordnade arrayen `elementList`, med underordnade element som innehåller en egenskap: `foo`. För Marketo-svarsmappningar refereras arrayen till `elementList.element`, så att underordnade elementList nås via `elementList.element[i]`. För att hämta foovärdet från det första underordnade elementlistan använder vi det här svarsattributet: `elementList.element[0].foo` Detta returnerar värdet &quot;baz&quot; till det angivna fältet. Om du försöker komma åt egenskaper i element som innehåller både unika och icke-unika elementnamn resulterar det i ett odefinierat beteende. Varje element måste vara en enda egenskap eller en array. Typerna kan inte blandas.
 
 ## Typer
 
-När du mappar attribut till fält måste du se till att typen i webkrok-svaret är kompatibel med målfältet. Om värdet i svaret till exempel är en sträng och det markerade fältet är av typen heltal, skrivs inte värdet. Läs om [Fälttyper](../rest-api/field-types.md).
+När du mappar attribut till fält måste du se till att typen i webkrok-svaret är kompatibel med målfältet. Om värdet i svaret till exempel är en sträng och det markerade fältet är av typen heltal, skrivs inte värdet. Läs om [fälttyper](../rest-api/field-types.md).

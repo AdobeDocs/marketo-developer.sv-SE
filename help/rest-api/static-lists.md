@@ -1,30 +1,30 @@
 ---
 title: Statiska listor
 feature: REST API, Static Lists
-description: "Utför CRUD-åtgärder på statiska listor."
-source-git-commit: e8bb45a7b3bee71c3d0ab6117296a75c8959d72e
+description: Utför CRUD-åtgärder på statiska listor.
+exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '741'
 ht-degree: 0%
 
 ---
 
-
 # Statiska listor
 
 [Slutpunktsreferens för statiska listor](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
-[Slutpunktsreferens för listmedlemskap](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[Lista slutpunktsreferens för medlemskap](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
 
 Marketo erbjuder en uppsättning REST API:er för att utföra CRUD-åtgärder på statiska listor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Skapa, Uppdatera och Ta bort.
 
 ## Fråga
 
-När du frågar statiska listor följer standardfrågetyperna för resurser i [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET)och [bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
+Om du frågar efter statiska listor följer du standardfrågetyperna för resurserna [via ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) och [bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET).
 
 ### Efter ID
 
-[Fråga efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) tar en enda statisk lista `id` som en sökvägsparameter och returnerar en enda statisk listpost.
+[Fråga efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) tar en enda statisk lista `id` som sökvägsparameter och returnerar en enda statisk listpost.
 
 ```
 GET /rest/asset/v1/staticList/{id}.json
@@ -53,7 +53,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Efter namn
 
-[Fråga efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) tar en statisk lista `name` som en parameter och returnerar en enda statisk listpost. En exakt strängmatchning utförs mot alla statiska listnamn i instansen och returnerar ett resultat för den statiska listan som matchar det namnet.
+[Fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) tar en statisk lista `name` som parameter och returnerar en enda statisk listpost. En exakt strängmatchning utförs mot alla statiska listnamn i instansen och returnerar ett resultat för den statiska listan som matchar det namnet.
 
 ```
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -82,7 +82,7 @@ GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
 
 #### Bläddra
 
-Statiska listor kan också [hämtat i batchar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). The `folder` -parametern kan användas för att ange den överordnade mapp som frågan ska utföras under och formateras som ett JSON-objekt som innehåller id och typ. Precis som andra slutpunkter för hämtning av bulkresurser, `offset` och `maxReturn` är valfria parametrar som kan användas för sidindelning. The `earliestUpdatedAt` och `latestUpdatedAt` Med -parametrar kan du ange låga och höga datetime-vattenstämplar för att returnera statiska listor som skapats eller uppdaterats inom det angivna intervallet. Datumtidsvärden måste vara giltiga ISO-8601-strängar och får inte innehålla millisekunder
+Statiska listor kan också [hämtas i grupper](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListsUsingGET). Parametern `folder` kan användas för att ange den överordnade mapp som frågan ska utföras under och formateras som ett JSON-objekt som innehåller id och typ. Precis som andra slutpunkter för hämtning av gruppresurser är `offset` och `maxReturn` valfria parametrar som kan användas för sidindelning. Med parametrarna `earliestUpdatedAt` och `latestUpdatedAt` kan du ange låg- och högtidsvattenstämplar för att returnera statiska listor som skapats eller uppdaterats inom det angivna intervallet. Datumtidsvärden måste vara giltiga ISO-8601-strängar och får inte innehålla millisekunder
 
 ```
 GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Skapa och uppdatera
 
-[Skapa en statisk lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) körs med en application/x-www-form-urlencoded-POST med två obligatoriska parametrar. The `folder` -parametern används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. The `name` parametern används för att namnge den statiska listan och måste vara unik. Alternativt `description` kan användas för att beskriva den statiska listan.
+[Skapandet av en statisk lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) körs med en application/x-www-form-urlencoded-POST med två obligatoriska parametrar. Parametern `folder` används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Parametern `name` används för att namnge den statiska listan och måste vara unik. Parametern `description` kan också användas för att beskriva den statiska listan.
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -168,7 +168,7 @@ folder={"id":1034,"type":"Program"}&name=My Static List
 }
 ```
 
-[Uppdateringar i en statisk lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) görs via en separat slutpunkt med två valfria parametrar. The `description` kan användas för att uppdatera den statiska listbeskrivningen. The `name` kan användas för att uppdatera namnet på den statiska listan och måste vara unikt.
+[Uppdateringar av en statisk lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/updateStaticListUsingPOST) görs via en separat slutpunkt med två valfria parametrar. Parametern `description` kan användas för att uppdatera den statiska listbeskrivningen. Parametern `name` kan användas för att uppdatera det statiska listnamnet och måste vara unik.
 
 ```
 POST /rest/asset/v1/staticList/{id}.json
@@ -206,7 +206,7 @@ description=This is a static list used for testing
 
 ### Ta bort
 
-[Ta bort en statisk lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) tar en enda statisk lista `id` som en sökvägsparameter. Det går inte att ta bort statiska listor som används av en import- eller exportåtgärd, eller som används av andra resurser.
+[Om du tar bort en statisk lista ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) används en enda statisk lista `id` som sökvägsparameter. Det går inte att ta bort statiska listor som används av en import- eller exportåtgärd, eller som används av andra resurser.
 
 ```
 POST /rest/asset/v1/staticList/{id}/delete.json
@@ -231,9 +231,9 @@ Slutpunkterna för listmedlemskap ger möjlighet att lägga till, ta bort och fr
 
 ### Lägg till i listan
 
-The [Lägg till i listan](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) slutpunkten används för att lägga till en eller flera medlemmar i en lista. Slutpunkten har en obligatorisk `listId` path-parameter och en eller flera id-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
+Slutpunkten [Lägg till i listan](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) används för att lägga till en eller flera medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera ID-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
-Svaret innehåller en `result` arrayen består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
+Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
 ```
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
@@ -264,9 +264,9 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ### Ta bort från lista
 
-The [Ta bort från lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) slutpunkten används för att ta bort en eller flera medlemmar från en lista. Slutpunkten har en obligatorisk `listId` sökvägsparameter och en eller flera `id` frågeparametrar som innehåller lead-ID (högst 300).
+Slutpunkten [Ta bort från listan](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) används för att ta bort en eller flera medlemmar från en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
-Svaret innehåller en `result` arrayen består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
+Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
 ```
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
@@ -301,15 +301,15 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ### Frågelista
 
-The [Hämta leads efter list-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) slutpunkten används för att hämta medlemmar i en lista. Slutpunkten har en obligatorisk `listId` path-parameter, och tillåter flera valfria frågeparametrar för att ange filtervillkor.
+Slutpunkten [Hämta leads efter list-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) används för att hämta medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och tillåter flera valfria frågeparametrar att ange filtervillkor.
 
-The `batchSize` används för att ange antalet lead-poster som ska returneras i ett enda anrop (standard och max 300).
+Parametern `batchSize` används för att ange antalet lead-poster som ska returneras i ett enskilt anrop (standard och max 300).
 
-The `nextPageToken` används för att paginera genom stora resultatuppsättningar. Den här parametern skickas inte i det första anropet, utan endast i efterföljande anrop för sidnumreringen.
+Parametern `nextPageToken` används för att paginera genom stora resultatuppsättningar. Den här parametern skickas inte i det första anropet, utan endast i efterföljande anrop för sidnumreringen.
 
-The `fields` parametern innehåller en kommaavgränsad lista med fältnamn som ska returneras i svaret. Om parametern fields inte ingår i denna begäran returneras följande standardfält: email, updatedAt, createdAt, lastName, firstName och id.
+Parametern `fields` innehåller en kommaavgränsad lista med fältnamn som ska returneras i svaret. Om parametern fields inte ingår i denna begäran returneras följande standardfält: email, updatedAt, createdAt, lastName, firstName och id.
 
-Svaret innehåller en `result` en array som består av JSON-objekt som innehåller de lead-fält som har angetts i begäran.
+Svaret innehåller en `result`-matris som består av JSON-objekt som innehåller de lead-fält som har angetts i begäran.
 
 ```
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
@@ -351,9 +351,9 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 #### Frågelistemedlemskap efter lead-ID
 
-The [List-medlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET) slutpunkten används för att se om en eller flera leads är medlemmar i en lista. Slutpunkten har en obligatorisk `listId` sökvägsparameter och en eller flera `id` frågeparametrar som innehåller lead-ID (högst 300).
+[Medlemmen i List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)-slutpunkten används för att se om en eller flera leads är medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
-Svaret innehåller en `result` arrayen består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
+Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
 ```
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999

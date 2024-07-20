@@ -1,14 +1,14 @@
 ---
-title: "Namngivna konton"
+title: Namngivna konton
 feature: REST API
-description: "Hantera namngivna konton via API:t."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Hantera namngivna konton via API:t.
+exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
 
 ---
-
 
 # Namngivna konton
 
@@ -20,7 +20,7 @@ För närvarande är de enda ABM-relaterade funktionerna som är tillgängliga v
 
 ## Beskriv
 
-Beskrivningen av namngivna konton returnerar metadata som relaterar till användningen av namngivna konton via Marketo API:er, inklusive en lista över giltiga sökbara fält vid frågor och en lista över alla fält som är tillgängliga för API-användning. The `idField` för ett namngivet konto är alltid `marketoGUID`och den enda tillgängliga `dedupeField`och nyckeln till att skapa är `name` objektets fält.
+Beskrivningen av namngivna konton returnerar metadata som relaterar till användningen av namngivna konton via Marketo API:er, inklusive en lista över giltiga sökbara fält vid frågor och en lista över alla fält som är tillgängliga för API-användning. `idField` för ett namngivet konto är alltid `marketoGUID` och den enda tillgängliga `dedupeField`, och nyckeln för att skapa är objektets `name`-fält.
 
 ```
 GET /rest/v1/namedaccounts/describe.json
@@ -135,7 +135,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 ### Fråga
 
-Frågorna efter namngivna konton baseras på användningen av en filterType och en uppsättning på upp till 300 kommaseparerade filterValues. `filterType` kan vara vilket fält som helst som returneras i `searchableFields` medlem av det beskrivande resultatet för namngivna konton, medan filterValues kan vara alla giltiga indata för fältets datatyp. Om du vill returnera en viss uppsättning fält från måste en fälteparameter skickas, där värdet är en kommaavgränsad lista med fält som ska returneras i svaret. Precis som för andra frågealternativ är det maximala antalet poster för en enskild frågesida 300, och ytterligare poster i uppsättningen måste begäras med användningen av nextPageToken som returneras av anropet.
+Frågorna efter namngivna konton baseras på användningen av en filterType och en uppsättning på upp till 300 kommaseparerade filterValues. `filterType` kan vara vilket enskilt fält som helst som returneras i `searchableFields`-medlemmen av det beskrivande resultatet för namngivna konton, medan filterValues kan vara vilken giltig inmatning som helst för fältets datatyp. Om du vill returnera en viss uppsättning fält från måste en fälteparameter skickas, där värdet är en kommaavgränsad lista med fält som ska returneras i svaret. Precis som för andra frågealternativ är det maximala antalet poster för en enskild frågesida 300, och ytterligare poster i uppsättningen måste begäras med användningen av nextPageToken som returneras av anropet.
 
 ```
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
@@ -224,7 +224,7 @@ Det är enkelt att fråga efter namngivna kontofält. Du kan fråga ett enskilt 
 
 #### Efter namn
 
-The [Hämta namngivet kontofält efter namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) slutpunkten hämtar metadata för ett enskilt fält i det namngivna kontoobjektet. Den obligatoriska parametern fieldApiName path anger fältets API-namn. Svaret är som slutpunkten för Beskriv namngivet konto men innehåller ytterligare metadata som attributet isCustom som anger om fältet är ett anpassat fält.
+Slutpunkten [Hämta namngivet kontofält med namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för ett enskilt fält i det namngivna kontoobjektet. Den obligatoriska parametern fieldApiName path anger fältets API-namn. Svaret är som slutpunkten för Beskriv namngivet konto men innehåller ytterligare metadata som attributet isCustom som anger om fältet är ett anpassat fält.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Bläddra
 
-The [Hämta namngivna kontofält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) slutpunkten hämtar metadata för alla fält i det namngivna kontoobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern batchSize för att minska det här talet. Om attributet moreResult är true betyder det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. nextPageToken som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten [Hämta fält för namngivet konto](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för alla fält i det namngivna kontoobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern batchSize för att minska det här talet. Om attributet moreResult är true betyder det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. nextPageToken som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ```
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

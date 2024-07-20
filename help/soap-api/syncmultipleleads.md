@@ -1,14 +1,14 @@
 ---
-title: "syncMultipleLeads"
+title: syncMultipleLeads
 feature: SOAP
-description: "syncMultipleLeads SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncMultipleLeads SOAP anrop
+exl-id: 91980b82-dff9-48a7-b03e-20dce9d0d046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '221'
 ht-degree: 0%
 
 ---
-
 
 # syncMultipleLeads
 
@@ -18,18 +18,18 @@ Den här funktionen begär en infognings- eller uppdateringsåtgärd (upsert) f�
 - ID för externt system
 - E-post
 
-Om det finns fler än en nyckel har Marketo-ID företräde framför `ForeignSysPersonId`, och den senare kommer att uppdateras. Om E-post också finns som en nyckel kommer den inte att uppdateras om den inte anges i attributlistan.
+Om det finns fler än en nyckel har Marketo-ID företräde framför `ForeignSysPersonId`, och det senare kommer att uppdateras. Om E-post också finns som en nyckel kommer den inte att uppdateras om den inte anges i attributlistan.
 
 Vi rekommenderar att gruppstorlekarna inte är större än 300. Högre storlekar stöds inte och kan resultera i timeout och i extrema fall strypas.
 
-Du kan inaktivera funktionen för borttagning av dubbletter med det här funktionsanropet. Om dedupEnabled är true och ingen annan unik identifierare anges (`foreignSysPersonId` eller Marketo lead-ID) tas lead-posten bort från en dubblett med hjälp av e-postadressen. Om du anger false skapas dubbletter i Marketo.
+Du kan inaktivera funktionen för borttagning av dubbletter med det här funktionsanropet. Om dedupEnabled är true och ingen annan unik identifierare anges (`foreignSysPersonId` eller Marketo lead-ID), dedupliceras lead-posten med e-postadressen. Om du anger false skapas dubbletter i Marketo.
 
 ## Begäran
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
 | leadRecordList->leadRecord | Obligatoriskt | Array med LeadRecords som du vill synkronisera. LeadRecords måste ange lead-ID, e-post eller ForeignSysPersonId |
-| dedupEnabled | valfri | Valfritt värde som du kan använda för att inaktivera funktionen för borttagning av dubbletter. Ange värdet `false` skapar dubbletter i Marketo |
+| dedupEnabled | valfri | Valfritt värde som du kan använda för att inaktivera funktionen för borttagning av dubbletter. Om du anger värdet `false` skapas dubbletter i Marketo |
 
 ## Begär XML
 

@@ -1,14 +1,14 @@
 ---
-title: "Aktivera djupa länkar"
-feature: "Mobile Marketing"
-description: "Instruktioner för aktivering av djupa länkar"
-source-git-commit: cb000968c78e062b3c17be7d0faa6236c73e7358
+title: Aktivera djupa länkar
+feature: Mobile Marketing
+description: Instruktioner för aktivering av djupa länkar
+exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '376'
 ht-degree: 0%
 
 ---
-
 
 # Aktivera djupa länkar
 
@@ -22,18 +22,18 @@ Så här fungerar processen:
 
 Detta kräver att du definierar en anpassad URI-struktur för appen, registrerar schemat i appens manifest och sedan lägger till kod för att bearbeta djupa länkhändelser och dirigera till rätt plats i appen.
 
-För iOS, se Apple dokumentation om [Definiera ett anpassat URL-schema för din app](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
+Information om iOS finns i Apple-dokumentationen om [Definiera ett anpassat URL-schema för din app](https://developer.apple.com/documentation/xcode/defining-a-custom-url-scheme-for-your-app).
 
-Android-enheter finns i Google-dokumentationen om [Aktivera djupa länkar för appinnehåll](https://developer.android.com/training/app-links/deep-linking).
+Information om Android finns i Google-dokumentationen om [Aktivera djuplänkar för appinnehåll](https://developer.android.com/training/app-links/deep-linking).
 
-För PhoneGap-appar är djuplänkning inte lika enkelt som för iOS- eller Android-appar, men det finns plugin-program som gör att din hybridapp kan svara på anpassade URL-scheman för djuplänkar och universella/applänkar på både iOS och Android. Överväg [dessa plugin-program](https://cordova.apache.org/plugins/?q=deeplink).
+För PhoneGap-appar är djuplänkning inte lika enkelt som för inbyggda iOS- eller Android-appar, men det finns plugin-program som gör att din hybridapp kan svara på anpassade URL-scheman för djuplänkar och universella/applänkar på både iOS och Android. Överväg [dessa plugin-program](https://cordova.apache.org/plugins/?q=deeplink).
 
 När du har aktiverat djuplänkning i din app kan du dela dina anpassade URI:er med dina Marketo-användare så att de kan infoga dem i Tryck-åtgärd för push-meddelanden.
 
-Marketo använder en fördefinierad URI-struktur när testenheter konfigureras. Se avsnittet &quot;Testenheter&quot; i [Installationshandbok](installation.md) för mer information.
+Marketo använder en fördefinierad URI-struktur när testenheter konfigureras. Mer information finns under Testenheter i [installationshandboken](installation.md).
 
 ## Metodtips för att definiera en URI-struktur
 
-Om ert varumärke har en befintlig mobilwebbplats är det bästa sättet att följa dess URL-struktur även för djuplänkens URI. Om `https://myappname.com/products/purple-shirt` är webbplatsadressen för produkten i fråga, och sedan `myappname://products/purple-shirt` skulle vara en bra URI-struktur för djup länk som ska användas i din app.
+Om ert varumärke har en befintlig mobilwebbplats är det bästa sättet att följa dess URL-struktur även för djuplänkens URI. Om till exempel `https://myappname.com/products/purple-shirt` är din webbplatsadress för produkten i fråga, skulle `myappname://products/purple-shirt` vara en bra URI-struktur för djup länk som kan användas i din app.
 
-I allmänhet bör era scheman vara unika för ert varumärke. Det finns för närvarande inga regler för att göra scheman unika över hela världen, men ett sätt att se till att dina scheman är unika är att backa domännamnet (till exempel `org.companyname`).
+I allmänhet bör era scheman vara unika för ert varumärke. Det finns för närvarande inga regler för att göra scheman unika över hela världen, men ett sätt att se till att dina scheman är unika är att vända ditt domännamn (till exempel `org.companyname`).

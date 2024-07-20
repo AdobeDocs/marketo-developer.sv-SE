@@ -1,20 +1,20 @@
 ---
-title: "Roller för säljprojekt"
+title: Roller för affärsmöjlighet
 feature: REST API
-description: "Hantera affärsmöjlighetsroller i Marketo."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Hantera affärsmöjlighetsroller i Marketo.
+exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
 
 ---
 
-
 # Roller för affärsmöjlighet
 
-[Slutpunktsreferens för affärsmöjlighetsroller](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Slutpunktsreferens för säljprojektsroller](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
-Leads är kopplade till affärsmöjligheter via mellanliggande `opportunityRole` -objekt.
+Leads länkas till affärsmöjligheter via det mellanliggande `opportunityRole`-objektet.
 
 API:er för säljprojektsroller visas bara för prenumerationer som inte har en intern CRM-synkronisering aktiverad.
 
@@ -106,7 +106,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 ## Fråga
 
-Observera att båda `dedupeFields` och `searchableFields` skiljer sig lite från möjligheter. `dedupeFields` innehåller en sammansatt nyckel, där alla tre `externalOpportunityId`, `leadId`och `role` krävs. Både affärsmöjlighets- och lead-länken för ID-fälten måste finnas i målinstansen för att posten ska kunna skapas. För `searchableFields`, `marketoGUID`, `leadId`och `externalOpportunityId` gäller alla frågor fristående och använder ett mönster som är identiskt med säljprojekt, men det finns ytterligare ett alternativ att använda den sammansatta nyckeln för att fråga, vilket kräver att ett JSON-objekt skickas via POST, med den extra frågeparametern `_method=GET`.
+Observera att både `dedupeFields` och `searchableFields` skiljer sig lite från möjligheterna. `dedupeFields` innehåller faktiskt en sammansatt nyckel, där alla tre av `externalOpportunityId`, `leadId` och `role` krävs. Både affärsmöjlighets- och lead-länken för ID-fälten måste finnas i målinstansen för att posten ska kunna skapas. För `searchableFields`, `marketoGUID`, `leadId` och `externalOpportunityId` är alla giltiga för frågor på egen hand och använder ett mönster som är identiskt med säljprojekt, men det finns ett ytterligare alternativ att använda den sammansatta nyckeln för att fråga, vilket kräver att ett JSON-objekt skickas via POST, med den extra frågeparametern `_method=GET`.
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET

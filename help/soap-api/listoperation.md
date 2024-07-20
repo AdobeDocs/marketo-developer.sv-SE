@@ -1,18 +1,18 @@
 ---
-title: "listOperation"
+title: listOperation
 feature: SOAP
-description: "listOperation SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: listOperation-SOAP
+exl-id: 8332cc22-c5a9-43d6-9e92-8d62265cfab2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '187'
 ht-degree: 0%
 
 ---
 
-
 # listOperation
 
-Den här metoden används för att utföra åtgärder på en statisk lista som definieras i Marketo lead-databas. Om du vill lägga till eller ta bort medlemmar i en statisk lista som definierats i ett program använder du [importToList](importtolist.md). Varje anrop till den här slutpunkten har en gräns på 1 000 leads per anrop.
+Den här metoden används för att utföra åtgärder på en statisk lista som definieras i Marketo lead-databas. Använd [importToList](importtolist.md) om du vill lägga till eller ta bort medlemmar i en statisk lista som definierats i ett program. Varje anrop till den här slutpunkten har en gräns på 1 000 leads per anrop.
 
 Åtgärdstyper:
 
@@ -27,8 +27,8 @@ Den här metoden används för att utföra åtgärder på en statisk lista som d
 | listOperation | Obligatoriskt | Den typ av åtgärd som du vill utföra i den angivna listan. Möjliga åtgärder: `ADDTOLIST`, `ISMEMBEROFLIST`, `REMOVEFROMLIST` |
 | listKey->keyType | Obligatoriskt | Den typ av lista som du vill arbeta med. Möjliga värden: `MKTOLISTNAME`, `MKTOSALESUSERID`, `SFDCLEADOWNERID` |
 | listKey->keyValue | Obligatoriskt | Namnet på den lista som du vill arbeta med. |
-| listMemberList->leadKey->keyType | Obligatoriskt | `keyType` gör att du kan ange det ID som du vill referera till leadet by. Möjliga värden: `IDNUM` |
-| listMemberList->leadKey->keyValue | Obligatoriskt | `keyValue` är värdet som du vill använda listan på |
+| listMemberList->leadKey->keyType | Obligatoriskt | Med `keyType` kan du ange det ID som du vill referera till leadet by. Möjliga värden: `IDNUM` |
+| listMemberList->leadKey->keyValue | Obligatoriskt | `keyValue` är det värde som du vill använda listan på |
 | strikt | Valfritt | Strikt läge misslyckas för hela åtgärden om en delmängd av anropet misslyckas. I icke-strikt läge slutförs allt det kan och fel returneras för allt som misslyckas. |
 
 ## Begär XML

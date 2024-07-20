@@ -1,14 +1,14 @@
 ---
-title: "Anpassade åtgärder"
-feature: "Mobile Marketing"
-description: "Översikt över anpassade åtgärder"
-source-git-commit: c51e1b84efdf444c13714c1a08ecc4cac677f483
+title: Anpassade åtgärder
+feature: Mobile Marketing
+description: Översikt över anpassade åtgärder
+exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '291'
 ht-degree: 0%
 
 ---
-
 
 # Anpassade åtgärder
 
@@ -115,4 +115,4 @@ sharedInstance.reportAll();
 
 Det är enkelt att konfigurera anpassade åtgärder för mobiler, men det finns begränsningar för hur många tecken du kan skicka från Mobile SDK till Marketo. Se till att alla anpassade åtgärder som rapporterar tillbaka till Marketo via mobil-SDK är kortare än 20 tecken.
 
-**Observera följande när flera användare använder en delad enhet:** När en användare loggar in på en mobilapp som är integrerad med Marketo SDK görs det första anropet för att koppla leadet till appinstallationen. När det här anropet har slutförts kan ytterligare användaraktiviteter i appen visas i leadets aktivitetslogg. Observera, eftersom detta är ett asynkront anrop, om det finns anpassade åtgärder som loggas omedelbart efter inloggningen, kan de kopplas till användaren som tidigare var inloggad tills associationsanropet lyckas.
+**Obs! Om flera användare använder en delad enhet:** När en användare loggar in i en mobilapp som är integrerad med Marketo SDK görs det första anropet för att associera leadet med appinstallationen. När det här anropet har slutförts kan ytterligare användaraktiviteter i appen visas i leadets aktivitetslogg. Observera, eftersom detta är ett asynkront anrop, om det finns anpassade åtgärder som loggas omedelbart efter inloggningen, kan de kopplas till användaren som tidigare var inloggad tills associationsanropet lyckas.

@@ -19,9 +19,9 @@ Följande objekt är inte tillgängliga via REST API när intern synkronisering 
 
 ## Person (leads)
 
-Människor är grunden för alla automatiserade marknadsföringsplattformar. Inom Marketo kallas alla icke-säljande personposter leads, oavsett om de har angetts som leads, prospects, misstänkta, kontakter osv. ur ett säljperspektiv. Leadobjektet innehåller en uppsättning [standardfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET) som e-post, förnamn och efternamn. Ytterligare fält kan läggas till i lead-objekttypen för att utöka informationstyperna som är kopplade till poster i systemet. Anpassade attribut kan läsas och skrivas till precis som standardfälten. En fullständig lista över fält finns i Marketo **[!UICONTROL Admin]** > **[!UICONTROL Field Management]** -menyn. Leads identifieras unikt i Marketo av ID-fältet. Andra unika nycklar måste verkställas externt från systemet.
+Människor är grunden för alla automatiserade marknadsföringsplattformar. Inom Marketo kallas alla icke-säljande personposter leads, oavsett om de har angetts som leads, prospects, misstänkta, kontakter osv. ur ett säljperspektiv. Leadobjektet innehåller en uppsättning [standardfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET), till exempel e-post, förnamn och efternamn. Ytterligare fält kan läggas till i lead-objekttypen för att utöka informationstyperna som är kopplade till poster i systemet. Anpassade attribut kan läsas och skrivas till precis som standardfälten. En fullständig lista med fält finns på Marketo-menyn **[!UICONTROL Admin]** > **[!UICONTROL Field Management]**. Leads identifieras unikt i Marketo av ID-fältet. Andra unika nycklar måste verkställas externt från systemet.
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [SOAP](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [SOAP](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
 ## Verksamhet
 
@@ -87,12 +87,12 @@ Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/#ta
 
 ## Anpassade objekt
 
-Med ett anpassat Marketo-objekt kan du skapa en 1:N- eller många-till-många-relation (Edge-Bridge-Edge) mellan dina Marketo Leads och de anpassade objektposterna. När du har skapat och publicerat ett anpassat Marketo-objekt kan du utföra CRUD-åtgärder på det anpassade objektet via Marketo API. Mer information om att skapa anpassade objekt finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/home). När nya poster läggs till i det anpassade objektet kan du använda en smart listutlösare för att svara. Du kan också använda anpassade objektdata som ett filter i smarta listor (segmentering) eller i e-postmeddelanden som använder [E-postskript](email-scripting.md).
+Med ett anpassat Marketo-objekt kan du skapa en 1:N- eller många-till-många-relation (Edge-Bridge-Edge) mellan dina Marketo Leads och de anpassade objektposterna. När du har skapat och publicerat ett anpassat Marketo-objekt kan du utföra CRUD-åtgärder på det anpassade objektet via Marketo API. Mer information om hur du skapar anpassade objekt finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/home). När nya poster läggs till i det anpassade objektet kan du använda en smart listutlösare för att svara. Du kan också använda anpassade objektdata som ett filter i smarta listor (segmentering) eller i e-postmeddelanden med [e-postskript](email-scripting.md).
 
 Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects), [SOAP](soap-api/custom-objects.md)
 
 ## Säljare
 
-Försäljningspersonsposter och lead-relationer kan hanteras i Marketo när ingen intern CRM-integrering är aktiverad. Posterna innehåller grundläggande information om säljaren, till exempel Namn, E-post och Jobbtitel, som kan användas för filtrering och tokens i Marketo när ett lead ägs av en. Relationen till en säljare hanteras på lead-nivå via fältet&quot;externalSalesPersonId&quot;, som måste uppdateras via [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) API.
+Försäljningspersonsposter och lead-relationer kan hanteras i Marketo när ingen intern CRM-integrering är aktiverad. Posterna innehåller grundläggande information om säljaren, till exempel Namn, E-post och Jobbtitel, som kan användas för filtrering och tokens i Marketo när ett lead ägs av en. Relationen till en säljare hanteras på lead-nivå via fältet externalSalesPersonId, som måste uppdateras via API:t [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST).
 
 Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)

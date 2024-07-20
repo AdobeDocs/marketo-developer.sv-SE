@@ -1,20 +1,20 @@
 ---
-title: "Resurser"
+title: Assets
 feature: REST API
-description: "Ett API för att arbeta med Marketo-resurser."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Ett API för att arbeta med Marketo-resurser.
+exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '876'
 ht-degree: 0%
 
 ---
 
-
-# Resurser
+# Assets
 
 Marketo tillhandahåller API:er för interaktion med de flesta marknadsförings- och organisationsresurser inom Marketo.
 
-## Resurser
+## Assets
 
 Marketo resurser omfattar:
 
@@ -31,11 +31,11 @@ Marketo resurser omfattar:
 
 ## API
 
-En fullständig lista över Resurs-API-slutpunkter, inklusive parametrar och modelleringsinformation, finns i [Referens för resurs-API-slutpunkt](endpoint-reference.md).
+En fullständig lista över Resurs-API-slutpunkter, inklusive parametrar och modelleringsinformation, finns i [Resurs-API-slutpunktsreferens](endpoint-reference.md).
 
 ## Fråga
 
-Resurser har vanligtvis tre mönster som de kan hämtas med: efter ID, efter namn och genom att bläddra.  Med ID och efter namn hämtas både en enda resurs för en given parameter, medan bläddringen returneras och tillåter bläddring genom hela listan med resurser av den typen.  Enskilda typer av resurser har olika parametrar som de kan filtreras efter, så se till att titta närmare på deras enskilda dokument.
+Assets har vanligtvis tre mönster som de kan hämtas med: efter ID, efter namn och genom att bläddra.  Med ID och efter namn hämtas både en enda resurs för en given parameter, medan bläddringen returneras och tillåter bläddring genom hela listan med resurser av den typen.  Enskilda typer av resurser har olika parametrar som de kan filtreras efter, så se till att titta närmare på deras enskilda dokument.
 
 I vissa fall returnerar inte bläddringsslutpunkten för vissa resurstyper underordnade resurser, t.ex. tillåtna värden för en tagg, och de måste hämtas individuellt med hjälp av antingen Efter namn eller Efter ID-slutpunkten för att returnera hela uppsättningen metadata.  Andra kan ha separata slutpunkter helt för hämtning av beroende objekt, t.ex. formulärfält.
 
@@ -174,7 +174,7 @@ GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 
 ## Skapa och uppdatera
 
-För enkla resurstyper som mappar, token och filer finns det vanligtvis bara en enda slutpunkt för att skapa och sedan ytterligare en slutpunkt för att uppdatera poster med ID.  Resurser skapas med ett namn som alltid krävs, och sedan returneras alla metadata och ID:n av create- eller update-svaret.
+För enkla resurstyper som mappar, token och filer finns det vanligtvis bara en enda slutpunkt för att skapa och sedan ytterligare en slutpunkt för att uppdatera poster med ID.  Assets skapas med ett namn som alltid krävs, och därefter returneras alla metadata och ID:n från create- eller update-svaret.
 
 Så här skapar du till exempel en token:
 
@@ -433,7 +433,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 }
 ```
 
-Resurser kan också inte godkännas om de är i ett godkänt läge.  Detta tar ned alla aktiva versioner av resursen och återställer resursen till ett läge med bara utkast, samtidigt som eventuella associerade utkast tas bort.  Den här åtgärden kan bara utföras på de flesta resurser om den inte används någonstans i Marketo, till exempel ett e-postmeddelande som hänvisas till i ett skicka-e-postflödessteg eller ett utdrag som bäddas in i ett e-postmeddelande.
+Assets kan också avvisas om de är i ett godkänt läge.  Detta tar ned alla aktiva versioner av resursen och återställer resursen till ett läge med bara utkast, samtidigt som eventuella associerade utkast tas bort.  Den här åtgärden kan bara utföras på de flesta resurser om den inte används någonstans i Marketo, till exempel ett e-postmeddelande som hänvisas till i ett skicka-e-postflödessteg eller ett utdrag som bäddas in i ett e-postmeddelande.
 
 ```
 POST /rest/asset/v1/email/{id}/unapprove.json
@@ -455,7 +455,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 ## Ta bort
 
-Resurser med godkännande och utkasttillstånd, med undantag för formulär, får inte tas bort när de har godkänts, och måste tas bort innan de tas bort.  Borttagningar kan i allmänhet bara utföras när en resurs inte är godkänd och inte används, och när det gäller mappar är den tom.  Ett viktigt undantag är program som kan tas bort tillsammans med allt underordnat innehåll, så länge programmet och dess innehåll inte används någonstans utanför programmets gränser.
+Assets med tillstånd för godkännande och utkast, med undantag för formulär, får inte tas bort när de godkänns, och måste tas bort innan de tas bort.  Borttagningar kan i allmänhet bara utföras när en resurs inte är godkänd och inte används, och när det gäller mappar är den tom.  Ett viktigt undantag är program som kan tas bort tillsammans med allt underordnat innehåll, så länge programmet och dess innehåll inte används någonstans utanför programmets gränser.
 
 ```
 POST /rest/asset/v1/program/{id}/delete.json

@@ -1,14 +1,14 @@
 ---
-title: "Avancerat läge för säkerhetsåtkomst"
-feature: "Mobile Marketing"
-description: "Information om avancerat säkerhetsåtkomstläge"
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+title: Avancerat läge för säkerhetsåtkomst
+feature: Mobile Marketing
+description: Information om avancerat säkerhetsåtkomstläge
+exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
 
 ---
-
 
 # Avancerat läge för säkerhetsåtkomst
 

@@ -1,14 +1,14 @@
 ---
-title: "getCampaignsForSource"
+title: getCampaignsForSource
 feature: SOAP
-description: "getCampaignsForSource SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCampaignsForSource SOAP anrop
+exl-id: bd8803ef-f462-4346-a381-73f40dc5d9ee
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '131'
 ht-degree: 0%
 
 ---
-
 
 # getCampaignsForSource
 
@@ -22,7 +22,7 @@ Viktigt: Den smarta kampanjen måste ha en utlösare för att kunna kvalificera 
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| källa | Obligatoriskt | källa kan `MKTOWS` eller `SALES`. Den senare innehåller en lista med kampanjer som är tillgängliga för Sales Insight. |
+| källa | Obligatoriskt | källan kan vara `MKTOWS` eller `SALES`. Den senare innehåller en lista med kampanjer som är tillgängliga för Sales Insight. |
 | name | Valfritt | Använd detta för att filtrera efter namn. Detta är en enskild sträng, inte en array med strängar. |
 | exactName | Valfritt | Booleskt värde som anger om du vill ha en exakt matchning för name-parametern |
 

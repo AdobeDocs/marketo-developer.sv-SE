@@ -1,18 +1,18 @@
 ---
-title: "Bulk Program Member Extract"
+title: Extract för programmedlem
 feature: REST API
-description: "Batchbearbetning av extrahering av medlemsdata."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: Batchbearbetning av extrahering av medlemsdata.
+exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 0%
 
 ---
 
-
 # Extract för programmedlem
 
-[Referens för utdrag av slutpunkt för massprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Referens för extrahering av slutpunkt för gruppprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
 Uppsättningen REST API:er för Bulk Program Member Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar programmedlemsposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
@@ -22,7 +22,7 @@ API:erna för extrahering av gruppprogrammedlemmar kräver att den ägande API-a
 
 ## Beskriv
 
-[Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) är den primära källan till sanning för om fält är tillgängliga och metadata om dessa fält. The `name` -attributet innehåller REST API-namnet.
+[Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) är den primära källan till sanning om fält är tillgängliga och metadata om fälten. Attributet `name` innehåller REST API-namnet.
 
 ```
 GET /rest/v1/programs/members/describe.json
@@ -213,7 +213,7 @@ GET /rest/v1/programs/members/describe.json
 
 ## Filter
 
-Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan anges för ett jobb. I så fall kombineras de med AND. Du måste ange antingen `programId` eller `programIds` filter. Alla andra filter är valfria. The `updatedAt` filter kräver ytterligare infrastrukturkomponenter som ännu inte har lanserats för alla prenumerationer.
+Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan anges för ett jobb. I så fall kombineras de med AND. Du måste ange antingen filtret `programId` eller `programIds`. Alla andra filter är valfria. Filtret `updatedAt` kräver ytterligare infrastrukturkomponenter som ännu inte har distribuerats till alla prenumerationer.
 
 <table>
   <tbody>
@@ -225,12 +225,12 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>programId</td>
       <td>Heltal</td>
-      <td>Accepterar ID:t för ett program. Jobb returnerar alla tillgängliga poster som är medlemmar i programmet när jobbet börjar bearbetas.Hämta program-ID med <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a> endpoint.Cannot be used with programIds filter.</td>
+      <td>Accepterar ID:t för ett program. Jobb returnerar alla tillgängliga poster som är medlemmar i programmet när jobbet börjar bearbetas.Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>.Kan inte användas med filtret Program-ID.</td>
     </tr>
     <tr>
       <td>programIds</td>
       <td>Array[heltal]</td>
-      <td>Accepterar en matris med upp till 10 program-ID. Jobb returnerar alla tillgängliga poster som är medlemmar i programmen när jobbet börjar bearbetas. Ett extra fält, "programId", läggs till i exportfilen som det första fältet. Det här fältet identifierar programmet som en programmedlemspost har extraherats från. Hämta program-ID med hjälp av <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a> endpoint.Cannot be used with programId filter.</td>
+      <td>Accepterar en matris med upp till 10 program-ID. Jobb returnerar alla tillgängliga poster som är medlemmar i programmen när jobbet börjar bearbetas. Ett extra fält, "programId", läggs till i exportfilen som det första fältet. Det här fältet identifierar det program som en programmedlemspost har extraherats från. Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>. Det går inte att använda med filtret program-ID.</td>
     </tr>
     <tr>
       <td>isExforsted</td>
@@ -320,14 +320,14 @@ Slutpunkten Skapa medlemsjobb för exportprogram innehåller flera formateringsa
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
 |---|---|---|---|
-| fält | Array[Sträng] | Ja | Parametern fields accepterar en JSON-array med strängar. De listade fälten inkluderas i den exporterade filen. Följande fälttyper kan exporteras:`LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Ange ett fält med hjälp av dess REST API-namn som kan hämtas med Beskriv lead2 och/eller Beskriv programmedlemmens slutpunkter. |
+| fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. De listade fälten inkluderas i den exporterade filen. Följande fälttyper kan exporteras: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Ange ett fält med hjälp av dess REST API-namn som kan hämtas med Beskriv lead2 och/eller Beskriv programmedlemmens slutpunkter. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 
 
 ## Skapa ett jobb
 
-Parametrarna för jobbet definieras innan exporten avbryts med [Skapa medlemsjobb för exportprogram](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST) slutpunkt. Vi måste definiera `filter` som innehåller program-ID:t och `fields` som behövs för export. Alternativt kan vi definiera `format` av filen och `columnHeaderNames`.
+Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa exportprogrammedlemjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). Vi måste definiera `filter` som innehåller program-ID:t och `fields` som behövs för exporten. Vi kan också definiera `format` för filen och `columnHeaderNames`.
 
 ```
 POST /bulk/v1/program/members/export/create.json
@@ -371,7 +371,7 @@ POST /bulk/v1/program/members/export/create.json
 }
 ```
 
-Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. För att göra det [Köa medlemsjobb för exportprogram](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) slutpunkten måste anropas med `exportId` från när statussvaret skapades:
+Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Det gör du genom att anropa slutpunkten [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) med hjälp av `exportId` från statussvaret för skapandet:
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
@@ -393,13 +393,13 @@ POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 }
 ```
 
-Detta kommer att svara med en inledande `status` &quot;Köad&quot; efter vilken det kommer att ställas in på &quot;Bearbetning&quot; när det finns en tillgänglig exportplats.
+Detta kommer att svara med en inledande `status` av &quot;Köad&quot;, varefter den ställs in på &quot;Bearbetning&quot; när det finns en tillgänglig exportplats.
 
 ## Avsökningsjobbstatus
 
 Obs! Status kan bara hämtas för jobb som har skapats av samma API-användare.
 
-Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Rulla med [Hämta jobbstatus för medlem i exportprogrammet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET) slutpunkt. Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört, Misslyckat.
+Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Avsök med slutpunkten [Hämta jobbstatus för medlem i exportprogrammet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört, Misslyckat.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/status.json
@@ -422,7 +422,7 @@ GET /bulk/v1/program/members/export/{exportId}/status.json
 }
 ```
 
-Statusslutpunkten svarar som anger att jobbet fortfarande bearbetas, så filen är inte tillgänglig för hämtning än. När jobbet är klart `status` ändringar i&quot;Slutfört&quot; som är tillgängligt för hämtning.
+Statusslutpunkten svarar som anger att jobbet fortfarande bearbetas, så filen är inte tillgänglig för hämtning än. När jobbet `status` ändras till Slutfört är det tillgängligt för hämtning.
 
 ```json
 {
@@ -447,9 +447,9 @@ Statusslutpunkten svarar som anger att jobbet fortfarande bearbetas, så filen �
 
 ## Hämtar data
 
-Om du vill hämta filen för en slutförd programmedlemsexport anropar du bara [Hämta medlemsfil för exportprogram](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) slutpunkt med `exportId`.
+Om du vill hämta filen för en slutförd programmedlemsexport anropar du [Get Export Program Member File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/getExportProgramMembersFileUsingGET) -slutpunkten med din `exportId`.
 
-Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll. Om ett begärt programmedlemsfält är tomt (innehåller inga data) `null` placeras i motsvarande fält i exportfilen.
+Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll. Om ett begärt programmedlemsfält är tomt (innehåller inga data) placeras `null` i motsvarande fält i exportfilen.
 
 ```
 GET /bulk/v1/program/members/export/{exportId}/file.json
@@ -475,7 +475,7 @@ Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extrah
 
 ## Avbryta ett jobb
 
-Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med [Avbryt export av programmedlemsjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) slutpunkt:
+Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av programmedlemmen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) :
 
 ```
 POST /bulk/v1/program/members/export/{exportId}/cancel.json

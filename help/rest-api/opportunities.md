@@ -1,14 +1,14 @@
 ---
-title: "Möjligheter"
+title: Möjligheter
 feature: REST API
-description: " Konfigurera möjligheter med Marketo API."
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: ' Konfigurera affärsmöjligheter med Marketo API.'
+exl-id: 46451285-4125-4857-890a-575069a68288
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
 
 ---
-
 
 # Möjligheter
 
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo visar API:er för att läsa, skriva, skapa och uppdatera poster för affärsmöjligheter. I Marketo länkas affärsmöjlighetsposter till lead- och kontaktposter via det mellanliggande säljprojektsrollobjektet, så att en affärsmöjlighet kan länkas till många enskilda leads.  Båda dessa objekttyper exponeras via API, och precis som de flesta objekttyperna för Lead-databasen har de båda ett motsvarande Describe-anrop som returnerar metadata om objekttyperna.
 
-API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC-synkronisering](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) är aktiverade.
+API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC-synkronisering](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiverat.
 
 ## Beskriv
 
@@ -81,11 +81,11 @@ GET /rest/v1/opportunities/describe.json
 }
 ```
 
-De viktigaste fälten för den här svarstypen är `idField`, `dedupeFields`och `searchableFields`.  idField anger primärnyckeln för affärsmöjligheter, marketoGUID.  Detta är en systemgenererad unik nyckel som kan användas för läs- och uppdateringsåtgärder, men inte för infogningar, eftersom den är systemhanterad.  Arrayen dedupliceringsfält anger vilka fält som är giltiga nycklar för infogningsåtgärder. I fråga om affärsmöjligheter är detta bara externalOpportunityId.  Arrayen searchableFields ger dig den uppsättning fält som är giltiga för frågor, externalOpportunityId och marketoGUID.
+De viktigaste fälten för den här svarstypen är `idField`, `dedupeFields` och `searchableFields`.  idField anger primärnyckeln för affärsmöjligheter, marketoGUID.  Detta är en systemgenererad unik nyckel som kan användas för läs- och uppdateringsåtgärder, men inte för infogningar, eftersom den är systemhanterad.  Arrayen dedupliceringsfält anger vilka fält som är giltiga nycklar för infogningsåtgärder. I fråga om affärsmöjligheter är detta bara externalOpportunityId.  Arrayen searchableFields ger dig den uppsättning fält som är giltiga för frågor, externalOpportunityId och marketoGUID.
 
 ## Fråga
 
-Mönstret för [fråga efter möjligheter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) följer det som finns i API:t för leads med den extra begränsningen att `filterType` parametern godkänner fälten som anges i `searchableFields` eller för motsvarande describe-anrop, eller dedupeFields.  Observera att om du använder anpassade affärsmöjlighetsfält, kommer endast anpassade affärsmöjlighetsfält av typen String eller Integer att listas i sökbar fältsarray.
+Mönstret för [frågemöjligheter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) följer noga det för lead-API:t med den extra begränsningen att parametern `filterType` accepterar fälten som listas i arrayen `searchableFields` eller i motsvarande describe-anrop, eller dedupeFields.  Observera att om du använder anpassade affärsmöjlighetsfält, kommer endast anpassade affärsmöjlighetsfält av typen String eller Integer att listas i sökbar fältsarray.
 
 ```
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -118,13 +118,13 @@ GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f99
 }
 ```
 
-Du kan även inkludera valfria frågeparametrar `fields`, för att returnera ytterligare affärsmöjlighetsfält, `nextPageToken`, för sidindelning genom uppsättningar som är större än gruppstorleken, `batchSize`, som har standardvärdet och som har högst 300.  När du begär en lista med `fields`om ett visst fält begärs, men inte returneras, anges värdet som null.
+Du kan även inkludera de valfria frågeparametrarna `fields`, för att returnera ytterligare affärsmöjlighetsfält, `nextPageToken`, för att växla genom uppsättningar som är större än gruppstorleken, `batchSize`, som är som standard och har högst 300.  När en lista med `fields` begärs, om ett visst fält begärs men inte returneras, anges värdet som null.
 
 ## Skapa och uppdatera
 
-Affärsmöjligheterna följer ofta leads-API-mönstret, med vissa begränsningar.  Tillgängliga värden för `action` är: createOnly, createOrUpdate och updateOnly.  När du använder createOnly- eller createOrUpdate-läget måste fältet externalOpportunityId inkluderas i varje post.  För updateOnly-läget kan antingen marketoGUID eller externalOpportunityId användas.  Läget är som standard createOrUpdate om det inte anges.
+Affärsmöjligheterna följer ofta leads-API-mönstret, med vissa begränsningar.  De värden som är tillgängliga för `action` är: createOnly, createOrUpdate och updateOnly.  När du använder createOnly- eller createOrUpdate-läget måste fältet externalOpportunityId inkluderas i varje post.  För updateOnly-läget kan antingen marketoGUID eller externalOpportunityId användas.  Läget är som standard createOrUpdate om det inte anges.
 
-The `lookupField` parametern från leads-API är inte tillgänglig och har ersatts av parametern dedupeBy, som bara är giltig om åtgärden är updateOnly.  De värden som är tillgängliga för dedupeBy är antingen dedupeFields eller idField som anges av description-anropet som externalOpportunityId respektive marketoGUID.  Om dedupeBy inte anges används standardläget dedupeFields.  Fältet &#39;name&#39; får inte vara null.
+Parametern `lookupField` från leads-API är inte tillgänglig och har ersatts av parametern dedupeBy, som bara är giltig om åtgärden är updateOnly.  De värden som är tillgängliga för dedupeBy är antingen dedupeFields eller idField som anges av description-anropet som externalOpportunityId respektive marketoGUID.  Om dedupeBy inte anges används standardläget dedupeFields.  Fältet &#39;name&#39; får inte vara null.
 
 Du kan skicka upp till 300 poster åt gången.
 
@@ -174,13 +174,13 @@ POST /rest/v1/opportunities.json
 }
 ```
 
-API:t svarar med `marketoGUID` för varje post, samt `status` fält, som anger om varje post har lyckats eller inte, och `seq` fält som används för att korrelera inskickade poster till svarsordningen.  Numret i fältet är indexvärdet för den post som har skickats i begäran.
+API:t svarar med `marketoGUID` för varje post, samt ett `status`-fält, som anger om varje post har lyckats eller inte och ett `seq`-fält som används för att korrelera de skickade posterna till svarsordningen.  Numret i fältet är indexvärdet för den post som har skickats i begäran.
 
 ### Fält
 
 Företagsobjektet innehåller en uppsättning fält.  Varje fältdefinition består av en uppsättning attribut som beskriver fältet.  Exempel på attribut är visningsnamn, API-namn och dataType.  Dessa attribut kallas tillsammans för metadata.
 
-Med följande slutpunkter kan du fråga fält på företagsobjektet. Dessa API:er kräver att den ägande API-användaren har en roll med en eller båda av `Read-Write Schema Standard Field` eller `Read-Write Schema Custom Field` behörigheter.
+Med följande slutpunkter kan du fråga fält på företagsobjektet. Dessa API:er kräver att den ägande API-användaren har en roll med en eller båda behörigheterna `Read-Write Schema Standard Field` eller `Read-Write Schema Custom Field`.
 
 ### Frågefält
 
@@ -188,7 +188,7 @@ Det är enkelt att fråga efter affärsmöjlighetsfält.  Du kan fråga ett ens
 
 #### Efter namn
 
-The [Hämta fält för affärsmöjlighet efter namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) slutpunkten hämtar metadata för ett enskilt fält i företagsobjektet.  Obligatoriskt `fieldApiName` path-parametern anger fältets API-namn.  Svaret är som slutpunkten för Beskriv säljprojekt men innehåller ytterligare metadata som `isCustom` -attribut som anger om fältet är ett anpassat fält.
+Slutpunkten [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) hämtar metadata för ett enskilt fält i företagsobjektet.  Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn.  Svaret är som slutpunkten för Beskriv säljprojekt men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
 
 ```
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -217,7 +217,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Bläddra
 
-The [Hämta fält för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) slutpunkten hämtar metadata för alla fält i företagsobjektet.  Som standard returneras högst 300 poster.  Du kan använda `batchSize` frågeparameter för att minska det här talet.  Om `moreResult` -attributet är true, vilket betyder att fler resultat är tillgängliga.  Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat.  The `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten [Hämta fält för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) hämtar metadata för alla fält i företagsobjektet.  Som standard returneras högst 300 poster.  Du kan använda frågeparametern `batchSize` för att minska det här talet.  Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga.  Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat.  `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ```
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5
@@ -296,7 +296,7 @@ GET /rest/v1/opportunities/schema/fields.json?batchSize=5
 
 #### Ta bort
 
-Du kan ta bort affärsmöjligheter genom att ta bort fält eller ID-fält. Ange med `deleteBy` -parameter med ett värde på dedupeFields eller idField. Om inget anges är dedupliceringsfält standard. Begärandetexten innehåller en `input` matris med möjligheter att ta bort. Högst 300 möjligheter per samtal tillåts.
+Du kan ta bort affärsmöjligheter genom att ta bort fält eller ID-fält. Ange med parametern `deleteBy` med värdet dedupeFields eller idField. Om inget anges är dedupliceringsfält standard. Begärandetexten innehåller en `input`-matris med möjligheter att ta bort. Högst 300 möjligheter per samtal tillåts.
 
 ```
 POST /rest/v1/opportunities/delete.json

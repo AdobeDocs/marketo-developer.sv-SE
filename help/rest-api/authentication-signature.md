@@ -1,14 +1,14 @@
 ---
-title: "Autentiseringssignatur"
+title: Autentiseringssignatur
 feature: REST API
-description: "Använda säker autentisering för att skicka meddelanden."
-source-git-commit: 9bc1e0867f9a21e2dc72bfab444a09f188d1bac9
+description: Använda säker autentisering för att skicka meddelanden.
+exl-id: dda9d81b-0a77-4a99-916b-bf21319fd26d
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '210'
 ht-degree: 0%
 
 ---
-
 
 # Autentiseringssignatur
 
@@ -20,7 +20,7 @@ HMAC-SHA1-signaturer kräver följande:
 - En signatur som beräknas med en delad hemlig nyckel och meddelandeinnehåll och överförs med tjänstbegäran
 - En delad hemlig nyckel (kallas även krypteringsnyckel) som inte överförs med tjänstbegäran
 
-Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla ett SOAP-huvud, AuthenticationHeaderInfo, för att kunna skicka autentiseringsinformation med SOAP-meddelandet.
+Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla SOAP, AuthenticationHeaderInfo, för att autentiseringsinformationen ska kunna skickas med det SOAP meddelandet.
 
 I följande pseudokod demonstreras algoritmen:
 
@@ -43,10 +43,10 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| `mktowsUserId` | Obligatoriskt | Marketo klientåtkomst-ID finns på SOAP API-panelen i Marketo Admin under Integration. |
-| `requestSignature` | Obligatoriskt | HMAC-SHA1-signatur baserad på delad hemlig nyckel, `requestTimestamp`och Marketo användar-ID |
+| `mktowsUserId` | Obligatoriskt | Marketo klientåtkomst-ID finns på API-panelen för Marketo SOAP under Integrering. |
+| `requestSignature` | Obligatoriskt | HMAC-SHA1-signatur baserad på delad hemlig nyckel, `requestTimestamp` och Marketo användar-ID |
 | `requestTimestamp` | Obligatoriskt | Begär tidsstämpel (W3C WSDL-datumformat Ex. &quot;2013-06-09T14:04:54-08:00&quot;) |
-| `partnerId` | Valfritt | LaunchPoint Technology Partner [API-nyckel](../launchpoint-api.pdf). |
+| `partnerId` | Valfritt | LaunchPoint Technology Partner [API Key](../launchpoint-api.pdf). |
 
 ## Begär XML - getLeadActivity
 

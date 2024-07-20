@@ -1,14 +1,14 @@
 ---
-title: "importToList"
+title: importToList
 feature: SOAP
-description: "importToList SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: SOAP anrop till importToList
+exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '317'
 ht-degree: 0%
 
 ---
-
 
 # importToList
 
@@ -24,9 +24,9 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Obs!** `displayName` värden ska användas i `importFileHeader` i stället för `name` värden.
+**Obs!** `displayName` -värden bör användas i `importFileHeader` i stället för i `name`-värdena.
 
-**Dynamiskt e-postinnehåll:** Du kan också skicka värden per lead som fungerar som ersättning för Mina token i ett e-postmeddelande.
+**Dynamiskt e-postinnehåll:** Om du vill kan du skicka värden per lead som fungerar som ersättning för Mina token i ett e-postmeddelande.
 
 | E-post | Första | Senaste | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 | mary@company.com | Mary | Rodgers | Kyckling | Brun |
 | wanda@megacorp.com | Wanda | Williams | Veggie | Hazel |
 
-**Viktigt:** Om du lägger till variabler för leads måste du ange den smarta kampanj som använder dem. Nästa gång den angivna smarta kampanjen körs kommer värdena från din lista att användas i stället för de normala My Token-värdena. När den enskilda kampanjen har körts kommer token att ignoreras.
+**Viktigt!** Om du lägger till variabler för leads måste du ange den smarta kampanj som använder dem. Nästa gång den angivna smarta kampanjen körs kommer värdena från din lista att användas i stället för de normala My Token-värdena. När den enskilda kampanjen har körts kommer token att ignoreras.
 
 **OBS!** `importToList` kan ta tid att slutföra, särskilt för stora listor. Om du tänker använda den nyligen importerade listan i andra API-anrop bör du använda `importToListStatus` för att kontrollera att åtgärden är slutförd.
 

@@ -1,14 +1,14 @@
 ---
-title: "Exempel"
-description: "Exempel på Marketo-kod"
+title: Exempel
+description: Exempel på Marketo-kod
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: dc5f0cc5-ff5a-48b0-be36-52c10e56f798
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '207'
 ht-degree: 0%
 
 ---
-
 
 # Exempel
 
@@ -137,7 +137,7 @@ MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (for
 
 ## Visa formulär i LightBox
 
-I det här exemplet visas formuläret i en dialogruta med ljuslådeformat om URL:en innehåller en parameter `lightboxForm=true`.
+I det här exemplet visas formuläret i en ljuslådeformatsdialogruta om URL:en innehåller parametern `lightboxForm=true`.
 
 ```javascript
 MktoForms2.loadForm("//app-ab00.marketo.com", "785-UHP-775", 1057, function (form) { 

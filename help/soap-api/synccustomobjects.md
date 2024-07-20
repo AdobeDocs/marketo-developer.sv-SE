@@ -1,14 +1,14 @@
 ---
-title: "syncCustomObjects"
+title: syncCustomObjects
 feature: SOAP
-description: "syncCustomObjects SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncCustomObjects SOAP anrop
+exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '226'
 ht-degree: 0%
 
 ---
-
 
 # syncCustomObjects
 
@@ -20,7 +20,7 @@ Accepterar en array med anpassade objekt som ska skapas eller uppdateras, upp ti
 
 I ett enda API-anrop kan vissa uppdateringar lyckas och vissa kan misslyckas. Ett felmeddelande returneras för varje fel.
 
-För anpassade objekt som har etablerats med det nya användargränssnittet för anpassade objekt är det bara fält som har angetts som `dedupe` fält i användargränssnittet kan skickas som attribut i `CustomObjKeyList`. Länka fält som inte `dedupe` fält måste skickas som ett attribut i `customObjAttributeList`.
+För anpassade objekt som har etablerats med det nya användargränssnittet för anpassade objekt kan bara fält som har angetts som `dedupe` fält i användargränssnittet skickas som attribut i `CustomObjKeyList`. Länkfält som inte är `dedupe` fält måste skickas som ett attribut i `customObjAttributeList`.
 
 ## Begäran
 

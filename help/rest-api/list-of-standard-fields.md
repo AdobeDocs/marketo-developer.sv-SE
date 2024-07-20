@@ -1,20 +1,20 @@
 ---
 title: Standardfält
 feature: REST API, Field Management
-description: "En tabell med Marketo standardfält."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: En tabell med Marketo standardfält.
+exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1140'
 ht-degree: 7%
 
 ---
 
-
 # Standardfält
 
 Här är en lista över standardfält i Marketo som är tillgängliga via API:t.
 
-Du kan hämta listan med alla fältnamn som stöds som är tillgängliga på dina lead-poster med hjälp av REST [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/) slutpunkt.
+Du kan hämta listan med alla fältnamn som stöds i dina lead-poster med REST-slutpunkten [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/).
 
 | REST API-namn | SOAP API-namn | Etikett | Beskrivning |
 | --- | --- | --- | --- |

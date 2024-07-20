@@ -1,14 +1,14 @@
 ---
-title: "Referensarkitekturer"
+title: Referensarkitekturer
 feature: REST API
-description: "Referensmaterial som diskuterar Marketo-arkitekturen."
-source-git-commit: e8bb45a7b3bee71c3d0ab6117296a75c8959d72e
+description: Referensmaterial om Marketo-arkitekturen.
+exl-id: ba413814-d81a-4c55-a5d0-4386d87038fe
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '31'
 ht-degree: 0%
 
 ---
-
 
 # Referensarkitektur
 

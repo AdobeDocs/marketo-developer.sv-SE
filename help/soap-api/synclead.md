@@ -1,27 +1,27 @@
 ---
-title: "syncLead"
+title: syncLead
 feature: SOAP
-description: "syncLead SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: syncLead SOAP anrop
+exl-id: e6cda794-a9d4-4153-a5f3-52e97a506807
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '518'
 ht-degree: 0%
 
 ---
 
-
 # syncLean
 
 Den här funktionen infogar eller uppdaterar en enstaka lead-post. När du uppdaterar ett befintligt lead identifieras leadet med en av följande nycklar:
 
 - MARKETO ID
-- Utländskt system-ID (implementerat som `foreignSysPersonId`)
+- Sekundärt system-ID (implementerat som `foreignSysPersonId`)
 - Marketo Cookie (skapad av Munchkin JS-skript)
 - E-post
 
 Om en matchning hittas utför anropet en uppdatering. Annars infogas och skapas ett lead. Anonyma leads kan uppdateras med Marketo cookie-ID och kommer att bli kända vid uppdateringen.
 
-Förutom för e-post behandlas alla dessa identifierare som unika nycklar. Marketo-id:t har företräde framför alla andra nycklar. Om båda `foreignSysPersonId` och Marketo-ID:t finns i lead-posten, så har Marketo-ID företräde och `foreignSysPersonId` uppdateras för det leadet. Om `foreignSysPersonId` anges används den som en unik identifierare. Om båda `foreignSysPersonId` och e-post finns men Marketo-id:t saknas, `foreignSysPersonId` har företräde och e-postadressen uppdateras för leadet.
+Förutom för e-post behandlas alla dessa identifierare som unika nycklar. Marketo-id:t har företräde framför alla andra nycklar. Om både `foreignSysPersonId` och Marketo ID finns i lead-posten har Marketo-ID företräde och `foreignSysPersonId` uppdateras för leadet. Om bara `foreignSysPersonId` anges används den som en unik identifierare. Om både `foreignSysPersonId` och e-postadressen finns men Marketo-id:t inte finns, prioriteras `foreignSysPersonId` och e-postadressen uppdateras för leadet.
 
 Du kan också ange ett kontexthuvud för att namnge målarbetsytan.
 
@@ -42,14 +42,14 @@ Om Marketo-arbetsytor INTE är aktiverade MÅSTE målarbetsytan vara standardarb
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| leadRecord->ID | Obligatoriskt - endast när e-post eller `foreignSysPersonId` finns inte | Marketo-ID för lead-posten |
-| leadRecord->Email | Obligatoriskt - endast om ID eller `foreignSysPersonId` finns inte | E-postadressen som är associerad med lead-posten |
+| leadRecord->ID | Obligatoriskt - Endast när e-post eller `foreignSysPersonId` inte finns | Marketo-ID för lead-posten |
+| leadRecord->Email | Obligatoriskt - Endast när ID eller `foreignSysPersonId` inte finns | E-postadressen som är associerad med lead-posten |
 | leadRecord->`foreignSysPersonId` | Obligatoriskt - Endast när ID eller E-post saknas | ID för det främmande system som är associerat med lead-posten |
-| leadRecord->foreignSysType | Valfritt - endast obligatoriskt om `foreignSysPersonId` finns | Typen av externt system. Möjliga värden: ANPASSAD, SFDC, NETSUITE |
+| leadRecord->foreignSysType | Valfritt - Endast obligatoriskt när `foreignSysPersonId` finns | Typen av externt system. Möjliga värden: ANPASSAD, SFDC, NETSUITE |
 | leadRecord->leadAttributeList->attribute->attrName | Obligatoriskt | Namnet på lead-attributet som du vill uppdatera värdet för. |
 | leadRecord->leadAttributeList->attribute->attrValue | Obligatoriskt | Värdet som du vill ange som lead-attribut i attrName. |
 | returnLead | Obligatoriskt | När värdet är true returneras den fullständiga uppdaterade lead-posten vid uppdateringen. |
-| marketoCookie | Valfritt | The [Munchkin javascript](../javascript-api/lead-tracking.md) cookie |
+| marketoCookie | Valfritt | [Munchkin javascript](../javascript-api/lead-tracking.md)-cookien |
 
 ## Begär XML
 

@@ -1,14 +1,14 @@
 ---
 title: Prestanda
 feature: REST API
-description: "Prestandatips för att arbeta med Marketo API."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Prestandatips för att arbeta med Marketo API.
+exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '117'
 ht-degree: 0%
 
 ---
-
 
 # Prestanda
 
@@ -32,7 +32,7 @@ Marketo REST API komprimerar svarstexten och innehåller följande rubrik:
 Content-Encoding: gzip
 ```
 
-Här är ett exempel som använder Curl för att anropa [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) slutpunkt för hämtning av 5 leads:
+Här är ett exempel där Curl används för att anropa slutpunkten [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) för att hämta 5 leads:
 
 ```bash
 $ curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

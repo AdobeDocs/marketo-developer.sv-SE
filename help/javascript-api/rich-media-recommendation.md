@@ -1,14 +1,14 @@
 ---
-title: "Rich Media recommendation"
-description: "Rich Media recommendation"
+title: Rich Media Recommendation
+description: Rich Media Recommendation
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 0%
 
 ---
-
 
 # Rich Media Recommendation
 
@@ -28,7 +28,7 @@ Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/
 | Attribut | Valfritt/obligatoriskt | Beskrivning |
 |---|---|---|
 | class | Obligatoriskt | Ange att det här div HTML-elementet är RTP-rekommendation div. |
-| data-rtp-template-id | Obligatoriskt | Mallens ID. Detta avgör justeringen av din rekommendation. Använd &quot;template1&quot; för vågrät justering, &quot;template2&quot; för lodrät justering eller &quot;template3&quot; för lodrät justering som endast innehåller rubrik och beskrivning. Skriptet injicerar den matchande mallen i `div.Permissible` värden: template1, template2, template3. |
+| data-rtp-template-id | Obligatoriskt | Mallens ID. Detta avgör justeringen av din rekommendation. Använd &quot;template1&quot; för vågrät justering, &quot;template2&quot; för lodrät justering eller &quot;template3&quot; för lodrät justering som endast innehåller rubrik och beskrivning. Skriptet infogar den matchande mallen i följande `div.Permissible`-värden: template1, template2, template3. |
 
 ### Exempel
 
@@ -50,11 +50,11 @@ Om du vill visa dina rekommendationer i lodrät justering med enbart rubrik och 
 <div class="RTP_RCMD2" data-rtp-template-id="template3"></div>
 ```
 
-Se skärmbilder av malljusteringar [här](#example_of_rich_media_recommendation_template_1).
+Se skärmbilder av malljusteringar [här](#example_of_rich_media_recommendation_template_1).
 
 ## Fyll i rekommendation
 
-Den här metoden fyller i alla multimedia `<divs>` med rekommendationer.
+Den här metoden fyller i alla multimedia `<divs>` på sidan med rekommendationer.
 
 ### Användning
 
@@ -149,7 +149,7 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.background.color | &quot;rcmd.cta.background.color&quot; : &quot;green&quot; | Ändrar knappens bakgrundsfärg. Den här egenskapen stöder alla CSS-färgvärden (färgnamn, rgb, ...) |
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Ändrar färg på knappteckensnitt. Den här egenskapen stöder alla teckensnittsfärgvärden (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Ändrar knapptexten. Texten är densamma för alla knappar. |
-| kategori | &quot;category&quot; : [&quot;en kategori&quot;] | Ändrar den rekommendationskategori som den här mallen stöder. I mallen visas endast rekommendationer med en av kategorierna som anges i den här konfigurationen. |
+| kategori | &quot;category&quot; : [&quot;one category&quot;] | Ändrar den rekommendationskategori som den här mallen stöder. I mallen visas endast rekommendationer med en av kategorierna som anges i den här konfigurationen. |
 
 
 Obs! Konfigurationsstödet kan ändras per mall.
@@ -232,16 +232,16 @@ rtp('get','rcmd', 'richmedia');
 
 #### Exempel på rekommendationsmall 1 för multimedia
 
-**Namn**: template1 **Beskrivning**: Vågrätt innehåll inklusive bild, titel och beskrivning samt knapp för att anropa åtgärd.
+**Namn**: mall1 **Beskrivning**: Vågrätt innehåll inklusive bild, titel och beskrivning samt anrop till åtgärdsknappen.
 
 ![Multimediamall](assets/rich-media-template1.png)
 
 #### Exempel på rekommendationsmall 2 för multimedia
 
-**Namn**: mall2 **Beskrivning**: Lodrätt innehåll inklusive bild, titel och beskrivning samt knapp för att anropa åtgärd.
+**Namn**: mall2 **Beskrivning**: Lodrätt innehåll inklusive bild, titel och beskrivning samt anrop till åtgärdsknappen.
 
 ![Multimediamall](assets/rich-media-template2.png)
 
 #### Exempel på rekommendationsmall 3 för multimedia
 
-**Namn**: template3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall](assets/rich-media-template3.png)
+**Namn**: mall3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall](assets/rich-media-template3.png)

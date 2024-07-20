@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Ionic
 
-I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet. [!DNL Ionic] kondensatorn stöds för närvarande inte.
+I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet. Kondensatorn [!DNL Ionic] stöds inte för närvarande.
 
 ## Förutsättningar
 
-1. [Lägga till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programmets hemliga nyckel och Munchkin-ID).
-1. Konfigurera push-meddelanden ([iOS](push-notifications.md) | [Android](push-notifications.md) ).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md) ).
 1. Installera [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanvisningar
 
-### Konfigurera Marketo [!DNL Ionic] Plugin
+### Konfigurera Marketo [!DNL Ionic]-plugin
 
-1. Om Cordova CLI är installerat går du till [!DNL Ionic] och kör följande kommando för att lägga till Marketo-plugin-programmet i ditt program:
+1. Om Cordova CLI är installerat går du till programkatalogen [!DNL Ionic] och kör följande kommando för att lägga till Marketo-plugin-programmet i programmet:
 
    `$ ionic plugin add https://github.com/Marketo/PhoneGapPlugin.git --variable APPLICATION_SECRET_KEY="YOUR_APPLICATION_SECRET"`
 
@@ -44,11 +44,11 @@ I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet
 
 ### Aktivera push-meddelanden i xCode
 
-1. Aktivera funktionen för push-meddelanden i xCode-projekt.![Meddelandefunktioner](assets/notification-capability.png)
+1. Aktivera funktionen för push-meddelanden i xCode-projekt.![Meddelandefunktion](assets/notification-capability.png)
 
 ### Spåra push-meddelanden
 
-Klistra in följande kod i `application:didFinishLaunchingWithOptions:` funktion.
+Klistra in följande kod i funktionen `application:didFinishLaunchingWithOptions:`.
 
 >[!BEGINTABS]
 
@@ -72,9 +72,9 @@ sharedInstance.trackPushNotfication(launchOptions)
 
 ### Initiera Marketo Framework
 
-Om du vill vara säker på att Marketo-ramverket initieras när programmet startas lägger du till följande kod under `onDeviceReady` fungerar i JavaScript huvudfil.
+Om du vill vara säker på att Marketo-ramverket initieras när appen startas lägger du till följande kod under funktionen `onDeviceReady` i JavaScript huvudfil.
 
-Du måste godkänna `ionicCordova` som ramverkstyp för [!DNL Ionic] Cordova-appar.
+Du måste skicka `ionicCordova` som ramverkstyp för [!DNL Ionic] Cordova-appar.
 
 #### Syntax
 
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Callback: funktionen körs om Marketo push-meddelande initieras utan fel.
 - Fel vid återanrop: funktionen körs om Marketo push-meddelande inte kan initieras.
-- GCM_PROJECT_ID : GCM-projekt-ID hittades i [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) efter att du skapat programmet.
+- GCM_PROJECT_ID: GCM-projekt-ID hittades i [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) efter att appen har skapats.
 
 Token kan också avregistreras vid utloggning.
 
@@ -177,7 +177,7 @@ marketo.associateLead(
 
 ## Rapportåtgärd
 
-Du kan rapportera alla användaråtgärder som har utförts genom att anropa `reportaction` funktion.
+Du kan rapportera alla användaråtgärder som har utförts genom att anropa funktionen `reportaction`.
 
 ### Syntax
 

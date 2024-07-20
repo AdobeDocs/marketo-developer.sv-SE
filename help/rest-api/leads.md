@@ -1,18 +1,18 @@
 ---
-title: "Leads"
+title: Leads
 feature: REST API
-description: "Information om Leads-API-anrop"
-source-git-commit: aea2812730fa5f6054e69dfa9d8045329aa724c7
+description: Information om Leads-API-anrop
+exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
+source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
 workflow-type: tm+mt
 source-wordcount: '3308'
 ht-degree: 0%
 
 ---
 
-
 # Leads
 
-[Referens för leadslutpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Referens för lead-slutpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
 
 Marketo Leads API innehåller en stor uppsättning funktioner för enkla CRUD-program mot lead-poster, samt möjlighet att ändra ett leadmedlemskap i statiska listor och program och initiera Smart Campaign-bearbetning för leads.
 
@@ -21,7 +21,7 @@ Marketo Leads API innehåller en stor uppsättning funktioner för enkla CRUD-pr
 En av huvudfunktionerna i Leads-API:t är Beskriv-metoden. Använd Beskriv leads för att hämta en fullständig lista över de fält som är tillgängliga för interaktion via både REST API och SOAP API, samt metadata för varje:
 
 * Datatyp
-* REST- och SOAP-API-namn
+* REST- och SOAP API-namn
 * Längd (om tillämpligt)
 * Skrivskyddad
 * Etikett
@@ -58,13 +58,13 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Vanligtvis innehåller svaren en mycket större uppsättning fält i resultatarrayen, men vi utelämnar dem i demonstrationssyfte. Varje objekt i resultatarrayen motsvarar ett fält som är tillgängligt på lead-posten och har minst ett id, ett displayName och en datatyp. Resten och de underordnade soap-objekten kan finnas med eller inte för ett givet fält, och dess närvaro visar om fältet är giltigt för användning i antingen REST- eller SOAP-API:er. The `readOnly` anger om fältet är skrivskyddat via motsvarande API (REST eller SOAP). Egenskapen length anger fältets maximala längd om den finns. Egenskapen dataType anger fältets datatyp.
+Vanligtvis innehåller svaren en mycket större uppsättning fält i resultatarrayen, men vi utelämnar dem i demonstrationssyfte. Varje objekt i resultatarrayen motsvarar ett fält som är tillgängligt på lead-posten och har minst ett id, ett displayName och en datatyp. Resten och de underordnade soap-objekten kan finnas med eller inte för ett givet fält, och dess närvaro visar om fältet är giltigt för användning i antingen REST- eller SOAP-API:er. Egenskapen `readOnly` anger om fältet är skrivskyddat via motsvarande API (REST eller SOAP). Egenskapen length anger fältets maximala längd om den finns. Egenskapen dataType anger fältets datatyp.
 
 ## Fråga
 
 Det finns två primära metoder för hämtning av leads: metoderna Hämta lead med ID och Hämta leads med filtertyp. Hämta lead med ID tar ett enda lead-ID som sökvägsparameter och returnerar en enda lead-post.
 
-Du kan också skicka en fältparameter som innehåller en kommaavgränsad lista med fältnamn som ska returneras. Om parametern fields inte ingår i denna begäran returneras följande standardfält: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`och `id`. När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
+Du kan också skicka en fältparameter som innehåller en kommaavgränsad lista med fältnamn som ska returneras. Om fältparametern inte ingår i denna begäran returneras följande standardfält: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName` och `id`. När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
 
 ### Begäran
 
@@ -93,11 +93,11 @@ GET /rest/v1/lead/{id}.json
 
 För den här metoden finns det alltid en enda post i den första positionen i resultatarrayen.
 
-Hämta leads efter filtertyp returnerar samma typ av poster, men kan returnera upp till 300 per sida. Den kräver `filterType` och `filterValues` frågeparametrar.
+Hämta leads efter filtertyp returnerar samma typ av poster, men kan returnera upp till 300 per sida. Det kräver frågeparametrarna `filterType` och `filterValues`.
 
-`filterType` använder alla anpassade fält eller de flesta vanliga fält. Ring `Describe2` slutpunkt för att få en fullständig lista över sökbara fält som är tillåtna att använda i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältinformation (beskrivning, typ osv.) med den beskrivande metoden.
+`filterType` accepterar alla anpassade fält eller de flesta vanliga fält. Anropa `Describe2`-slutpunkten för att få en omfattande lista över sökbara fält som är tillåtna för användning i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältinformation (beskrivning, typ osv.) med den beskrivande metoden.
 
-`filterValues` kan hantera upp till 300 värden i kommaavgränsat format. Samtalet söker efter poster där leadets fält matchar en av de inkluderade `filterValues`. Om antalet leads som matchar leadfiltret är större än 1 000 returneras ett fel: &quot;1 003, för många resultat matchar filtret&quot;.
+`filterValues` accepterar upp till 300 värden i kommaavgränsat format. Samtalet söker efter poster där leadets fält matchar en av de inkluderade `filterValues`. Om antalet leads som matchar leadfiltret är större än 1 000 returneras ett fel: &quot;1 003, för många resultat matchar filtret&quot;.
 
 Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP-fel: &quot;414, URI för lång&quot; (per RFC 7231). Du kan komma runt problemet genom att ändra GETEN till POST, lägga till parametern _method=GET och placera en frågesträng i begärandetexten.
 
@@ -134,7 +134,7 @@ GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 }
 ```
 
-Det här samtalet söker efter poster som matchar ID:n som ingår i `filterValues`och returnerar alla matchande poster.
+Det här anropet söker efter poster som matchar ID:n som ingår i `filterValues` och returnerar matchande poster.
 
 Om inga poster hittas indikerar svaret att åtgärden lyckades, men resultatarrayen är tom.
 
@@ -148,7 +148,7 @@ Om inga poster hittas indikerar svaret att åtgärden lyckades, men resultatarra
 }
 ```
 
-Både Hämta lead med ID och Hämta leads med filtertyp accepterar också en fältfrågeparameter som accepterar en kommaseparerad lista med API-fält. Om detta inkluderas, kommer varje post i svaret att inkludera de listade fälten.  Om den utelämnas returneras en standarduppsättning med fält: `id`, `email`, `updatedAt`, `createdAt`, `firstName`och `lastName`.
+Både Hämta lead med ID och Hämta leads med filtertyp accepterar också en fältfrågeparameter som accepterar en kommaseparerad lista med API-fält. Om detta inkluderas, kommer varje post i svaret att inkludera de listade fälten.  Om den utelämnas returneras en standarduppsättning med fält: `id`, `email`, `updatedAt`, `createdAt`, `firstName` och `lastName`.
 
 ## ADOBE ECID
 
@@ -213,15 +213,15 @@ POST /rest/v1/leads.json
 }
 ```
 
-I den här förfrågan visas två viktiga fält: `action` och `lookupField`.  `action` anger åtgärdstypen för begäran och kan vara `createOrUpdate`, `createOnly`, `updateOnly`, eller `createDuplicate`. Om det utelämnas blir funktionsmakrot som standard `createOrUpdate`.  The `lookupField` parametern anger vilken nyckel som ska användas när åtgärden är `createOrUpdate` eller `updateOnly`. If `lookupField` utelämnas, standardnyckeln är `email`.
+I den här begäran visas två viktiga fält, `action` och `lookupField`.  `action` anger åtgärdstypen för begäran och kan vara `createOrUpdate`, `createOnly`, `updateOnly` eller `createDuplicate`. Om det utelämnas blir åtgärden som standard `createOrUpdate`.  Parametern `lookupField` anger nyckeln som ska användas när åtgärden är antingen `createOrUpdate` eller `updateOnly`. Om `lookupField` utelämnas är standardnyckeln `email`.
 
-Standardpartitionen används som standard. Om du vill kan du ange `partitionName` parameter, som bara fungerar om åtgärden är `createOnly` eller `createOrUpdate`. För `partitionName` Om du vill arbeta som ytterligare dedupliceringsvillkor måste det ingå i källtypen i anpassade dedupliceringsregler. Om det inte finns något lead i den angivna partitionen under en uppdateringsåtgärd returneras ett fel. Om användaren som bara har API inte har behörighet att komma åt den angivna partitionen returneras ett fel.
+Standardpartitionen används som standard. Du kan också ange parametern `partitionName`, som bara fungerar om åtgärden är `createOnly` eller `createOrUpdate`. För att `partitionName` ska fungera som ytterligare dedupliceringsvillkor måste det ingå i källtypen i anpassade dedupliceringsregler. Om det inte finns något lead i den angivna partitionen under en uppdateringsåtgärd returneras ett fel. Om användaren som bara har API inte har behörighet att komma åt den angivna partitionen returneras ett fel.
 
-The `id` fält kan bara inkluderas som parameter när du använder `updateOnly` åtgärd, som `id` är en systemhanterad unik nyckel.
+Fältet `id` kan bara inkluderas som parameter när åtgärden `updateOnly` används, eftersom `id` är en systemhanterad unik nyckel.
 
-Begäran måste också ha en `input` parameter, som är en array med lead-poster. Varje lead-post är ett JSON-objekt med valfritt antal lead-fält. Nycklarna i en post ska vara unika för den posten och alla JSON-strängar ska vara UTF-8-kodade. The `externalCompanyId` kan användas för att länka lead-posten till en företagspost. The `externalSalesPersonId` fält kan användas för att länka lead-posten till en säljpersonspost.
+Begäran måste också ha en `input`-parameter, som är en matris med lead-poster. Varje lead-post är ett JSON-objekt med valfritt antal lead-fält. Nycklarna i en post ska vara unika för den posten och alla JSON-strängar ska vara UTF-8-kodade. Fältet `externalCompanyId` kan användas för att länka lead-posten till en företagspost. Fältet `externalSalesPersonId` kan användas för att länka lead-posten till en säljpersonspost.
 
-Obs! När du gör en begäran om att skicka fler leads samtidigt eller i snabb följd, kan dubblettposter resultera i att flera begäranden görs med samma nyckelvärde om ett efterföljande anrop med samma värde görs innan den första returneras. Detta kan undvikas antingen genom att använda `createOnly`, eller `updateOnly` eller genom att köa samtal och vänta på att ditt samtal ska returneras innan du gör efterföljande upsert-anrop med samma nyckel.
+Obs! När du gör en begäran om att skicka fler leads samtidigt eller i snabb följd, kan dubblettposter resultera i att flera begäranden görs med samma nyckelvärde om ett efterföljande anrop med samma värde görs innan den första returneras. Detta kan undvikas antingen genom att använda `createOnly` eller `updateOnly`, eller genom att köa samtal och vänta på att ditt samtal ska returneras innan efterföljande upsert-anrop görs med samma nyckel.
 
 ## Fält
 
@@ -267,7 +267,7 @@ GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Bläddra
 
-Slutpunkten Hämta lead-fält hämtar metadata för alla fält i lead-objektet inklusive. Som standard returneras högst 300 poster. Du kan använda `batchSize` frågeparameter för att minska det här talet. Om `moreResult` -attributet är true, vilket betyder att fler resultat är tillgängliga. Fortsätt att anropa den här slutpunkten tills `moreResult` returnerar false, vilket betyder att det inte finns några tillgängliga resultat. The `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten Hämta lead-fält hämtar metadata för alla fält i lead-objektet inklusive. Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet `moreResult` returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ### Begäran
 
@@ -412,9 +412,9 @@ GET /rest/v1/leads/schema/fields.json
 Slutpunkten Skapa lead-fält skapar ett eller flera anpassade fält på lead-objektet. Den här slutpunkten har funktioner som är jämförbara med vad som finns i användargränssnittet i Marketo Engage. Du kan skapa upp till 100 anpassade fält med den här slutpunkten.
 Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t.  När ett fält har skapats kan du inte ta bort det (du kan bara dölja det). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
 
-Den obligatoriska indataparametern är en array med lead-fältobjekt. Varje objekt innehåller ett eller flera attribut. Attribut som krävs är `displayName`, `name`och `dataType` som motsvarar fältets gränssnittsvisningsnamn, fältets API-namn och fälttypen.  Du kan också ange `description`, `isHidden`, `isHtmlEncodingInEmail`och `isSensitive`.
+Den obligatoriska indataparametern är en array med lead-fältobjekt. Varje objekt innehåller ett eller flera attribut. Attribut som krävs är `displayName`, `name` och `dataType` som motsvarar fältets gränssnittsvisningsnamn, fältets API-namn och fälttypen.  Du kan också ange `description`, `isHidden`, `isHtmlEncodingInEmail` och `isSensitive`.
 
-Det finns några regler associerade med namn och `displayName` namngivning. Namnattributet måste vara unikt, börja med en bokstav och bara innehålla bokstäver, siffror eller understreck. The `displayName` måste vara unika och får inte innehålla specialtecken.  En vanlig namngivningskonvention är att använda kamelskiftläge på `displayName` för att skapa namn. Till exempel en `displayName` av&quot;My Custom Field&quot; skulle ge namnet&quot;myCustomField&quot;.
+Det finns några regler associerade med namn och `displayName`-namn. Namnattributet måste vara unikt, börja med en bokstav och bara innehålla bokstäver, siffror eller understreck. `displayName` måste vara unik och får inte innehålla specialtecken.  En vanlig namngivningskonvention är att använda kamelskiftläge på `displayName` för att skapa ett namn. Ett `displayName` av &quot;Mitt anpassade fält&quot; skulle till exempel ge namnet &quot;myCustomField&quot;.
 
 ### Begäran
 
@@ -547,7 +547,7 @@ Slutpunkten Uppdatera lead-fält uppdaterar ett enskilt anpassat fält på lead-
 </tbody>
 </table>
 
-Obligatoriskt `fieldApiName` path-parametern anger API-namnet för det fält som ska uppdateras. Den obligatoriska indataparametern är en array som innehåller ett enda lead-fältobjekt.  Fältobjektet innehåller ett eller flera attribut.
+Sökvägsparametern `fieldApiName` som krävs anger API-namnet för det fält som ska uppdateras. Den obligatoriska indataparametern är en array som innehåller ett enda lead-fältobjekt.  Fältobjektet innehåller ett eller flera attribut.
 
 ### Begäran
 
@@ -586,9 +586,9 @@ POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 
 ## Push Lead to Marketo
 
-Push Lead är ett alternativ för synkning av leads till Marketo, som främst är utformat för att ge större utlösarmöjligheter än vanliga Sync Leads (liknande användning som ett Marketo-formulär). Förutom synkronisering av lead-fält tillåter den här slutpunkten även lead-associationer baserat på cookie-värden som skickas till slutpunkten. Detta görs genom att skicka `mkt_tok` genom att klicka på ett e-postmeddelande från Marketo eller genom att skicka ett programnamn i samtalet. Den här slutpunkten skapar också en enda aktiveringsbar aktivitet som är kopplad till ett program och/eller en kampanj i Marketo. På så sätt kan du aktivera leadinspelningshändelser som är kopplade till en viss kampanj eller ett visst program för att starta associerade arbetsflöden inifrån Marketo.
+Push Lead är ett alternativ för synkning av leads till Marketo, som främst är utformat för att ge större utlösarmöjligheter än vanliga Sync Leads (liknande användning som ett Marketo-formulär). Förutom synkronisering av lead-fält tillåter den här slutpunkten även lead-associationer baserat på cookie-värden som skickas till slutpunkten. Detta gör du genom att skicka värdet `mkt_tok` som genererats genom att klicka dig igenom ett Marketo-e-postmeddelande eller genom att skicka ett programnamn i anropet. Den här slutpunkten skapar också en enda aktiveringsbar aktivitet som är kopplad till ett program och/eller en kampanj i Marketo. På så sätt kan du aktivera leadinspelningshändelser som är kopplade till en viss kampanj eller ett visst program för att starta associerade arbetsflöden inifrån Marketo.
 
-Gränssnittet Push Lead påminner mycket om Sync Leads. Alla samma primärnycklar är giltiga, och samma API-namn används för fält (det finns ingen åtgärdsparameter eftersom detta alltid är en upsert-åtgärd). The `programName` och indataparametrar krävs, och `lookupField`, `source`och `reason` parametrar är valfria. Indataparametern är en array med lead-objekt. Den resulterande aktiviteten tillskrivs motsvarande namngivna program. The `source` och `reason` parametrar är godtyckliga strängfält som kan läggas till i begäran för att bädda in dessa värden i de resulterande aktiviteterna. Dessa kan användas som begränsningar i motsvarande utlösare (Lead skickas till Marketo) och filter (Lead har skickats till Marketo).
+Gränssnittet Push Lead påminner mycket om Sync Leads. Alla samma primärnycklar är giltiga, och samma API-namn används för fält (det finns ingen åtgärdsparameter eftersom detta alltid är en upsert-åtgärd). Parametrarna `programName` och indata krävs, och parametrarna `lookupField`, `source` och `reason` är valfria. Indataparametern är en array med lead-objekt. Den resulterande aktiviteten tillskrivs motsvarande namngivna program. Parametrarna `source` och `reason` är godtyckliga strängfält som kan läggas till i begäran för att bädda in dessa värden i de resulterande aktiviteterna. Dessa kan användas som begränsningar i motsvarande utlösare (Lead skickas till Marketo) och filter (Lead har skickats till Marketo).
 
 Anmärkning om anonyma aktiviteter. Om du vill koppla tidigare anonyma aktiviteter till den nya lead som skapas ska du inte ange attributet cookies i lead-objektet och anropa Associate Lead efter Push Lead (Push Lead). Om du vill skapa ett nytt lead utan aktivitetshistorik anger du bara attributet cookies i lead-objektet.
 
@@ -658,7 +658,7 @@ POST /rest/v1/leads/push.json
 }
 ```
 
-För att skicka `mkt_tok` tilldelar du värdet till mktToken-medlemmen i en lead-post i indataparametern enligt följande.
+Om du vill skicka parametern `mkt_tok` tilldelar du värdet till mktToken-medlemmen i en lead-post i indataparametern enligt följande.
 
 ### Brödtext
 
@@ -692,13 +692,13 @@ Slutpunkten Skicka formulär har stöd för följande funktioner:
 * Tillåter lead-association baserat på cookie-värde
 * Utför validering av formulärfält
 
-När du skickar ett formulär följer du standarddatabasmönstret för lead. En enda objektpost skickas i den nödvändiga indatamedlemmen i JSON-brödtexten för en POST-begäran. Obligatoriskt `formId` -medlemmen innehåller målets Marketo formulär-ID.
+När du skickar ett formulär följer du standarddatabasmönstret för lead. En enda objektpost skickas i den nödvändiga indatamedlemmen i JSON-brödtexten för en POST-begäran. Den obligatoriska `formId`-medlemmen innehåller Marketo-målformulär-ID:t.
 
-Valfritt `programId` kan användas för att ange vilket program som leadet ska läggas till i och/eller ange vilket program som anpassade fält för programmedlemmar ska läggas till i. If `programId` anges läggs leadet till i programmet och alla programmedlemsfält som finns i formuläret läggs också till. Observera att det angivna programmet måste finnas på samma arbetsyta som formuläret. Om formuläret inte innehåller anpassade fält för programmedlemmar och `programId` anges inte, då läggs lead inte till i ett program. Om formuläret finns i ett program och `programId` anges inte, används det programmet när det finns ett eller flera anpassade fält för programmedlemmar i formuläret.
+Det valfria `programId` kan användas för att ange vilket program som leadet ska läggas till i och/eller ange vilket program som anpassade fält för programmedlemmar ska läggas till i. Om `programId` anges läggs leadet till i programmet och alla programmedlemsfält som finns i formuläret läggs också till. Observera att det angivna programmet måste finnas på samma arbetsyta som formuläret. Om formuläret inte innehåller anpassade fält för programmedlemmar och `programId` inte har angetts läggs lead inte till i ett program. Om formuläret finns i ett program och `programId` inte tillhandahålls, används det programmet när det finns ett eller flera anpassade fält för programmedlemmar i formuläret.
 
-Inom indataposten finns `leadFormFields` objekt krävs. Det här objektet innehåller ett eller flera namn/värde-par som motsvarar de formulärfält som ska fyllas i.  Alla angivna fält måste definieras i det angivna formuläret. Namnet är REST API-namnet för fältet. Observera att `email` fältet är obligatoriskt.
+I indataposten krävs objektet `leadFormFields`. Det här objektet innehåller ett eller flera namn/värde-par som motsvarar de formulärfält som ska fyllas i.  Alla angivna fält måste definieras i det angivna formuläret. Namnet är REST API-namnet för fältet. Observera att fältet `email` är obligatoriskt.
 
-The `visitorData` Medlemsobjektet är valfritt och innehåller namn/värde-par som motsvarar sidbesöksdata inklusive `pageURL`, `queryString`, `leadClientIpAddress`och `userAgentString`. Kan användas för att fylla i ytterligare aktivitetsfält för filtrering och utlösande syften.
+Medlemsobjektet `visitorData` är valfritt och innehåller namn/värde-par som motsvarar sidbesöksdata som `pageURL`, `queryString`, `leadClientIpAddress` och `userAgentString`. Kan användas för att fylla i ytterligare aktivitetsfält för filtrering och utlösande syften.
 
 Cookie-medlemssträngen är valfri och gör att du kan associera en Munchkin-cookie med en personpost i Marketo. När en ny lead skapas kopplas alla tidigare anonyma aktiviteter till denna lead, såvida inte cookie-värdet tidigare har associerats med en annan känd post. Om cookie-värdet tidigare var associerat spåras nya aktiviteter mot posten, men gamla aktiviteter migreras inte från den befintliga kända posten. Om du vill skapa ett nytt lead utan aktivitetshistorik utelämnar du bara cookie-medlemmen.
 
@@ -758,11 +758,11 @@ Content-Type: application/json
 
 Här ser vi motsvarande &quot;Fyll i formulär&quot;-aktivitetsinformation inifrån användargränssnittet för Marketo Engage:
 
-![Användargränssnitt för att fylla i formulär](assets/fill_out_form_activity_details.png)
+![Gränssnitt för att fylla i formulär](assets/fill_out_form_activity_details.png)
 
 ## Sammanfoga
 
-Ibland är det nödvändigt att sammanfoga dubblettposter och Marketo underlättar detta med API:t för sammanslagna leads. När du sammanfogar leads kombineras deras aktivitetsloggar, program-, kampanj- och listmedlemskap och CRM-information, och alla deras fältvärden sammanfogas till en enda post. Sammanfogningsleads tar ett lead-ID som en sökvägsparameter och antingen en enda `leadId` som en frågeparameter, eller en lista med kommaseparerade ID:n i `leadIds` parameter.
+Ibland är det nödvändigt att sammanfoga dubblettposter och Marketo underlättar detta med API:t för sammanslagna leads. När du sammanfogar leads kombineras deras aktivitetsloggar, program-, kampanj- och listmedlemskap och CRM-information, och alla deras fältvärden sammanfogas till en enda post. Sammanfogningsleads tar ett lead-ID som en sökvägsparameter och antingen en `leadId` som en frågeparameter, eller en lista med kommaseparerade ID:n i parametern `leadIds`.
 
 ### Begäran
 
@@ -779,9 +779,9 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 }
 ```
 
-Det lead som anges i parametern path är det vinnande leadet, så om det finns fält som står i konflikt mellan posterna som sammanfogas, kommer värdet från vinnaren att hämtas, förutom om fältet i den vinnande posten är tomt och motsvarande fält i den förlorande posten inte är det. leads angivna i `leadId` eller `leadIds` parametern är leads som går förlorade.
+Det lead som anges i parametern path är det vinnande leadet, så om det finns fält som står i konflikt mellan posterna som sammanfogas, kommer värdet från vinnaren att hämtas, förutom om fältet i den vinnande posten är tomt och motsvarande fält i den förlorande posten inte är det. De leads som anges i parametern `leadId` eller `leadIds` är leads som går förlorade.
 
-Om du har en prenumeration aktiverad för SFDC-synkronisering kan du även använda `mergeInCRM` parametern i din begäran. Om värdet är true utförs även motsvarande sammanslagning i CRM. Om båda leads finns i SFDC och den ena är en CRM-lead och den andra är en CRM-kontakt, är vinnaren CRM-kontakten (oavsett vilket lead som anges som vinnare). Om ett av leads är i SFDC och det andra endast är Marketo, är vinnaren SFDC-ledaren (oavsett vilket lead som anges som vinnare).
+Om du har en SFDC-sync-aktiverad prenumeration kan du även använda parametern `mergeInCRM` i din begäran. Om värdet är true utförs även motsvarande sammanslagning i CRM. Om båda leads finns i SFDC och den ena är en CRM-lead och den andra är en CRM-kontakt, är vinnaren CRM-kontakten (oavsett vilket lead som anges som vinnare). Om ett av leads är i SFDC och det andra endast är Marketo, är vinnaren SFDC-ledaren (oavsett vilket lead som anges som vinnare).
 
 ## Associera webbaktivitet
 
@@ -808,7 +808,7 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Get Leads by Filter Type, men filterType och filterValues kan inte användas med denna API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i den statiska listans URL, `https://app-****.marketo.com/#ST1001A1`. I detta exempel är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ### Begäran
 
@@ -847,7 +847,7 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 }
 ```
 
-Slutpunkten Hämta listor efter lead-ID tar en lead-post `id` sökvägsparameter och returnerar alla statiska listposter som leadet är medlem i.
+Slutpunkten Hämta listor efter lead-ID tar en sökvägsparameter för lead-posten `id` och returnerar alla statiska listposter som leadet är medlem i.
 
 ### Begäran
 
@@ -885,11 +885,11 @@ GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 
 ## Program
 
-Programmedlemskapet kan hämtas på liknande sätt som listor. Samma valfria frågeparametrar är tillgängliga när du anropar Get Leads by Program Id-slutpunkten och skickar `programId` path-parameter.
+Programmedlemskapet kan hämtas på liknande sätt som listor. Samma valfria frågeparametrar är tillgängliga när du anropar Get Leads by Program Id-slutpunkten och skickar sökvägsparametern `programId`.
 
-Du kan också skicka en fältparameter som innehåller en kommaavgränsad lista med fältnamn som ska returneras. Om parametern fields inte ingår i denna begäran returneras följande standardfält: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership`och `id`. När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
+Du kan också skicka en fältparameter som innehåller en kommaavgränsad lista med fältnamn som ska returneras. Om fältparametern inte ingår i denna begäran returneras följande standardfält: `email`, `updatedAt`, `createdAt`, `lastName`, `firstName`, `membership` och `id`. När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
 
-Svarsstrukturen är mycket lik, eftersom varje objekt i resultatarrayen är en lead, förutom att varje post också har ett underordnat objekt som kallas &quot;membership&quot;. Det här medlemsobjektet innehåller data om leadets relation till programmet som anges i samtalet, och visar alltid dess `progressionStatus`, `acquiredBy`, `reachedSuccess`och `membershipDate`. Om det överordnade programmet också är ett engagemangsprogram kommer medlemskapet att ha medlemmar `stream`, `nurtureCadence`och `isExhausted` ange sin position och verksamhet i engagemangsprogrammet.
+Svarsstrukturen är mycket lik, eftersom varje objekt i resultatarrayen är en lead, förutom att varje post också har ett underordnat objekt som kallas &quot;membership&quot;. Det här medlemsobjektet innehåller data om leadets relation till programmet som anges i anropet, och visar alltid dess `progressionStatus`, `acquiredBy`, `reachedSuccess` och `membershipDate`. Om det överordnade programmet också är ett engagemangsprogram kommer medlemskapet att ha medlemmarna `stream`, `nurtureCadence` och `isExhausted` för att ange sin position och aktivitet i engagemangsprogrammet.
 
 ### Begäran
 
@@ -963,7 +963,7 @@ GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 }
 ```
 
-Slutpunkten Hämta program efter lead-ID tar en ID-sökvägsparameter för lead-post och returnerar alla programposter som leadet är medlem i. Valfritt `filterType` och `filterValues` kan du filtrera på program-ID:n.
+Slutpunkten Hämta program efter lead-ID tar en ID-sökvägsparameter för lead-post och returnerar alla programposter som leadet är medlem i. Med de valfria parametrarna `filterType` och `filterValues` kan du filtrera på program-ID.
 
 ### Begäran
 

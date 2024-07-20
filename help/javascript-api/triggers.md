@@ -1,20 +1,20 @@
 ---
-title: "Utlösare"
-description: "Utlösare"
+title: Utlösare
+description: Utlösare
 feature: Javascript
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '80'
 ht-degree: 0%
 
 ---
 
-
 # Utlösare
 
 Lägger till möjligheten att utlösa funktioner i vissa lägen för det globala rtp-objektet.
 
-Du måste vara webbkund och ha [RTP-taggen har distribuerats](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) på webbplatsen innan du använder API:t för användarkontext.
+Du måste vara webbkund och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
 
 ## Användning
 

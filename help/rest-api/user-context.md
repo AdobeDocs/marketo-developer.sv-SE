@@ -1,20 +1,20 @@
 ---
-title: "Användarkontext"
+title: Användarsammanhang
 feature: REST API
-description: "Översikt över användarkontext och API-beskrivningar"
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Översikt över användarkontext och API-beskrivningar
+exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '266'
 ht-degree: 0%
 
 ---
 
-
 # Användarsammanhang
 
 JavaScript-API:t för användarkontext exponerar data på användar- och besökarnivå över flera sessioner för att möjliggöra avancerad personalisering med hjälp av historiska användarbeteenden och data. API:t är mer än bara läsning av data och visar anpassade variabler som gör att du kan skicka meningsfulla data och händelser till RTP-serverdelen för avancerad segmentering och personalisering. Ytterligare funktioner: [Utlösare](../javascript-api/triggers.md), [Mönstermatchning](../javascript-api/pattern-match.md).
 
-- Du måste bli webbkund och ha [RTP-taggen har distribuerats](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) på webbplatsen innan du använder API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - API:t för användarkontext är en funktion som måste aktiveras av Marketo Support på begäran. När API:t är aktiverat visas ett userContext-objekt under det globala RTP-objektet.
 
 ## Användarkontextattribut

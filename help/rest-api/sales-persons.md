@@ -1,26 +1,26 @@
 ---
-title: "Säljare"
+title: Säljare
 feature: REST API
-description: "Läs data om säljare."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Läs data om säljare.
+exl-id: f8ed5aa5-63c1-4c5b-8683-bf47eed1ea18
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '303'
 ht-degree: 0%
 
 ---
 
-
 # Säljare
 
 [Slutpunktsreferens för säljare](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Sales-Persons)
 
-API:er för säljare är skrivskyddade för prenumerationer som har [SFDC-synkronisering](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) är aktiverade. Säljare är en typ av personpost som är säljare av lead-poster. De är relaterade till Lead-poster av fältet externalSalesPersonId på varje Lead-post. När en lead är relaterad till en säljare via ett ifyllt externalSalesPersonId-fält fylls motsvarande sökfält för lead-ägare i för den lead-posten i Marketo, vilket tillåter användning av motsvarande filter och tokens.
+API:er för säljare är skrivskyddade för prenumerationer som har [SFDC-synkronisering](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync) aktiverat. Säljare är en typ av personpost som är säljare av lead-poster. De är relaterade till Lead-poster av fältet externalSalesPersonId på varje Lead-post. När en lead är relaterad till en säljare via ett ifyllt externalSalesPersonId-fält fylls motsvarande sökfält för lead-ägare i för den lead-posten i Marketo, vilket tillåter användning av motsvarande filter och tokens.
 
-Säljare är kopplade till lead-poster med hjälp av [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) slutpunkten och skickar attributet externalSalesPersonId.
+Säljare är relaterade till Lead-poster genom att använda slutpunkten [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) och skicka attributet externalSalesPersonId.
 
-Säljarna är kopplade till säljprojektsposter genom att använda [Synkroniseringsmöjligheter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) slutpunkten och skickar attributet externalSalesPersonId.
+Säljare är relaterade till säljprojektsposter genom att använda slutpunkten [Synkroniseringsmöjligheter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/syncOpportunitiesUsingPOST) och skicka attributet externalSalesPersonId.
 
-Säljare är kopplade till företagsposter genom att använda [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) slutpunkten och skickar attributet externalSalesPersonId.
+Säljare är relaterade till företagsposter genom att använda slutpunkten [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) och skicka attributet externalSalesPersonId.
 
 Försäljningspersonsposter kan bara redigeras via API:t.
 
@@ -95,7 +95,7 @@ GET /rest/v1/salespersons/describe.json
 }
 ```
 
-Som standard är `idField` för säljarna är&quot;id&quot; och `dedupeFields` är bara &quot;externalSalesPersonId&quot;.
+Som standard är `idField` för Sales People &quot;id&quot; och `dedupeFields` bara &quot;externalSalesPersonId&quot;.
 
 ## Fråga
 

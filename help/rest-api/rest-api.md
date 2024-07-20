@@ -14,13 +14,13 @@ ht-degree: 0%
 
 Marketo visar ett REST API som tillåter fjärrexekvering av många av systemets funktioner. Det finns många alternativ, från att skapa program till att importera leads, som ger detaljerad kontroll av en Marketo-instans.
 
-Dessa API:er kan i allmänhet delas in i två kategorier: [Lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/)och [Tillgång](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
+Dessa API:er kan i allmänhet delas in i två kategorier: [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/) och [resurs](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
 
-- **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen med 02:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
+- **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
 - **Hastighetsgräns:** API-åtkomst per instans begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
 
-Storleken på standardanrop är begränsad till en URI-längd på 8 kB och en kroppsstorlek på 1 MB, även om brödtexten kan vara 10 MB för våra större API:er. Om det uppstår ett fel i ditt anrop returnerar API vanligtvis fortfarande statuskoden 200, men JSON-svaret innehåller en &quot;success&quot;-medlem med värdet `false`och en array med fel i medlemmen &quot;errors&quot;. Mer om fel [här](error-codes.md).
+Storleken på standardanrop är begränsad till en URI-längd på 8 kB och en kroppsstorlek på 1 MB, även om brödtexten kan vara 10 MB för våra större API:er. Om det finns ett fel i ditt anrop returnerar API vanligtvis fortfarande statuskoden 200, men JSON-svaret innehåller en &quot;success&quot;-medlem med värdet `false` och en matris med fel i &quot;errors&quot;-medlemmen. Mer information om fel [här](error-codes.md).
 
 ## Komma igång
 
@@ -30,43 +30,43 @@ När du ringer till Marketo får du en leadpost. Om du vill börja arbeta med Ma
 
 ![Administratörsanvändare och roller](assets/admin-users-and-roles.png)
 
-Klicka på **[!UICONTROL Roles]** och sedan Ny roll och tilldela minst behörigheten&quot;Skrivskyddad lead&quot; (eller&quot;Skrivskyddad person&quot;) till rollen i Access API-gruppen. Ge den ett beskrivande namn och klicka på **[!UICONTROL Create]**.
+Klicka på fliken **[!UICONTROL Roles]** och sedan på Ny roll och tilldela rollen i API-gruppen minst behörigheten Skrivskyddad lead (eller Skrivskyddad person). Ge den ett beskrivande namn och klicka på **[!UICONTROL Create]**.
 
 ![Ny roll](assets/new-role.png)
 
-Tillbaka till [!UICONTROL Users] och klicka **[!UICONTROL Invite New User]**. Ge användaren ett beskrivande namn som anger att det är en API-användare och en e-postadress och klicka på **[!UICONTROL Next]**.
+Gå tillbaka till fliken [!UICONTROL Users] och klicka på **[!UICONTROL Invite New User]**. Ge användaren ett beskrivande namn som anger att det är en API-användare och en e-postadress och klicka på **[!UICONTROL Next]**.
 
 ![Ny användarinformation](assets/new-user-info.png)
 
-Kontrollera sedan [!UICONTROL API Only] och tilldela användaren den API-roll som du skapade och klicka på **[!UICONTROL Next]**.
+Kontrollera sedan alternativet [!UICONTROL API Only] och tilldela användaren den API-roll som du skapade och klicka på **[!UICONTROL Next]**.
 
 ![Nya användarbehörigheter](assets/new-user-permissions.png)
 
-Klicka på **[!UICONTROL Send]**.
+Klicka på **[!UICONTROL Send]** om du vill slutföra användarskapandeprocessen.
 
 ![Nytt användarmeddelande](assets/new-user-message.png)
 
-Gå till [!UICONTROL Admin] meny och klicka **[!UICONTROL LaunchPoint]**.
+Gå sedan till menyn [!UICONTROL Admin] och klicka på **[!UICONTROL LaunchPoint]**.
 
 ![Startpunkt](assets/admin-launchpoint.png)
 
-Klicka på **[!UICONTROL New]** meny och välj **[!UICONTROL New Service]**. Ge tjänsten ett beskrivande namn och välj **[!UICONTROL Custom]** från [!UICONTROL Service] listrutemeny. Ge den en beskrivning och välj sedan din nya användare i [!UICONTROL API Only User] listrutemeny och klicka på **[!UICONTROL Create]**.
+Klicka på menyn **[!UICONTROL New]** och välj **[!UICONTROL New Service]**. Ge tjänsten ett beskrivande namn och välj **[!UICONTROL Custom]** i listrutan [!UICONTROL Service]. Ge den en beskrivning, välj sedan din nya användare i listrutan [!UICONTROL API Only User] och klicka på **[!UICONTROL Create]**.
 
 ![Ny startpunktstjänst](assets/admin-launchpoint-new-service.png)
 
-Klicka **[!UICONTROL View Details]** för att din nya tjänst ska få tillgång till klient-ID och klienthemlighet. Nu kan du klicka på **[!UICONTROL Get Token]** för att generera en åtkomsttoken som är giltig i en timme. Spara variabeln i en anteckning tills vidare.
+Klicka på **[!UICONTROL View Details]** om du vill att den nya tjänsten ska få åtkomst till klient-ID och klienthemlighet. För tillfället kan du klicka på knappen **[!UICONTROL Get Token]** för att generera en åtkomsttoken som är giltig i en timme. Spara variabeln i en anteckning tills vidare.
 
 ![Hämta token](assets/get-token.png)
 
-Gå till **[!UICONTROL Admin]** meny, sedan till **[!UICONTROL Web Services]**.
+Gå sedan till menyn **[!UICONTROL Admin]** och till **[!UICONTROL Web Services]**.
 
 ![Webbtjänster](assets/admin-web-services.png)
 
-Hitta [!UICONTROL Endpoint] i rutan REST API och spara i en anteckning för tillfället.
+Leta reda på [!UICONTROL Endpoint] i rutan REST API och spara i en anteckning för tillfället.
 
 ![REST-slutpunkt](assets/admin-web-services-rest-endpoint-1.png)
 
-Öppna en ny flik i webbläsaren och ange följande med lämplig information för att ringa [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET):
+Öppna en ny flik i webbläsaren och ange följande, med lämplig information för att anropa [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET):
 
 ```
 <Your Endpoint URL>/rest/v1/leads.json?access_token=<Your Access Token>&filterType=email&filterValues=<Your Email Address>
@@ -93,4 +93,4 @@ Om du inte har någon lead-post med din e-postadress i databasen kan du ersätta
 
 ## API-användning
 
-Var och en av dina API-användare rapporteras separat i API-användningsrapporten, så om du delar upp dina webbtjänster efter användare kan du enkelt ta hänsyn till hur de olika integreringarna används. Om antalet API-anrop till din instans överstiger gränsen och leder till att efterföljande anrop misslyckas, kan du med den här metoden ta hänsyn till volymen från varje tjänst och låta dig utvärdera hur problemet kan lösas. Se hur du använder **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** och klicka på antalet samtal de senaste sju dagarna.
+Var och en av dina API-användare rapporteras separat i API-användningsrapporten, så om du delar upp dina webbtjänster efter användare kan du enkelt ta hänsyn till hur de olika integreringarna används. Om antalet API-anrop till din instans överstiger gränsen och leder till att efterföljande anrop misslyckas, kan du med den här metoden ta hänsyn till volymen från varje tjänst och låta dig utvärdera hur problemet kan lösas. Se din användning genom att gå till **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** och klicka på antalet samtal under de senaste sju dagarna.

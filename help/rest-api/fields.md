@@ -1,14 +1,14 @@
 ---
-title: "Fält"
+title: Fält
 feature: REST API, Field Management
-description: "En lista med fältnamn som stöds."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: En lista med fältnamn som stöds.
+exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '194'
 ht-degree: 0%
 
 ---
-
 
 # Fält
 
@@ -20,7 +20,7 @@ Hämta listan med alla fältnamn som stöds som är tillgängliga på dina lead-
 
 ## Var använder man vilken fältnamnstyp?
 
-Ibland är det svårt att veta vilken fältnamnstyp som du måste använda när du använder en viss integrationsrelaterad funktion. Här följer en snabbreferens där funktionerna använder namntyperna REST eller SOAP.
+Ibland är det svårt att veta vilken fältnamnstyp som du måste använda när du använder en viss integrationsrelaterad funktion. Här följer en snabbreferens där funktionerna använder typerna REST eller SOAP.
 
 | Funktion | Fältnamnstyp som ska användas |
 |--- |--- |
@@ -35,4 +35,4 @@ Ibland är det svårt att veta vilken fältnamnstyp som du måste använda när 
 
 ### Varför returnerar REST API-fältet sfdcId alltid värdet null?
 
-Fältet `sfdcId` är ett formelfält som felaktigt togs med i den ursprungliga fältmappningen för REST API. Poster som hämtas via REST API beräknar inte värdet för formelfält, så värdet kommer alltid att vara null. Om du vill hämta det riktiga SFDC-ID:t använder du fälten som kallas `sfdcLeadId` och `sfdcContactId`.
+Fältet `sfdcId` är ett formelfält som felaktigt togs med i den ursprungliga fältmappningen för REST API. Poster som hämtas via REST API beräknar inte värdet för formelfält, så värdet kommer alltid att vara null. Om du vill hämta det riktiga SFDC-ID:t ska du använda fälten `sfdcLeadId` och `sfdcContactId`.

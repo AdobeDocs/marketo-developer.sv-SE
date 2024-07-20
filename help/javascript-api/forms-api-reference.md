@@ -1,18 +1,18 @@
 ---
-title: "Forms API Reference"
-description: "Forms API Reference"
+title: Forms API-referens
+description: Forms API-referens
 feature: Forms, Javascript
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 0%
 
 ---
 
-
 # Forms API-referens
 
-Det finns två huvudobjekt som du kan interagera med med Forms 2.0 API. The `MktoForms2` -objektet och `Form` -objekt. The `MktoForms2` -objektet är det allmänt synliga namnutrymmet på den översta nivån för Forms2-funktioner och innehåller funktioner för att skapa, läsa in och hämta Form-objekt.
+Det finns två huvudobjekt som du kan interagera med med Forms 2.0 API. Objektet `MktoForms2` och objektet `Form`. Objektet `MktoForms2` är det allmänt synliga namnutrymmet på den översta nivån för Forms2-funktioner och innehåller funktioner för att skapa, läsa in och hämta formulärobjekt.
 
 ## MKTOForms2-metoder
 
@@ -178,11 +178,11 @@ Det finns två huvudobjekt som du kan interagera med med Forms 2.0 API. The `Mkt
     <tr valign="top">
       <td>.onSuccess(callback)</td>
       <td>Lägger till ett återanrop som anropas när formuläret har skickats men innan leadet vidarebefordras till uppföljningssidan. Kan användas för att förhindra att leadet vidarebefordras till uppföljningssidan efter att det har skickats.</td>
-      <td>callback - En funktion som anropas när formuläret har skickats. Det här återanropet skickas med två argument. Ett JS-objekt som innehåller de värden som skickades och en sträng-URL för den uppföljningssida som användaren kommer att vidarebefordras till, eller null eller tom sträng om det inte finns någon konfigurerad uppföljningssida. Speciellt beteende: Om återanropet returnerar "false" (mätt med ===) vidarebefordras besökaren INTE till uppföljningssidan och sidan läses INTE in igen. Detta gör att användaren kan utföra extra bearbetning på uppföljnings-URL:en eller vidta åtgärder på sidan med JavaScript i stället för att lämna sidan.</td>
+      <td>callback - En funktion som anropas när formuläret har skickats. Det här återanropet skickas med två argument. Ett JS-objekt som innehåller de värden som skickades och en sträng-URL för den uppföljningssida som användaren kommer att vidarebefordras till, eller null eller tom sträng om det inte finns någon konfigurerad uppföljningssida. Speciellt beteende: Om återanropet returnerar "false" (mätt med ===) vidarebefordras besökaren INTE till uppföljningssidan och sidan läses INTE in igen. Detta gör att användaren kan utföra extra bearbetning på uppföljnings-URL:en eller vidta åtgärder på en sida med JavaScript istället för att lämna sidan.</td>
       <td>Formulärobjekt - Samma formulärobjekt som metoden anropades på, för kedjeändamål.</td>
     </tr>
     <tr valign="top">
-      <td>.submitTable(canSubmit) <em>finns även som:</em> <em>.subitable(canSubmit)</em></td>
+      <td>.submitTable(canSubmit) <em>är även tillgänglig som:</em> <em>.splatable(canSubmit)</em></td>
       <td>Hämtar eller anger om formuläret kan skickas. Om det anropas utan argument hämtas värdet, om det anropas med ett argument, och värdet ställs in. Detta kan användas för att förhindra att ett formulär skickas, medan andra villkor utanför det normala formuläret måste uppfyllas.</td>
       <td>canSubmit (valfritt)(Boolean) - Anger att formuläret ska kunna skickas eller inte skickas.</td>
       <td>Boolesk eller Formulärobjekt - Om anropas utan argument returneras ett booleskt värde som anger om formuläret kan skickas. Om det anropas med ett argument returneras det här formulärobjektet för kedjeändamål. </td>

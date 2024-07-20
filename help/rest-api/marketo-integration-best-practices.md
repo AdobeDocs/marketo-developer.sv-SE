@@ -1,14 +1,14 @@
 ---
-title: "Marketo Integration Best Practices"
+title: Metodtips för Marketo-integrering
 feature: REST API
-description: "Bästa tillvägagångssätt för att använda Marketo API:er."
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: De bästa sätten att använda Marketo API:er.
+exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '952'
 ht-degree: 0%
 
 ---
-
 
 # Metodtips för Marketo-integrering
 
@@ -17,17 +17,17 @@ ht-degree: 0%
 - **Daglig kvot:** De flesta prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
 - **Hastighetsgräns:** API-åtkomst per instans begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
-- **Batchstorlek:** Lead DB - 300 poster; Tillgångsfråga - 200 poster
+- **Batchstorlek:** Lead DB - 300 poster; Tillgångsfråga - 200 poster
 - **REST API-nyttolaststorlek:** 1 MB
-- **Storlek på massimportfil:** 10 MB
-- **SOAP maximal batchstorlek:** 300 poster
-- **Massextraheringsjobb:** 2 exekvering; 10 köade (inklusive)
+- **Storlek på massimportfil:** 10 MB
+- **SOAP Maximal gruppstorlek:** 300 poster
+- **Massextraheringsjobb:** 2 körning; 10 köade (inklusive)
 
 ## Snabbtips
 
 - Anta att ditt program kommer att konkurrera om resurser för kvot, betygsättning och samtidighet med andra program och ange försiktiga användningsgränser.
 - Använd Marketo bulk- och batch-metoder när de är tillgängliga och lämpliga. Använd bara enstaka post eller enstaka resultatanrop när det behövs.
-- Använd [exponentiell säkerhetskopiering](https://en.wikipedia.org/wiki/Exponential_backoff) för att försöka göra om API-anrop som misslyckas på grund av hastighets- eller samtidighetsbegränsningar.
+- Använd [exponentiell säkerhetskopiering](https://en.wikipedia.org/wiki/Exponential_backoff) för att försöka utföra API-anrop igen som misslyckas på grund av hastighets- eller samtidighetsbegränsningar.
 - Undvik att göra samtidiga API-anrop om ditt användningsexempel inte har någon nytta av det.
 
 ## Gruppering
@@ -41,21 +41,21 @@ Om du fastställer dina latenstoleranser, eller den maximala tid som kan gå inn
 | Godtagbar svarstid | Önskade metoder | Anteckningar |
 |---|---|---|
 | Låg (&lt;10s) | Synkrona API:er (grupperade eller grupperade) | Se till att ditt användningsexempel kräver detta. Om du skickar omedelbara och synkrona anrop för användning i stora volymer kan du snabbt få en daglig API-kvot och eventuellt överskrida både hastighets- och samtidighetsgränserna. |
-| Medel(10-60 m) | Synkrona API:er (grupperade) | Vi rekommenderar starkt att du använder en kö med både ålder och storlek för inkommande dataintegreringar till Marketo. När någon av gränserna nås tömmer du kön och skickar din API-begäran med de samlade posterna. Detta är en stark kompromiss mellan hastighet och effektivitet som säkerställer att dina förfrågningar görs vid den gräns som krävs, samtidigt som så många poster som köns ålder tillåter grupperas. |
+| Medium(10-60 m) | Synkrona API:er (grupperade) | Vi rekommenderar starkt att du använder en kö med både ålder och storlek för inkommande dataintegreringar till Marketo. När någon av gränserna nås tömmer du kön och skickar din API-begäran med de samlade posterna. Detta är en stark kompromiss mellan hastighet och effektivitet som säkerställer att dina förfrågningar görs vid den gräns som krävs, samtidigt som så många poster som köns ålder tillåter grupperas. |
 | Hög (>60 m) | Importera/exportera satsvis (om det stöds) | För inkommande dataintegreringar bör poster ställas i kö och skickas via Marketo Bulk API:er när de är tillgängliga. |
 
 ## Dagliga gränser
 
 Alla API-aktiverade instanser av Marketo har en daglig allokering av minst 10 000 REST API-anrop per dag, men oftast 50 000 eller mer, och 500 MB eller mer av kapaciteten för Bulk Extract. Även om ytterligare dagskapacitet kan köpas som en del av en Marketo-prenumeration, bör du i din programdesign ta hänsyn till de gemensamma gränserna för Marketo prenumerationer.
 
-Eftersom kapaciteten delas mellan alla API-tjänster och användare i en instans är det bästa sättet att eliminera redundanta anrop och att gruppera poster i så få anrop som möjligt. Det mest effektiva sättet att importera poster är att använda Marketo-API:er för bulkimport, som finns för [Leads/personer](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) och [Anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo innehåller också Massextrahering för [Leads](bulk-lead-extract.md) och [Verksamhet](bulk-activity-extract.md).
+Eftersom kapaciteten delas mellan alla API-tjänster och användare i en instans är det bästa sättet att eliminera redundanta anrop och att gruppera poster i så få anrop som möjligt. Det mest effektiva sättet att importera poster är att använda Marketo-API:er för bulkimport, som är tillgängliga för [Leads/People](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) och [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo tillhandahåller också massutdrag för [leads](bulk-lead-extract.md) och [aktiviteter](bulk-activity-extract.md).
 
 ### Cachning
 
 Resultat från följande åtgärder kan vanligtvis cachelagras på klientsidan under en dag eller mer, eftersom de ändras sällan:
 
 - Resultat från Beskriv-åtgärder
-- [Typ av aktivitet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
 - [Partitioner](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Cachelagring av vissa resurstyper, som program, e-post och mappar, är också lämpligt för vissa användningsfall, t.ex. databerikning för lead- eller aktivitetsposter.
@@ -72,4 +72,4 @@ De flesta fall där integreringen används har ingen nytta av samtidiga anrop. D
 
 ## Fel
 
-Förutom i några sällsynta fall returnerar API-begäranden HTTP-statuskoden 200. Affärslogikfelen returnerar också 200, men innehåller detaljerad information i svarsdelen. Se [Felkoder](error-codes.md) om du vill ha en detaljerad förklaring. HTTP-orsaksfrasen ska inte utvärderas eftersom den är valfri och kan ändras.
+Förutom i några sällsynta fall returnerar API-begäranden HTTP-statuskoden 200. Affärslogikfelen returnerar också 200, men innehåller detaljerad information i svarsdelen. Mer information finns i [Felkoder](error-codes.md). HTTP-orsaksfrasen ska inte utvärderas eftersom den är valfri och kan ändras.

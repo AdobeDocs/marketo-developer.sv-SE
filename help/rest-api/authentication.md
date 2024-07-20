@@ -1,14 +1,14 @@
 ---
-title: "Autentisering"
+title: Autentisering
 feature: REST API
-description: "Autentiserar Marketo-användare för API-användning."
-source-git-commit: 2185972a272b64908d6aac8818641af07c807ac2
+description: Autentiserar Marketo-användare för API-användning.
+exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '531'
 ht-degree: 0%
 
 ---
-
 
 # Autentisering
 
@@ -16,13 +16,13 @@ Marketo REST API:er autentiseras med 2-legged OAuth 2.0. Klient-ID:n och kundhem
 
 ## Skapa en åtkomsttoken
 
-The `Client ID` och `Client Secret` finns i **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** genom att välja den anpassade tjänsten och klicka **[!UICONTROL View Details]**.
+`Client ID` och `Client Secret` finns på menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL LaunchPoint]** genom att markera den anpassade tjänsten och klicka på **[!UICONTROL View Details]**.
 
 ![Hämta REST-tjänstinformation](assets/authentication-service-view-details.png)
 
 ![Startpunktsreferenser](assets/admin-launchpoint-credentials.png)
 
-The `Identity URL` finns i **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** i avsnittet REST API.
+`Identity URL` finns i menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** i REST API-avsnittet.
 
 Skapa en åtkomsttoken med en HTTP GET-begäran (eller POST-begäran) på följande sätt:
 
@@ -45,7 +45,7 @@ Svarsdefinition
 
 - `access_token` - Den token som du skickar med efterföljande anrop för att autentisera med målinstansen.
 - `token_type` - OAuth-autentiseringsmetoden.
-- `expires_in` - Den återstående livslängden för aktuell token i sekunder (efter vilken den är ogiltig). När en åtkomsttoken ursprungligen skapades är dess livslängd 3 600 sekunder eller en timme.
+- `expires_in` - Den återstående livstiden för aktuell token i sekunder (efter vilket den är ogiltig). När en åtkomsttoken ursprungligen skapades är dess livslängd 3 600 sekunder eller en timme.
 - `scope` - Den ägande användaren av den anpassade tjänst som användes för att autentisera.
 
 ## Använda en åtkomsttoken
@@ -66,7 +66,7 @@ Det finns två metoder som du kan använda för att ta med en token i dina anrop
 
 Det är viktigt att hantera utgångsdatum för åtkomsttoken så att integreringen fungerar smidigt och förhindra att oväntade autentiseringsfel uppstår under normala operationer. När du utformar autentisering för din integrering måste du spara token och förfalloperioden som finns i identitetssvaret.
 
-Innan du gör ett REST-anrop bör du kontrollera giltigheten för token baserat på dess återstående livslängd. Om token har gått ut kan du förnya den genom att ringa [Identitet](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)slutpunkt. Detta säkerställer att ditt REST-anrop aldrig misslyckas på grund av en token som har gått ut. Detta gör att du kan hantera fördröjningen för dina REST-anrop på ett förutsägbart sätt, vilket är avgörande för slutanvändartillvända program.
+Innan du gör ett REST-anrop bör du kontrollera giltigheten för token baserat på dess återstående livslängd. Om token har gått ut kan du förnya den genom att anropa [Identitet](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)slutpunkt. Detta säkerställer att ditt REST-anrop aldrig misslyckas på grund av en token som har gått ut. Detta gör att du kan hantera fördröjningen för dina REST-anrop på ett förutsägbart sätt, vilket är avgörande för slutanvändartillvända program.
 
 Om en token som har gått ut används för att autentisera ett REST-anrop, misslyckas REST-anropet och returnerar en felkod på 602. Om en ogiltig token används för att autentisera ett REST-anrop returneras en felkod 601. Om någon av dessa koder tas emot bör klienten förnya token genom att anropa Identity-slutpunkten.
 

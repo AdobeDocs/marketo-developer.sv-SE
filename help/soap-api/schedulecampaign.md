@@ -1,14 +1,14 @@
 ---
-title: "scheduleCampaign"
+title: scheduleCampaign
 feature: SOAP, Smart Campaigns
-description: "scheduleCampaign SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: scheduleCampaign SOAP anrop
+exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 0%
 
 ---
-
 
 # scheduleCampaign
 
@@ -18,7 +18,7 @@ Den här funktionen ställer in schemat för en batch Smart Campaign så att den
 
 På samma sätt som funktionen requestCampaign kan du skicka en array med Mina token till detta API-anrop som åsidosätter befintliga token. När kampanjen har körts ignoreras token.
 
-Om du använder den här valfria parametern med [importToList](importtolist.md)prioriterar tokenerna i följande ordning:
+Om du använder den här valfria parametern med [importToList](importtolist.md) prioriteras token i följande ordning:
 
 1. importToList per lead-tokens
 1. scheduleCampaign per kampanjtoken
@@ -32,7 +32,7 @@ Om du använder den här valfria parametern med [importToList](importtolist.md)p
 | campaignName | Obligatoriskt | Namnet på den smarta kampanjen |
 | campaignRunAt | Valfritt | Den tid det tar att köra den schemalagda kampanjen (W3C WSDL-datumformat). |
 | cloneToProgramName | Valfritt | När det här attributet finns klonas kampanjens överordnade program och den nyligen skapade kampanjen schemaläggs. Attributet anger det önskade namnet för det resulterande programmet. Obs! Endast 10 anrop per dag tillåts när det här fältet används. |
-| programTokenList->attrib->name | Valfritt | Namnet på den token som du vill skicka ett nytt värde för. Använd det fullständiga tokenformatet på samma sätt som i Marketo-gränssnittet. Det vill säga, &quot;{{my.message}}&quot; |
+| programTokenList->attrib->name | Valfritt | Namnet på den token som du vill skicka ett nytt värde för. Använd det fullständiga tokenformatet på samma sätt som i Marketo-gränssnittet. Det vill säga {{my.message}} |
 | programTokenList->attrib->value | Valfritt | Värdet för det associerade tokennamnet. |
 
 ## Begär XML

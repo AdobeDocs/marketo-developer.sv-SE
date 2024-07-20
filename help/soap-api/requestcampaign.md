@@ -1,14 +1,14 @@
 ---
-title: "requestCampaign"
+title: requestCampaign
 feature: SOAP, Smart Campaigns
-description: "requestCampaign SOAP call"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: requestCampaign SOAP anrop
+exl-id: b5367eb9-4f4c-4e1d-8b6d-36de8f134f0e
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '277'
 ht-degree: 0%
 
 ---
-
 
 # requestCampaign
 
@@ -16,19 +16,19 @@ Den här funktionen kör ett befintligt Marketo-lead i en Marketo Smart Campaign
 
 ![Webbtjänstens API](assets/webserviceapi.png)
 
-Det finns två parameteruppsättningar som kan användas. Det första fallet använder `campaignName` + `programName` + `programTokenList`. The `programTokenList` kan vara tom i det här fallet. Det andra fallet använder `campaignId` ensam. Andra kombinationer ger ett felaktigt parameterundantag.
+Det finns två parameteruppsättningar som kan användas. Det första fallet använder `campaignName` + `programName` + `programTokenList`. `programTokenList` kan vara tom i det här fallet. Det andra fallet använder enbart `campaignId`. Andra kombinationer ger ett felaktigt parameterundantag.
 
 Obs! Gränsen på 100 leadKey-värden per anrop. Ytterligare nycklar ignoreras.
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| leadList->leadKey->keyType | Obligatoriskt | `keyType` I kan du ange det fält som du vill fråga om leadet efter. Möjliga värden är:`IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
-| leadList->leadKey->keyValue | Obligatoriskt | `keyValue` är det värde som du vill fråga om leadet by. |
+| leadList->leadKey->keyType | Obligatoriskt | Med `keyType` kan du ange det fält som du vill fråga om leadet efter. Möjliga värden är: `IDNUM`, `EMAIL`, `SFDCLEADID`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID` |
+| leadList->leadKey->keyValue | Obligatoriskt | `keyValue` är det värde som du vill fråga om leadet efter. |
 | källa | Obligatoriskt | Kampanjkällan. Möjliga värden: `MKTOWS` eller `SALES`. Uppräkningen definieras i WSDL. |
-| campaignId | Valfritt när `campaignName`, `programName`och `programTokenList` samlas på en parameterplats. Annars `campaignId` krävs | Kampanjens ID. OBS! Ett felaktigt parameterfel uppstår om `campaignID` och `campaignName` båda skickas. |
+| campaignId | Valfritt när `campaignName`, `programName` och `programTokenList` är tillsammans i en parameterwebbplats. Annars krävs `campaignId` | Kampanjens ID. OBS! Ett felaktigt parameterfel inträffar om både `campaignID` och `campaignName` skickas. |
 | campaignName | Valfritt när campaignId finns; krävs annars i en uppsättning som `campaignName`, programName och programTokenList | Namnet på kampanjen |
 | programName | Valfritt när campaignId finns; krävs annars i en uppsättning som `campaignName`, programName och programTokenList | Namnet på programmet |
-| programTokenList | Valfritt när campaignId finns; krävs annars i en uppsättning som `campaignName`, `programName`och `programTokenList` | En matris med tokens som ska användas i kampanjen. När variabler anges, programName och `campaignName` krävs. |
+| programTokenList | Valfritt när campaignId finns; krävs annars i en uppsättning som `campaignName`, `programName` och `programTokenList` | En matris med tokens som ska användas i kampanjen. När du anger variabler krävs programName och `campaignName`. |
 | programTokenList->attrib->name | Valfritt | Namnet på den programtoken som du vill skicka värdet för. Exempel:{{my.message}} |
 | programTokenList->attrib->value | Valfritt | Värdet för det angivna tokennamnet. |
 

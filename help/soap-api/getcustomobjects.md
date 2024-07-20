@@ -1,20 +1,20 @@
 ---
-title: "getCustomObjects"
+title: getCustomObjects
 feature: SOAP, Custom Objects
-description: "getCustomObjects SOAP-anrop"
-source-git-commit: d335bdd9f939c3e557a557b43fb3f33934e13fef
+description: getCustomObjects SOAP anrop
+exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '156'
 ht-degree: 0%
 
 ---
 
-
 # getCustomObjects
 
 Hämtar ett eller flera anpassade objekt med en kombination av villkor som består av noll eller en anpassad objektnyckel.
 
-Returnerar en lista med matchande anpassade objekt, alla av en typ, upp till 100 i en grupp och en [dataströmposition](stream-position.md) token för att hämta efterföljande batchar.
+Returnerar en lista med matchande anpassade objekt, alla av en enda typ, upp till 100 i en grupp och en [strömposition](stream-position.md)-token för att hämta efterföljande batchar.
 
 ## Begäran
 
@@ -24,7 +24,7 @@ Returnerar en lista med matchande anpassade objekt, alla av en typ, upp till 100
 | customObjKeyLists->keyList->attribute | Obligatoriskt | Attributet är ett nyckel/värde-par som används för att identifiera de anpassade objekt som du vill hämta. Du kan ange flera attribut i `customObjKeyLists` |
 | includeAttributes | Obligatoriskt | Listan med anpassade objektfält som du vill hämta. Om du skickar ingen returneras alla värden. |
 | batchSize | Valfritt | Antalet objekt som ska returneras (max 100) |
-| streamPosition | Valfritt | Används för att numrera genom flera resultatuppsättningar. Det skickade värdet är det värde som returnerades av föregående `getCustomObjects` ring. |
+| streamPosition | Valfritt | Används för att numrera genom flera resultatuppsättningar. Det skickade värdet är det värde som returnerades av det föregående `getCustomObjects`-anropet. |
 
 ## Begär XML
 

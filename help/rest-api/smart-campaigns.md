@@ -1,14 +1,14 @@
 ---
-title: "Smarta kampanjer"
+title: Smarta kampanjer
 feature: REST API, Smart Campaigns
-description: "Smart Campaign - översikt"
-source-git-commit: 8c1ffb6db05da49e7377b8345eeb30472ad9b78b
+description: Översikt över smarta kampanjer
+exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '989'
 ht-degree: 0%
 
 ---
-
 
 # Smarta kampanjer
 
@@ -20,11 +20,11 @@ Marketo erbjuder en uppsättning REST API:er för att utföra åtgärder på sma
 
 ## Fråga
 
-Fråga efter smarta kampanjer efter standardfrågetyperna för resurser i [efter ID](#by_id), [efter namn](#by_name)och [surfning](#browse).
+När du frågar efter smarta kampanjer används standardfrågetyperna för resurserna [via ID](#by_id), [efter namn](#by_name) och [bläddring](#browse).
 
 ### Efter ID
 
-The [Hämta Smart Campaign via ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) slutpunkten har en enda smart kampanj `id` som en sökvägsparameter och returnerar en enda smart kampanjpost.
+Slutpunkten [Get Smart Campaign by ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByIdUsingGET) tar en smart kampanj `id` som sökvägsparameter och returnerar en enda smart kampanjpost.
 
 ```
 GET /rest/asset/v1/smartCampaign/{id}.json
@@ -62,11 +62,11 @@ GET /rest/asset/v1/smartCampaign/{id}.json
 }
 ```
 
-Med den här slutpunkten finns det alltid en post i den första positionen i `result` array.
+Med den här slutpunkten kommer det alltid att finnas en enda post i den första positionen för `result`-arrayen.
 
 ### Efter namn
 
-The [Hämta Smart Campaign efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) slutpunkten har en enda smart kampanj `name` som en parameter och returnerar en enda smart kampanjpost.
+Slutpunkten [Get Smart Campaign by Name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartCampaignByNameUsingGET) tar en smart kampanj `name` som parameter och returnerar en smart kampanjpost.
 
 ```
 GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
@@ -108,21 +108,21 @@ GET /rest/asset/v1/smartCampaign/byName.json?name=Test Trigger Campaign
 }
 ```
 
-Med den här slutpunkten finns det alltid en post i den första positionen i `result` array.
+Med den här slutpunkten kommer det alltid att finnas en enda post i den första positionen för `result`-arrayen.
 
 ### Bläddra
 
-The [Hämta smarta kampanjer](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) slutpunkten fungerar som andra Resurs-API:er och tillåter flera valfria frågeparametrar för att ange filtervillkor.
+Slutpunkten [Hämta smarta kampanjer](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getAllSmartCampaignsGET) fungerar på samma sätt som andra bläddringsslutpunkter för resurs-API och tillåter flera valfria frågeparametrar för att ange filtervillkor.
 
-The `earliestUpdatedAt` och `latestUpdatedAt` parametrarna godkänner `datetimes` i ISO-8601-format (utan millisekunder). Om båda anges måste firstUpdatedAt föregå latestUpdatedAt.
+Parametrarna `earliestUpdatedAt` och `latestUpdatedAt` accepterar `datetimes` i formatet ISO-8601 (utan millisekunder). Om båda anges måste firstUpdatedAt föregå latestUpdatedAt.
 
-The `folder` -parametern anger den överordnade mappen att bläddra under. Formatet är JSON-block som innehåller `id` och `type` attribut.
+Parametern `folder` anger den överordnade mappen som ska bläddras under. Formatet är JSON-block som innehåller attributen `id` och `type`.
 
-The `maxReturn` -parametern är ett heltal som anger det maximala antalet poster som ska returneras. Standardvärdet är 20. Max är 200.
+Parametern `maxReturn` är ett heltal som anger det maximala antalet poster som ska returneras. Standardvärdet är 20. Max är 200.
 
-The `offset` är ett heltal som anger var poster ska hämtas. Kan användas tillsammans med `maxReturn`. Standardvärdet är 0.
+Parametern `offset` är ett heltal som anger var poster ska hämtas. Kan användas tillsammans med `maxReturn`. Standardvärdet är 0.
 
-The `isActive` parametern är en boolesk parameter som anger att endast aktiva utlösarkampanjer ska returneras.
+Parametern `isActive` är en boolesk parameter som endast returnerar aktiva utlösarkampanjer.
 
 ```
 GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:00&latestUpdatedAt=2016-09-10T23:17:00-00:00
@@ -181,13 +181,13 @@ GET /rest/asset/v1/smartCampaigns.json?earliestUpdatedAt=2016-09-10T23:15:00-00:
 }
 ```
 
-Med den här slutpunkten finns det en eller flera poster i `result` array.
+Med den här slutpunkten kommer det att finnas en eller flera poster i arrayen `result`.
 
 ## Skapa
 
-The [Skapa smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) slutpunkten körs med en application/x-www-form-urlencoded POST med två obligatoriska parametrar. The `name` parameter anger namnet på den smarta kampanj som ska skapas. The `folder` parameter anger den överordnade mapp där den smarta kampanjen skapas. Formatet är JSON-block som innehåller `id` och `type` attribut.
+Slutpunkten [Skapa smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/createSmartCampaignUsingPOST) körs med en application/x-www-form-urlencoded-POST med två obligatoriska parametrar. Parametern `name` anger namnet på den smarta kampanj som ska skapas. Parametern `folder` anger den överordnade mappen där den smarta kampanjen skapas. Formatet är JSON-block som innehåller attributen `id` och `type`.
 
-Om du vill kan du beskriva den smarta kampanjen med `description` parameter (högst 2 000 tecken).
+Du kan också beskriva den smarta kampanjen med parametern `description` (högst 2 000 tecken).
 
 ```
 POST /rest/asset/v1/smartCampaigns.json
@@ -239,7 +239,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 
 ## Uppdatera
 
-The [Uppdatera smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/) slutpunkten körs med en application/x-www-form-urlencoded POST. Det krävs en enda smart kampanj `id` som en sökvägsparameter. Du kan använda `name` parameter för att uppdatera namnet på den smarta kampanjen, eller `description` parameter för att uppdatera beskrivningen av den smarta kampanjen.
+Slutpunkten [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/) körs med en application/x-www-form-urlencoded-POST. Det krävs en smart kampanj `id` som sökvägsparameter. Du kan använda parametern `name` för att uppdatera namnet på den smarta kampanjen, eller parametern `description` för att uppdatera beskrivningen av den smarta kampanjen.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}.json
@@ -291,9 +291,9 @@ name=Smart Campaign 02 Update&description=This is a smart campaign update test.
 
 ## Klona
 
-The [Klona smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) slutpunkten körs med en application/x-www-form-urlencoded POST med tre obligatoriska parametrar. Det krävs en `id` parameter som anger vilken smart kampanj som ska klonas, `name` parameter som anger namnet på den nya smarta kampanjen, och `folder` -parameter för att ange den överordnade mappen där den nya smarta kampanjen skapas. Formatet är JSON-block som innehåller `id` och `type` attribut.
+Slutpunkten [Klona smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) körs med en program/x-www-form-urlencoded-POST med tre obligatoriska parametrar. Det krävs en `id`-parameter som anger vilken smart kampanj som ska klonas, en `name`-parameter som anger namnet på den nya smarta kampanjen och en `folder`-parameter som anger den överordnade mappen där den nya smarta kampanjen skapas. Formatet är JSON-block som innehåller attributen `id` och `type`.
 
-Om du vill kan du beskriva den smarta kampanjen med `description` parameter (högst 2 000 tecken).
+Du kan också beskriva den smarta kampanjen med parametern `description` (högst 2 000 tecken).
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/clone.json
@@ -345,7 +345,7 @@ name=Test Trigger Campaign Clone&folder={"type": "folder","id": 640}&description
 
 ## Ta bort
 
-The [Ta bort smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) slutpunkten har en enda smart kampanj `id` som en sökvägsparameter.
+Slutpunkten [Ta bort smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deleteSmartCampaignUsingPOST) tar en smart kampanj `id` som sökvägsparameter.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/delete.json
@@ -371,15 +371,15 @@ Starta smarta batchkampanjer vid en viss tidpunkt och påverka en viss uppsättn
 
 ## Schema
 
-Använd [Schemalägg kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) slutpunkt för att schemalägga en batchkampanj att köras antingen omedelbart eller vid ett framtida datum. Kampanjen `id` är en obligatorisk sökvägsparameter. Valfria parametrar är `tokens`, `runAt`och `cloneToProgram` som skickas i begärandetexten som application/json.
+Använd slutpunkten för [Schemalägg kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) för att schemalägga en batchkampanj som ska köras antingen direkt eller vid ett framtida datum. Kampanjen `id` är en obligatorisk sökvägsparameter. Valfria parametrar är `tokens`, `runAt` och `cloneToProgram` som skickas i begärandetexten som application/json.
 
-Parametern för tokens-arrayen är en array med Mina token som åsidosätter befintliga programtoken. När kampanjen har körts ignoreras token.  Varje tokenmatrisobjekt innehåller namn/värde-par. Namnet på token måste vara formaterat som{{my.name}}&quot;.
+Parametern för tokens-arrayen är en array med Mina token som åsidosätter befintliga programtoken. När kampanjen har körts ignoreras token.  Varje tokenmatrisobjekt innehåller namn/värde-par. Namnet på token måste vara formaterat som {{my.name}}.
 
 Parametern runAt datetime anger när kampanjen ska köras. Om inget anges körs kampanjen 5 minuter efter att slutpunkten har anropats. Datetime-värdet får inte vara längre än två år framåt.
 
 Kampanjer som schemaläggs via denna API väntar alltid minst fem minuter innan de körs.
 
-The `cloneToProgram` strängparametern innehåller namnet på ett resulterande program.  När detta anges skapas kampanjen, det överordnade programmet och alla dess resurser med det nya namnet. Det överordnade programmet klonas och den nyligen skapade kampanjen schemaläggs. Det resulterande programmet skapas under det överordnade. Program med fragment, push-meddelanden, meddelanden i appen, statiska listor, rapporter och sociala resurser kanske inte klonas på det här sättet. När den används är slutpunkten begränsad till 20 anrop per dag. The [klonprogram](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) endpoint är det rekommenderade alternativet.
+Strängparametern `cloneToProgram` innehåller namnet på ett resulterande program.  När detta anges skapas kampanjen, det överordnade programmet och alla dess resurser med det nya namnet. Det överordnade programmet klonas och den nyligen skapade kampanjen schemaläggs. Det resulterande programmet skapas under det överordnade. Program med fragment, push-meddelanden, meddelanden i appen, statiska listor, rapporter och sociala resurser kanske inte klonas på det här sättet. När den används är slutpunkten begränsad till 20 anrop per dag. Slutpunkten för [klonprogrammet](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) är det rekommenderade alternativet.
 
 ```
 POST /rest/v1/campaigns/{id}/schedule.json
@@ -422,13 +422,13 @@ Utlösare smarta kampanjer påverkar en person i taget baserat på en utlöst h�
 
 ### Begäran
 
-Använd [Begär kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) slutpunkt för att skicka en uppsättning leads till en utlösarkampanj som körs genom kampanjflödet. Kampanjen måste ha utlösaren&quot;Kampanj är begärd&quot; med&quot;Webbtjänst-API&quot; som källa.
+Använd slutpunkten [Begär kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) för att skicka en uppsättning leads till en utlösarkampanj som körs genom kampanjflödet. Kampanjen måste ha utlösaren&quot;Kampanj är begärd&quot; med&quot;Webbtjänst-API&quot; som källa.
 
-Den här slutpunkten kräver en kampanj `id` som en sökvägsparameter och `leads` heltalsmatrisparameter som innehåller lead-ID:n. Högst 100 leads tillåts per samtal.
+Den här slutpunkten kräver en kampanj `id` som sökvägsparameter och en `leads` heltalsarrayparameter som innehåller lead-ID. Högst 100 leads tillåts per samtal.
 
-Om du vill kan du `tokens` matrisparametern kan användas för att åsidosätta Mina token lokalt till kampanjens överordnade program. `tokens` kan hantera högst 100 token. Varje `tokens` arrayobjektet innehåller ett namn/värde-par. Namnet på token måste vara formaterat som{{my.name}}&quot;. Om du [Lägg till en systemtoken som en länk i ett e-postmeddelande](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) du kan inte åsidosätta systemtoken &quot;viewAsWebpageLink&quot; med `tokens`. Använd i stället [Lägg till en länk för Visa som webbsida i ett e-postmeddelande](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) som gör att du kan åsidosätta viewAsWebPageLink med `tokens`.
+Arrayparametern `tokens` kan också användas för att åsidosätta Mina token lokalt till kampanjens överordnade program. `tokens` accepterar högst 100 token. Varje `tokens`-matrisobjekt innehåller ett namn/värde-par. Namnet på token måste vara formaterat som {{my.name}}. Om du använder [Lägg till en systemtoken som en länk i en e-postadress](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) för att lägga till systemtoken viewAsWebpageLink kan du inte åsidosätta den med `tokens`. Använd i stället [Lägg till en vy som webbsideslänk i ett e-postmeddelande](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) som gör att du kan åsidosätta viewAsWebPageLink med `tokens`.
 
-The `leads` och `tokens` parametrar skickas i begärandetexten som application/json.
+Parametrarna `leads` och `tokens` skickas i begärandetexten som application/json.
 
 ```
 POST /rest/v1/campaigns/{id}/trigger.json
@@ -474,7 +474,7 @@ POST /rest/v1/campaigns/{id}/trigger.json
 
 ### Aktivera
 
-The [Aktivera smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) slutpunkten är enkel. An `id` path-parameter krävs. För att aktiveringen ska lyckas måste följande gälla:
+Slutpunkten [Aktivera smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/activateSmartCampaignUsingPOST) är enkel. En `id`-sökvägsparameter krävs. För att aktiveringen ska lyckas måste följande gälla:
 
 - Måste inaktiveras
 - Måste ha minst en utlösare och ett flödessteg
@@ -499,7 +499,7 @@ POST /rest/asset/v1/smartCampaign/{id}/activate.json
 
 ### Inaktivera
 
-The [Inaktivera smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) är okomplicerad. An `id` path-parameter krävs. För att inaktiveringen ska lyckas måste kampanjen aktiveras.
+[Inaktivera smart kampanj](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/deactivateSmartCampaignUsingPOST) är enkelt. En `id`-sökvägsparameter krävs. För att inaktiveringen ska lyckas måste kampanjen aktiveras.
 
 ```
 POST /rest/asset/v1/smartCampaign/{id}/deactivate.json

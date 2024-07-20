@@ -1,14 +1,14 @@
 ---
-title: "Mobil"
-feature: "Mobile Marketing"
-description: "Använda Marketo Mobile"
-source-git-commit: 2454f126dc4275697ef6773420453ad8853eae73
+title: Mobil
+feature: Mobile Marketing
+description: Använda Marketo Mobile
+exl-id: d5fa5640-01f5-49a1-944a-9f81a1f83617
+source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
 workflow-type: tm+mt
 source-wordcount: '129'
 ht-degree: 0%
 
 ---
-
 
 # Mobil
 
@@ -24,4 +24,4 @@ Marketo Mobile Engagement består av två komponenter:
 
    Marknadsförarna använder Marketo för att definiera målgrupper, skapa aviseringar, starta riktade meddelandekampanjer och visa detaljerad kundanalys.
 
-När du har integrerat Marketo SDK i mobilappen kan du skicka både push-meddelanden och meddelanden i appen till dina kunder från Marketo. Information om hur du konfigurerar och distribuerar mobilmeddelanden i Marketo finns i [Mobilmarknadsföring](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) i vår produktdokumentation.
+När du har integrerat Marketo SDK i mobilappen kan du skicka både push-meddelanden och meddelanden i appen till dina kunder från Marketo. Information om hur du konfigurerar och distribuerar mobilmeddelanden i Marketo finns i avsnittet [Mobilmarknadsföring](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) i vår produktdokumentation.
