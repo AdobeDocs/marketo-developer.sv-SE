@@ -60,7 +60,8 @@ För OpportunityPersonRole MObject kan du ange alla fält från utdata för [des
 1. IsPrimary (valfritt)
 1. Roll (valfritt)
 
-|
+| Fältnamn | Obligatoriskt/valfritt | Beskrivning |
+| --- | --- | --- |
 | mObjAssociationList->mObjAssociation->mObjType | Valfritt | Används för att uppdatera MObjects för säljprojekt/säljprojektPersonRole med ID eller extern nyckel för ett associerat objekt. Associerade objekt kan vara ett av: Företag (för att uppdatera MObject för affärsmöjlighet), Lead (för att uppdatera MObject för säljprojektPersonRole), Möjlighet (för att uppdatera MObject för säljprojektPersonRole)|
 | mObjAssociationList->mObjAssociation->id | Valfritt | ID för det associerade objektet (Lead/Company/Opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Valfritt | Ett anpassat attribut för det associerade objektet |
