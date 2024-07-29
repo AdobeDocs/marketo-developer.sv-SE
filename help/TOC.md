@@ -5,10 +5,10 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 85062243d57a3fc6d15251163e926495858edf2a
+source-git-commit: 5d18a24f25e5bda39e10bce3b2a77370dd28c937
 workflow-type: tm+mt
-source-wordcount: '234'
-ht-degree: 0%
+source-wordcount: '237'
+ht-degree: 4%
 
 ---
 
@@ -85,6 +85,7 @@ ht-degree: 0%
       - [Medlem i massprogram](rest-api/bulk-program-member-import.md)
    - [Kanaler](rest-api/channels.md)
    - [Anpassade tjänster](rest-api/custom-services.md)
+   - [API för datainmatning](rest-api/data-ingestion.md)
    - [Hämta Swagger-definitioner](rest-api/swagger.md)
    - [Referens för slutpunkt](rest-api/endpoint-reference.md)
    - [Felkoder](rest-api/error-codes.md)
@@ -109,7 +110,7 @@ ht-degree: 0%
    - [Användarhantering](rest-api/user-management.md)
 - SOAP {#soap}
    - Aktiviteter {#activities}
-      - [Verksamhet](soap-api/activities.md)
+      - [Aktiviteter](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [Filter för aktivitetstyp](soap-api/activity-type-filters.md)
