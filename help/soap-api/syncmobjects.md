@@ -3,10 +3,10 @@ title: syncMObjects
 feature: SOAP
 description: syncMObjects SOAP call
 exl-id: 68bb69ce-aa8c-40b7-8938-247f4fe97b5d
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 04e6b38a7ee602c38a851f9b99101186e72a8518
 workflow-type: tm+mt
-source-wordcount: '421'
-ht-degree: 0%
+source-wordcount: '426'
+ht-degree: 1%
 
 ---
 
@@ -62,7 +62,7 @@ För OpportunityPersonRole MObject kan du ange alla fält från utdata för [des
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| mObjAssociationList->mObjAssociation->mObjType | Valfritt | Används för att uppdatera MObjects för säljprojekt/säljprojektPersonRole med ID eller extern nyckel för ett associerat objekt. Associerade objekt kan vara ett av: Företag (för att uppdatera MObject för affärsmöjlighet), Lead (för att uppdatera MObject för säljprojektPersonRole), Möjlighet (för att uppdatera MObject för säljprojektPersonRole)|
+| mObjAssociationList->mObjAssociation->mObjType | Valfritt | Används för att uppdatera MObjects för säljprojekt/säljprojektPersonRole med ID eller extern nyckel för ett associerat objekt. Associerade objekt kan vara ett av: Företag (för att uppdatera MObject för affärsmöjlighet), Lead (för att uppdatera MObject för säljprojektPersonRole), säljprojekt (för att uppdatera MObject för säljprojektPersonRole) |
 | mObjAssociationList->mObjAssociation->id | Valfritt | ID för det associerade objektet (Lead/Company/Opportunity) |
 | mObjAssociationList->mObjAssociation->externalKey | Valfritt | Ett anpassat attribut för det associerade objektet |
 
