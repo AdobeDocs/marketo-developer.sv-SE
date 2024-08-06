@@ -3,9 +3,9 @@ title: Autentisering
 feature: REST API
 description: Autentiserar Marketo-användare för API-användning.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e0fc654efe4501f734ab5158ce0bfd3ed08896ce
 workflow-type: tm+mt
-source-wordcount: '531'
+source-wordcount: '579'
 ht-degree: 0%
 
 ---
@@ -61,6 +61,10 @@ Det finns två metoder som du kan använda för att ta med en token i dina anrop
 1. Frågeparameter
 
    `access_token=cdf01657-110d-4155-99a7-f986b2ff13a0:int`
+
+   >[!IMPORTANT]
+   >
+   >Stöd för autentisering med frågeparametern **access_token** tas bort i en senare version. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
 
 ## Tips och bästa praxis
 
