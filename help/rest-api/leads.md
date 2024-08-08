@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Information om Leads-API-anrop
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 2c125161cf06be8ebb44ae8212f15fbbe5c1f6b7
+source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
 workflow-type: tm+mt
-source-wordcount: '3308'
+source-wordcount: '3343'
 ht-degree: 0%
 
 ---
@@ -152,11 +152,19 @@ Både Hämta lead med ID och Hämta leads med filtertyp accepterar också en fä
 
 ## ADOBE ECID
 
-När funktionen Adobe Experience Cloud Audience Sharing (Målgruppsdelning) är aktiverad utförs en cookie-synkroniseringsprocess som associerar Adobe Experience Cloud-id (ECID) med Marketo leads.  De metoder för hämtning av leads som nämns ovan kan användas för att hämta associerade ECID-värden.  Gör detta genom att ange&quot;ecid&quot; i parametern fields. Till exempel &quot;&amp;fields=email,firstName,lastName,ecids&quot;.
+När funktionen Adobe Experience Cloud Audience Sharing (Målgruppsdelning) är aktiverad utförs en cookie-synkroniseringsprocess som associerar Adobe Experience Cloud-id (ECID) med Marketo leads.  De metoder för hämtning av leads som nämns ovan kan användas för att hämta associerade ECID-värden.  Gör detta genom att ange `ecids` i fältparametern. Exempel: `&fields=email,firstName,lastName,ecids`.
 
 ## Skapa och uppdatera
 
 Förutom att hämta lead-data kan du skapa, uppdatera och ta bort lead-poster via API:t. När du skapar och uppdaterar leads delas samma slutpunkt med åtgärdstypen som definieras i begäran, och upp till 300 poster kan skapas eller uppdateras samtidigt.
+
+>[!NOTE]
+>
+> Det går inte att uppdatera företagsfält med slutpunkten [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST). Använd slutpunkten [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) i stället.
+
+>[!NOTE]
+>
+> När du skapar eller uppdaterar e-postvärdet för en personpost stöds endast ASCII-tecken i e-postadressfältet.
 
 ### Begäran
 
