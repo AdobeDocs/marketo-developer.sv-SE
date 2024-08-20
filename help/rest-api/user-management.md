@@ -3,9 +3,9 @@ title: Användarhantering
 feature: REST API
 description: Utför CRUD-åtgärder på användarposter.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
 workflow-type: tm+mt
-source-wordcount: '1155'
+source-wordcount: '1185'
 ht-degree: 0%
 
 ---
@@ -130,31 +130,35 @@ GET /userservice/management/v1/users/allusers.json
 ```json
 [
   {
-    "userid": "jamie@lannister.com",
-    "firstName": "Jamie",
-    "lastName": "Lannister",
-    "emailAddress": "jamie@houselannister.com",
-    "id": 6785,
+    "userid": "02226aae-9f54-45d1-bc26-8305c8f55ec7@adobe.com",
+    "firstName": "Aparna",
+    "lastName": "Ghosh",
+    "emailAddress": "aparna.ghosh@ericsson.com",
+    "id": 5222,
     "apiOnly": false
-  },
-  {
-    "userid": "jeoffery@housebaratheon.com",
-    "firstName": "Jeoffery",
-    "lastName": "Baratheon",
-    "emailAddress": "jeoffery@housebaratheon.com",
-    "id": 7718,
+    },
+    {
+    "userid": "038e1cac-3f3e-4c05-b0b3-6265fd2abcd3@adobe.com",
+    "firstName": "Timm",
+    "lastName": "Rehse",
+    "emailAddress": "timm.rehse@ericsson.com",
+    "id": 7075,
     "apiOnly": false
-  },
-  {
-    "userid": "rickon@housestark.com",
-    "firstName": "Rickon",
-    "lastName": "Stark",
-    "emailAddress": "rickon@housestark.com",
-    "id": 8612,
+    },
+    {
+    "userid": "0a855522-06c9-4a9e-93de-91a0d2cc2987@adobe.com",
+    "firstName": "Dhinagaran",
+    "lastName": "Swaminathan",
+    "emailAddress": "dhinagaran.swaminathan@ericsson.com",
+    "id": 6439,
     "apiOnly": false
-  }
+    }
 ]
 ```
+
+>[!NOTE]
+>
+>I kodexemplet ovan visas `userid` för en kund som har migrerats till Adobe IMS. De kunder som ännu inte migrerats kommer att se en vanlig e-postadress i fältet `userid`.
 
 ### Bläddra bland roller
 
@@ -298,7 +302,7 @@ På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/e
 
 Slutpunkten [Bjud in användare](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) om du vill skicka en e-postinbjudan om välkomstmeddelanden till Marketo till en ny användare. E-postmeddelandetexten innehåller länken&quot;Logga in på Marketo&quot; som gör att användaren kan komma åt Marketo för första gången. För att acceptera inbjudan klickar e-postmottagaren på länken Logga in på Marketo, skapar sitt lösenord och får tillgång till Marketo. Inbjudan väntar tills godkännandeprocessen är klar och användarposten kan inte redigeras. En väntande inbjudan går ut sju dagar efter att den har skickats. Mer information om hur du hanterar användare finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
-Parametrar skickas i begärandetexten i application/json-format.
+Parametrar skickas i begärandetexten i formatet `application/json`.
 
 Följande parametrar är obligatoriska:  `emailAddress`, `firstName`, `lastName, userRoleWorkspaces`. Parametern `userRoleWorkspaces` är en array med objekt som innehåller attributen `accessRoleId` och `workspaceId`.
 
