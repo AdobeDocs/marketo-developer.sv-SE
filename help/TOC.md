@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '238'
+source-wordcount: '240'
 ht-degree: 4%
 
 ---
@@ -49,7 +49,6 @@ ht-degree: 4%
 - REST{#rest}
    - [REST API - översikt](rest-api/rest-api.md)
    - [REST API-referens](https://developer.adobe.com/marketo-apis/)
-   - [Aktiviteter](rest-api/activities.md)
    - Assets {#assets}
       - [Assets](rest-api/assets.md)
       - [Dynamiskt innehåll](rest-api/dynamic-content.md)
@@ -91,7 +90,9 @@ ht-degree: 4%
    - [Referens för slutpunkt](rest-api/endpoint-reference.md)
    - [Felkoder](rest-api/error-codes.md)
    - Leaddatabas {#lead-database}
+      - [Aktiviteter](rest-api/activities.md)
       - [Företag](rest-api/companies.md)
+      - [Anpassade objekt](rest-api/custom-objects.md)
       - [Fältlista](rest-api/fields.md)
       - [Fälttyper](rest-api/field-types.md)
       - [Lead-databas](rest-api/lead-database.md)

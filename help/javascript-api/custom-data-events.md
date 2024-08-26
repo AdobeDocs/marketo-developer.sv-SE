@@ -1,12 +1,12 @@
 ---
 title: Anpassade datahändelser
-description: API för anpassade datahändelser
+description: Använd JavaScript-API:t för anpassade datahändelser för att spåra dina unika händelser.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
 workflow-type: tm+mt
-source-wordcount: '223'
-ht-degree: 0%
+source-wordcount: '231'
+ht-degree: 1%
 
 ---
 
