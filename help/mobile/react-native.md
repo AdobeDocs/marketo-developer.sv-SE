@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installera React Native för Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: e7cb23c4d578d949553b2b7a6e127d6be54cdf23
 workflow-type: tm+mt
-source-wordcount: '836'
+source-wordcount: '811'
 ht-degree: 0%
 
 ---
@@ -139,7 +139,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
    }
    @ReactMethod
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
-          marketoSdk.initializeSDK(frameworkType,munchkinId,appSecreteKey);
+          marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
     }
    
 
@@ -464,89 +464,7 @@ Behörigheter måste vara aktiverade i Xcode-projektet för att skicka push-medd
 
 Om du vill skicka push-meddelanden [lägger du till push-meddelanden](push-notifications.md).
 
-I XCode-import `Marketo` i din `AppDelegate.m`-fil,
-
-```
-#import <MarketoFramework/MarketoFramework.h> 
-```
-
-Lägg till `UNUserNotificationCenterDelegate` i AppDelegate-gränssnittet enligt följande för att hantera delegater
-
-```
-@interface AppDelegate () <UNUserNotificationCenterDelegate>
-
-@end
-```
-
-Registrera dig för fjärrmeddelanden i metoden `didFinishLaunchingWithOptions`.
-
-```
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-#ifdef FB_SONARKIT_ENABLED
-  InitializeFlipper(application);
-#endif
-
-  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
-                                                   moduleName:@"HelloRN"
-                                            initialProperties:nil];  
-  
-// asking user permission to send push notifications 
-  [self registerForRemoteNotifications];
-  
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
-  [self.window makeKeyAndVisible];
-
-  return YES;
-}
-
-- (void)registerForRemoteNotifications {
-   UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = self;
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
-            if(!error){
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [[UIApplication sharedApplication] registerForRemoteNotifications];
-                });
-            }
-            else{
-                NSLog(@"failed");
-            }
-        }];
-}
-```
-
-Inkludera följande `UNUserNotificationCenter` delegatmetoder som krävs för att delegera meddelanden.
-
-```
--(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
-    completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
-}
-
-- (void)userNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void(^)(void))completionHandler {
-    [[Marketo sharedInstance] userNotificationCenter:center didReceiveNotificationResponse:response withCompletionHandler:completionHandler];
-}
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    // Register the push token with Marketo
-    [[Marketo sharedInstance] registerPushDeviceToken:deviceToken];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    [[Marketo sharedInstance] unregisterPushDeviceToken];
-}
-
--(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
-    NSLog(@"didFailToRegisterForRemoteNotificationsWithError");
-}
-```
-
+Konfigurera push-meddelanden för iOS,
 skapa filen PushNotifications.tsx och lägg till följande:
 
 ```
