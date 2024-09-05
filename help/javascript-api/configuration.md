@@ -3,9 +3,9 @@ title: Konfiguration
 description: Använd Configuration Javascript API för att ange konfigurationsvärden när du använder Munchkin.
 feature: Javascript
 exl-id: 4700ce7b-f624-4f27-871e-9a050f203973
-source-git-commit: e609f9d5d58f656298412acef5e2106a19765396
+source-git-commit: 257478ecb76b5908c2f623192f37be25bff1a02a
 workflow-type: tm+mt
-source-wordcount: '618'
+source-wordcount: '554'
 ht-degree: 0%
 
 ---
@@ -29,7 +29,7 @@ Konfigurationsinställningsobjektet kan innehålla valfritt antal egenskaper fr�
 | Namn | Datatyp | Beskrivning |
 |---|---|---|
 | altIds | Array | Accepterar en array med Munchkin ID-strängar. När det här alternativet är aktiverat dupliceras all webbaktivitet till målprenumerationerna, baserat på deras Munchkin-ID. |
-| anonymiszeIP | Boolean | Anonymiserar den IP-adress som spelats in i Marketo för nya besökare. Du kan kontrollera om din prenumeration har etablerats med Munchkin V2 genom att kontrollera om din `{Munchkin-Id}.mktoresp.com`-domän har någon av följande adresser: `192.28.144.124` `134.213.193.62` `192.28.147.68` `103.237.104.82`. Du kan också köra skriptet nedan från ett unikt skal: nslookup {munchkin-id}.mktoresp.com | grep -E -c -e &quot;(192.28.144.124,134.213.193.62,192.28.147.68,103.237.104.82)&quot; om kommandot utdata &#39;0&#39;, kommer din prenumeration inte att distribueras med Munchkin V2. Om utdata är 1 eller högre kommer den att etableras. |
+| anonymiszeIP | Boolean | Analyserar IP-adressen som registrerats i Marketo för nya besökare. |
 | apiOnly | Boolean | Om värdet är true anropas inte `Munchkin.Init()` av funktionen `visitsWebPage`. Detta är användbart för webbprogram med en sida som behöver fullständig kontroll över varje `visitsWebPage`-händelse. |
 | asyncOnly | Boolean | Om värdet är true skickas XMLHttpRequest asynkront. Standardvärdet är false. |
 | clickTime | Heltal | Anger hur lång tid det tar att blockera efter en klickning för att tillåta klickspårningsbegäran (i millisekunder). Om du minskar detta minskar noggrannheten i klickspårningen. Standardvärdet är 350 ms. |
