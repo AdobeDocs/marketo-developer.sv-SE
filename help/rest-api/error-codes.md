@@ -3,9 +3,9 @@ title: Felkoder
 feature: REST API
 description: Marketo felkodbeskrivningar.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
 workflow-type: tm+mt
-source-wordcount: '2272'
+source-wordcount: '2273'
 ht-degree: 2%
 
 ---
@@ -224,7 +224,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="712"></a>712</td>
       <td>Åtgärden Koppla till person-konto är ogiltig</td>
-      <td>Ett anrop till en kopplingsansvarig misslyckades på grund av ett försök att sammanfoga leads som är Salesforce-personkonton.  Salesforce-personkonton måste sammanfogas i Salesforce.</td>
+      <td>Ett anrop om kopplade leads misslyckades på grund av ett försök att sammanfoga leads som är Salesforce personkonton.  Salesforce personkonton måste sammanfogas i Salesforce.</td>
     </tr>
     <tr>
       <td><a name="713"></a>713</td>
@@ -352,8 +352,8 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
     <tr>
       <td><a name="1012"></a>1012</td>
       <td>Ogiltigt cookie-värde "%s"</td>
-      <td>Kan inträffa när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> anropas med ett ogiltigt värde för cookie-parametern.
-        Detta inträffar också när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Hämta leads efter filtertyp</a> anropas med filterType=cookies och ogiltigt värde för parametern filterValues.</td>
+      <td>Kan inträffa när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST">Associate Lead</a> anropas med ett ogiltigt värde för parametern "cookie".
+        Detta inträffar också när <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET">Hämta leads efter filtertyp</a> anropas med filtertyp=cookies och ett ogiltigt värde för parametern filterValues.</td>
     </tr>
     <tr>
       <td><a name="1013"></a>1013</td>
@@ -475,8 +475,8 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
     </tr>
     <tr>
       <td><a name="1077"></a>1077</td>
-      <td><a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Anropet mellan kopplade leads</a> misslyckades på grund av SFDC-fältets längd</td>
-      <td>Ett anrop av typen Merge Leads med mergeInCRM inställt på true misslyckades på grund av att SFDC-fältet överskrider gränsen för tillåtna tecken. Korrigera genom att minska längden på SFDC-fält eller ange mergeInCRM till false.</td>
+      <td>Anropet <a href="https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/mergeLeadsUsingPOST">Kopplingsleads</a> misslyckades på grund av längden "SFDC Field"</td>
+      <td>Ett anrop av typen Merge Leads med mergeInCRM inställt på true misslyckades eftersom "SFDC Field" överskrider gränsen för tillåtna tecken. Korrigera genom att minska längden på "SFDC Field" eller genom att ange mergeInCRM till false.</td>
     </tr>
     <tr>
       <td><a name="1078"></a>1078</td>
