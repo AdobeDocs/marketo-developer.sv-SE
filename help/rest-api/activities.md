@@ -2,13 +2,13 @@
 title: Aktiviteter
 feature: REST API
 description: Ett API för att hantera Marketo Engage-aktiviteter.
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
+source-git-commit: 6baf62bc8881470eca597899e3228c377fb597d0
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
 
 ---
-
 
 # Aktiviteter
 
@@ -133,7 +133,7 @@ I vissa fall kan denna API svara med färre än 300 aktivitetsobjekt, men har oc
 
 Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av strängattributet `marketoGUID` som en unik identifierare. 
 
-## Ändringar av datavärde
+### Ändringar av datavärde
 
 För datavärdesändringsaktiviteter finns en specialversion av aktivitets-API:t. Slutpunkten [Hämta lead-ändringar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) returnerar bara aktiviteter för datavärdesändringsposter till huvudfält. Gränssnittet är detsamma som API:t Hämta leadaktiviteter med två skillnader:
 
@@ -188,7 +188,7 @@ Varje aktivitet i svaret har en fältarray, med en lista över ändringar i akti
 
 Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av strängattributet `marketoGUID` som en unik identifierare.
 
-## Borttagna leads
+### Borttagna leads
 
 Det finns också en särskild slutpunkt, [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET), för att hämta borttagna aktiviteter från Marketo.
 
@@ -229,7 +229,7 @@ GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQ
 
 Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av strängattributet `marketoGUID` som en unik identifierare.
 
-## Bläddra bland resultaten
+### Bläddra bland resultaten
 
 Som standard returnerar slutpunkterna som nämns i det här avsnittet 300 aktivitetsobjekt i taget.  Om attributet `moreResult` är true är fler resultat tillgängliga. Anropa slutpunkten tills attributet `moreResult` returnerar false, vilket betyder att det inte finns fler tillgängliga resultat. `nextPageToken` som returneras från den här slutpunkten ska alltid återanvändas för nästa iteration av anropet.
 
@@ -322,7 +322,7 @@ GET /rest/v1/activities/external/type/{apiName}/describe.json
 }
 ```
 
-### Skapa typ
+## Skapa typ
 
 Varje anpassad aktivitetstyp kräver ett visningsnamn, API-namn, utlösarnamn, filternamn och primärattribut.
 
@@ -386,7 +386,7 @@ POST /rest/v1/activities/external/type.json
 }
 ```
 
-### Uppdateringstyp
+## Uppdateringstyp
 
 Uppdateringen av en typ är mycket lik, förutom att apiName är den enda obligatoriska parametern som en path-parameter.
 
@@ -448,7 +448,7 @@ Giltiga datatyper för attribut är: string, boolean, integer, float, link, emai
 
 När du ändrar det primära attributet för en aktivitetstyp ska alla befintliga primära attribut sänkas genom att `isPrimary` anges till false först.
 
-## Skapa attribut
+### Skapa attribut
 
 När du skapar ett attribut krävs en `apiName`-sökvägsparameter. Parametrarna `name` och `dataType` krävs också.` The description and` `isPrimary` parametrar är valfria.
 
@@ -515,7 +515,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 }
 ```
 
-## Uppdatera attribut
+### Uppdatera attribut
 
 När du uppdaterar attribut är `apiName` för attributet primärnyckel. Parametern `apiName` måste finnas för att uppdateringen ska lyckas (det vill säga du kan inte ändra parametern `apiName` med hjälp av uppdatering).
 
@@ -582,7 +582,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 }
 ```
 
-## Ta bort attribut
+### Ta bort attribut
 
 Om du tar bort ett attribut krävs en `apiName`-sökvägsparameter som är det anpassade aktivitets-API-namnet.  Obligatoriskt är också en attributparameter som är en array med attributobjekt.  Varje objekt måste innehålla en `apiName`-parameter som är det anpassade API-namnet för aktivitetstypen.
 
@@ -710,4 +710,4 @@ POST /rest/v1/activities/external.json
 Slutpunkter för aktiviteter har en timeout på 30-tal om inget annat anges nedan.
 
 * Hämta sidtoken: 300s 
-* Lägg till anpassad aktivitet: 90s 
+* Lägg till anpassad aktivitet: 90s
