@@ -3,9 +3,9 @@ title: Utskriftstoken
 feature: REST API
 description: Visa data för sidindelningstoken.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
 workflow-type: tm+mt
-source-wordcount: '345'
+source-wordcount: '352'
 ht-degree: 0%
 
 ---
@@ -15,6 +15,8 @@ ht-degree: 0%
 Om du vill bläddra igenom resultaten, eller hämta data som har uppdaterats i förhållande till en viss data, tillhandahåller Marketo växlingstoken.
 
 I vissa fall kan långa växlingstokensträngar returneras. Detta kan göra att du får en HTTP 414-felkod. Mer information om hur du hanterar dessa [fel](error-codes.md) finns.
+
+Se dokumentationen för [Paging Token API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET).
 
 ## Tokentyper
 
