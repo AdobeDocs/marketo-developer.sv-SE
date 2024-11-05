@@ -2,7 +2,7 @@
 title: Startsida
 description: Marketo Engage API-startsida
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: a00583f367c2da36d9d1d6e0b05bfd4216573fbb
+source-git-commit: 522554332718c823c049d9fe52dcc827d3ec0ace
 workflow-type: tm+mt
 source-wordcount: '130'
 ht-degree: 1%
@@ -16,36 +16,28 @@ Detaljerad dokumentation som hjälper dig att hantera Marketo Engage API
 <table>
 <tbody>
 <tr>
-<td><a href="getting-started.md"><img src="assets/Smock_Book_18_N.svg" alt="Komma igång"></a></td>
-<td><a href="getting-started.md"><strong>Komma igång</strong></a> Bekanta dig med Marketo Engage API:er.</td>
+<td><a href="getting-started.md"><img src="assets/Smock_Book_18_N.svg" width="50" alt="Komma igång"></a><a href="getting-started.md"><strong>Komma igång</strong></a> Bekanta dig med Marketo Engage API:er.</td>
 </tr>
 <tr>
-<td><a href="https://developer.adobe.com/marketo-apis/"><img src="assets/Smock_AppleFiles_18_N.svg" alt="REST API:er"></a></td>
-<td><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a> Läs, skriv och uppdatera dina Marketo Engage-data via REST API.</td>
+<td><a href="https://developer.adobe.com/marketo-apis/"><img src="assets/Smock_AppleFiles_18_N.svg" width="50" alt="REST API:er"></a><a href="https://developer.adobe.com/marketo-apis/"><strong>REST API</strong></a> Läs, skriv och uppdatera dina Marketo Engage-data via REST API.</td>
 </tr>
 <tr>
-<td><a href="webhooks/webhooks.md"><img src="assets/Smock_SocialNetwork_18_N.svg" alt="Webhooks"></a></td>
-<td><a href="webhooks/webhooks.md"><strong>Webhooks</strong></a> Kommunicera med webbtjänster från tredje part med Webhooks.</td>
+<td><a href="webhooks/webhooks.md"><img src="assets/Smock_SocialNetwork_18_N.svg" width="50" alt="Webhooks"></a><a href="webhooks/webhooks.md"><strong>Webhooks</strong></a> Kommunicera med webbtjänster från tredje part med Webhooks.</td>
 </tr>
 <tr>
-<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><img src="assets/Smock_Code_18_N.svg" alt="Klientbibliotek"></a></td>
-<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Klientbibliotek</strong></a> Använd kod med öppen källkod för att utöka möjligheterna i Marketo Engage.</td>
+<td><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><img src="assets/Smock_Code_18_N.svg" width="50" alt="Klientbibliotek"></a><a href="https://github.com/Marketo/Community-Supported-Client-Libraries"><strong>Klientbibliotek</strong></a> Använd kod med öppen källkod för att utöka möjligheterna i Marketo Engage.</td>
 </tr>
 <tr>
-<td><a href="email-scripting.md"><img src="assets/Smock_EmailGear_18_N.svg" alt="E-postskript"></a></td>
-<td><a href="email-scripting.md"><strong>E-postskript</strong></a> Använd Marketo Engage-API:er för att skapa och redigera e-post och e-postmallar.</td>
+<td><a href="email-scripting.md"><img src="assets/Smock_EmailGear_18_N.svg" width="50" alt="E-postskript"></a><a href="email-scripting.md"><strong>E-postskript</strong></a> Använd Marketo Engage-API:er för att skapa och redigera e-post och e-postmallar.</td>
 </tr>
 <tr>
-<td><a href="javascript-api/lead-tracking.md"><img src="assets/Smock_PeopleGroup_18_N.svg" alt="Spårning av leads"></a></td>
-<td><a href="javascript-api/lead-tracking.md"><strong>Leadspårning</strong></a> Hantera dina kundleads.</td>
+<td><a href="javascript-api/lead-tracking.md"><img src="assets/Smock_PeopleGroup_18_N.svg" width="50" alt="Spårning av leads"></a>&gt;<a href="javascript-api/lead-tracking.md"><strong>Leadspårning</strong></a> Hantera dina kundleads.</td>
 </tr>
 <tr>
-<td><a href="mobile/mobile.md"><img src="assets/Smock_MobileServices_18_N.svg" alt="Mobile Marketo"></a></td>
-<td><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a> Använd Marketo Mobile för att lyssna på och svara kunder på deras mobila enheter.</td>
+<td><a href="mobile/mobile.md"><img src="assets/Smock_MobileServices_18_N.svg" width="50" alt="Mobile Marketo"></a><a href="mobile/mobile.md"><strong>Mobile Marketo</strong></a> Använd Marketo Mobile för att lyssna på och svara kunder på deras mobila enheter.</td>
 </tr>
 <tr>
-<td><a href="javascript-api/web-personalization.md"><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Web Personalization"></a></td>
-<td><a href="javascript-api/web-personalization.md"><strong>Web Personalization</strong></a> Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida.</td>
+<td><a href="javascript-api/web-personalization.md"><img src="assets/Smock_PersonalizationField_18_N.svg" alt="Web Personalization"></a><a href="javascript-api/web-personalization.md"><strong>Web Personalization</strong></a> Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida.</td>
 </tr>
 </tbody>
 </table>
