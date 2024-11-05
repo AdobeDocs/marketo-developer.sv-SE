@@ -2,66 +2,23 @@
 title: Startsida
 description: Marketo Engage API-startsida
 exl-id: a249945b-12f3-4b41-badc-ee7a72d5e7eb
-source-git-commit: 3a5a28f2405141c54f1becb974ab3840d78ab034
+source-git-commit: 10c44753804db9e0556e5b644d12f457b1da2557
 workflow-type: tm+mt
-source-wordcount: '113'
+source-wordcount: '114'
 ht-degree: 0%
 
 ---
 
+
 # Marketo Engage Developer Documentation
 
-Detaljerad dokumentation som hjälper dig att hantera Marketo Engage API
+Detaljerad dokumentation som hjälper dig att hantera Marketo Engage API:er
 
-<table>
-    <tbody>
-        <tr>
-                <td>
-                    <a href="getting-started.md">
-                        <strong>Komma igång</strong>
-                    </a> Bekanta dig med Marketo Engage API:er.</td>
-            </tr>
-            <tr>
-                    <td>
-                        <a href="https://developer.adobe.com/marketo-apis/">
-                            <strong> REST API </strong>
-                        </a> Läs, skriv och uppdatera dina Marketo Engage-data via REST API.</td>
-                </tr>
-                <tr>
-                        <td>
-                            <a href="webhooks/webhooks.md">
-                                <strong> Webbhooks </strong>
-                            </a> Kommunicera med webbtjänster från tredje part med webbhooks.</td>
-                    </tr>
-                    <tr>
-                            <td>
-                                <a href="https://github.com/Marketo/Community-Supported-Client-Libraries">
-                                    <strong> Klientbibliotek </strong>
-                                </a> Använd kod med öppen källkod för att utöka Marketo Engage möjligheter.</td>
-                        </tr>
-                        <tr>
-                                <td>
-                                    <a href="email-scripting.md">
-                                        <strong> E-postskript </strong>
-                                    </a> Använd Marketo Engage API:er för att skapa och redigera e-post och e-postmallar.</td>
-                            </tr>
-                            <tr>
-                                    <td>
-                                        <a href="javascript-api/lead-tracking.md">
-                                            <strong> Spårning av leads </strong>
-                                        </a> Hantera era kundleads.</td>
-                                </tr>
-                                <tr>
-                                        <td>
-                                            <a href="mobile/mobile.md">
-                                                <strong>Mobile Marketo</strong>
-                                            </a> Använd Marketo Mobile för att lyssna på och svara kunderna på deras mobila enheter.</td>
-                                    </tr>
-                                    <tr>
-                                            <td>
-                                                <a href="javascript-api/web-personalization.md">
-                                                    <strong> Web Personalization </strong>
-                                                </a> Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida.</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+* [**Komma igång**](getting-started.md) Bekanta dig med Marketo Engage API:er.
+* [**REST API**](https://developer.adobe.com/marketo-apis/) Läs, skriv och uppdatera dina Marketo Engage-data via REST API.
+* [**Webhooks**](webhooks/webhooks.md) Kommunicera med webbtjänster från tredje part med Webhooks.
+* [**Klientbibliotek**](https://github.com/Marketo/Community-Supported-Client-Libraries) Använd öppen källkod för att utöka Marketo Engage funktioner.
+* [**E-postskript**](email-scripting.md) Använd Marketo Engage-API:er för att skapa och redigera e-post och e-postmallar.
+* [**Leadspårning**](javascript-api/lead-tracking.md) Hantera dina kundleads.
+* [**Mobile Marketo**](mobile/mobile.md) Använd Marketo Mobile för att lyssna på och svara kunder på deras mobila enheter.
+* [**Web Personalization**](javascript-api/web-personalization.md) Använd javascript-API:t för händelsespårning och dynamisk anpassning av en webbsida.
