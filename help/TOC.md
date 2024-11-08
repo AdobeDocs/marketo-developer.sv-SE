@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 959d841bc6ee38c9ebee8fd5e0c261ed27c666f7
+source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
 workflow-type: tm+mt
-source-wordcount: '243'
+source-wordcount: '241'
 ht-degree: 4%
 
 ---
@@ -25,7 +25,7 @@ ht-degree: 4%
    - [Hämta besöksdata](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
    - [Spårning av leads](javascript-api/lead-tracking.md)
-   - [Referens för Munchkin API](javascript-api/api-reference.md)
+   - [Munchkin API-referens](javascript-api/api-reference.md)
    - [Mönstermatchning](javascript-api/pattern-match.md)
    - [Prediktivt innehåll](javascript-api/predictive-content.md)
    - [Omdirigeringar](javascript-api/redirect.md)
@@ -70,7 +70,6 @@ ht-degree: 4%
       - [Tokens](rest-api/tokens.md)
       - [Transaktionell e-post](rest-api/transactional-email.md)
    - [Autentisering](rest-api/authentication.md)
-   - [Autentiseringssignatur](rest-api/authentication-signature.md)
    - [Bas-URL](rest-api/base-url.md)
    - [Bästa praxis](rest-api/marketo-integration-best-practices.md)
    - Massextrahera {#bulk-extract}
