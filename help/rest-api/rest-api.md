@@ -3,9 +3,9 @@ title: REST API
 feature: REST API
 description: REST API - översikt
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: ade3216f04c822de14dc0bbcbc08bfa3a4b17cb3
 workflow-type: tm+mt
-source-wordcount: '626'
+source-wordcount: '706'
 ht-degree: 0%
 
 ---
@@ -14,10 +14,10 @@ ht-degree: 0%
 
 Marketo visar ett REST API som tillåter fjärrexekvering av många av systemets funktioner. Det finns många alternativ, från att skapa program till att importera leads, som ger detaljerad kontroll av en Marketo-instans.
 
-Dessa API:er kan i allmänhet delas in i två kategorier: [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/) och [resurs](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
+Dessa API:er kan i allmänhet delas in i två kategorier: [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/) och [resurs](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper, som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
 
 - **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
-- **Hastighetsgräns:** API-åtkomst per instans begränsad till 100 anrop per 20 sekunder.
+- **Hastighetsgräns:** API-åtkomst per instans är begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
 
 Storleken på standardanrop är begränsad till en URI-längd på 8 kB och en kroppsstorlek på 1 MB, även om brödtexten kan vara 10 MB för våra större API:er. Om det finns ett fel i ditt anrop returnerar API vanligtvis fortfarande statuskoden 200, men JSON-svaret innehåller en &quot;success&quot;-medlem med värdet `false` och en matris med fel i &quot;errors&quot;-medlemmen. Mer information om fel [här](error-codes.md).
@@ -26,7 +26,7 @@ Storleken på standardanrop är begränsad till en URI-längd på 8 kB och en kr
 
 Följande steg kräver administratörsbehörighet i din Marketo-instans.
 
-När du ringer till Marketo får du en leadpost. Om du vill börja arbeta med Marketo måste du ha API-autentiseringsuppgifter för att kunna göra autentiserade anrop till din instans. Logga in på din instans och gå till **[!UICONTROL Admin]** -> **[!UICONTROL Users and Roles]**.
+Vid första samtalet till Marketo får du en lead-post. Om du vill börja arbeta med Marketo måste du ha API-autentiseringsuppgifter för att kunna göra autentiserade anrop till din instans. Logga in på din instans och gå till **[!UICONTROL Admin]** -> **[!UICONTROL Users and Roles]**.
 
 ![Administratörsanvändare och roller](assets/admin-users-and-roles.png)
 
@@ -66,10 +66,20 @@ Leta reda på [!UICONTROL Endpoint] i rutan REST API och spara i en anteckning f
 
 ![REST-slutpunkt](assets/admin-web-services-rest-endpoint-1.png)
 
-Öppna en ny flik i webbläsaren och ange följande, med lämplig information för att anropa [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET):
+När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varje anrop för att anropet ska lyckas. Åtkomsttoken måste skickas som en HTTP-rubrik.
 
 ```
-<Your Endpoint URL>/rest/v1/leads.json?access_token=<Your Access Token>&filterType=email&filterValues=<Your Email Address>
+Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int
+```
+
+>[!IMPORTANT]
+>
+>Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
+
+Öppna en ny flik i webbläsaren och ange följande, med lämplig information för att anropa [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET)
+
+```
+<Your Endpoint URL>/rest/v1/leads.json?&filterType=email&filterValues=<Your Email Address>
 ```
 
 Om du inte har någon lead-post med din e-postadress i databasen kan du ersätta den med en som du vet finns där. Tryck på Retur i URL-fältet så får du tillbaka ett JSON-svar som påminner om detta:
