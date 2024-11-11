@@ -3,9 +3,9 @@ title: Autentisering
 feature: REST API
 description: Autentiserar Marketo-användare för API-användning.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: d57167d60f1cc6a32c600b72829afcba81e6ec92
+source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
 workflow-type: tm+mt
-source-wordcount: '560'
+source-wordcount: '558'
 ht-degree: 0%
 
 ---
@@ -64,7 +64,7 @@ När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varj
 
 Det är viktigt att hantera utgångsdatum för åtkomsttoken så att integreringen fungerar smidigt och förhindra att oväntade autentiseringsfel uppstår under normala operationer. När du utformar autentisering för din integrering måste du spara token och förfalloperioden som finns i identitetssvaret.
 
-Innan du gör ett REST-anrop bör du kontrollera giltigheten för token baserat på dess återstående livslängd. Om token har gått ut kan du förnya den genom att anropa [Identitet](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET)slutpunkt. Detta säkerställer att ditt REST-anrop aldrig misslyckas på grund av en token som har gått ut. Detta gör att du kan hantera fördröjningen för dina REST-anrop på ett förutsägbart sätt, vilket är avgörande för slutanvändartillvända program.
+Innan du gör ett REST-anrop bör du kontrollera giltigheten för token baserat på dess återstående livslängd. Om token har gått ut kan du förnya den genom att anropa slutpunkten [Identitet](https://developer.adobe.com/marketo-apis/api/identity/#tag/Identity/operation/identityUsingGET). Detta säkerställer att ditt REST-anrop aldrig misslyckas på grund av en token som har gått ut. Detta gör att du kan hantera fördröjningen för dina REST-anrop på ett förutsägbart sätt, vilket är avgörande för slutanvändartillvända program.
 
 Om en token som har gått ut används för att autentisera ett REST-anrop, misslyckas REST-anropet och returnerar en felkod på 602. Om en ogiltig token används för att autentisera ett REST-anrop returneras en felkod 601. Om någon av dessa koder tas emot bör klienten förnya token genom att anropa Identity-slutpunkten.
 
