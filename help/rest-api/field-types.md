@@ -3,20 +3,20 @@ title: Fälttyper
 feature: REST API
 description: En lista över fälttyper i Marketo
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 2e1a3991c99ec4563e6532253ac1ad81a5f4c465
 workflow-type: tm+mt
-source-wordcount: '319'
+source-wordcount: '317'
 ht-degree: 2%
 
 ---
 
 # Fälttyper
 
-Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/tkb-p/support_solutions-documents).
+Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Fälttyp | Beskrivning | Exempel |
 | --- | --- | --- |
-| Datetime | Används för att ange datum och tid. Följer [W3C-format](https://www.w3.org/TR/NOTE-datetime) (ISO 8601). Det bästa sättet är att alltid inkludera tidszonsförskjutningen. Fullständigt datum plus timmar och minuter: YYYY-MM-DDThh:mm:ssTZD där TZD är &quot;+hh:mm&quot; eller &quot;-hh:mm&quot; Obs! Vissa resurs-API:er returnerar &quot;Z+0000&quot; som TZD för updatedAt och createdAt. | 2010-05-07T15:41:32-05:00 |
+| Datetime | Används för att ange datum och tid. Följer [W3C-format](https://www.w3.org/TR/NOTE-datetime) (ISO 8601). Det bästa sättet är att alltid inkludera tidszonsförskjutningen. Fullständigt datum plus timmar och minuter: YYYY-MM-DDThh:mm:ssTZD där TZD är &quot;+hh:mm&quot; eller &quot;-hh:mm&quot; Obs! Vissa resurs-API:er returnerar &quot;Z+0000&quot; som TZD för `updatedAt` och `createdAt`. | 2010-05-07T15:41:32-05:00 |
 | E-post | Ett strängfält som accepterar e-postadresser | example@example.com |
 | Float | Ett nummerfält som innehåller reella tal och kan använda en decimal. | 10,4 |
 | Heltal | Hela tal | 10 |
@@ -27,7 +27,7 @@ Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om
 | Textområde | Längre text. | Stöder upp till 30 000 byte. Standard-ASCII-tecken använder 1 byte per tecken (upp till 30 000 tecken tillåts). Unicode-tecken kan använda upp till 4 byte per tecken (vilket minskar antalet  antalet tecken som får vara mindre än 30 000 tecken). |
 | Sträng | Kortare text (upp till 255 tecken) | Lorem ipsum dolor sit amet |
 | Poäng | Ett heltalsfält som kan ändras med steget Ändra bakgrundsmusik | 10 |
-| Boolean (tidigare kryssruta) | Tillåter användare att välja ett sant (markerat) eller falskt (omarkerat) värde. | True |
+| Boolesk (tidigare kryssruta) | Tillåter användare att välja ett sant (markerat) eller falskt (omarkerat) värde. | True |
 | Valuta | Ett flytande fält som representerar standardvalutatypen som valts för Marketo-prenumerationen | 10,40 |
 | Datum | Används för datum. Följer W3C-format. | 2010-05-07 |
 | Referens | Ett strängfält som innehåller en nyckel till en annan post (en sekundärnyckel). | Kontakta företag |
