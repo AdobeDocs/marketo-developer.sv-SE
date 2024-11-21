@@ -3,9 +3,9 @@ title: Massimport
 feature: REST API
 description: Batchimportera persondata.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '554'
+source-wordcount: '592'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,11 @@ Massor-API-slutpunkter har inte prefixet&quot;/rest&quot; som andra slutpunkter.
 
 ## Autentisering
 
-Massimport-API:erna använder samma OAuth 2.0-autentiseringsmetod som andra Marketo REST API:er.  Detta kräver att en giltig åtkomsttoken bäddas in antingen som frågesträngsparametern `access_token={_AccessToken_}` eller som HTTP-huvud `Authorization: Bearer {_AccessToken_}`.
+Massimport-API:erna använder samma OAuth 2.0-autentiseringsmetod som andra Marketo REST API:er.  Detta kräver en giltig åtkomsttoken som skickas som HTTP-huvud `Authorization: Bearer {_AccessToken_}`.
+
+>[!IMPORTANT]
+>
+>Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
 
 ## Gränser
 

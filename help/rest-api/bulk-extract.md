@@ -3,9 +3,9 @@ title: Massextrahering
 feature: REST API
 description: Gruppåtgärder för att extrahera Marketo-data.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
 workflow-type: tm+mt
-source-wordcount: '1643'
+source-wordcount: '1683'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 Marketo har gränssnitt för att hämta stora mängder persondata och personrelaterade data, som kallas Bulk Extract. För närvarande finns gränssnitt för tre objekttyper:
 
 - Leads (personer)
-- Verksamhet
+- Aktiviteter
 - Programmedlemmar
 - Anpassade objekt
 
@@ -25,7 +25,11 @@ Massextrahering utförs genom att ett jobb skapas, uppsättningen data som ska h
 
 ## Autentisering
 
-Massextraherings-API:erna använder samma OAuth 2.0-autentiseringsmetod som andra Marketo REST-API:er. Detta kräver att en giltig åtkomsttoken bäddas in antingen som frågesträngsparametern `access_token={_AccessToken_}` eller som HTTP-huvud `Authorization: Bearer {_AccessToken_}`.
+Massextraherings-API:erna använder samma OAuth 2.0-autentiseringsmetod som andra Marketo REST-API:er. Detta kräver att en giltig åtkomsttoken skickas som HTTP-huvud `Authorization: Bearer {_AccessToken_}`.
+
+>[!IMPORTANT]
+>
+>Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
 
 ## Gränser
 
