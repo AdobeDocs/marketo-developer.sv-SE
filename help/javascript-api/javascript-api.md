@@ -1,16 +1,16 @@
 ---
 title: JAVASCRIPT API
 description: Javascript API
-feature: Munchkin Tracking Code, Javascript
+feature: Munchkin Tracking Code, Forms, Web Personalization, Predictive Content, Social, Javascript
 exl-id: 6129a467-be44-44bd-9e02-62009070c318
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: e63db409981d10cfea6206cf91340428e5d0b17f
 workflow-type: tm+mt
 source-wordcount: '337'
 ht-degree: 0%
 
 ---
 
-# Javascript APi
+# Javascript API
 
 Här följer en översikt över Marketo integrationsfunktioner på klientsidan för JavaScript. Du måste ha ett Marketo-konto för att kunna använda dessa funktioner. Vanligtvis innebär implementeringen bara att du lägger till en inbäddningskod i din webbegenskap. Du kan också använda ytterligare funktioner genom att anropa JavaScript-funktioner som exponeras av inbäddningskoden. Dessa funktioner är fullt dokumenterade här.
 
@@ -18,7 +18,7 @@ Inbäddningskoden är unik för din Marketo-instans eftersom den innehåller en 
 
 ## Spårning av leads (Munchkin)
 
-Marketo [Munchkin JavaScript-spårningskod](lead-tracking.md) är avgörande för Marketo funktioner. Ni kan generera leads från besök på er webbplats. Det spårar till och med besökare som ännu inte har gett dig sina personuppgifter och skapar anonyma leads som innehåller användarens IP-adress och annan information. Du skapade Munchkin på Munchkins sida i administrationsområdet i Marketo.
+Marketo [Munchkin JavaScript spårningskod](lead-tracking.md) är avgörande för Marketo funktioner. Ni kan generera leads från besök på er webbplats. Det spårar till och med besökare som ännu inte har gett dig sina personuppgifter och skapar anonyma leads som innehåller användarens IP-adress och annan information. Du ställer in Munchkin på Munchkin-sidan i administrationsområdet i Marketo.
 
 ## Forms 2.0
 

@@ -5,9 +5,9 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
+source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
 workflow-type: tm+mt
-source-wordcount: '241'
+source-wordcount: '243'
 ht-degree: 4%
 
 ---
@@ -18,14 +18,15 @@ ht-degree: 4%
 - [Startsida](home.md)
 - [Komma igång](getting-started.md)
 - JavaScript API {#javascriptapi}
-   - [Konfiguration](javascript-api/configuration.md)
    - [Anpassade datahändelser](javascript-api/custom-data-events.md)
    - [Exempel](javascript-api/examples.md)
    - [Forms API-referens](javascript-api/forms-api-reference.md)
    - [Hämta besöksdata](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - [Spårning av leads](javascript-api/lead-tracking.md)
-   - [Munchkin API-referens](javascript-api/api-reference.md)
+   - [Spårning av leads]{#leadtracking}
+      - [Spårning av leads](javascript-api/lead-tracking.md)
+      - [Konfiguration](javascript-api/configuration.md)
+      - [Munchkin API-referens](javascript-api/api-reference.md)
    - [Mönstermatchning](javascript-api/pattern-match.md)
    - [Prediktivt innehåll](javascript-api/predictive-content.md)
    - [Omdirigeringar](javascript-api/redirect.md)

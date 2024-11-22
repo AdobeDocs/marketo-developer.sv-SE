@@ -1,30 +1,32 @@
 ---
-title: Referens för Munchkin API
-description: Använd Munchkins Javascript-API för att anpassa dina Munchkin-data.
-feature: Javascript
-source-git-commit: c6c0a492ede415471e10efb6213eb3f590e63ebe
+title: Munchkin API-referens
+description: Använd Munchkin Javascript-API:t för att anpassa dina Munchkin-data.
+feature: Munchkin Tracking Code, Javascript
+exl-id: e9727691-5501-4223-bc98-2b4bacc33513
+source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 2%
 
 ---
 
+# Munchkin API-referens
 
-# Referens för Munchkin API
-
-Munchkin har flera funktioner som kan anropas manuellt via Javascript. Dessa kan användas för anpassad spårning av webbläsarhändelser, t.ex. videouppspelning, eller klick på icke-länkar.
+I Munchkin finns flera funktioner som kan anropas manuellt via Javascript. Dessa kan användas för anpassad spårning av webbläsarhändelser, t.ex. videouppspelning, eller klick på icke-länkar.
 
 ## Funktioner
 
-Munchkins API består av följande funktioner: `init`, `createTrackingCookie`, `munchkinFunction`.
+Munchkin API består av följande funktioner: `init`, `createTrackingCookie`, `munchkinFunction`.
+
+<a name="munchkin_init"></a>
 
 ### Munchkin.init()
 
-`Munchkin.init()` måste anropas före andra funktioner. Det konfigurerar Munchkin på den aktuella sidan för att skicka aktiviteter till en viss instans och genererar aktiviteten &quot;Besök webbsida&quot; för den aktuella sidan.
+`Munchkin.init()` måste anropas före andra funktioner. Den konfigurerar Munchkin på den aktuella sidan för att skicka aktiviteter till en viss instans och genererar aktiviteten &quot;Besök webbsida&quot; för den aktuella sidan.
 
 | Parameternamn | Valfritt/obligatoriskt | Typ | Beskrivning |
 | --- | --- | --- | --- |
-| Munchkin-ID | Obligatoriskt | Sträng | Munchkins konto-ID finns under Admin > Integration > Munchkin-menyn. Anger målinstansen som aktiviteter ska skickas till. |
+| MUNCHKIN ID | Obligatoriskt | Sträng | Munchkin konto-ID finns under Admin > Integration > Munchkin-menyn. Anger målinstansen som aktiviteter ska skickas till. |
 | [Konfigurationsinställningar](configuration.md) | Valfritt | Objekt | Aktiverar alternativa beteendeinställningar för Munchkin. |
 
 ```javascript
