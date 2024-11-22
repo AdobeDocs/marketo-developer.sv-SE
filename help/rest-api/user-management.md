@@ -3,9 +3,9 @@ title: Användarhantering
 feature: REST API
 description: Utför CRUD-åtgärder på användarposter.
 exl-id: 2a58f496-0fe6-4f7e-98ef-e9e5a017c2de
-source-git-commit: 13a567be067a8a1272e981fad4e03b0a8519f132
+source-git-commit: 159c3fe29c26ea0fff718bf582a7e4c9a1740831
 workflow-type: tm+mt
-source-wordcount: '1185'
+source-wordcount: '1180'
 ht-degree: 0%
 
 ---
@@ -23,12 +23,12 @@ Till skillnad från andra Marketo REST API:er, när du använder API:er för anv
    1. Åtkomstbehörighet för användare från gruppen [Åtkomstadministratör](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
    1. &quot;Åtkomst till API för användarhantering&quot; från gruppen [Åtkomst-API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Svarsorgan innehåller inte det booleska attributet &quot;success&quot; som anger om ett anrop lyckades eller inte. I stället måste du utvärdera statuskoden för HTTP-svar. Om ett anrop lyckas returneras 200-statuskoden. Om ett anrop misslyckas returneras en statuskod som inte är 200 och svarstexten innehåller standardarrayen &quot;errors&quot; med felkod och beskrivande felmeddelande.
-- Formatet för datetime-strängar är &quot;yyyyMMdd&#39;T&#39;HH:mm:ss.SSS&#39;t&#39;+|-hhm&quot;. Detta gäller följande attribut: createdAt, updatedAt, expirresAt.
+- Formatet för datetime-strängar är `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. Detta gäller följande attribut: `createdAt`, `updatedAt`, `expiresAt`.
 - API-slutpunkter för användarhantering har inte prefix med &quot;/rest&quot; som andra slutpunkter.
 
 ## Fråga
 
-Frågestöd för användarhantering innefattar möjlighet att hämta alla användare, roller och arbetsytor. Du kan även hämta en enskild användarpost med användar-ID eller roll-/ordrymdspost med användar-ID.
+Frågestöd för användarhantering innefattar möjlighet att hämta alla användare, roller och arbetsytor. Du kan även hämta en enskild användarpost med användar-ID eller en roll-/arbetsytepost med användar-ID.
 
 ### Användare efter ID
 
