@@ -5,7 +5,7 @@ breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8160ddaea848d0aefe4eef89a67f55b210c91f70
+source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
 workflow-type: tm+mt
 source-wordcount: '243'
 ht-degree: 4%
@@ -23,7 +23,7 @@ ht-degree: 4%
    - [Forms API-referens](javascript-api/forms-api-reference.md)
    - [Hämta besöksdata](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - [Spårning av leads]{#leadtracking}
+   - Spårning av lead {#leadtracking}
       - [Spårning av leads](javascript-api/lead-tracking.md)
       - [Konfiguration](javascript-api/configuration.md)
       - [Munchkin API-referens](javascript-api/api-reference.md)
@@ -60,8 +60,8 @@ ht-degree: 4%
       - [Mappar](rest-api/folders.md)
       - [Forms](rest-api/forms.md)
       - [Landningssidor](rest-api/landing-pages.md)
-      - [Mallar för landningssidor](rest-api/landing-page-templates.md)
       - [Regler för omdirigering av startsida](rest-api/landing-page-redirect-rules.md)
+      - [Mallar för landningssidor](rest-api/landing-page-templates.md)
       - [Lista med standardfält](rest-api/list-of-standard-fields.md)
       - [Program](rest-api/programs.md)
       - [Smarta kampanjer](rest-api/smart-campaigns.md)
