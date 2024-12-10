@@ -3,9 +3,9 @@ title: Leads
 feature: REST API
 description: Information om Leads-API-anrop
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 8c1c620614408dd2df0b0848e6efc027adb71834
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '3343'
+source-wordcount: '3338'
 ht-degree: 0%
 
 ---
@@ -18,10 +18,10 @@ Marketo Leads API innehåller en stor uppsättning funktioner för enkla CRUD-pr
 
 ## Beskriv
 
-En av huvudfunktionerna i Leads-API:t är Beskriv-metoden. Använd Beskriv leads för att hämta en fullständig lista över de fält som är tillgängliga för interaktion via både REST API och SOAP API, samt metadata för varje:
+En av huvudfunktionerna i Leads-API:t är Beskriv-metoden. Använd Beskriv leads för att hämta en fullständig lista över de fält som är tillgängliga för interaktion via både REST API, samt metadata för varje:
 
 * Datatyp
-* REST- och SOAP API-namn
+* REST API-namn
 * Längd (om tillämpligt)
 * Skrivskyddad
 * Etikett
@@ -95,7 +95,7 @@ För den här metoden finns det alltid en enda post i den första positionen i r
 
 Hämta leads efter filtertyp returnerar samma typ av poster, men kan returnera upp till 300 per sida. Det kräver frågeparametrarna `filterType` och `filterValues`.
 
-`filterType` accepterar alla anpassade fält eller de flesta vanliga fält. Anropa `Describe2`-slutpunkten för att få en omfattande lista över sökbara fält som är tillåtna för användning i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältinformation (beskrivning, typ osv.) med den beskrivande metoden.
+`filterType` accepterar alla anpassade fält eller de flesta vanliga fält. Anropa `Describe2`-slutpunkten för att få en omfattande lista över sökbara fält som är tillåtna för användning i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältdetaljer (beskrivning, typ osv.) med den ovannämnda beskrivningsmetoden.
 
 `filterValues` accepterar upp till 300 värden i kommaavgränsat format. Samtalet söker efter poster där leadets fält matchar en av de inkluderade `filterValues`. Om antalet leads som matchar leadfiltret är större än 1 000 returneras ett fel: &quot;1 003, för många resultat matchar filtret&quot;.
 
@@ -789,11 +789,11 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 
 Det lead som anges i parametern path är det vinnande leadet, så om det finns fält som står i konflikt mellan posterna som sammanfogas, kommer värdet från vinnaren att hämtas, förutom om fältet i den vinnande posten är tomt och motsvarande fält i den förlorande posten inte är det. De leads som anges i parametern `leadId` eller `leadIds` är leads som går förlorade.
 
-Om du har en SFDC-sync-aktiverad prenumeration kan du även använda parametern `mergeInCRM` i din begäran. Om värdet är true utförs även motsvarande sammanslagning i CRM. Om båda leads finns i SFDC och den ena är en CRM-lead och den andra är en CRM-kontakt, är vinnaren CRM-kontakten (oavsett vilket lead som anges som vinnare). Om ett av leads är i SFDC och det andra endast är Marketo, är vinnaren SFDC-ledaren (oavsett vilket lead som anges som vinnare).
+Om du har en prenumeration aktiverad för SFDC-synkronisering kan du även använda parametern `mergeInCRM` i din begäran. Om värdet är true utförs även motsvarande sammanslagning i CRM. Om båda leads finns i SFDC och den ena är en CRM-chef och den andra är en CRM-kontakt, är vinnaren CRM-kontakten (oavsett vilket lead som anges som vinnare). Om ett av huvudrollerna är i SFDC och det andra endast är Marketo, är vinnaren SFDC lead (oavsett vilket lead som anges som vinnare).
 
 ## Associera webbaktivitet
 
-Genom Spåra leads (Munchkin) registrerar Marketo webbaktivitet för besökare på er webbplats och Marketo landningssidor. Dessa aktiviteter, besök och klick, spelas in med en nyckel som motsvarar en cookie av typen &quot;_mkto_trk&quot; i leadets webbläsare, och Marketo använder den för att hålla reda på samma persons aktiviteter. Normalt sker en association till lead-poster när en lead klickas igenom från ett Marketo-e-postmeddelande eller fyller i ett Marketo-formulär, men ibland kan en association aktiveras av en annan typ av händelse, och du kan använda Associate Lead-slutpunkten för att göra det. Slutpunkten tar den kända lead-postens id som en sökvägsparameter och cookie-värdet &quot;_mkto_trk&quot; i cookie-frågeparametern.
+Genom Lead Tracking (Munchkin) registrerar Marketo webbaktivitet för besökare på er webbplats och Marketo Landing Pages. Dessa aktiviteter, besök och klick, spelas in med en nyckel som motsvarar en cookie av typen &quot;_mkto_trk&quot; i leadets webbläsare, och Marketo använder den för att hålla reda på samma persons aktiviteter. Normalt sker en association till lead-poster när en lead klickas igenom från ett Marketo-e-postmeddelande eller fyller i ett Marketo-formulär, men ibland kan en association aktiveras av en annan typ av händelse, och du kan använda Associate Lead-slutpunkten för att göra det. Slutpunkten tar den kända lead-postens id som en sökvägsparameter och cookie-värdet &quot;_mkto_trk&quot; i cookie-frågeparametern.
 
 ### Begäran
 

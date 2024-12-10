@@ -2,9 +2,9 @@
 title: Komma igång
 description: Komma igång med Marketo Engage API:er
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 82bea1ab3d0d83a8867bb7efefb828ce2d92747c
+source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
 workflow-type: tm+mt
-source-wordcount: '1243'
+source-wordcount: '1265'
 ht-degree: 0%
 
 ---
@@ -19,17 +19,17 @@ Följande objekt är inte tillgängliga via REST API när intern synkronisering 
 
 ## Person (leads)
 
-Människor är grunden för alla automatiserade marknadsföringsplattformar. Inom Marketo kallas alla icke-säljande personposter leads, oavsett om de har angetts som leads, prospects, misstänkta, kontakter osv. ur ett säljperspektiv. Leadobjektet innehåller en uppsättning [standardfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadFieldsUsingGET), till exempel e-post, förnamn och efternamn. Ytterligare fält kan läggas till i lead-objekttypen för att utöka informationstyperna som är kopplade till poster i systemet. Anpassade attribut kan läsas och skrivas till precis som standardfälten. En fullständig lista med fält finns på Marketo-menyn **[!UICONTROL Admin]** > **[!UICONTROL Field Management]**. Leads identifieras unikt i Marketo av ID-fältet. Andra unika nycklar måste verkställas externt från systemet.
+Människor är grunden för alla automatiserade marknadsföringsplattformar. Inom Marketo kallas alla icke-säljande personposter leads, oavsett om de har angetts som leads, prospects, misstänkta, kontakter osv. ur ett säljperspektiv. Leadobjektet innehåller en uppsättning standardfält, t.ex. e-post, förnamn och efternamn. Ytterligare fält kan läggas till i lead-objekttypen för att utöka informationstyperna som är kopplade till poster i systemet. Anpassade attribut kan läsas och skrivas till precis som standardfälten. En fullständig lista med fält finns på Marketo-menyn **[!UICONTROL Admin]** > **[!UICONTROL Field Management]**. Leads identifieras unikt i Marketo av ID-fältet. Andra unika nycklar måste verkställas externt från systemet.
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [SOAP](soap-api/leads.md), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads), [JavaScript](javascript-api/lead-tracking.md#lead-tracking-api)
 
-## Verksamhet
+## Aktiviteter
 
 Leads interagerar med organisationen på några sätt. En lead kan besöka en sida på företagets webbplats, delta i ett mässor eller ladda ned ett whitepaper. Var och en av dessa åtgärder kan samlas in inom Marketo för att hjälpa en marknadsförare att bättre förstå vilka aktiviteter en lead gjorde och när så att de kan samordna aktuell och relevant kommunikation. Aktiviteter är alltid relaterade tillbaka till leads av leadId.
 
 Du kan definiera egna aktiviteter. När du har skapat och publicerat en anpassad aktivitet kan du lägga till anpassade aktiviteter via Marketo API. Mer information om anpassade aktiviteter finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-activities/understanding-custom-activities).
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [SOAP](soap-api/activities.md), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities), [JavaScript](javascript-api/lead-tracking.md#munchkin-behavior)
 
 ## Program och kampanjer
 
@@ -37,7 +37,7 @@ Ett program är den mekanism genom vilken en marknadsförare organiserar alla si
 
 Kampanjer skapas för ett specifikt syfte och mål inom ett program. Ett exempel på en kampanj kan vara att begränsa en grupp leads och skicka e-postmeddelanden till dem eller att meddela en säljare om en lead klickar via en länk i e-postsnabbprogrammet.
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns), [SOAP](soap-api/getcampaignsforsource.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns)
 
 ## Taggar
 
@@ -47,25 +47,25 @@ Som Marketo-administratör kan du skapa obligatoriska och valfria taggtyper som 
 
 Du kan till exempel skapa en anpassad&quot;region&quot;-taggtyp med flera taggvärden (till exempel nordost, Sydost) som gör att du kan analysera vilket område som genererar mest leads. Eller så kan du till exempel skapa taggtypen&quot;Ägare&quot;, som gör att du kan bedöma och förstå vilka programägare (till exempel Maria, David eller John) som har störst effekt på att skapa leads och affärsmöjligheter. Mer information om taggar finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/understanding-tags).
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/), [SOAP](soap-api/gettags.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/)
 
 ## Listor
 
 Med listor kan en marknadsförare ordna en samling leads. Det finns två typer av listor inom Marketo, statiska och smarta. En statisk lista är en fast lista med leads som en marknadsförare kan lägga till eller ta bort efter behov. En smart lista är en dynamisk samling leads som baseras på en uppsättning angivna egenskaper. Ett exempel på en smart lista är&quot;Alla leads som har besökt prissidan på vår webbplats&quot;. Den smarta listan fortsätter att växa när fler leads besöker prissidan. Mer information om listor finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/home).
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists), [SOAP](soap-api/getimporttoliststatus.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists)
 
 ## Möjligheter
 
 Marknadsförarna levererar leads till försäljning i form av en affärsmöjlighet. En affärsmöjlighet representerar en potentiell försäljningsaffär och är kopplad till en lead eller kontakt och en organisation i Marketo. En affärsmöjlighetsroll är skärningspunkten mellan en viss lead och en organisation. Affärsmöjlighetsrollen gäller en lead-funktion inom organisationen.
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities), [SOAP](soap-api/getmobjects.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
 
 ## Företag
 
 En organisation, som ibland kallas ett konto i Marketo, avser den organisation som en person tillhör. När man använder avkastningsbaserad rapportering i Marketo eller RCA (Revenue Cycle Analytics) är det viktigt att man kopplar samman människor med deras organisation och affärsmöjligheter så att man kan fastställa rätt avkastningsgrad.
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies), [SOAP](soap-api/leads.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
 ## Assets
 
@@ -81,15 +81,15 @@ Tokens som definieras på Program- eller mappnivå kallas för&quot;Mina token&q
 
 Mina token som har skapats lokalt i en viss kampanjmapp eller program är tillgängliga för just det programmet eller kampanjmappen (lokal). Mina token som har skapats på kampanjmappsnivå är tillgängliga för användning i alla program i kampanjmappen (ärvda). Mina token som har ändrats på programnivå med anpassade värden ändrar inte det överordnade My Token-värdet för token på programmappsnivå (åsidosatt).
 
-Mina token använder namnkonventionen {{my.My Token}}, with the word "my" added to the beginning of the token name. For example, if you create a Date type My Token with the name EventDate, the name of the token is {{my.EventDate}}. Mer information om Mina token finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
+Mina token använder namnkonventionen {{my.My Token}}, med ordet&quot;my&quot; i början av tokennamnet. Om du till exempel skapar en datumtyp, Min token, med namnet EventDate, är namnet på token {{my.EventDate}}. Mer information om Mina token finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/tokens/understanding-my-tokens-in-a-program).
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens), [SOAP](soap-api/getcampaignsforsource.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens)
 
 ## Anpassade objekt
 
 Med ett anpassat Marketo-objekt kan du skapa en 1:N- eller många-till-många-relation (Edge-Bridge-Edge) mellan dina Marketo Leads och de anpassade objektposterna. När du har skapat och publicerat ett anpassat Marketo-objekt kan du utföra CRUD-åtgärder på det anpassade objektet via Marketo API. Mer information om hur du skapar anpassade objekt finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/home). När nya poster läggs till i det anpassade objektet kan du använda en smart listutlösare för att svara. Du kan också använda anpassade objektdata som ett filter i smarta listor (segmentering) eller i e-postmeddelanden med [e-postskript](email-scripting.md).
 
-Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects), [SOAP](soap-api/custom-objects.md)
+Relaterade API:er: [REST](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects)
 
 ## Säljare
 
