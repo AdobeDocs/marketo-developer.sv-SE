@@ -3,9 +3,9 @@ title: Spårning av leads
 description: API för lead-spårning
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '767'
+source-wordcount: '764'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ På en leads första besök på en sida på din domän skapas en ny anonym lead-
 
 - Ledningen måste besöka en Munchkin-spårad sida med en `mkt_tok`-parameter i frågesträngen från en spårad Marketo-e-postlänk.
 - Lead-blanketten måste fylla i ett Marketo-formulär.
-- SOAP [syncLead](../soap-api/leads.md) eller REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST) måste skickas.
+- Ett REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)-anrop måste skickas.
 
 När ett av dessa villkor är uppfyllt kopplas cookien och all tillhörande webbaktivitet till det kända leadet.
 

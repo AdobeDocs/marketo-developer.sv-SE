@@ -1,14 +1,14 @@
 ---
-user-guide-title: "[!DNL Marketo] Utvecklarhandbok"
-user-guide-description: "Den här handboken innehåller anvisningar om hur du använder [!DNL Marketo] API:er."
-breadcrumb-title: "[!DNL Marketo] Utvecklarhandbok"
+user-guide-title: '[!DNL Marketo] Utvecklarhandbok'
+user-guide-description: Den här handboken innehåller anvisningar om hur du använder  [!DNL Marketo] API:er.
+breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: afe7e713fe15d63822625cd0299dc7125761cd33
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '243'
-ht-degree: 4%
+source-wordcount: '247'
+ht-degree: 6%
 
 ---
 
@@ -142,6 +142,7 @@ ht-degree: 4%
       - [[!DNL listMObjects]](soap-api/listmobjects.md)
       - [Marketo Objects](soap-api/marketo-objects.md)
       - [[!DNL syncMObjects]](soap-api/syncmobjects.md)
+   - [Migrerar till REST API](soap-api/migration.md)
    - Program {#programs}
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)

@@ -3,16 +3,16 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP - översikt
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
 workflow-type: tm+mt
-source-wordcount: '207'
+source-wordcount: '229'
 ht-degree: 0%
 
 ---
 
 # SOAP API
 
-SOAP API är borttaget och kommer inte att vara tillgängligt efter den 31 oktober 2025.  All ny utveckling ska utföras med Marketo [REST](https://developer.adobe.com/marketo-apis/) API, och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten.
+SOAP API är borttaget och kommer inte att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](../rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API läser du i SOAP [Migreringshandbok](./migration.md) för information om hur du migrerar.
 
 ## SOAP WSDL
 

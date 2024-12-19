@@ -2,9 +2,9 @@
 title: Komma igång
 description: Komma igång med Marketo Engage API:er
 exl-id: 78c44c32-4e59-4d55-a45c-ef0d7dac814d
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 490411e411bed7b5b76fd9e5f41ccc9d156b2ba9
 workflow-type: tm+mt
-source-wordcount: '1265'
+source-wordcount: '1337'
 ht-degree: 0%
 
 ---
@@ -13,7 +13,11 @@ ht-degree: 0%
 
 Marketo Engage är en automatiserad marknadsföringsplattform som gör det möjligt för marknadsförare att hantera personaliserade flerkanalsprogram och kampanjer för potentiella kunder och kunder. Plattformen Marketo Engage kan utökas med integreringspunkter. Här nedan hittar du kärnenheterna och deras relationer.
 
-Följande objekt är inte tillgängliga via REST API när intern synkronisering är aktiverad: Företag, Möjligheter, Affärsmöjlighet, Säljare
+>[!NOTE]
+>SOAP API är borttaget och kommer inte att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](./rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API läser du i SOAP [Migreringshandbok](./soap-api/migration.md) för information om hur du migrerar.
+>
+
+När antingen den inbyggda SFDC- eller MS Dynamics CRM-anslutningen är aktiverad på en Marketo Engage-instans är följande objekt skrivskyddade: Företag, säljprojekt, säljprojektsroll, säljare
 
 ![Datamodell](assets/data_model.png)
 
