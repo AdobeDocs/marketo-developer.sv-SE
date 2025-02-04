@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: SOAP anrop till importToList
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
 workflow-type: tm+mt
-source-wordcount: '317'
+source-wordcount: '393'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 | mary@company.com | Mary | Rodgers |
 | wanda@megacorp.com | Wanda | Williams |
 
-**Obs!** `displayName` -värden bör användas i `importFileHeader` i stället för i `name`-värdena.
+`displayName`-värden ska användas i `importFileHeader` i stället för `name`-värden.
 
 **Dynamiskt e-postinnehåll:** Om du vill kan du skicka värden per lead som fungerar som ersättning för Mina token i ett e-postmeddelande.
 
@@ -36,7 +36,9 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 
 **Viktigt!** Om du lägger till variabler för leads måste du ange den smarta kampanj som använder dem. Nästa gång den angivna smarta kampanjen körs kommer värdena från din lista att användas i stället för de normala My Token-värdena. När den enskilda kampanjen har körts kommer token att ignoreras.
 
-**OBS!** `importToList` kan ta tid att slutföra, särskilt för stora listor. Om du tänker använda den nyligen importerade listan i andra API-anrop bör du använda `importToListStatus` för att kontrollera att åtgärden är slutförd.
+`importToList` kan ta tid att slutföra, särskilt för stora listor. Om du tänker använda den nyligen importerade listan i andra API-anrop bör du använda `importToListStatus` för att kontrollera att åtgärden är slutförd.
+
+**Obs!** Om du importerar NULL-värden för numeriska fält i en CSV-fil kan aktiviteten Ändra datavärde för dessa fält genereras, även om fältet redan är tomt. Alla smarta kampanjer som använder ett&quot;datavärdesändrat&quot; filter eller en utlösare för&quot;datavärdesändringar&quot; kan leda till att kampanjer kvalificeras även om data inte ändras. Använd begränsningar för dessa filter/utlösare för att se till att leads inte kvalificerar sig för felaktiga kampanjer vid import.
 
 ## Begäran
 
