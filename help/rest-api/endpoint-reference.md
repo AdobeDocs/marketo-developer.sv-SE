@@ -3,9 +3,9 @@ title: Referens för slutpunkt
 feature: REST API
 description: Marketo API-slutpunktsreferenser
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 8a019985fc9ce7e1aa690ca26bfa263cd3c48cfc
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '4676'
+source-wordcount: '4677'
 ht-degree: 0%
 
 ---
@@ -19,7 +19,7 @@ Nedan finns länkar till Marketo REST API-referenser.
 - [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/)
 - [Användarhantering](https://developer.adobe.com/marketo-apis/api/user/)
 
-## Slutpunktslista
+## Slutpunktslista (#endpoint_list)
 
 Här är en omfattande lista över REST API-slutpunkter.
 

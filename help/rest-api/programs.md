@@ -3,9 +3,9 @@ title: Program
 feature: REST API, Programs
 description: Skapa och redigera programinformation.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
 workflow-type: tm+mt
-source-wordcount: '843'
+source-wordcount: '848'
 ht-degree: 0%
 
 ---
@@ -320,9 +320,12 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Skapa och uppdatera
 
-[När du skapar]https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) och [uppdaterar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) program följer det vanliga resursmönstret och har `folder`, `name`, `type` och `channel` som obligatoriska parametrar, där `description`, `costs` och `tags` är valfria. Kanal och typ kan bara anges när programmet skapas. Endast beskrivning, namn, `tags` och `costs` kan uppdateras efter att de har skapats, med ytterligare en `costsDestructiveUpdate`-parameter tillåten. Om `costsDestructiveUpdate` skickas som true rensas alla befintliga kostnader och ersätts med alla kostnader som ingår i samtalet. Observera att taggar kan behövas för vissa programtyper i vissa prenumerationer, men detta är konfigurationsberoende och bör först kontrolleras med Hämta taggar för att se om det finns instansspecifika krav.
+[När du skapar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) och [uppdaterar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) program följer standardtillgångsmönstret och har `folder`, `name`, `type` och `channel` som obligatoriska parametrar, där `description`, `costs` och `tags` är valfria. Kanal och typ kan bara anges när programmet skapas. Endast beskrivning, namn, `tags` och `costs` kan uppdateras efter att de har skapats, med ytterligare en `costsDestructiveUpdate`-parameter tillåten. Om `costsDestructiveUpdate` skickas som true rensas alla befintliga kostnader och ersätts med alla kostnader som ingår i samtalet. Observera att taggar kan behövas för vissa programtyper i vissa prenumerationer, men detta är konfigurationsberoende och bör först kontrolleras med Hämta taggar för att se om det finns instansspecifika krav.
 
-När du skapar eller uppdaterar ett e-postprogram kan även `startDate` och `endDate` skickas.
+När du skapar eller uppdaterar ett e-postprogram kan ett `startDate` och `endDate` också skickas som UTC-datum/tid:
+
+`"startDate": "2022-10-19T15:00:00.000Z"`
+`"endDate": "2022-10-19T15:00:00.000Z"`
 
 ### Skapa
 
@@ -374,7 +377,7 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 }
 ```
 
-### Uppdatera
+### Uppdatering
 
 När du uppdaterar programkostnader lägger du bara till dem i `costs`-arrayen för att lägga till nya kostnader. Om du vill utföra en förstörande uppdatering skickar du de nya kostnaderna tillsammans med parametern `costsDestructiveUpdate` inställd på `true`. Om du vill rensa alla kostnader från ett program skickar du inte någon `costs`-parameter och skickar bara `costsDestructiveUpdate` som angetts till `true`.
 
