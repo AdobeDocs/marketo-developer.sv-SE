@@ -3,9 +3,9 @@ title: Extrahera anpassat objekt gruppvis
 feature: REST API, Custom Objects
 description: Gruppbearbetning av anpassade Marketo-objekt.
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1300'
+source-wordcount: '1298'
 ht-degree: 0%
 
 ---
@@ -403,7 +403,7 @@ leadId,color,make,model,vIN
 13,Fusion Red,Tesla,Roadster,SFGRC3C41FF154321
 ```
 
-Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extraherade data, kan filslutpunkten (om så önskas) ha stöd för HTTP-rubrikintervallet för bytetypen. Om rubriken inte är inställd returneras hela innehållet. Du kan läsa mer om hur du använder intervallhuvudet i Marketo [Massextrahering](bulk-extract.md).
+Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extraherade data, kan filslutpunkten (om det behövs) ha stöd för HTTP-huvudet `Range` av typen `bytes`. Om rubriken inte är inställd returneras hela innehållet. Du kan läsa mer om hur du använder intervallhuvudet i Marketo [Massextrahering](bulk-extract.md).
 
 ## Avbryta ett jobb
 

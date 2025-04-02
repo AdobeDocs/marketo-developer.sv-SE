@@ -3,9 +3,9 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Gruppbearbetning av aktivitetsdata från Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 8c22255673fee1aa0f5b47393a241fcf6680778b
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1343'
+source-wordcount: '1342'
 ht-degree: 0%
 
 ---
@@ -222,7 +222,7 @@ GET /bulk/v1/activities/export/{exportId}/file.json
 
 Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll.
 
-Om ett begärt lead-fält är tomt (innehåller inga data) placeras `then null` i motsvarande fält i exportfilen.  I exemplet nedan är fältet campaignId för den returnerade aktiviteten tomt.
+Om ett begärt lead-fält är tomt (innehåller inga data) placeras `then null` i motsvarande fält i exportfilen.  I exemplet nedan är fältet `campaignId` för den returnerade aktiviteten tomt.
 
 ```json
 marketoGUID,leadId,activityDate,activityTypeId,campaignId,primaryAttributeValueId,primaryAttributeValue,attributes

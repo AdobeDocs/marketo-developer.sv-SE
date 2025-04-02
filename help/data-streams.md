@@ -2,16 +2,16 @@
 title: Dataströmmar
 description: Översikt över dataströmmar
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '1589'
+source-wordcount: '1583'
 ht-degree: 0%
 
 ---
 
 # Dataströmmar
 
-Våra kunders marknadsföringsorganisationer förlitar sig på aktuella och fokuserade marknadsföringskampanjer för att ligga steget före sina affärer och vara konkurrenskraftiga. För att stödja snabba beslut och möjliggöra strategiska förändringar snabbt är det viktigt att ha data som stöder och driver de viktiga beslut som levererar fokuserade och målinriktade kampanjer. Det finns också vissa kunder som arbetar med marknadsföring på kundnivå både inom och utanför Marketo Engage. För att stödja dessa olika satsningar har Marketo skapat möjligheten att inhämta stora datavolymer i nära realtid via dataströmmar.
+Våra kunders marknadsföringsorganisationer förlitar sig på aktuella och fokuserade marknadsföringskampanjer för att ligga steget före sina affärer och vara konkurrenskraftiga. För att stödja snabba beslut och möjliggöra strategiska förändringar snabbt är det viktigt att ha data som stöder och driver de viktiga beslut som levererar fokuserade och målinriktade kampanjer. Det finns också vissa kunder som arbetar med marknadsföring i sina kundsegment både inom och utanför Marketo Engage. För att stödja dessa olika satsningar har Marketo skapat möjligheten att inhämta stora datavolymer i nära realtid via dataströmmar.
 
 Förutom fördelarna med nära realtidsdata finns det produktrelaterade fördelar:
 
@@ -130,7 +130,7 @@ Exempel på användargranskningshändelse:
 
 Meddelandedataströmmen är tillgänglig som en del av prestandanivåerna i Marketo Engage.
 
-För närvarande kan meddelandecentret i Marketo konfigureras att skicka meddelanden till en e-postadress. Meddelandedataström gör att meddelanden kan skickas direkt till en konfigurerbar slutpunkt via Adobe I/O-händelser. Meddelanden skickas via gränssnittet idag och kan refereras av den orangefärgade klockan i skärmens övre högra hörn. Den här strömmen tar dessa meddelanden och skickar dem till en ström.
+För närvarande kan meddelandecentret i Marketo konfigureras att skicka meddelanden till en e-postadress. Med Notification Data Stream kan meddelandena skickas direkt till en konfigurerbar slutpunkt via Adobe I/O-händelser. Meddelanden skickas via gränssnittet idag och kan refereras av den orangefärgade klockan i skärmens övre högra hörn. Den här strömmen tar dessa meddelanden och skickar dem till en ström.
 
 Lista över meddelandehändelser:
 
@@ -179,14 +179,14 @@ Lead Activity Stream ger i stort sett direktuppspelning i realtid av Marketo Lea
 
 Så här implementerar du dataströmmen för huvudaktiviteten:
 
-1. Visa en HTTP-slutpunkt som kan ta emot förfrågningar från POSTER med en JSON-kropp från det offentliga Internet. Dataströmmen för överföring av aktivitet skickar begäranden till:
-1. Ge Adobe följande:
-   1. Marketo Munchkin ID för prenumerationen
+1. Visa en HTTP-slutpunkt som kan ta emot POST-begäranden med en JSON-kropp från det offentliga Internet. Dataströmmen för överföring av aktivitet skickar begäranden till:
+1. Tillhandahåll följande för Adobe:
+   1. Marketo Munchkin ID för prenumerationer
    1. Slutpunktens URL i steg 1
    1. De aktivitetstyper de vill ta emot (fullständig lista ovan)
    1. Ett sätt att autentisera, så att kunden kan verifiera att förfrågningarna är berättigade. Antingen:
       1. En identitetsleverantörs-URL, klient-ID och klienthemlighet för OAuth [Autentisering av klientautentiseringsuppgifter](https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
-      1. En API-token, som kan inkluderas i begäranden som skickas av huvudaktivitetsdataströmmen antingen i frågeparametrar eller i en auktoriseringshuvud (kundens val)
+      1. En API-token, som kan inkluderas i begäranden som skickas av huvudaktivitetsdataströmmen i en http-rubrik för auktorisering
 
 Adobe aktiverar sedan dataströmmen, då kunderna börjar ta emot data.
 
@@ -243,18 +243,18 @@ Ett kodexempel för ett program som använder Marketo Lead Activity Data Stream 
 
 ### Dataström för användargranskning och meddelandedata
 
-Användargranskningshändelser skickas till Adobe IO och kan användas genom att logga in med en Adobe ID. Så här gör du:
+Granskningshändelser skickas till Adobe IO och kan användas genom att logga in med en Adobe ID. Så här gör du:
 
 1. Kunderna förser Adobe med följande:
    1. Adobe ID
-   1. Marketo Munchkin ID för prenumerationen
+   1. Marketo Munchkin ID för prenumerationer
 1. Kunden visar en REST-slutpunkt för att förbruka händelser som normalt är i form av en webkrok.
-1. När det är klart aktiverar Adobe strömmen för kundens prenumeration.
+1. När detta är klart aktiverar Adobe strömmen för kundens prenumeration.
 1. Kunden ställer sedan in strömmen i Adobe IO (instruktioner ska anges)
-   1. Det här steget kräver en Adobe Org
+   1. För det här steget krävs en Adobe-organisation
    1. Kräver att Adobe Org User har rollen Developer eller System Admin
 
-Mer information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) i avsnittet Offentlig dokumentation.
+Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) i avsnittet Offentlig dokumentation.
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
@@ -262,7 +262,7 @@ Dataströmmen för användargranskning är för närvarande tillgänglig som en 
 
 ### Konfigurera Adobe I/O
 
-[Se Komma igång med Adobe I/O-händelser](https://developer.adobe.com/runtime/docs/guides/getting-started/)
+[Se Komma igång med Adobe I/O Events](https://developer.adobe.com/runtime/docs/guides/getting-started/)
 
 Grundläggande instruktioner för det här användningsfallet från [console.adobe.io](https://developer.adobe.com/console):
 
@@ -275,5 +275,5 @@ Om du vill börja använda Adobe-tjänster lägger du till ett API, händelser e
 ## Offentlig dokumentation
 
 - [Marketo-dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
-- [Introduktion till Adobe iO-händelser och webbhooks](https://developer.adobe.com/events/docs/guides/)
+- [Introduktion till Adobe IO Events &amp; Webhooks](https://developer.adobe.com/events/docs/guides/)
 - [Bloggen Dataströmmar](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

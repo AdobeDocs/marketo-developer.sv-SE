@@ -3,9 +3,9 @@ title: Autentisering
 feature: REST API
 description: Autentiserar Marketo-användare för API-användning.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 6f8dc76703aba204b6d0d4f1a3b5275aea819f08
+source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
 workflow-type: tm+mt
-source-wordcount: '558'
+source-wordcount: '564'
 ht-degree: 0%
 
 ---
@@ -24,7 +24,7 @@ Marketo REST API:er autentiseras med 2-legged OAuth 2.0. Klient-ID:n och kundhem
 
 `Identity URL` finns i menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** i REST API-avsnittet.
 
-Skapa en åtkomsttoken med en HTTP GET-begäran (eller POST-begäran) på följande sätt:
+Skapa en åtkomsttoken med en HTTP GET- (eller POST)-begäran på följande sätt:
 
 ```
 GET <Identity URL>/oauth/token?grant_type=client_credentials&client_id=<Client Id>&client_secret=<Client Secret>
@@ -52,13 +52,15 @@ Svarsdefinition
 
 När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varje anrop för att anropet ska lyckas.
 
-Åtkomsttoken måste skickas som en HTTP-rubrik.
-
-`Authorization: Bearer cdf01657-110d-4155-99a7-f986b2ff13a0:int`
-
 >[!IMPORTANT]
 >
 >Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
+
+Åtkomsttoken måste skickas som en HTTP-rubrik. I en CURL-begäran:
+
+```bash
+$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+```
 
 ## Tips och bästa praxis
 
