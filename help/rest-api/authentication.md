@@ -3,9 +3,9 @@ title: Autentisering
 feature: REST API
 description: Autentiserar Marketo-användare för API-användning.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
 workflow-type: tm+mt
-source-wordcount: '564'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---
@@ -51,15 +51,27 @@ Svarsdefinition
 ## Använda en åtkomsttoken
 
 När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varje anrop för att anropet ska lyckas.
+Åtkomsttoken måste skickas som en HTTP-rubrik.
 
 >[!IMPORTANT]
 >
 >Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
 
-Åtkomsttoken måste skickas som en HTTP-rubrik. I en CURL-begäran:
+### Växla till auktoriseringsrubriken
+
+
+Om du vill växla från att använda frågeparametern `access_token` till ett auktoriseringshuvud krävs en liten kodändring.
+
+Om du använder CURL som exempel skickar koden värdet `access_token` som en formulärparameter (flaggan -F):
 
 ```bash
-$ curl -H 'Authorization: Bearer cdf01657-110d-4155-99a7-f984b2ff13a0:int`' 'https://123-ABC-456.mktourl.com/rest/v1/apicall.json?filterType=id&filterValues=4,5,7,12,13'
+curl ...  -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/apiCall.json
+```
+
+Den här koden skickar samma värde som `Authorization: Bearer` http-huvudet (flaggan -H):
+
+```bash
+curl ... -H 'Authorization: Bearer <Access Token>' <REST API Endpoint Base URL>/bulk/v1/apiCall.json
 ```
 
 ## Tips och bästa praxis
