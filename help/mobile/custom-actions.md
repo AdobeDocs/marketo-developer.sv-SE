@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Du kan spåra användarinteraktion genom att skicka anpassade åtgärder. När din mobilapp anropar Marketo SDK för att skicka en anpassad åtgärd sparas den anpassade åtgärden först på enheten. Marketo SDK kontrollerar sedan om det finns tillräcklig internetanslutning innan den anpassade åtgärden skickas. Det innebär att det kan uppstå en fördröjning mellan den tidpunkt då den anpassade åtgärden skickas och den tidpunkt då den tas emot av Marketo.
 
-Anpassade åtgärder kan användas som utlösare och filter i smarta kampanjer. Mer information finns i [Mobilappsaktivitet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Anpassade åtgärder kan användas som utlösare och filter i smarta kampanjer. Mer information finns i [Mobilappsaktivitet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Skicka anpassade åtgärder på iOS
 

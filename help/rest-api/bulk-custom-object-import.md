@@ -22,7 +22,7 @@ Du får skicka in mer än en bulkimportbegäran inom gränsen. Varje begäran l�
 
 ## Exempel på anpassat objekt
 
-Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
+Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
 
 ![Infoga anpassat objekt](assets/bulk-insert-co-car-1.png)
 

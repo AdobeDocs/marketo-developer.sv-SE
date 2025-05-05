@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för e-postmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-postmallar utgör grunden för varje nytt e-postmeddelande i Marketo.  E-postmeddelanden kan kopplas bort från mallar genom att HTML ersätter dem, men e-postmeddelanden måste först skapas med en mall som grund.  Mallar skapas som rena HTML-dokument i Marketo med metadata som namn och beskrivningar.  Det finns få begränsningar för innehåll, men mallens HTML måste vara giltig och innehålla minst ett redigerbart avsnitt, vilket uppfyller kraven [som beskrivs här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-postmallar utgör grunden för varje nytt e-postmeddelande i Marketo.  E-postmeddelanden kan kopplas bort från mallar genom att HTML ersätter dem, men e-postmeddelanden måste först skapas med en mall som grund.  Mallar skapas som rena HTML-dokument i Marketo med metadata som namn och beskrivningar.  Det finns få begränsningar för innehåll, men mallens HTML måste vara giltig och innehålla minst ett redigerbart avsnitt, vilket uppfyller kraven [som beskrivs här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Fråga
 
