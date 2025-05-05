@@ -54,7 +54,7 @@ Marketo returnerar 413 om nyttolasten för begäran överstiger 1 MB, eller 10 M
     <tr>
       <td><a name="414"></a>414</td>
       <td>Begärande-URI är för lång</td>
-      <td>URI för begäran överskred 8 kB. Begäran ska provas igen som en POST med param `_method=GET" i URL:en och resten av frågesträngen i begärans innehåll.</td>
+      <td>URI för begäran överskred 8 kB. Begäran ska provas igen som en POST med param &grave;_method=GET" i URL:en och resten av frågesträngen i begärans innehåll.</td>
     </tr>
   </tbody>
 </table>

@@ -208,7 +208,7 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase-konsolen.
+   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase-konsolen.
       1. Välj `Add Project` i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
       1. Välj `Add Firebase to your Android App` på välkomstskärmen i Firebase.
