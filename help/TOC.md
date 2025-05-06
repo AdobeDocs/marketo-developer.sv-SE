@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
 workflow-type: tm+mt
-source-wordcount: '247'
+source-wordcount: '249'
 ht-degree: 6%
 
 ---
@@ -17,20 +17,20 @@ ht-degree: 6%
 
 - [Startsida](home.md)
 - [Komma igång](getting-started.md)
-- JavaScript API {#javascriptapi}
+- Javascript API {#javascriptapi}
    - [Anpassade datahändelser](javascript-api/custom-data-events.md)
    - [Exempel](javascript-api/examples.md)
    - [Forms API-referens](javascript-api/forms-api-reference.md)
    - [Hämta besöksdata](javascript-api/get-visitor-data.md)
    - [Javascript API](javascript-api/javascript-api.md)
-   - Spårning av lead {#leadtracking}
+   - Spårning av leads {#leadtracking}
       - [Spårning av leads](javascript-api/lead-tracking.md)
       - [Konfiguration](javascript-api/configuration.md)
       - [Munchkin API-referens](javascript-api/api-reference.md)
    - [Mönstermatchning](javascript-api/pattern-match.md)
    - [Prediktivt innehåll](javascript-api/predictive-content.md)
    - [Omdirigeringar](javascript-api/redirect.md)
-   - [Rich Media Recommendations](javascript-api/rich-media-recommendation.md)
+   - [Rekommendationer för multimedia](javascript-api/rich-media-recommendation.md)
    - [Social](javascript-api/social.md)
    - [Utlösare](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
@@ -73,7 +73,7 @@ ht-degree: 6%
    - [Autentisering](rest-api/authentication.md)
    - [Bas-URL](rest-api/base-url.md)
    - [Bästa praxis](rest-api/marketo-integration-best-practices.md)
-   - Massextrahera {#bulk-extract}
+   - Massextrahering {#bulk-extract}
       - [Massaktivitet](rest-api/bulk-activity-extract.md)
       - [Gruppera anpassat objekt](rest-api/bulk-custom-object-extract.md)
       - [Massextrahering](rest-api/bulk-extract.md)
@@ -90,7 +90,7 @@ ht-degree: 6%
    - [Hämta Swagger-definitioner](rest-api/swagger.md)
    - [Referens för slutpunkt](rest-api/endpoint-reference.md)
    - [Felkoder](rest-api/error-codes.md)
-   - Leaddatabas {#lead-database}
+   - Lead-databas {#lead-database}
       - [Aktiviteter](rest-api/activities.md)
       - [Företag](rest-api/companies.md)
       - [Anpassade objekt](rest-api/custom-objects.md)
@@ -135,7 +135,7 @@ ht-degree: 6%
       - [Leads](soap-api/leads.md)
       - [[!DNL syncLead]](soap-api/synclead.md)
       - [[!DNL syncMultipleLeads]](soap-api/syncmultipleleads.md)
-   - Marketo-objekt {#marketo-objects}
+   - Marketo Objects {#marketo-objects}
       - [[!DNL deleteMObjects]](soap-api/deletemobjects.md)
       - [[!DNL describeMObjects]](soap-api/describemobject.md)
       - [[!DNL getMObjects]](soap-api/getmobjects.md)
@@ -147,13 +147,13 @@ ht-degree: 6%
       - [[!DNL getChannels]](soap-api/getchannels.md)
       - [[!DNL getTags]](soap-api/gettags.md)
    - [SOAP API](soap-api/soap-api.md)
-   - [Vanliga frågor om SOAP](soap-api/soap-faq.md)
+   - [SOAP FAQ](soap-api/soap-faq.md)
    - Statiska listor {#static-lists}
       - [[!DNL getImportToListStatus]](soap-api/getimporttoliststatus.md)
       - [[!DNL importToList]](soap-api/importtolist.md)
       - [[!DNL listOperation]](soap-api/listoperation.md)
    - [Strömposition](soap-api/stream-position.md)
-- Webbhooks {#webhooks}
+- Webhooks {#webhooks}
    - [Fel](webhooks/errors.md)
    - [Svarsmappningar](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
@@ -163,3 +163,4 @@ ht-degree: 6%
 - [Licens](api-license.md)
 - [Partnersandlåda](partner-sandbox.md)
 - [Självbetjäningsflödessteg](self-service-flow-steps.md)
+- [Bloggarkiv](blog.md)
