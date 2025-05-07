@@ -3,9 +3,9 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Gruppbearbetning av aktivitetsdata från Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: a5b855691e7fb9e628e2d68fd14a8a6c689d6750
 workflow-type: tm+mt
-source-wordcount: '1342'
+source-wordcount: '1332'
 ht-degree: 0%
 
 ---
@@ -104,7 +104,7 @@ När du använder `primaryAttributeValues` måste filtret `activityTypeIds` finn
 | filter | Array[Object] | Ja | Accepterar en array med filter. Exakt ett `createdAt`-filter måste inkluderas i arrayen. Ett valfritt `activityTypeIds`-filter kan inkluderas. Filtren tillämpas på den tillgängliga aktivitetsuppsättningen och den resulterande uppsättningen aktiviteter returneras av exportjobbet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV Den exporterade filen återges som ett kommaavgränsat värde, tabbavgränsade värden eller en blankstegsavgränsad värdefil, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
-| fält | Array[String] | Nej | Valfri array med strängar som innehåller fältvärden. De listade fälten inkluderas i den exporterade filen. Som standard returneras följande fält: `marketoGUIDleadId` `activityDate` `activityTypeId` `campaignId` `primaryAttributeValueId` `primaryAttributeValueattributes`. Den här parametern kan användas för att minska antalet fält som returneras genom att ange en delmängd i listan ovan. Exempel:&quot;fält&quot;: [&quot;leadId&quot;,&quot;activityDate&quot;,&quot;activityTypeId&quot;]Ytterligare ett fält av typen&quot;actionResult&quot; kan anges för att inkludera aktivitetsåtgärden (&quot;success&quot;, &quot;Skipped&quot; eller &quot;failed&quot;). |
+| fält | Array[String] | Nej | Valfri array med strängar som innehåller fältvärden. De listade fälten inkluderas i den exporterade filen. Som standard returneras följande fält: <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>. Den här parametern kan användas för att minska antalet fält som returneras genom att ange en delmängd från listan ovan:`"fields": ["leadId", "activityDate", "activityTypeId"]`. Ett ytterligare fält `actionResult` kan anges för att inkludera aktivitetsåtgärden: `("succeeded", "skipped", or "failed")`. |
 
 
 ## Skapa ett jobb
