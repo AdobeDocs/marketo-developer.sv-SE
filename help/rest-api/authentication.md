@@ -3,9 +3,9 @@ title: Autentisering
 feature: REST API
 description: Autentiserar Marketo-användare för API-användning.
 exl-id: f89a8389-b50c-4e86-a9e4-6f6acfa98e7e
-source-git-commit: 9582f7ac5998b670dd04cc6529db23f558c0e18e
+source-git-commit: 206724e5177eb9040fa36202d91b2ed9daa734c3
 workflow-type: tm+mt
-source-wordcount: '610'
+source-wordcount: '609'
 ht-degree: 0%
 
 ---
@@ -55,7 +55,7 @@ När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varj
 
 >[!IMPORTANT]
 >
->Stöd för autentisering med frågeparametern **access_token** tas bort den 30 juni 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att rubriken **Authorization** används så snart som möjligt. Ny utveckling bör endast använda rubriken **Authorization**.
+>Stöd för autentisering med frågeparametern `access_token` tas bort den 31 oktober 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att [auktoriseringshuvudet](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) används så snart som möjligt. Ny utveckling bör endast använda rubriken `Authorization`.
 
 ### Växla till auktoriseringsrubriken
 
