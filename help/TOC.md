@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: e2e45c0dfa55966aeaa11c0ecf5bfcff01bbaf81
+source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '250'
 ht-degree: 6%
 
 ---
@@ -158,7 +158,7 @@ ht-degree: 6%
    - [Svarsmappningar](webhooks/response-mappings.md)
    - [Webhooks](webhooks/webhooks.md)
 - [Klientbibliotek](https://github.com/Marketo/Community-Supported-Client-Libraries)
-- [Dataströmmar](data-streams.md)
+- [Dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [E-postskript](email-scripting.md)
 - [Licens](api-license.md)
 - [Partnersandlåda](partner-sandbox.md)

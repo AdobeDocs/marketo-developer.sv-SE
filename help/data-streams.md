@@ -2,14 +2,18 @@
 title: Dataströmmar
 description: Översikt över dataströmmar
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 43bcafd335a2fdc709e917ef74504500422c2889
 workflow-type: tm+mt
-source-wordcount: '1583'
+source-wordcount: '1596'
 ht-degree: 0%
 
 ---
 
 # Dataströmmar
+
+>[!NOTE]
+> Aktuell information om dataströmmar finns nu på [Använda dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/).
+>
 
 Våra kunders marknadsföringsorganisationer förlitar sig på aktuella och fokuserade marknadsföringskampanjer för att ligga steget före sina affärer och vara konkurrenskraftiga. För att stödja snabba beslut och möjliggöra strategiska förändringar snabbt är det viktigt att ha data som stöder och driver de viktiga beslut som levererar fokuserade och målinriktade kampanjer. Det finns också vissa kunder som arbetar med marknadsföring i sina kundsegment både inom och utanför Marketo Engage. För att stödja dessa olika satsningar har Marketo skapat möjligheten att inhämta stora datavolymer i nära realtid via dataströmmar.
 
@@ -258,7 +262,7 @@ Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo använd
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
-Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/se/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
+Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
 
 ### Konfigurera Adobe I/O
 
