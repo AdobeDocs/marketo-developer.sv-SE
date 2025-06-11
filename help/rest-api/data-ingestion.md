@@ -2,9 +2,10 @@
 title: Datainmatning
 feature: REST API, Dynamic Content
 description: Förbruka data med Marketo API:er.
-source-git-commit: 1595aa6df0b0404c7cda2c246c9249018fe87e77
+exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '965'
 ht-degree: 2%
 
 ---
@@ -13,7 +14,7 @@ ht-degree: 2%
 
 API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning.
 
-Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
+Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup). &#x200B;
 
 Gränssnitt erbjuds för två objekttyper: Personer, Egna objekt. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
@@ -55,13 +56,13 @@ Datainmatning använder följande anpassade HTTP-rubriker.
 
 ## Begäranden
 
-Använd metoden HTTP-POST för att skicka data till servern.
+Använd HTTP POST-metoden för att skicka data till servern.
 
 Datarepresentationen är inkluderad i begärandetexten som application/json.
 
 Domännamnet är: `mkto-ingestion-api.adobe.io`
 
-Sökvägen börjar med `/subscriptions/MunchkinId` där MunchkinId är specifik för din Marketo-instans. Du hittar ditt Munchkin-ID i användargränssnittet för Marketo Engage under **Admin** > **Mitt konto** > **Supportinformation**.  Resten av sökvägen används för att ange den givna resursen.
+Sökvägen börjar med `/subscriptions/MunchkinId` där MunchkinId är specifik för din Marketo-instans. Du hittar ditt Munchkin-ID i Marketo Engage-gränssnittet under **Admin** > **Mitt konto** > **Supportinformation**.  Resten av sökvägen används för att ange den givna resursen.
 
 Exempel-URL för personer:
 

@@ -3,9 +3,9 @@ title: Import av satsprogrammedlem
 feature: REST API
 description: Batchimport av medlemsdata.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '838'
+source-wordcount: '837'
 ht-degree: 0%
 
 ---
@@ -141,7 +141,7 @@ Om jobbet har slutförts finns en lista med antalet rader som har bearbetats, mi
 
 Fel indikeras av attributet `numOfRowsFailed` i svaret [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET). Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod.
 
-Använd slutpunkten [Get Import Program Member Failures](http://TODO) för att hämta poster och orsaker till felaktiga rader genom att skicka parametern `batchId` path.
+Använd slutpunkten Get Import Program Member Failures för att hämta poster och orsaker till felaktiga rader genom att skicka sökvägsparametern `batchId`.
 
 ```
 GET /bulk/v1/program/members/import/{batchId}/failures.json

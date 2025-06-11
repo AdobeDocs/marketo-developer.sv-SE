@@ -3,9 +3,9 @@ title: Programmedlemmar
 feature: REST API
 description: Skapa och hantera programmedlemmar.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
 workflow-type: tm+mt
-source-wordcount: '1712'
+source-wordcount: '1708'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
 
-Marketo visar API:er för att läsa, skapa, uppdatera och ta bort programmedlemsposter. Poster för programmedlemmar är relaterade till lead-poster via fältet lead-id. Posterna består av en uppsättning standardfält och eventuellt upp till 20 ytterligare anpassade fält. Fälten innehåller programspecifika data för varje medlem och kan användas i formulär, filter, utlösare och flödesåtgärder. Dessa data kan visas på fliken [Medlemmar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) i användargränssnittet för Marketo Engage.
+Marketo visar API:er för att läsa, skapa, uppdatera och ta bort programmedlemsposter. Poster för programmedlemmar är relaterade till lead-poster via fältet lead-id. Posterna består av en uppsättning standardfält och eventuellt upp till 20 ytterligare anpassade fält. Fälten innehåller programspecifika data för varje medlem och kan användas i formulär, filter, utlösare och flödesåtgärder. Dessa data kan visas på fliken [Medlemmar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) i Marketo Engage-gränssnittet.
 
 ## Beskriv
 
@@ -228,7 +228,7 @@ Den valfria frågeparametern `fields` accepterar en kommaavgränsad lista med f�
 
 Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet **moreResult** är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
-Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP-fel: &quot;414, URI för lång&quot; (per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc72316.5.12)). Som en tillfällig lösning kan du ändra din GET till POST, lägga till parametern `_method=GET` och placera frågesträngen i begärandetexten.
+Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP-fel: &quot;414, URI för lång&quot;. Som en tillfällig lösning kan du ändra din GET till POST, lägga till parametern `_method=GET` och placera frågesträngen i begärandetexten.
 
 ```
 GET /rest/v1/programs/{programId}/members.json?filterType=statusName&filterValues=Influenced
@@ -597,9 +597,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Skapa fält
 
-Slutpunkten [Skapa programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) skapar ett eller flera anpassade fält i programmedlemsobjektet. Den här slutpunkten innehåller funktioner som är jämförbara med vad som är [tillgängligt i användargränssnittet i Marketo Engage ](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Du kan skapa upp till 20 anpassade fält med den här slutpunkten.
+Slutpunkten [Skapa programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) skapar ett eller flera anpassade fält i programmedlemsobjektet. Den här slutpunkten innehåller funktioner som är jämförbara med vad som är [tillgängligt i Marketo Engage-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Du kan skapa upp till 20 anpassade fält med den här slutpunkten.
 
-Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t. När ett fält har skapats kan du inte ta bort det ([du kan bara dölja det](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
+Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t. När ett fält har skapats kan du inte ta bort det ([du kan bara dölja det](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
 
 Den obligatoriska parametern `input` är en matris med programmedlemsfältobjekt. Varje objekt innehåller ett eller flera attribut. Attribut som krävs är `displayName`, `name` och `dataType` som motsvarar fältets gränssnittsvisningsnamn, fältets API-namn och fälttypen. Du kan också ange `description`, `isHidden`, `isHtmlEncodingInEmail` och `isSensitive`.
 
@@ -637,7 +637,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### Uppdatera fält
 
-Slutpunkten [Uppdatera programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) uppdaterar ett anpassat fält i programmedlemsobjektet. I allmänhet går det att utföra fältuppdateringsåtgärder som utförs med användargränssnittet i Marketo Engage med API:t. I tabellen nedan sammanfattas några skillnader.
+Slutpunkten [Uppdatera programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) uppdaterar ett anpassat fält i programmedlemsobjektet. I allmänhet går det att utföra fältuppdateringsåtgärder som utförs med Marketo Engage-gränssnittet med API:t. I tabellen nedan sammanfattas några skillnader.
 
 | Attribut | Kan uppdateras av API? | Kan uppdateras av användargränssnittet? | Kan uppdateras av API? | Kan uppdateras av användargränssnittet? |
 |---|---|---|---|---|
