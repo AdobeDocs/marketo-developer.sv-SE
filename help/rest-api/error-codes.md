@@ -3,9 +3,9 @@ title: Felkoder
 feature: REST API
 description: Marketo felkodbeskrivningar.
 exl-id: a923c4d6-2bbc-4cb7-be87-452f39b464b6
-source-git-commit: d0750eab0a37df0b7f80c6252f46c95068975000
+source-git-commit: d44ec0442bc33e3e5cb7e2dd6ce3947036c7cd25
 workflow-type: tm+mt
-source-wordcount: '2273'
+source-wordcount: '2283'
 ht-degree: 2%
 
 ---
@@ -54,7 +54,7 @@ Marketo returnerar 413 om nyttolasten för begäran överstiger 1 MB, eller 10 M
     <tr>
       <td><a name="414"></a>414</td>
       <td>Begärande-URI är för lång</td>
-      <td>URI för begäran överskred 8 kB. Begäran ska provas igen som en POST med param &grave;_method=GET" i URL:en och resten av frågesträngen i begärans innehåll.</td>
+      <td>URI för begäran överskred 8 kB. Begäran ska provas igen som en POST med param `_method=GET i URL:en och resten av frågesträngen i begärans innehåll.</td>
     </tr>
   </tbody>
 </table>
@@ -110,7 +110,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="603"></a>603</td>
       <td>Åtkomst nekad</td>
-      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller så kan <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> aktiveras.</td>
+      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller så kan <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> aktiveras.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
@@ -160,7 +160,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="613"></a>613</td>
       <td>Ogiltig multipart-begäran</td>
-      <td>POSTENS multipart-innehåll har inte formaterats korrekt</td>
+      <td>Multipart-innehållet i POST har inte formaterats korrekt</td>
     </tr>
     <tr>
       <td><a name="614"></a>614</td>
@@ -287,8 +287,10 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
 
 #### Felkoder på postnivå
 
-<table>
-  <tbody>
+>[!NOTE]
+>
+><table>
+<tbody>
     <tr>
       <td>Svarskod</td>
       <td>Beskrivning</td>
@@ -430,10 +432,12 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
       <td><ul>
           <li>För många jobb i kön</li>
           <li>Exportera dagskvot har överskridits</li>
+          <li>Jobbet är redan i kö</li>
         </ul></td>
       <td><ul>
           <li>Prenumerationer tillåts maximalt 10 massextraheringsjobb i kön vid en given tidpunkt.</li>
           <li>Extraheringsjobb som standard är begränsade till 500 MB per dag (återställs dagligen till 01:00 CST).</li>
+          <li>Export-ID:t har redan placerats i kö.</li>
         </ul></td>
     </tr>
     <tr>
@@ -486,3 +490,4 @@ Varje post i en lyckad begäran kan lyckas eller misslyckas på individnivå, vi
     </tr>
   </tbody>
 </table>
+
