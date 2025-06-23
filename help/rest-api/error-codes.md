@@ -110,7 +110,7 @@ Ett API-anrop som returnerar den här svarskoden räknas inte av mot din dagliga
     <tr>
       <td><a name="603"></a>603</td>
       <td>Åtkomst nekad</td>
-      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller så kan <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> aktiveras.</td>
+      <td>Autentiseringen lyckades, men användaren har inte tillräcklig behörighet för att anropa API:t. [Ytterligare behörigheter](custom-services.md) kan behöva tilldelas användarrollen, eller så kan <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/additional-integrations/create-an-allowlist-for-ip-based-api-access">Tillåtelselista för IP-baserad API-åtkomst</a> aktiveras.</td>
     </tr>
     <tr>
       <td><a name="604"></a>604*</td>
