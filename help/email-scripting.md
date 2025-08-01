@@ -3,7 +3,7 @@ title: E-postskript
 feature: Email Programs
 description: Översikt över e-postskript
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 9012135dc7a295c2462574dad1aca2d06a9077ea
 workflow-type: tm+mt
 source-wordcount: '947'
 ht-degree: 0%
@@ -14,22 +14,22 @@ ht-degree: 0%
 
 Obs! Vi rekommenderar att du läser användarhandboken [Snabb](https://velocity.apache.org/engine/devel/user-guide.html) för att få en djupdykning i hur Snabblingsmallspråket fungerar.
 
-[Apache-hastighet](https://velocity.apache.org/) är ett språk som bygger på Java och som är utformat för att malla och skripta HTML. Marketo tillåter att den används i e-postsammanhang med hjälp av skripttokens. Detta ger åtkomst till data som lagras i säljprojekt och anpassade objekt och gör det möjligt att skapa dynamiskt innehåll i e-postmeddelanden. Hastigheten ger ett högnivåkontrollflöde med if/else, for, and for each som tillåter villkorsstyrd och iterativ manipulering av innehåll. Här är ett enkelt exempel på hur du skriver ut en hälsningsfras:
+[Apache Velocity](https://velocity.apache.org/) är ett språk som bygger på Java och som är utformat för att skapa mallar och skript för HTML-innehåll. Marketo tillåter att den används i e-postsammanhang med hjälp av skripttokens. Detta ger åtkomst till data som lagras i säljprojekt och anpassade objekt och gör det möjligt att skapa dynamiskt innehåll i e-postmeddelanden. Hastigheten ger ett högnivåkontrollflöde med if/else, for, and for each som tillåter villkorsstyrd och iterativ manipulering av innehåll. Här är ett enkelt exempel på hur du skriver ut en hälsningsfras:
 
 ```java
-//check if the lead is male
-if(${lead.MarketoSocialGender} == "Male")
-    if the lead is male, use the salutation 'Mr.'
-    set($greeting = "Dear Mr. ${lead.LastName},")
-//check is the lead is female
-elseif(${lead.MarketoSocialGender} == "Female")
-    if female, use the salutation 'Ms.'
-    set($greeting = "Dear Ms. ${lead.LastName},")
-else
-    //otherwise, use the first name
-    set($greeting = "Dear ${lead.FirstName},")
-end
-print the greeting and some content
+##check if the lead is male
+#if(${lead.MarketoSocialGender} == "Male")
+    ##if the lead is male, use the salutation 'Mr.'
+    #set($greeting = "Dear Mr. ${lead.LastName},")
+##check is the lead is female
+#elseif(${lead.MarketoSocialGender} == "Female")
+    ##if female, use the salutation 'Ms.'
+    #set($greeting = "Dear Ms. ${lead.LastName},")
+#else
+    ##otherwise, use the first name
+    #set($greeting = "Dear ${lead.FirstName},")
+#end
+##print the greeting and some content
 ${greeting}
 
     Lorem ipsum dolor sit amet...
@@ -130,7 +130,7 @@ Den sammanlagda längden för alla e-postskripttoken i ett visst e-postmeddeland
 - Du kan referera till anpassade objekt som är kopplade till ett lead, en kontakt eller ett konto, men inte till fler än ett.
 - Anpassade objekt kan bara refereras via en enda anslutning, lead, kontakt eller konto
 - Du måste markera kryssrutan i skriptredigeraren för de fält som du använder, annars kommer de inte att bearbeta
-- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga genom att [följa instruktionerna](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga genom att [följa instruktionerna](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Om du inkluderar mer än ett e-postskript i ett e-postmeddelande körs de uppifrån och ned. Variabelomfånget som definieras i det första skriptet som ska köras är tillgängligt i efterföljande skript.
 - Verktygsreferens: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - En anteckning om variabler som innehåller radmatningstecken &quot;\\n&quot; eller &quot;\\r\\n&quot;. När ett e-postmeddelande skickas via Skicka exempel eller via en gruppkampanj ersätts radmatningstecken med blanksteg. När e-post skickas via Trigger Campaign lämnas radmatningstecken orörda.
