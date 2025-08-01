@@ -18,7 +18,7 @@ Ett vanligt användningsexempel för Marketo API är att utlösa sändning av tr
 - Det måste finnas ett Transactional Email som skapats och godkänts i din Marketo-instans.
 - Det måste finnas en aktiv utlösarkampanj med namnet&quot;Campaign is Requested, 1. Source: Web Service API&quot;, som är konfigurerat för att skicka e-post
 
-[Skapa och godkänn din e-postadress](https://experienceleague.adobe.com/docs/marketo/using/home.html) först. Om e-postmeddelandet verkligen är transaktionellt måste du förmodligen ställa in det på operativ nivå, men se till att det lagligen klassificeras som operativt. Detta konfigureras från med redigeringsskärmen under E-poståtgärder > E-postinställningar:
+[Skapa och godkänn din e-postadress](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE) först. Om e-postmeddelandet verkligen är transaktionellt måste du förmodligen ställa in det på operativ nivå, men se till att det lagligen klassificeras som operativt. Detta konfigureras från med redigeringsskärmen under E-poståtgärder > E-postinställningar:
 
 ![Request-Campaign-email-Settings](assets/request-campaign-email-settings.png)
 
@@ -28,7 +28,7 @@ Godkänn det så är vi redo att skapa vår kampanj:
 
 ![RequestCampaign-Approve-Draft](assets/request-campaign-approve-draft.png)
 
-Om du inte har skapat några kampanjer tidigare kan du läsa artikeln [Skapa en ny smart kampanj](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) . När ni väl har skapat er kampanj måste vi gå igenom dessa steg. Konfigurera din smarta lista med kampanjutlösaren:
+Om du inte har skapat några kampanjer tidigare kan du läsa artikeln [Skapa en ny smart kampanj](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=sv-SE) . När ni väl har skapat er kampanj måste vi gå igenom dessa steg. Konfigurera din smarta lista med kampanjutlösaren:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -182,7 +182,7 @@ Den här klassen har en konstruktor som tar en Auth och kampanjens ID. Leads lä
 
 ### Bygger din e-postadress
 
-För att kunna anpassa innehållet måste vi först konfigurera ett [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) och ett [e-postmeddelande](https://experienceleague.adobe.com/docs/marketo/using/home.html) i Marketo. För att kunna generera vårt anpassade innehåll måste vi skapa variabler i programmet och sedan placera dem i det e-postmeddelande som vi ska skicka. För enkelhetens skull använder vi bara en token i det här exemplet, men du kan ersätta ett valfritt antal token i ett e-postmeddelande, i Från e-post, Från namn, Svar till eller valfritt innehåll i e-postmeddelandet. Låt oss skapa en variabel med formaterad text för ersättning och kalla den för&quot;bodyReplacement&quot;. Med RTF kan vi ersätta innehåll i token med godtycklig HTML som vi vill mata in.
+För att kunna anpassa innehållet måste vi först konfigurera ett [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=sv-SE) och ett [e-postmeddelande](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE) i Marketo. För att kunna generera vårt anpassade innehåll måste vi skapa variabler i programmet och sedan placera dem i det e-postmeddelande som vi ska skicka. För enkelhetens skull använder vi bara en token i det här exemplet, men du kan ersätta ett valfritt antal token i ett e-postmeddelande, i Från e-post, Från namn, Svar till eller valfritt innehåll i e-postmeddelandet. Låt oss skapa en variabel med formaterad text för ersättning och kalla den för&quot;bodyReplacement&quot;. Med RTF kan vi ersätta innehåll i token med godtycklig HTML som vi vill mata in.
 
 ![Ny-token](assets/New-Token.png)
 

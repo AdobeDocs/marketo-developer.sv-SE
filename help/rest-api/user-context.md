@@ -14,7 +14,7 @@ ht-degree: 1%
 
 JavaScript-API:t för användarkontext exponerar data på användar- och besökarnivå över flera sessioner för att möjliggöra avancerad personalisering med hjälp av historiska användarbeteenden och data. API:t är mer än bara läsning av data och visar anpassade variabler som gör att du kan skicka meningsfulla data och händelser till RTP-serverdelen för avancerad segmentering och personalisering. Ytterligare funktioner: [Utlösare](../javascript-api/triggers.md), [Mönstermatchning](../javascript-api/pattern-match.md).
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - API:t för användarkontext är en funktion som måste aktiveras av Marketo Support på begäran. När API:t är aktiverat visas ett userContext-objekt under det globala RTP-objektet.
 
 ## Användarkontextattribut

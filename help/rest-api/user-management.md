@@ -19,9 +19,9 @@ Marketo har en uppsättning slutpunkter för användarhantering som gör att du 
 Till skillnad från andra Marketo REST API:er, när du använder API:er för användarhantering:
 
 - Du måste använda HTTP-huvudmetoden för att skicka åtkomsttoken för autentisering. Du kan inte skicka åtkomsttoken som en frågesträngparameter. Mer information om autentisering [här](authentication.md).
-- Du måste välja en rollbehörighet från två olika grupper när du skapar användarrollen för [anpassad tjänst](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) för REST API:
-   1. Åtkomstbehörighet för användare från gruppen [Åtkomstadministratör](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
-   1. &quot;Åtkomst till API för användarhantering&quot; från gruppen [Åtkomst-API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
+- Du måste välja en rollbehörighet från två olika grupper när du skapar användarrollen för [anpassad tjänst](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) för REST API:
+   1. Åtkomstbehörighet för användare från gruppen [Åtkomstadministratör](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
+   1. &quot;Åtkomst till API för användarhantering&quot; från gruppen [Åtkomst-API](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/descriptions-of-role-permissions)
 - Svarsorgan innehåller inte det booleska attributet &quot;success&quot; som anger om ett anrop lyckades eller inte. I stället måste du utvärdera statuskoden för HTTP-svar. Om ett anrop lyckas returneras 200-statuskoden. Om ett anrop misslyckas returneras en statuskod som inte är 200 och svarstexten innehåller standardarrayen &quot;errors&quot; med felkod och beskrivande felmeddelande.
 - Formatet för datetime-strängar är `yyyyMMdd'T'HH:mm:ss.SSS't'+|-hhmm`. Detta gäller följande attribut: `createdAt`, `updatedAt`, `expiresAt`.
 - API-slutpunkter för användarhantering har inte prefix med &quot;/rest&quot; som andra slutpunkter.
@@ -298,9 +298,9 @@ GET /userservice/management/v1/users/workspaces.json
 
 ## Bjud in användare
 
-På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) har den här slutpunkten endast stöd för inbjudan från [endast API-användare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill bjuda in [standardanvändare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe-API:t för användarhantering](https://developer.adobe.com/umapi/) i stället.
+På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) har den här slutpunkten endast stöd för inbjudan från [endast API-användare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill bjuda in [standardanvändare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe-API:t för användarhantering](https://developer.adobe.com/umapi/) i stället.
 
-Slutpunkten [Bjud in användare](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) om du vill skicka en e-postinbjudan om välkomstmeddelanden till Marketo till en ny användare. E-postmeddelandetexten innehåller länken&quot;Logga in på Marketo&quot; som gör att användaren kan komma åt Marketo för första gången. För att acceptera inbjudan klickar e-postmottagaren på länken Logga in på Marketo, skapar sitt lösenord och får tillgång till Marketo. Inbjudan väntar tills godkännandeprocessen är klar och användarposten kan inte redigeras. En väntande inbjudan går ut sju dagar efter att den har skickats. Mer information om hur du hanterar användare finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
+Slutpunkten [Bjud in användare](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/inviteUserUsingPOST) om du vill skicka en e-postinbjudan om välkomstmeddelanden till Marketo till en ny användare. E-postmeddelandetexten innehåller länken&quot;Logga in på Marketo&quot; som gör att användaren kan komma åt Marketo för första gången. För att acceptera inbjudan klickar e-postmottagaren på länken Logga in på Marketo, skapar sitt lösenord och får tillgång till Marketo. Inbjudan väntar tills godkännandeprocessen är klar och användarposten kan inte redigeras. En väntande inbjudan går ut sju dagar efter att den har skickats. Mer information om hur du hanterar användare finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users).
 
 Parametrar skickas i begärandetexten i formatet `application/json`.
 
@@ -308,7 +308,7 @@ Följande parametrar är obligatoriska:  `emailAddress`, `firstName`, `lastName
 
 Parametern `userid` är ett unikt strängvärde för användaridentifierare som används för användarinloggning och måste formateras som en e-postadress. Om det inte anges i begäran blir värdet `userid` som standard det värde som anges i parametern `emailAddress`.
 
-Den booleska parametern `apiOnly` anger om användaren är en [API-användare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Parametern `expiresAt` anger när inloggningen upphör och formateras med formatet W3C ISO-8601 (utan millisekunder). Användaren förfaller aldrig om den inte anges i begäran. Parametern `reason` är en sträng som beskriver orsaken till användarinbjudan.
+Den booleska parametern `apiOnly` anger om användaren är en [API-användare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Parametern `expiresAt` anger när inloggningen upphör och formateras med formatet W3C ISO-8601 (utan millisekunder). Användaren förfaller aldrig om den inte anges i begäran. Parametern `reason` är en sträng som beskriver orsaken till användarinbjudan.
 
 Slutpunkten returnerar värdet &quot;true&quot; om det lyckas, annars returneras ett felmeddelande.
 
@@ -340,7 +340,7 @@ Content-Type: application/json
 true
 ```
 
-Nedan visas ett exempel på e-postinbjudan&quot;Välkommen till Marketo&quot; som skickas till den nya användaren. Ämnesraden för e-post är&quot;Marketo Inloggningsinformation&quot;, avsändaren är e-postadressen för den endast API-användare som är associerad med den anpassade tjänsten [REST API](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) och mottagaren anges via parametrarna firstName, lastName och emailAddress.
+Nedan visas ett exempel på e-postinbjudan&quot;Välkommen till Marketo&quot; som skickas till den nya användaren. Ämnesraden för e-post är&quot;Marketo Inloggningsinformation&quot;, avsändaren är e-postadressen för den endast API-användare som är associerad med den anpassade tjänsten [REST API](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/additional-integrations/create-a-custom-service-for-use-with-rest-api) och mottagaren anges via parametrarna firstName, lastName och emailAddress.
 
 ![Bjud in användarens e-postadress](assets/invite-user-email.png)
 
@@ -352,7 +352,7 @@ Uppdateringsstöd för användare innefattar möjlighet att uppdatera användara
 
 ### Uppdatera användarattribut
 
-På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) stöder den här slutpunkten endast uppdatering av attribut för [endast API-användare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill uppdatera attribut för [standardanvändare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe API för användarhantering](https://developer.adobe.com/umapi/) i stället.
+På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) stöder den här slutpunkten endast uppdatering av attribut för [endast API-användare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill uppdatera attribut för [standardanvändare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe API för användarhantering](https://developer.adobe.com/umapi/) i stället.
 
 Slutpunkten [Uppdatera användarattribut](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/updateUserAttributeUsingPOST) tar en `userid`-sökvägsparameter och returnerar en enskild användarpost. Begärandetexten innehåller ett eller flera användarattribut att uppdatera: `emailAddress`, `firstName`, `lastName`, `expiresAt`.
 
@@ -407,7 +407,7 @@ Content-Type: application/json
 
 #### Ta bort användare
 
-På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) har den här slutpunkten endast stöd för borttagning av [endast API-användare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill ta bort [standardanvändare](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe-API:t för användarhantering](https://developer.adobe.com/umapi/) i stället.
+På [Adobe IMS-integrerade prenumerationer](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-with-adobe-identity/adobe-identity-management-overview) har den här slutpunkten endast stöd för borttagning av [endast API-användare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/create-an-api-only-user). Om du vill ta bort [standardanvändare](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/users-and-roles/managing-marketo-users) använder du [Adobe-API:t för användarhantering](https://developer.adobe.com/umapi/) i stället.
 
 Slutpunkten [Ta bort användare](https://developer.adobe.com/marketo-apis/api/user/#tag/User-Management/operation/deleteUserUsingPOST) tar en enda `userid`-sökvägsparameter och tar bort motsvarande användare från instansen. Det här är en destruktiv borttagning som inte kan ångras. Om det lyckas returneras en 200-statuskod, i annat fall returneras ett felmeddelande.
 

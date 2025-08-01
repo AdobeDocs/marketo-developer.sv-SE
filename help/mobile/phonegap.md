@@ -16,7 +16,7 @@ Integrering av Marketo PhoneGap Plugin
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
 1. [Installera PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
