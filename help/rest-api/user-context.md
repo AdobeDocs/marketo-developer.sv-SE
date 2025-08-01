@@ -3,10 +3,10 @@ title: Användarsammanhang
 feature: REST API
 description: Översikt över användarkontext och API-beskrivningar
 exl-id: b8daace2-07a5-4621-aa3a-03fa9f66ea73
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '266'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 JavaScript-API:t för användarkontext exponerar data på användar- och besökarnivå över flera sessioner för att möjliggöra avancerad personalisering med hjälp av historiska användarbeteenden och data. API:t är mer än bara läsning av data och visar anpassade variabler som gör att du kan skicka meningsfulla data och händelser till RTP-serverdelen för avancerad segmentering och personalisering. Ytterligare funktioner: [Utlösare](../javascript-api/triggers.md), [Mönstermatchning](../javascript-api/pattern-match.md).
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - API:t för användarkontext är en funktion som måste aktiveras av Marketo Support på begäran. När API:t är aktiverat visas ett userContext-objekt under det globala RTP-objektet.
 
 ## Användarkontextattribut
@@ -53,12 +53,12 @@ Anpassade variabelbegränsningar
 ```javascript
 // Set and get customVars
 rtp('set', 'customVar1', 'foo');
- 
-// Read location 
+
+// Read location
 if (rtp.userContext.location.state == 'CA')  {
     // Do something
 }
- 
+
 // Check if user viewed campaign id 45:
 // The campaign id is exposed in the RTP UI when hovering over a campaign name.
 if (rtp.userContext.viewedCampaign('45')) {

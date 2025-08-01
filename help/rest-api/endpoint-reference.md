@@ -3,9 +3,9 @@ title: Referens för slutpunkt
 feature: REST API
 description: Marketo API-slutpunktsreferenser
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 3632d2b713d97a2c895c65f144c07e62e1d369cb
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '4676'
+source-wordcount: '4448'
 ht-degree: 0%
 
 ---

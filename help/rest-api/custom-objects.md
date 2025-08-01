@@ -2,17 +2,17 @@
 title: Anpassade objekt
 feature: REST API, Custom Objects
 description: Skapa och hantera anpassade Marketo-objekt.
-source-git-commit: f1c9c5ba07013c2fdccb9f799b5c0077eb789a4b
+exl-id: 88e8829b-f8f1-46d7-a753-5aa6e20e2c40
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '2910'
+source-wordcount: '2909'
 ht-degree: 0%
 
 ---
 
-
 # Anpassade objekt
 
-[**Referens för anpassade objektslutpunkter**](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects) Med Marketo kan användare definiera anpassade Marketo-objekt som är relaterade till Marketo standardobjekt (leads, företag) eller andra anpassade Marketo-objekt.  Marketo anpassade objekt kan skapas med Marketo-gränssnittet enligt beskrivningen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects) eller med API:t för anpassade objektmetadata enligt beskrivningen nedan.
+[**Referens för anpassade objektslutpunkter**](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects) Med Marketo kan användare definiera anpassade Marketo-objekt som är relaterade till Marketo standardobjekt (leads, företag) eller andra anpassade Marketo-objekt.  Marketo anpassade objekt kan skapas med Marketo-gränssnittet enligt beskrivningen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects) eller med API:t för anpassade objektmetadata enligt beskrivningen nedan.
 
 En lämplig prenumerationstyp för Marketo krävs för att komma åt API:t för anpassade objektmetadata.  Mer information finns i din CSM.
 
@@ -28,8 +28,8 @@ GET /rest/v1/customobjects.json
 {
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Car",
          "displayName":"Car",
          "description":"Car owner",
@@ -37,16 +37,16 @@ GET /rest/v1/customobjects.json
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
          "dedupeFields":["vin"],
-         "searchableFields":[ 
+         "searchableFields":[
             ["vin"],
             ["marketoGUID"],
             ["siebelId"]
          ],
-         "relationships":[  
-            {  
+         "relationships":[
+            {
                "field":"siebelId",
                "type":"parent",
-               "relatedTo":{  
+               "relatedTo":{
                   "name":"Lead",
                   "field":"siebelId"
                }
@@ -68,11 +68,11 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"Car",
          "displayName":"Car",
          "description":"Car owner",
@@ -80,42 +80,42 @@ GET /rest/v1/customobjects/{apiName}/describe.json
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
          "dedupeFields":["vin"],
-         "searchableFields":[  
+         "searchableFields":[
             ["vin"],
             ["marketoGUID"],
             ["siebelId"]
          ],
-         "relationships":[  
-            {  
+         "relationships":[
+            {
                "field":"siebelId",
                "type":"parent",
-               "object":{  
+               "object":{
                   "name":"Lead",
                   "field":"siebelId"
                }
             }
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"createdAt",
                "displayName":"Created At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"updatedAt",
                "displayName":"Updated At",
                "dataType":"datetime",
                "updateable":false
             },
-            {  
+            {
                "name":"vin",
                "displayName":"VIN",
                "description":"Vehicle Identification Number",
@@ -123,7 +123,7 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"siebelId",
                "displayName":"External Id",
                "description":"External Id",
@@ -131,14 +131,14 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":36,
                "updateable":true
             },
-            {  
+            {
                "name":"make",
                "displayName":"Make",
                "dataType":"string",
                "length":36,
                "updateable":true
             },
-            {  
+            {
                "name":"model",
                "displayName":"Model",
                "description":"Vehicle Model",
@@ -146,13 +146,13 @@ GET /rest/v1/customobjects/{apiName}/describe.json
                "length":255,
                "updateable":true
             },
-            {  
+            {
                "name":"year",
                "displayName":"Year",
                "dataType":"integer",
                "updateable":true
             },
-            {  
+            {
                "name":"color",
                "displayName":"Color",
                "description":"Vehicle color",
@@ -168,25 +168,25 @@ GET /rest/v1/customobjects/{apiName}/describe.json
 
 ## Fråga
 
-[Att fråga efter anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET) skiljer sig något från andra API:er för Lead-databaser och tar `apiName` sökvägsparametrar som beskrivits.  För normala filterType-parametrar är frågan en enkel GET som frågor för andra typer av poster, och kräver en `filterType` och `filterValues`.  Det kan också acceptera parametrarna `**fields**`, `batchSize` och `nextPageToken`.  När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
+[Att fråga efter anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET) skiljer sig något från andra API:er för Lead-databaser och tar `apiName` sökvägsparametrar som beskrivits.  För en normal filterType-parameter är frågan en enkel GET-fråga, precis som andra typer av poster, och kräver en `filterType` och `filterValues`.  Det kan också acceptera parametrarna `**fields**`, `batchSize` och `nextPageToken`.  När du begär en lista med fält, om ett visst fält begärs men inte returneras, anges värdet som null.
 
 ```
 GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
 ```
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa",
          "vin":"19UYA31581L000000",
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "vin":"29UYA31581L000000",
@@ -197,30 +197,30 @@ GET /rest/v1/customobjects/{apiName}.json?filterType=idField&filterValues=dff232
 }
 ```
 
-När du frågar med sammansatta nycklar fungerar API:t som API:t för säljprojektsroller och godkänner en POST med ett JSON-brödtext.  JSON-brödtexten kan ha samma medlemmar som en GET-fråga, förutom `filterValues`.  I stället för filtervärden finns det en `input`-array som tar objekt som innehåller en medlem som namnges för var och en av objekttypens `dedupeFields`.
+När du frågar med sammansatta nycklar fungerar API:t som API:t för säljprojektsroller och accepterar en POST med en JSON-brödtext.  JSON-brödtexten kan ha samma medlemmar som en GET-fråga, förutom `filterValues`.  I stället för filtervärden finns det en `input`-array som tar objekt som innehåller en medlem som namnges för var och en av objekttypens `dedupeFields`.
 
 ```
 POST /rest/v1/customobjects/{apiName}.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "Bedrooms",
       "yearBuilt"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
          "mlsNum":"1962352",
          "houseOwnerId":"42645756"
       },
-      {  
+      {
          "mlsNum":"2962352",
          "houseOwnerId":"52645756"
       },
-      {  
+      {
          "mlsNum":"3962352",
          "houseOwnerId":"62645756"
       }
@@ -230,11 +230,11 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa",
          "Bedrooms":3,
@@ -242,7 +242,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb",
          "Bedrooms":4,
@@ -250,7 +250,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
          "createdAt":"2015-02-23T18:21:53Z",
          "updatedAt":"2015-02-23T18:23:41Z"
       },
-      {  
+      {
          "seq":2,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc",
          "Bedrooms":3,
@@ -264,7 +264,7 @@ POST /rest/v1/customobjects/{apiName}.json?_method=GET
 
 ## Skapa och uppdatera
 
-Använd slutpunkten [Synkronisera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) för att skapa eller uppdatera anpassade objekt, du kan ange åtgärden med parametern `action`.  Upp till 300 poster kan skapas eller uppdateras i ett samtal.  Värdena som används i arrayen `input` baseras i huvudsak på informationen som returneras av slutpunkten [Beskriv anpassade objekt](https://experienceleague.adobe.com/sv/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1) . I ett bildobjekt finns det bara ett dedupliceringsfält, `vin`.  För att kunna uppdatera eller skapa poster i läget dedupeFields måste varje post i inmatningsarrayen innehålla minst ett `vin`-fält.
+Använd slutpunkten [Synkronisera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) för att skapa eller uppdatera anpassade objekt, du kan ange åtgärden med parametern `action`.  Upp till 300 poster kan skapas eller uppdateras i ett samtal.  Värdena som används i arrayen `input` baseras i huvudsak på informationen som returneras av slutpunkten [Beskriv anpassade objekt](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/endpoint-reference#!/Custom_Objects/describeUsingGET_1) . I ett bildobjekt finns det bara ett dedupliceringsfält, `vin`.  För att kunna uppdatera eller skapa poster i läget dedupeFields måste varje post i inmatningsarrayen innehålla minst ett `vin`-fält.
 
 ```
 POST /rest/v1/customobjects/{apiName}.json
@@ -341,16 +341,16 @@ POST /rest/v1/customobjects/{apiName}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]
@@ -388,7 +388,7 @@ När du uppdaterar kommer resultatet att innehålla en status för varje enskild
 
 ## Anpassade objekttyper
 
-Med API:t för anpassade objektmetadata kan du fjärrhantera anpassade objektscheman.  Med API kan du skapa en ny anpassad objekttyp eller ändra en befintlig.  När den anpassade objekttypen har skapats eller ändrats måste den godkännas för användning.  Mer information om anpassade objekt finns i produktdokumentationen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/home).
+Med API:t för anpassade objektmetadata kan du fjärrhantera anpassade objektscheman.  Med API kan du skapa en ny anpassad objekttyp eller ändra en befintlig.  När den anpassade objekttypen har skapats eller ändrats måste den godkännas för användning.  Mer information om anpassade objekt finns i produktdokumentationen [här](https://experienceleague.adobe.com/en/docs/marketo/using/home).
 
 * Anpassade objekttyper som skapas av API:t kan inte ändras med Marketo-gränssnittet
 * Högsta tillåtna antal anpassade objekttyper är 10
@@ -520,7 +520,7 @@ Här ser vi följande attribut:
 
 ### Listtyper
 
-Slutpunkten [Lista anpassade objekttyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) returnerar metadata för alla anpassade objekttyper som är tillgängliga i målinstansen.  Observera att den här slutpunkten liknar [Visa anpassade objekt](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=sv-SE), men är mer omfattande och innehåller ytterligare metadata som tillstånd, relationer och fält. Om det finns en godkänd version returneras den.  Annars returneras utkastversionen.  Den valfria parametern **state** används för att ange vilken version av den anpassade objekttypen som ska returneras: **draft**, **approved** eller **approvedWithDraft**.  Den valfria parametern **names** används för att ange specifika namn på anpassade objekttyper som ska returneras. Den är strukturerad som en kommaavgränsad lista med API-namn.
+Slutpunkten [Lista anpassade objekttyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/listCustomObjectTypesUsingGET) returnerar metadata för alla anpassade objekttyper som är tillgängliga i målinstansen.  Observera att den här slutpunkten liknar [Visa anpassade objekt](https://experienceleague.adobe.com/docs/marketo-developer/marketo/soap/custom-objects/custom-objects.html?lang=en), men är mer omfattande och innehåller ytterligare metadata som tillstånd, relationer och fält. Om det finns en godkänd version returneras den.  Annars returneras utkastversionen.  Den valfria parametern **state** används för att ange vilken version av den anpassade objekttypen som ska returneras: **draft**, **approved** eller **approvedWithDraft**.  Den valfria parametern **names** används för att ange specifika namn på anpassade objekttyper som ska returneras. Den är strukturerad som en kommaavgränsad lista med API-namn.
 
 ```
 GET /rest/v1/customobjects/schema.json?names=purchaseHistory
@@ -810,7 +810,7 @@ POST /rest/v1/customobjects/schema.json
 
 ## Typgodkännande
 
-Anpassade objekttyper måste godkännas innan de kan användas. När en ny anpassad objekttyp skapas med slutpunkten [Synkronisera anpassad objekttyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectTypeUsingPOST) skapas den som ett utkast. När du är klar med att lägga till anpassade fält måste du godkänna utkastet. Detta skapar en godkänd version och tar bort utkastet. När en befintlig anpassad objekttyp ändras med slutpunkten Synkronisera anpassad objekttyp, eller genom att använda någon av ändpunkterna Lägg till/Uppdatera/Ta bort anpassat objekttypfält, skapas ett utkast. Alla ändringar av typen eller av fälten påverkar bara utkastversionen. När du är klar med ändringarna måste du godkänna utkastet. Detta ersätter den godkända versionen med utkastversionen och tar bort utkastversionen. Mer information om godkännande av anpassade objekt finns i produktdokumentationen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
+Anpassade objekttyper måste godkännas innan de kan användas. När en ny anpassad objekttyp skapas med slutpunkten [Synkronisera anpassad objekttyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectTypeUsingPOST) skapas den som ett utkast. När du är klar med att lägga till anpassade fält måste du godkänna utkastet. Detta skapar en godkänd version och tar bort utkastet. När en befintlig anpassad objekttyp ändras med slutpunkten Synkronisera anpassad objekttyp, eller genom att använda någon av ändpunkterna Lägg till/Uppdatera/Ta bort anpassat objekttypfält, skapas ett utkast. Alla ändringar av typen eller av fälten påverkar bara utkastversionen. När du är klar med ändringarna måste du godkänna utkastet. Detta ersätter den godkända versionen med utkastversionen och tar bort utkastversionen. Mer information om godkännande av anpassade objekt finns i produktdokumentationen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
 
 När en anpassad objekttyp har godkänts kan du inte:
 
@@ -822,7 +822,7 @@ Av dessa skäl är det viktigt att noga tänka igenom schemat och namnkonvention
 
 ### Godkänn typ
 
-Använd slutpunkten [Godkänn anpassad objekttyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST) för att publicera ett utkast som den nya godkända versionen.  **apiName** är den enda obligatoriska parametern som en sökvägsparameter.  En typ kan inte godkännas om den inte är i utkastläge och uppfyller en uppsättning valideringsregler som beskrivs [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
+Använd slutpunkten [Godkänn anpassad objekttyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/approveCustomObjectTypeUsingPOST) för att publicera ett utkast som den nya godkända versionen.  **apiName** är den enda obligatoriska parametern som en sökvägsparameter.  En typ kan inte godkännas om den inte är i utkastläge och uppfyller en uppsättning valideringsregler som beskrivs [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/approve-a-custom-object).
 
 ```
 POST /rest/v1/customobjects/schema/{apiName}/approve.json
@@ -881,15 +881,15 @@ Du kan lägga till/ändra/ta bort anpassade fält med slutpunkterna som beskrivs
 * Minst ett dedupliceringsfält krävs, högst 3 tillåts
 * Fält-API-namn och visningsnamn kan innehålla alfanumeriska tecken och understreck &quot;_&quot;
 
-Mer information om anpassade objektfält finns i produktdokumentationen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
+Mer information om anpassade objektfält finns i produktdokumentationen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields).
 
 ### Lägg till fält
 
-Med slutpunkten [Lägg till anpassade objekttypfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST) kan du lägga till ett eller flera fält i det anpassade objektet.  Begärandetexten innehåller en `input`-matris med ett eller flera element.  Varje element är ett JSON-objekt med attribut som beskriver ett fält. Det obligatoriska attributet `name` är fältets API-namn och måste vara unikt för det anpassade objektet.   Konventionen är att använda gemener eller camelCase för att skilja mellan andra textsträngar. Det obligatoriska attributet `displayName` är fältets läsbara namn och måste vara unikt för det anpassade objektet. Det obligatoriska `dataType`-attributet är fältets datatyp.  A  lista över tillåtna datatyper kan hämtas genom anrop av slutpunkten [Hämta datatyper för anpassade objektfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET).  Anpassade objekt kan innehålla fält med datatypen &quot;link&quot;.  Länkfält används för att skapa relationer mellan anpassade objekt och andra objekttyper i systemet, t.ex. Lead, Company.  Mer information om länkfält finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Det valfria attributet `description` är beskrivningen av fältet. Det booleska attributet `isDedupeField` (valfritt) anger om fältet används för borttagning av dubbletter under anpassade objektuppdateringsåtgärder.  Standardinställningen är false.  För en-till-många-relationer krävs ett dedupliceringsfält. Det valfria objektattributet `relatedTo` anger ett länkfält.  För en-till-många-relationer innehåller det här objektet ett `name`-attribut som är &quot;link object&quot; eller det överordnade objektet att länka till, och ett `field`-attribut som är &quot;link field,&quot;  eller fältet i det överordnade objektet som ska användas som nyckelattribut.  Anropa slutpunkten [Hämta länkade objekt för anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) för att hämta en lista över tillåtna läntobjekt.  Mer information om länkfält finns i produktdokumentationen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Ett anpassat objekt kan inte länka till ett annat anpassat objekt som har ett befintligt länkfält.
+Med slutpunkten [Lägg till anpassade objekttypfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/addCustomObjectTypeFieldsUsingPOST) kan du lägga till ett eller flera fält i det anpassade objektet.  Begärandetexten innehåller en `input`-matris med ett eller flera element.  Varje element är ett JSON-objekt med attribut som beskriver ett fält. Det obligatoriska attributet `name` är fältets API-namn och måste vara unikt för det anpassade objektet.   Konventionen är att använda gemener eller camelCase för att skilja mellan andra textsträngar. Det obligatoriska attributet `displayName` är fältets läsbara namn och måste vara unikt för det anpassade objektet. Det obligatoriska `dataType`-attributet är fältets datatyp.  A  lista över tillåtna datatyper kan hämtas genom anrop av slutpunkten [Hämta datatyper för anpassade objektfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectTypeFieldDataTypesUsingGET).  Anpassade objekt kan innehålla fält med datatypen &quot;link&quot;.  Länkfält används för att skapa relationer mellan anpassade objekt och andra objekttyper i systemet, t.ex. Lead, Company.  Mer information om länkfält finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Det valfria attributet `description` är beskrivningen av fältet. Det booleska attributet `isDedupeField` (valfritt) anger om fältet används för borttagning av dubbletter under anpassade objektuppdateringsåtgärder.  Standardinställningen är false.  För en-till-många-relationer krävs ett dedupliceringsfält. Det valfria objektattributet `relatedTo` anger ett länkfält.  För en-till-många-relationer innehåller det här objektet ett `name`-attribut som är &quot;link object&quot; eller det överordnade objektet att länka till, och ett `field`-attribut som är &quot;link field,&quot;  eller fältet i det överordnade objektet som ska användas som nyckelattribut.  Anropa slutpunkten [Hämta länkade objekt för anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectTypeLinkableObjectsUsingGET) för att hämta en lista över tillåtna läntobjekt.  Mer information om länkfält finns i produktdokumentationen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-fields). Ett anpassat objekt kan inte länka till ett annat anpassat objekt som har ett befintligt länkfält.
 
 ### En-till-många-relation
 
-För en anpassad objektstruktur med en-till-många använder du ett länkfält i ett anpassat objekt för att ansluta det till ett standardobjekt: Lead eller Company. Med hjälp av bilägarexemplet från Marketo produktdokumentation [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) skapar vi ett anpassat objekt som innehåller bilrelaterad information för att ansluta till leads.
+För en anpassad objektstruktur med en-till-många använder du ett länkfält i ett anpassat objekt för att ansluta det till ett standardobjekt: Lead eller Company. Med hjälp av bilägarexemplet från Marketo produktdokumentation [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) skapar vi ett anpassat objekt som innehåller bilrelaterad information för att ansluta till leads.
 
 1. Skapa ett **bildobjekt**
 1. Lägg till fält i **Car**-objektet: ta bort på **VIN**, länka till **Lead***/Lead-ID**
@@ -990,13 +990,13 @@ POST /rest/v1/customobjects/schema/course/approve.json
 
 ### Många-till-många-relation
 
-Många-till-många-relationer representeras med ett&quot;brygga&quot;, eller mellanliggande, anpassat objekt mellan ett anpassat standardobjekt, som Lead eller Company, och ett anpassat&quot;edge&quot;-objekt. edge-objektet är den primära entiteten som innehåller beskrivande attribut (fält). Bryggobjektet innehåller de data som behövs för att lösa objektrelationerna med hjälp av två länkfält.  Ett länkfält pekar tillbaka till det överordnade standardobjektet precis som i en  1:N-relationskonfiguration.  Det andra länkfältet pekar på kantobjektet, som är ett anpassat objekt utan länkar.  Bryggobjektet kan också innehålla beskrivande attribut (fält). Med hjälp av exemplet på högskoleregistrering från Marketo produktdokumentation [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) skapar vi ett anpassat kantobjekt som innehåller kursrelaterad information och ett registreringsbryggobjekt som används för att ansluta kurser med leads. Så här gör du:
+Många-till-många-relationer representeras med ett&quot;brygga&quot;, eller mellanliggande, anpassat objekt mellan ett anpassat standardobjekt, som Lead eller Company, och ett anpassat&quot;edge&quot;-objekt. edge-objektet är den primära entiteten som innehåller beskrivande attribut (fält). Bryggobjektet innehåller de data som behövs för att lösa objektrelationerna med hjälp av två länkfält.  Ett länkfält pekar tillbaka till det överordnade standardobjektet precis som i en  1:N-relationskonfiguration.  Det andra länkfältet pekar på kantobjektet, som är ett anpassat objekt utan länkar.  Bryggobjektet kan också innehålla beskrivande attribut (fält). Med hjälp av exemplet på högskoleregistrering från Marketo produktdokumentation [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/add-marketo-custom-object-link-fields#AddMarketoCustomObjectLinkFields-CreateaLinkFieldforaOne-to-ManyStructure) skapar vi ett anpassat kantobjekt som innehåller kursrelaterad information och ett registreringsbryggobjekt som används för att ansluta kurser med leads. Så här gör du:
 
 1. Skapa ett **Kurs**-kantobjekt
 1. Lägg till fält i **Kurs:** deduplicera på **Kurs-ID**
 1. Godkänn **kurs**
 1. Skapa ett **Registreringsbryggobjekt**
-1. Lägg till fält i **Registrering:** deduplicering på **Registrerings-ID**, länka till fältet **Kurs***/Kurs-ID **&#x200B; och länka till fältet &#x200B;** Lead&#x200B;**&#x200B;**/Lead-ID**
+1. Lägg till fält i **Registrering:** deduplicering på **Registrerings-ID**, länka till fältet **Kurs***/Kurs-ID** och länka till fältet **Lead****/Lead-ID**
 1. Godkänn **registrering**
 
 Skapa först kantobjekttypen som innehåller kursspecifik information:
@@ -1173,7 +1173,7 @@ POST /rest/v1/customobjects/schema/enrollment/approve.json
 }
 ```
 
-Du kan fylla i anpassade objektposter programmatiskt med [Synkronisera anpassat objekt](#create_and_update) eller [Importera anpassat objekt gruppvis](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=sv-SE). Du kan också använda Marketo-gränssnittsfunktionen [Importera anpassade objektdata](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data).
+Du kan fylla i anpassade objektposter programmatiskt med [Synkronisera anpassat objekt](#create_and_update) eller [Importera anpassat objekt gruppvis](https://experienceleague.adobe.com/docs/marketo-developer/marketo/rest/bulk-import/bulk-custom-object-import.html?lang=en). Du kan också använda Marketo-gränssnittsfunktionen [Importera anpassade objektdata](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/import-custom-object-data).
 
 ## Uppdatera fält
 

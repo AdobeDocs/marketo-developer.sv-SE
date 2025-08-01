@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Information om Leads-API-anrop
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 7a3df193e47e7ee363c156bf24f0941879c6bd13
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '3338'
 ht-degree: 0%
@@ -37,20 +37,20 @@ GET /rest/v1/leads/describe.json
 ### Svar
 
 ```json
-{  
+{
    "requestId":"37ca#1475b74e276",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":2,
          "displayName":"Company Name",
          "dataType":"string",
          "length":255,
-         "rest":{  
+         "rest":{
             "name":"company",
             "readOnly":false
          },
-         "soap":{  
+         "soap":{
             "name":"Company",
             "readOnly":false
          }
@@ -58,7 +58,7 @@ GET /rest/v1/leads/describe.json
 }
 ```
 
-Vanligtvis innehåller svaren en mycket större uppsättning fält i resultatarrayen, men vi utelämnar dem i demonstrationssyfte. Varje objekt i resultatarrayen motsvarar ett fält som är tillgängligt på lead-posten och har minst ett id, ett displayName och en datatyp. Resten och de underordnade soap-objekten kan finnas med eller inte för ett givet fält, och dess närvaro visar om fältet är giltigt för användning i antingen REST- eller SOAP-API:er. Egenskapen `readOnly` anger om fältet är skrivskyddat via motsvarande API (REST eller SOAP). Egenskapen length anger fältets maximala längd om den finns. Egenskapen dataType anger fältets datatyp.
+Vanligtvis innehåller svaren en mycket större uppsättning fält i resultatarrayen, men vi utelämnar dem i demonstrationssyfte. Varje objekt i resultatarrayen motsvarar ett fält som är tillgängligt på lead-posten och har minst ett id, ett displayName och en datatyp. Resten och de underordnade soap-objekten kan finnas med eller inte för ett visst fält, och dess närvaro visar om fältet är giltigt för användning i antingen REST- eller SOAP-API:erna. Egenskapen `readOnly` anger om fältet är skrivskyddat via motsvarande API (REST eller SOAP). Egenskapen length anger fältets maximala längd om den finns. Egenskapen dataType anger fältets datatyp.
 
 ## Fråga
 
@@ -99,7 +99,7 @@ Hämta leads efter filtertyp returnerar samma typ av poster, men kan returnera u
 
 `filterValues` accepterar upp till 300 värden i kommaavgränsat format. Samtalet söker efter poster där leadets fält matchar en av de inkluderade `filterValues`. Om antalet leads som matchar leadfiltret är större än 1 000 returneras ett fel: &quot;1 003, för många resultat matchar filtret&quot;.
 
-Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP-fel: &quot;414, URI för lång&quot; (per RFC 7231). Du kan komma runt problemet genom att ändra GETEN till POST, lägga till parametern _method=GET och placera en frågesträng i begärandetexten.
+Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP-fel: &quot;414, URI för lång&quot; (per RFC 7231). Du kan komma runt problemet genom att ändra din GET till POST, lägga till parametern _method=GET och placera en frågesträng i begärandetexten.
 
 ### Begäran
 
@@ -175,21 +175,21 @@ POST /rest/v1/leads.json
 ### Brödtext
 
 ```json
-{  
+{
    "action":"createOnly",
    "lookupField":"email",
-   "input":[  
-      {  
+   "input":[
+      {
          "email":"kjashaedd-1@klooblept.com",
          "firstName":"Kataldar-1",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-2@klooblept.com",
          "firstName":"Kataldar-2",
          "postalCode":"04828"
       },
-      {  
+      {
          "email":"kjashaedd-3@klooblept.com",
          "firstName":"Kataldar-3",
          "postalCode":"04828"
@@ -201,19 +201,19 @@ POST /rest/v1/leads.json
 ### Svar
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "id":50,
          "status":"created"
       },
-      {  
+      {
          "id":51,
          "status":"created"
       },
-      {  
+      {
          "id":52,
          "status":"created"
       }
@@ -417,7 +417,7 @@ GET /rest/v1/leads/schema/fields.json
 
 ## Skapa fält
 
-Slutpunkten Skapa lead-fält skapar ett eller flera anpassade fält på lead-objektet. Den här slutpunkten har funktioner som är jämförbara med vad som finns i användargränssnittet i Marketo Engage. Du kan skapa upp till 100 anpassade fält med den här slutpunkten.
+Slutpunkten Skapa lead-fält skapar ett eller flera anpassade fält på lead-objektet. Den här slutpunkten har funktioner som är jämförbara med de som finns i Marketo Engage användargränssnitt. Du kan skapa upp till 100 anpassade fält med den här slutpunkten.
 Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t.  När ett fält har skapats kan du inte ta bort det (du kan bara dölja det). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
 
 Den obligatoriska indataparametern är en array med lead-fältobjekt. Varje objekt innehåller ett eller flera attribut. Attribut som krävs är `displayName`, `name` och `dataType` som motsvarar fältets gränssnittsvisningsnamn, fältets API-namn och fälttypen.  Du kan också ange `description`, `isHidden`, `isHtmlEncodingInEmail` och `isSensitive`.
@@ -474,7 +474,7 @@ POST /rest/v1/leads/schema/fields.json
 
 ## Uppdatera fält
 
-Slutpunkten Uppdatera lead-fält uppdaterar ett enskilt anpassat fält på lead-objektet. För det mesta kan fältuppdateringsåtgärder som utförs med användargränssnittet i Marketo Engage utföras med API:t. I tabellen nedan sammanfattas några skillnader.
+Slutpunkten Uppdatera lead-fält uppdaterar ett enskilt anpassat fält på lead-objektet. För det mesta går det att utföra fältuppdateringsåtgärder som utförs med Marketo Engage-gränssnittet med API:t. I tabellen nedan sammanfattas några skillnader.
 
 <table>
 <tbody>
@@ -700,7 +700,7 @@ Slutpunkten Skicka formulär har stöd för följande funktioner:
 * Tillåter lead-association baserat på cookie-värde
 * Utför validering av formulärfält
 
-När du skickar ett formulär följer du standarddatabasmönstret för lead. En enda objektpost skickas i den nödvändiga indatamedlemmen i JSON-brödtexten för en POST-begäran. Den obligatoriska `formId`-medlemmen innehåller Marketo-målformulär-ID:t.
+När du skickar ett formulär följer du standarddatabasmönstret för lead. En enda objektpost skickas i den obligatoriska indatamedlemmen i JSON-brödtexten för en POST-begäran. Den obligatoriska `formId`-medlemmen innehåller Marketo-målformulär-ID:t.
 
 Det valfria `programId` kan användas för att ange vilket program som leadet ska läggas till i och/eller ange vilket program som anpassade fält för programmedlemmar ska läggas till i. Om `programId` anges läggs leadet till i programmet och alla programmedlemsfält som finns i formuläret läggs också till. Observera att det angivna programmet måste finnas på samma arbetsyta som formuläret. Om formuläret inte innehåller anpassade fält för programmedlemmar och `programId` inte har angetts läggs lead inte till i ett program. Om formuläret finns i ett program och `programId` inte tillhandahålls, används det programmet när det finns ett eller flera anpassade fält för programmedlemmar i formuläret.
 
@@ -764,7 +764,7 @@ Content-Type: application/json
 }
 ```
 
-Här ser vi motsvarande &quot;Fyll i formulär&quot;-aktivitetsinformation inifrån användargränssnittet för Marketo Engage:
+Här ser vi motsvarande &quot;Fyll i formulär&quot;-aktivitetsinformation inifrån Marketo Engage-gränssnittet:
 
 ![Gränssnitt för att fylla i formulär](assets/fill_out_form_activity_details.png)
 
@@ -781,7 +781,7 @@ POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ### Svar
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -804,7 +804,7 @@ POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marke
 ### Svar
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true
 }
@@ -816,7 +816,7 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Get Leads by Filter Type, men filterType och filterValues kan inte användas med denna API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ### Begäran
 
@@ -827,14 +827,14 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ### Svar
 
 ```json
-{ 
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
    "nextPageToken":
 "PS5VL5WD4UOWGOUCJR6VY7JQO2KUXL7BGBYXL4XH4BYZVPYSFBAONP4V4KQKN4SSBS55U4LEMAKE6===",
     "result":[
        {
-            "id":50,  
+            "id":50,
             "email":"kjashaedd@klooblept.com",
             "firstName":"Kataldar",
              "postalCode":"04828"
@@ -843,11 +843,11 @@ GET /rest/v1/list/{listId}/leads.json?batchSize=3
            "id":2343,
            "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
-           "postalCode":"04828" 
+           "postalCode":"04828"
        },
       {
            "id":88498,
-           "email":"kjashaedd@klooblept.com", 
+           "email":"kjashaedd@klooblept.com",
            "firstName":"Kataldar",
          "postalCode":"04828"
          }

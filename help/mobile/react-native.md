@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installera React Native för Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: e7cb23c4d578d949553b2b7a6e127d6be54cdf23
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '811'
+source-wordcount: '810'
 ht-degree: 0%
 
 ---
@@ -16,11 +16,11 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## Förutsättningar
 
-[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 
-## SDK-integrering
+## SDK Integration
 
-### Integrering med Android SDK
+### Android SDK Integration
 
 **Konfigurera med Gradle**
 
@@ -32,7 +32,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 **Lägg till mavencentral-databas**
 
-Marketo SDK är tillgängligt på [maven central databas](https://mvnrepository.com/). Om du vill synkronisera dessa filer lägger du till databasen `mavencentral` i roten `build.gradle`
+Marketo SDK finns på [maven central databas](https://mvnrepository.com/). Om du vill synkronisera dessa filer lägger du till databasen `mavencentral` i roten `build.gradle`
 
 ```
 build script {
@@ -45,15 +45,15 @@ build script {
 
 Synka sedan projektet med grå filer.
 
-#### Integrering med iOS SDK
+#### iOS SDK Integration
 
-Innan du skapar en bro för ditt React Native-projekt är det viktigt att du ställer in SDK i Xcode-projektet.
+Innan du skapar en bro för ditt React Native-projekt är det viktigt att du skapar din SDK i Xcode-projektet.
 
 **SDK-integrering - Använder CocoaPods**
 
 Det är enkelt att använda iOS SDK i appen. Utför följande steg för att konfigurera den i appens Xcode-projekt med CocoaPods, så att du kan integrera vår plattform med appen.
 
-Hämta [CocoaPods](https://cocoapods.org/) - Distribueras som en Ruby Gem, det är en beroendehanterare för Objective-C och Swift som förenklar processen att använda tredjepartsbibliotek i koden, till exempel iOS SDK.
+Hämta [CocoaPods](https://cocoapods.org/) - Distribueras som en Ruby Gem. Det är en beroendehanterare för Objective-C och Swift som förenklar processen att använda tredjepartsbibliotek i koden, till exempel iOS SDK.
 
 Om du vill hämta och installera programmet startar du en kommandoradsterminal på din Mac och kör följande kommando på den:
 
@@ -85,11 +85,11 @@ Ibland behöver en React Native-app ha åtkomst till ett API för en intern plat
 
 NativeModule-systemet exponerar instanser av Java/Objective-C/C++ (native)-klasser för JavaScript (JS) som JS-objekt, vilket gör att du kan köra godtycklig systemspecifik kod inifrån JS. Även om vi inte förväntar oss att den här funktionen ska ingå i den vanliga utvecklingsprocessen är det viktigt att den finns. Om React Native inte exporterar ett systemspecifikt API som JS-appen behöver, bör du kunna exportera det själv!
 
-React Native bridge används för kommunikation mellan JSX-lagren och inbyggda applager. I vårt fall kan värdappen skriva JSX-koden som kan anropa Marketo SDK:s metoder.
+React Native bridge används för kommunikation mellan JSX-lagren och inbyggda applager. I vårt fall kan värdappen skriva JSX-koden som kan anropa Marketo SDK-metoder.
 
 ### Android
 
-Den här filen innehåller wrapper-metoder som kan anropa Marketo SDK:s metoder internt med parametrar som du anger.
+Den här filen innehåller wrapper-metoder som kan anropa Marketo SDK-metoder internt med parametrar som du anger.
 
 ```
 public class RNMarketoModule extends ReactContextBaseJavaModule {
@@ -141,7 +141,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
       public void initializeSDK(String frameworkType, String munchkinId, String appSecreteKey){
           marketoSdk.initializeSDK(munchkinId,appSecreteKey,frameworkType);
     }
-   
+
 
    @ReactMethod
    public void initializeMarketoPush(String projectId){
@@ -189,7 +189,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
            modules.add(new RNMarketoModule(reactContext));
 
-           return modules;    
+           return modules;
    }
 
    @NonNull
@@ -204,14 +204,14 @@ Slutför paketregistreringen genom att lägga till MarketoPluginPackage i listan
 
 ```
 public class MainApplication extends Application implements ReactApplication {
- 
+
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
- 
+
         @Override
         protected List getPackages() {
           @SuppressWarnings("UnnecessaryLocalVariable")
@@ -243,7 +243,7 @@ Skapa vår huvudrubrik och implementeringsfiler för den egna modulen. Skapa en 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MktoBridge : NSObject 
+@interface MktoBridge : NSObject
 
 @end
 
@@ -280,18 +280,18 @@ NS_ASSUME_NONNULL_END
 #import <React/RCTBridge.h>
 #import "ConstantStringsHeader.h"
 
-@implementation MktoBridge 
+@implementation MktoBridge
 
 RCT_EXPORT_MODULE(RNMarketoModule);
- 
+
 +(BOOL)requiresMainQueueSetup{
   return NO;
 }
- 
+
 RCT_EXPORT_METHOD(initializeSDK:(NSString *) munchkinId SecretKey: (NSString *) secretKey andFrameworkType: (NSString *) frameworkType){
   [[Marketo sharedInstance] initializeWithMunchkinID:munchkinId appSecret:secretKey mobileFrameworkType:frameworkType launchOptions:nil];
 }
- 
+
 RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary *)metaData){
   MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
   [meta setType:[metaData objectForKey:KEY_ACTION_TYPE]];
@@ -300,7 +300,7 @@ RCT_EXPORT_METHOD(reportAction:(NSString *)actionName withMetaData:(NSDictionary
   [meta setMetric:[metaData valueForKey:KEY_ACTION_METRIC]];
   [[Marketo sharedInstance] reportAction:actionName withMetaData:meta];
 }
- 
+
 RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   MarketoLead *lead = [[MarketoLead alloc] init];
   if ([leadDetails objectForKey:KEY_EMAIL] != nil) {
@@ -309,32 +309,32 @@ RCT_EXPORT_METHOD(associateLead:(NSDictionary *)leadDetails){
   if ([leadDetails objectForKey:KEY_FIRST_NAME] != nil) {
     [lead setFirstName:[leadDetails objectForKey:KEY_FIRST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_LAST_NAME] != nil) {
     [lead setLastName:[leadDetails objectForKey:KEY_LAST_NAME]];
   }
-  
+
   if ([leadDetails objectForKey:KEY_CITY] != nil) {
     [lead setCity:[leadDetails objectForKey:KEY_CITY]];
   }
     [[Marketo sharedInstance] associateLead:lead];
 }
- 
+
 RCT_EXPORT_METHOD(uninitializeMarketoPush){
   [[Marketo sharedInstance] unregisterPushDeviceToken];
 }
- 
+
 RCT_EXPORT_METHOD(reportAll){
   [[Marketo sharedInstance] reportAll];
 }
- 
+
 RCT_EXPORT_METHOD(setSecureSignature:(NSDictionary *)secureSignature){
   MKTSecuritySignature *secSignature = [[MKTSecuritySignature alloc]
                                         initWithAccessKey:[secureSignature objectForKey:KEY_ACCESSKEY]
                                         signature:[secureSignature objectForKey:KEY_SIGNATURE]
                                         timestamp: [secureSignature objectForKey:KEY_EMAIL]
                                         email:[secureSignature objectForKey:KEY_EMAIL]];
-  
+
     [[Marketo sharedInstance] setSecureSignature:secSignature];
 }
 
@@ -374,7 +374,7 @@ const NewModuleButton = () => {
   };
 
   return (
-    
+
   );
   };
 
@@ -430,8 +430,8 @@ Lägg till följande tjänst i `AndroidManifest.xml`
     <intent-filter>
         <action  android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
     </intent-filter/>
-    <intent-filter> 
-        <action android:name="com.google.firebase.MESSAGING_EVENT"/> 
+    <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
     </intent-filter/>
 </activity/>
 ```
@@ -530,7 +530,7 @@ Uppdatera `AppDelegate.mm` med APNS-delegeringsmetoder:
   return [self bundleURL];
 }
 
--(void)userNotificationCenter:(UNUserNotificationCenter *)center 
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center
       willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler{
     completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
 }
@@ -538,7 +538,7 @@ Uppdatera `AppDelegate.mm` med APNS-delegeringsmetoder:
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void(^)(void))completionHandler {
-    [[Marketo sharedInstance] userNotificationCenter:center 
+    [[Marketo sharedInstance] userNotificationCenter:center
                       didReceiveNotificationResponse:response
                                withCompletionHandler:completionHandler];
 }
@@ -601,10 +601,10 @@ Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 

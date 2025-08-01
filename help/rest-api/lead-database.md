@@ -3,9 +3,9 @@ title: Lead-databas
 feature: REST API, Database
 description: Ändra huvuddatabasen för lead.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '1345'
+source-wordcount: '1342'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,7 @@ Leaddatabasobjekten innehåller följande:
 - AffärsmöjlighetRoller
 - SalesPeople
 - Anpassade objekt
-- Verksamhet
+- Aktiviteter
 - List- och programmedlemskap
 
 De flesta av dessa objekt omfattar åtminstone metoderna Skapa, Läs, Uppdatera och Ta bort. Dessutom ingår en&quot;Beskriv&quot;-metod som innehåller en lista med tillgängliga fält för varje typ, och en lista med fält som används för borttagning av dubbletter (för icke-lead-objekt) och vilka fält som är sökbara för hämtning av poster. Den bästa uppsättningen finns för leads eftersom de har de största möjligheterna inom Marketo program.
@@ -34,7 +34,7 @@ De flesta av dessa objekt omfattar åtminstone metoderna Skapa, Läs, Uppdatera 
 
 En fullständig lista över Lead Database API-slutpunkter, inklusive parametrar och modelleringsinformation finns i [API-slutpunktsreferens för lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/).
 
-För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft Dynamics eller Salesforce.com) är API:erna Company, Opportunity, Opportunity Role och Sales Person inaktiverade. Posterna hanteras via CRM när de är aktiverade och kan inte öppnas eller uppdateras via Marketo API:er.
+För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft Dynamics eller Salesforce.com) inaktiveras API:erna Company, Opportunity, Opportunity Role och Sales Person. Posterna hanteras via CRM när de är aktiverade och kan inte öppnas eller uppdateras via Marketo API:er.
 
 - Maximal batchstorlek (standard): 300 poster
 - Maximal batchstorlek (bulk): 10 MB fil
@@ -51,72 +51,72 @@ GET /rest/v1/opportunities/roles/describe.json
 ```
 
 ```json
-{  
+{
    "requestId":"185d6#14b51985ff0",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "name":"opportunityRole",
          "displayName":"Opportunity Role",
          "createdAt":"2015-02-03T22:36:23Z",
          "updatedAt":"2015-02-03T22:36:24Z",
          "idField":"marketoGUID",
-         "dedupeFields":[  
+         "dedupeFields":[
             "externalOpportunityId",
             "leadId",
             "role"
          ],
-         "searchableFields":[  
-            [  
+         "searchableFields":[
+            [
                "externalOpportunityId",
                "leadId",
                "role"
             ],
-            [  
+            [
                "marketoGUID"
             ],
-            [  
+            [
                "leadId"
             ],
-            [  
+            [
                "externalOpportunityId"
             ]
          ],
-         "fields":[  
-            {  
+         "fields":[
+            {
                "name":"marketoGUID",
                "displayName":"Marketo GUID",
                "dataType":"string",
                "length":36,
                "updateable":false
             },
-            {  
+            {
                "name":"externalOpportunityId",
                "displayName":"External Opportunity Id",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"leadId",
                "displayName":"Lead Id",
                "dataType":"integer",
                "updateable":false
             },
-            {  
+            {
                "name":"role",
                "displayName":"Role",
                "dataType":"string",
                "length":50,
                "updateable":false
             },
-            {  
+            {
                "name":"isPrimary",
                "displayName":"Is Primary",
                "dataType":"boolean",
                "updateable":true
             },
-            {  
+            {
                "name":"externalCreatedDate",
                "displayName":"External Created Date",
                "dataType":"datetime",
@@ -140,7 +140,7 @@ Leaddatabasobjekt har alla gemensamma grundmönster för frågor mot enkla nyckl
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
-För alla objekt utom leads kan du välja {field to query} från sökbara fält i motsvarande describe-anrop och skapa en kommaseparerad lista på upp till 300 värden. Det finns även följande valfria frågeparametrar:
+För alla objekt utom leads kan du välja {field to query} bland sökbara fält i motsvarande describe-anrop och skapa en kommaseparerad lista på upp till 300 värden. Det finns även följande valfria frågeparametrar:
 
 - `batchSize` - Ett heltal av antalet resultat som ska returneras. Standard och Maximum är 300.
 - `nextPageToken` - Token returnerades från ett tidigare anrop för sidindelning. Mer information finns i [Utskriftstoken](paging-tokens.md).
@@ -154,11 +154,11 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fa ",
          "externalOpportunityId":"19UYA31581L000000",
@@ -167,7 +167,7 @@ GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "seq":1,
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fc ",
          "externalOpportunityId":"29UYA31581L000000",
@@ -186,7 +186,7 @@ Om uppsättningen med poster i frågan överstiger 300 eller `batchSize` som har
 
 ### Långa URI:er
 
-Ibland, t.ex. vid sökning med GUID, kan din URI vara lång och överskrida 8 kB som tillåts av REST-tjänsten. I det här fallet måste du använda metoden HTTP-POST i stället för GET och lägga till en frågeparameter, `_method=GET`. Dessutom måste resten av frågeparametrarna skickas i POSTEN som en &quot;application/x-www-form-urlencoded&quot;-sträng, och den associerade Content-type-rubriken skickas.
+Ibland, t.ex. vid sökning med GUID, kan din URI vara lång och överskrida 8 kB som tillåts av REST-tjänsten. I det här fallet måste du använda HTTP POST-metoden i stället för GET och lägga till en frågeparameter, `_method=GET`. Dessutom måste resten av frågeparametrarna skickas i POST-brödtexten som en &quot;application/x-www-form-urlencoded&quot;-sträng, och den associerade Content-type-rubriken skickas.
 
 ```
 POST /rest/v1/opportunities.json?_method=GET
@@ -204,33 +204,33 @@ Förutom långa URI:er krävs den här parametern även när sammansatta nycklar
 
 ### Sammansatta tangenter
 
-Mönstret för att fråga efter sammansatta tangenter skiljer sig från enkla tangenter, eftersom en POST med JSON-brödtext måste skickas. Detta är inte nödvändigt i alla fall, endast i de fall där ett `dedupeFields`-alternativ med flera fält används som `filterType`. För närvarande används sammansatta nycklar bara av säljprojektsroller och vissa anpassade objekt. Vi tittar på ett exempel på en fråga om säljprojektsroller med den sammansatta nyckeln från `dedupeFields`:
+Mönstret för att fråga efter sammansatta nycklar skiljer sig från enkla nycklar, eftersom det kräver att en POST skickas med en JSON-brödtext. Detta är inte nödvändigt i alla fall, endast i de fall där ett `dedupeFields`-alternativ med flera fält används som `filterType`. För närvarande används sammansatta nycklar bara av säljprojektsroller och vissa anpassade objekt. Vi tittar på ett exempel på en fråga om säljprojektsroller med den sammansatta nyckeln från `dedupeFields`:
 
 ```
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
 ```json
-{  
+{
    "filterType":"dedupeFields",
-   "fields":[  
+   "fields":[
       "marketoGuid",
       "externalOpportunityId",
       "leadId",
       "role"
    ],
-   "input":[  
-      {  
+   "input":[
+      {
         "externalOpportunityId":"Opportunity1",
         "leadId": 1,
         "role": "Captain"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity2",
         "leadId": 1872,
         "role": "Commander"
       },
-      {  
+      {
         "externalOpportunityId":"Opportunity3",
         "leadId": 273891,
         "role": "Lieutenant Commander"
@@ -254,18 +254,18 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "action":"createOrUpdate",
    "dedupeBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "externalOpportunityId":"19UYA31581L000000",
          "name":"Chairs",
          "description":"Chairs",
          "amount":"1604.47",
          "source":"Inbound Sales Call/Email"
       },
-      {  
+      {
          "externalOpportunityId":"29UYA31581L000000",
          "name":"Big Dog Day Care-Phase12",
          "description":"Big Dog Day Care-Phase12",
@@ -277,16 +277,16 @@ POST /rest/v1/opportunities.json
 ```
 
 ```json
-{  
+{
    "requestId":"e42b#14272d07d78",
    "success":true,
-   "result":[  
-      {  
+   "result":[
+      {
          "seq":0,
          "status":"updated",
          "marketoGUID":"dff23271-f996-47d7-984f-f2676861b5fb"
       },
-      {  
+      {
          "seq":1,
          "status":"created",
          "marketoGUID":"cff23271-f996-47d7-984f-f2676861b5fb"
@@ -306,16 +306,16 @@ POST /rest/v1/customobjects/{name}/delete.json
 ```
 
 ```json
-{  
+{
    "deleteBy":"dedupeFields",
-   "input":[  
-      {  
+   "input":[
+      {
          "vin":"19UYA31581L000000"
       },
-      {  
+      {
          "vin":"29UYA31581L000000"
       },
-      {  
+      {
          "vin":"39UYA31581L000000"
       }
    ]

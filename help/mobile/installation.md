@@ -3,9 +3,9 @@ title: Installation
 feature: Mobile Marketing
 description: Installera SDK:er för Mobile Marketo
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '758'
+source-wordcount: '757'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ### Installera Framework via CocoaPods
@@ -59,7 +59,7 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 ## Initiera SDK
 
-Innan du kan använda Marketo iOS SDK måste du initiera det med ditt konto-ID för Munchkin och App Secret Key. Var och en av dessa finns under&quot;Mobilappar och enheter&quot; i Marketo Admin.
+Innan du kan använda Marketo iOS SDK måste du initiera det med ditt Munchkin konto-ID och App Secret Key. Var och en av dessa finns under&quot;Mobilappar och enheter&quot; i Marketo Admin.
 
 1. Öppna filen AppDelegate.m (Objective-C) eller filen Bridging (Swift) och importera Marketo.h-huvudfilen.
 
@@ -91,7 +91,7 @@ sharedInstance.initialize(withMunchkinID: "munchkinAccountId", appSecret: "secre
 
 >[!ENDTABS]
 
-1. Ersätt `munkinAccountId` och `secretKey` ovan med ditt konto-ID för Munchkin och Hemlig nyckel som finns i avsnittet Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]**.
+1. Ersätt `munkinAccountId` och `secretKey` ovan med ditt Munchkin konto-ID och Hemlig nyckel som finns i avsnittet Marketo **[!UICONTROL Admin]** > **[!UICONTROL Mobile Apps and Devices]**.
 
 ## iOS Test Devices
 
@@ -110,10 +110,10 @@ sharedInstance.initialize(withMunchkinID: "munchkinAccountId", appSecret: "secre
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
-   
+
     return [[Marketo sharedInstance] application:app
                                          openURL:url
-                                         options:options];    
+                                         options:options];
 }
 ```
 
@@ -132,11 +132,11 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md#android_setup_push) (valfritt)
 1. [Hämta Marketo SDK för Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
-### Installation av Android SDK med Gradle
+### Android SDK Setup with Gradle
 
 1. Lägg till under avsnittet Beroenden i filen build.gradle på programnivå
 
@@ -175,7 +175,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 1. ProGuard-konfiguration (valfritt)
 
-   Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
+   Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från den komplicerade processen.
 
    ```
    -dontwarn com.marketo.*
@@ -200,7 +200,7 @@ Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 ## Stöd för Firebase Cloud Messaging
 
-MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller mer flexibilitet och nya tekniska funktioner för din Android-apputvecklare.
+MME Software Development Kit (SDK) för Android har uppdaterats till ett modernare, stabilare och skalbart ramverk som innehåller större flexibilitet och nya tekniska funktioner för din Android-apputvecklare.
 
 Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) (FCM) med denna SDK.
 
@@ -208,8 +208,8 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/)Firebase-konsolen.
-      1. Välj `Add Project` i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&amp;osid=1&amp;continue=https://console.firebase.google.com/&amp;followup=https://console.firebase.google.com/).
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj [ i ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen`Add Project`.
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
       1. Välj `Add Firebase to your Android App` på välkomstskärmen i Firebase.
       1. Ange ditt paketnamn och SHA-1 och välj `Add App`. En ny `google-services.json`-fil för din Firebase-app hämtas.
@@ -236,8 +236,8 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
             ```
             dependencies {
               compile 'com.google.firebase:firebase-core:17.4.0'
-            } 
-            // Add to the bottom of the file 
+            }
+            // Add to the bottom of the file
             apply plugin: 'com.google.gms.google-services'
             ```
 
@@ -258,6 +258,6 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
         <intent-filter>
           <action android:name="com.google.android.c2dm.intent.RECEIVE" />
           <category android:name="<your-package-name> />
-        </intent-filter> 
+        </intent-filter>
       </receiver>
       ```

@@ -3,10 +3,10 @@ title: Web Personalization
 description: Web Personalization
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '401'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Personalization JavaScript API utökar plattformens automatiserade personaliseringsfunktion. Det gör det möjligt att spåra händelser och anpassa en webbsida dynamiskt. Ytterligare funktioner: [Anpassade datahändelser](custom-data-events.md), [dynamiskt innehåll](web-personalization.md), [Hämta besöksdata](get-visitor-data.md), [Uteslut tagg för specifika startsidor](#exclude_tag_for_specific_bots).
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Tagginställningar
@@ -22,7 +22,7 @@ Personalization JavaScript API utökar plattformens automatiserade personaliseri
 RTP-taggen ska infogas i sidhuvudet på den anpassade sidan.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 (function(c,h,a,f,e,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 c[a].p=e;c[a].a=i;var g=h.createElement("script");g.async=true;g.type="text/javascript";
@@ -76,7 +76,7 @@ Om du inte vill att vissa webbläsare ska kunna skicka data till Personalization
 I kodexemplet nedan används&quot;Googlebot|msnbot&quot; som båda exempel för att exkludera Personalization-aktiviteter från Web.
 
 ```javascript
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 if(navigator.userAgent.match(/.(Googlebot|msnbot)./gi) == null){
     (function(c,h,a,f,i){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -99,7 +99,7 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder Web
 
 | Namn | Beskrivning | Kontroll |
 |---------------------------|-------------|--------------------------------------------------------|
-| rtp.js | - | Kontrolleras av Marketo |
+| rtp.js | – | Kontrolleras av Marketo |
 | jquery.min.js | v1.8.3 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | jquery-custom-ui-min.js | v1.9.2 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | query-ui-1.8.17-dialog.js | v1.9.2* | Kan inaktiveras genom att kontakta Marketo kundsupport |
@@ -113,5 +113,5 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder Web
 |-------------------------|-----------------------------------------------------------------------|-----------------------|
 | ga-integration-2.0.1.js | Används om integreringen mellan Google Analytics/Facebook/SiteCatalyst är aktiverad | Kontrolleras av Marketo |
 | insightera-bar-2.1.js | Används om rekommendationsfältet för prediktivt innehåll är aktiverat | Kontrolleras av Marketo |
-| froogaloop2.min.js | Används om innehållsspårning är aktiverat och Vimeo-spelaren finns på sidan | - |
-| iframe-api-v1.js | Används om innehållsspårning är aktiverat och YouTube-spelaren finns på sidan | - |
+| froogaloop2.min.js | Används om innehållsspårning är aktiverat och Vimeo-spelaren finns på sidan | – |
+| iframe-api-v1.js | Används om innehållsspårning är aktiverat och YouTube-spelaren finns på sidan | – |

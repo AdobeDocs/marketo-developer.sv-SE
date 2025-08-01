@@ -3,7 +3,7 @@ title: Autentiseringssignatur
 feature: SOAP
 description: API-säkerhet med autentiseringssignaturer
 exl-id: d6bed8ee-77fa-440c-8f35-a71cf77f45d3
-source-git-commit: 28b040f6473677abaaa0c73f1bb6e887e9e35a81
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '209'
 ht-degree: 0%
@@ -20,7 +20,7 @@ HMAC-SHA1-signaturer kräver följande:
 - En signatur som beräknas med en delad hemlig nyckel och meddelandeinnehåll och överförs med tjänstbegäran
 - En delad hemlig nyckel (kallas även krypteringsnyckel) som inte överförs med tjänstbegäran
 
-Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla SOAP, AuthenticationHeaderInfo, för att autentiseringsinformationen ska kunna skickas med det SOAP meddelandet.
+Klientprogrammet beräknar HMAC-SHA1-signaturen med hjälp av den delade hemliga nyckeln och en del av innehållet i begärandemeddelandet. Klienten måste innehålla ett SOAP-huvud, AuthenticationHeaderInfo, för att autentiseringsinformationen ska kunna skickas med SOAP-meddelandet.
 
 I följande pseudokod demonstreras algoritmen:
 
@@ -43,7 +43,7 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 | Fältnamn | Obligatoriskt/valfritt | Beskrivning |
 | --- | --- | --- |
-| `mktowsUserId` | Obligatoriskt | Marketo klientåtkomst-ID finns på API-panelen för Marketo SOAP under Integrering. |
+| `mktowsUserId` | Obligatoriskt | Marketo klientåtkomst-ID finns på Marketo Admin SOAP API-panel under Integration. |
 | `requestSignature` | Obligatoriskt | HMAC-SHA1-signatur baserad på delad hemlig nyckel, `requestTimestamp` och Marketo användar-ID |
 | `requestTimestamp` | Obligatoriskt | Begär tidsstämpel (W3C WSDL-datumformat Ex. &quot;2013-06-09T14:04:54-08:00&quot;) |
 | `partnerId` | Valfritt | LaunchPoint Technology Partner [API Key](../launchpoint-api.pdf). |
@@ -157,28 +157,28 @@ authHeader = "<ns1:AuthenticationHeader>" +
 
 ```php
 <?php
- 
+
   $marketoSoapEndPoint     = "";  // CHANGE ME
-  $marketoUserId           = "";  // CHANGE ME 
+  $marketoUserId           = "";  // CHANGE ME
   $marketoSecretKey        = "";  // CHANGE ME
   $marketoNameSpace        = "http://www.marketo.com/mktows/";
- 
+
   // Create Signature
   $dtzObj = new DateTimeZone("America/Los_Angeles");
   $dtObj  = new DateTime('now', $dtzObj);
   $timeStamp = $dtObj->format(DATE_W3C);
   $encryptString = $timeStamp . $marketoUserId;
   $signature = hash_hmac('sha1', $encryptString, $marketoSecretKey);
- 
+
   // Create SOAP Header
   $attrs = new stdClass();
   $attrs->mktowsUserId = $marketoUserId;
   $attrs->requestSignature = $signature;
   $attrs->requestTimestamp = $timeStamp;
   $authHdr = new SoapHeader($marketoNameSpace, 'AuthenticationHeader', $attrs);
- 
+
   print_r($authHdr)
- 
+
 ?>
 ```
 
@@ -196,44 +196,44 @@ import javax.crypto.spec.SecretKeySpec;
 import org.apache.commons.codec.binary.Hex;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
- 
+
 public class AuthenticationHeader {
- 
+
     public static void main(String[] args) {
- 
+
         try {
             URL marketoSoapEndPoint = new URL("CHANGE ME" + "?WSDL");
             String marketoUserId = "CHANGE ME";
             String marketoSecretKey = "CHANGE ME";
-             
+
             QName serviceName = new QName("http://www.marketo.com/mktows/", "MktMktowsApiService");
             MktMktowsApiService service = new MktMktowsApiService(marketoSoapEndPoint, serviceName);
             MktowsPort port = service.getMktowsApiSoapPort();
-             
+
             // Create Signature
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
             String text = df.format(new Date());
-            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);           
+            String requestTimestamp = text.substring(0, 22) + ":" + text.substring(22);
             String encryptString = requestTimestamp + marketoUserId ;
-             
+
             SecretKeySpec secretKey = new SecretKeySpec(marketoSecretKey.getBytes(), "HmacSHA1");
             Mac mac = Mac.getInstance("HmacSHA1");
             mac.init(secretKey);
             byte[] rawHmac = mac.doFinal(encryptString.getBytes());
             char[] hexChars = Hex.encodeHex(rawHmac);
-            String signature = new String(hexChars); 
-             
+            String signature = new String(hexChars);
+
             // Set Authentication Header
             AuthenticationHeader header = new AuthenticationHeader();
             header.setMktowsUserId(marketoUserId);
             header.setRequestTimestamp(requestTimestamp);
             header.setRequestSignature(signature);
- 
+
             JAXBContext context = JAXBContext.newInstance(AuthenticationHeader.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
             m.marshal(header, System.out);
- 
+
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -262,9 +262,9 @@ hashedsignature = OpenSSL::HMAC.hexdigest(digest, marketoSecretKey, encryptStrin
 requestSignature = hashedsignature.to_s
 
 #Create SOAP Header
-headers = { 
-    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,                     
-    "requestTimestamp"  => requestTimestamp 
+headers = {
+    'ns1:AuthenticationHeader' => { "mktowsUserId" => mktowsUserId, "requestSignature" => requestSignature,
+    "requestTimestamp"  => requestTimestamp
     }
 }
 

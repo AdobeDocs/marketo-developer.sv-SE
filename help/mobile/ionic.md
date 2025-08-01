@@ -3,7 +3,7 @@ title: '[!DNL Ionic]'
 feature: Mobile Marketing
 description: Använda [!DNL Ionic] med Marketo för mobila enheter
 exl-id: 204e5fb4-c9d6-43a6-9d77-0b2a67ddbed3
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '606'
 ht-degree: 0%
@@ -16,7 +16,7 @@ I det här avsnittet beskrivs hur du integrerar Marketo Cordova-pluginprogrammet
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md) ).
 1. Installera [[!DNL Ionic]](https://ionicframework.com/getting-started/) &amp; [Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -88,7 +88,7 @@ marketo.initialize(
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -99,7 +99,7 @@ marketo.onStart(
 
 - Callback: funktionen som ska köras om Marketo Framework initieras utan fel.
 - Fel vid återanrop: funktionen körs om Marketo Framework inte kan initieras.
-- MUNCHKIN ID: Munchkin ID togs emot från Marketo vid registreringen.
+- MUNCHKIN-id: Munchkin-id som togs emot från Marketo vid registreringen.
 - SECRET KEY : Hemlig nyckel togs emot från Marketo vid registreringen.
 
 ### Initiera push-meddelanden för Marketo
@@ -121,7 +121,7 @@ marketo.initializeMarketoPush(
 
 - Callback: funktionen körs om Marketo push-meddelande initieras utan fel.
 - Fel vid återanrop: funktionen körs om Marketo push-meddelande inte kan initieras.
-- GCM_PROJECT_ID: GCM-projekt-ID hittades i [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&amp;passive=1209600&amp;osid=1&amp;continue=https://console.cloud.google.com/apis/dashboard&amp;followup=https://console.cloud.google.com/apis/dashboard) efter att appen har skapats.
+- GCM_PROJECT_ID: GCM-projekt-ID hittades i [Google Developers Console](https://accounts.google.com/ServiceLogin?service=cloudconsole&passive=1209600&osid=1&continue=https://console.cloud.google.com/apis/dashboard&followup=https://console.cloud.google.com/apis/dashboard) efter att appen har skapats.
 
 Token kan också avregistreras vid utloggning.
 

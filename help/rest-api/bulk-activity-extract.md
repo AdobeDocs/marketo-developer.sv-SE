@@ -3,7 +3,7 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Gruppbearbetning av aktivitetsdata från Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: a5b855691e7fb9e628e2d68fd14a8a6c689d6750
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1332'
 ht-degree: 0%
@@ -116,14 +116,14 @@ POST /bulk/v1/activities/export/create.json
 ```
 
 ```json
-{ 
+{
    "format": "CSV",
-   "filter": { 
-      "createdAt": { 
+   "filter": {
+      "createdAt": {
          "startAt": "2017-07-01T23:59:59-00:00",
          "endAt": "2017-07-31T23:59:59-00:00"
       },
-      "activityTypeIds": [ 
+      "activityTypeIds": [
          1,
          12,
          13

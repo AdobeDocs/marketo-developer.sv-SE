@@ -3,7 +3,7 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Använda PhoneGap med Marketo på mobila enheter
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '797'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Integrering av Marketo PhoneGap Plugin
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
 1. [Installera PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -51,7 +51,7 @@ Kör följande kommando om du vill lägga till plugin-programmet igen:
 När Cordova Android-plattformen har byggts öppnar du appen med Android Studio och uppdaterar värdet `dirs` för filen `Marketo.gradle` som finns i mappen `com.marketo.plugin`.
 
 ```
-repositories{    
+repositories{
   jcenter()
   flatDir{
       dirs '../app/src/main/aar'
@@ -66,8 +66,8 @@ Kontrollera listan över plattformar som lagts till `$cordova platform ls`
 1. Stöd för Firebase Cloud Messaging
 
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://console.firebase.google.com/)Firebase-konsolen.
-      1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://console.firebase.google.com/).
+   1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj [ i ](https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
       1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny `google-services.json`-fil för din Firebase-app hämtas.
@@ -114,11 +114,11 @@ Kontrollera listan över plattformar som lagts till `$cordova platform ls`
             ```
 
 
-### 3. Aktivera push-meddelanden i xCode
+### &#x200B;3. Aktivera push-meddelanden i xCode
 
 Aktivera funktionen för push-meddelanden i xCode-projekt.
 
-### 4. Spåra push-meddelanden
+### &#x200B;4. Spåra push-meddelanden
 
 Klistra in följande kod i funktionen `application:didFinishLaunchingWithOptions:`.
 
@@ -146,7 +146,7 @@ sharedInstance.trackPushNotification(launchOptions)
 
 >[!ENDTABS]
 
-### 5. Initiera Marketo Framework
+### &#x200B;5. Initiera Marketo Framework
 
 Om du vill vara säker på att Marketo-ramverket initieras när appen startas lägger du till följande kod under funktionen `onDeviceReady` i JavaScript huvudfil.
 
@@ -160,11 +160,11 @@ marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
   function(error) { console.log("an error occurred:" + error); },
   'YOUR_MUNCHKIN_ID',
-  'YOUR_SECRET_KEY', 
+  'YOUR_SECRET_KEY',
   'FRAMEWORK_TYPE'
 );
 
-// For session tracking, add following. 
+// For session tracking, add following.
 marketo.onStart(
   function(){ console.log("onStart."); },
   function(error){ console.log("Failed to report onStart." + error); }
@@ -175,10 +175,10 @@ marketo.onStart(
 
 - Callback: funktionen som ska köras om Marketo Framework initieras utan fel.
 - Fel vid återanrop: funktionen körs om Marketo Framework inte kan initieras.
-- MUNCHKIN ID: Munchkin ID togs emot från Marketo vid registreringen.
+- MUNCHKIN-id: Munchkin-id som togs emot från Marketo vid registreringen.
 - SECRET KEY : Hemlig nyckel togs emot från Marketo vid registreringen.
 
-### 6. Initiera push-meddelanden för Marketo
+### &#x200B;6. Initiera push-meddelanden för Marketo
 
 För att vara säker på att Marketo push-meddelanden initieras lägger du till följande kod efter initieringsfunktionen i JavaScript huvudfil.
 

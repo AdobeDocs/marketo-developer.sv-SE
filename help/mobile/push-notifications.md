@@ -3,7 +3,7 @@ title: Push-meddelanden
 feature: Mobile Marketing
 description: Aktivera push-meddelanden för Marketo Mobile
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -44,7 +44,7 @@ Aktivera funktionen för push-meddelanden i xCode-projektet.![](assets/push-xcod
 
 Lägg till följande kod i filen `AppDelegate.m` för att leverera push-meddelanden till dina kunders enheter.
 
-**Obs!** - Använd `ALMarketo` som klassnamn om du använder tillägget [!DNL Adobe Launch]
+**Obs!** - Använd [!DNL Adobe Launch] som klassnamn om du använder tillägget `ALMarketo`
 
 Importera följande i `AppDelegate.h`.
 
@@ -108,7 +108,7 @@ UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotification
 
 ```
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-            
+
     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound,    .badge]) { granted, error in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -118,7 +118,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
                 }
             }
         }
-        
+
         return true
 }
 ```
@@ -216,7 +216,7 @@ Genom att använda den här metoden kan du antingen visa varningsmeddelanden, lj
 >[!TAB Swift]
 
 ```
-func userNotificationCenter(_ center: UNUserNotificationCenter, 
+func userNotificationCenter(_ center: UNUserNotificationCenter,
             willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (
     UNNotificationPresentationOptions) -> Void) {
     completionHandler([.alert, .sound,.badge])
@@ -348,7 +348,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    }
    ```
 
-   **Obs!** - Om du använder tillägget Adobe lägger du till enligt nedan
+   **Obs!** - Om du använder Adobe-tillägget lägger du till enligt nedan
 
    ```java
    import com.marketo.Marketo;
@@ -371,7 +371,7 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    }
    ```
 
-**OBS!** FCM SDK lägger automatiskt till alla nödvändiga behörigheter samt de nödvändiga mottagarfunktionerna. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest om du använde tidigare versioner av SDK
+**Obs!** FCM SDK lägger automatiskt till alla nödvändiga behörigheter samt de nödvändiga mottagarfunktionerna. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest om du har använt tidigare versioner av SDK
 
 ```xml
 <receiver android:name="com.marketo.MarketoBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
@@ -430,13 +430,13 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
    config.setNotificationLargeIcon(bitmap);
    
    // Required icon Resource ID
-   config.setNotificationSmallIcon(R.drawable.notification_small_icon); 
+   config.setNotificationSmallIcon(R.drawable.notification_small_icon);
    
-   // Set the configuration 
+   // Set the configuration
    //Use the static methods on ALMarketo class when using Adobe Extension
-   Marketo.getInstance(context).setNotificationConfig(config); 
+   Marketo.getInstance(context).setNotificationConfig(config);
    
-   // Get the configuration set 
+   // Get the configuration set
    Marketo.getInstance(context).getNotificationConfig();
    ```
 

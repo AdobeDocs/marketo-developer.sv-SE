@@ -3,10 +3,10 @@ title: Rich Media Recommendation
 description: Rich Media Recommendation
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '812'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -21,13 +21,13 @@ Följande taggar och API-anrop måste ställas in på sidan som du vill visa rek
 1. I sidans brödtext
    1. Placera malltaggen (klassen div) på den plats där du vill att mallen ska visas
 
-Mer information finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Malltagg
 
 | Attribut | Valfritt/obligatoriskt | Beskrivning |
 |---|---|---|
-| class | Obligatoriskt | Ange att det här div HTML-elementet är RTP-rekommendation div. |
+| class | Obligatoriskt | Ange att det här div-elementet för HTML är RTP-rekommendation-div. |
 | data-rtp-template-id | Obligatoriskt | Mallens ID. Detta avgör justeringen av din rekommendation. Använd &quot;template1&quot; för vågrät justering, &quot;template2&quot; för lodrät justering eller &quot;template3&quot; för lodrät justering som endast innehåller rubrik och beskrivning. Skriptet infogar den matchande mallen i följande `div.Permissible`-värden: template1, template2, template3. |
 
 ### Exempel
@@ -103,7 +103,7 @@ Det här kodfragmentet visar inställningar av kategorier med flera konfiguratio
 ```javascript
 rtp("set", "rcmd", "richmedia",
     {
-        "template1": 
+        "template1":
         {
             "rcmd.title.text": "RECOMMENDED CONTENT",
             "rcmd.general.font.family": "arial",
@@ -164,7 +164,7 @@ Det här exemplet har en mall med tre rekommendationer. Kopiera det här exemple
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -196,7 +196,7 @@ Det här exemplet har en mall med tre rekommendationer. Malltiteln är &quot;REK
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>RTP recommendation</title>
-<!-- RTP tag --> 
+<!-- RTP tag -->
 <script type='text/javascript'>
 
 // This tag needs to be replaced with your account tag
@@ -232,13 +232,13 @@ rtp('get','rcmd', 'richmedia');
 
 #### Exempel på rekommendationsmall 1 för multimedia
 
-**Namn**: mall1 **Beskrivning**: Vågrätt innehåll inklusive bild, titel och beskrivning samt anrop till åtgärdsknappen.
+**Namn**: mall1 **Beskrivning**: Vågrätt innehåll inklusive bild, titel, beskrivning och call to action-knapp.
 
 ![Multimediamall](assets/rich-media-template1.png)
 
 #### Exempel på rekommendationsmall 2 för multimedia
 
-**Namn**: mall2 **Beskrivning**: Lodrätt innehåll inklusive bild, titel och beskrivning samt anrop till åtgärdsknappen.
+**Namn**: mall2 **Beskrivning**: Lodrätt innehåll inklusive bild, titel, beskrivning och call to action-knapp.
 
 ![Multimediamall](assets/rich-media-template2.png)
 

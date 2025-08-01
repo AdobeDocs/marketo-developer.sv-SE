@@ -3,22 +3,22 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP - översikt
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
-source-wordcount: '229'
+source-wordcount: '228'
 ht-degree: 0%
 
 ---
 
 # SOAP API
 
-SOAP API är borttaget och kommer inte att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](../rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API läser du i SOAP [Migreringshandbok](./migration.md) för information om hur du migrerar.
+SOAP-API:t har tagits bort och kommer inte längre att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](../rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](./migration.md) för information om hur du migrerar.
 
 ## SOAP WSDL
 
-Hämta SOAP API-slutpunkten från menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** om du vill hämta det SOAP WSDL-dokumentet.
+Hämta SOAP API-slutpunkten från menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** om du vill hämta SOAP WSDL-dokumentet.
 
-![SOAP slutpunkt](assets/endpoint-soap.png)
+![SOAP-slutpunkt](assets/endpoint-soap.png)
 
 WSDL-URL:
 
@@ -28,7 +28,7 @@ Använd inte slutpunkten som definieras i WSDL. Varje Marketo-instans har en uni
 
 ## Gränser
 
-- **Daglig kvot:** De flesta prenumerationer tilldelas 10 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
+- **Daglig kvot:** De flesta prenumerationer tilldelas 10 000 API-anrop per dag (som återställs dagligen med 12:00AM CST). Du kan öka din dagliga kvot med din kontohanterare.
 - **Hastighetsgräns:** API-åtkomst per instans begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
 

@@ -3,10 +3,10 @@ title: Social
 description: Social
 feature: Social, Javascript
 exl-id: 82d2b86f-5efe-4434-b617-d27f76515a79
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
 workflow-type: tm+mt
 source-wordcount: '776'
-ht-degree: 0%
+ht-degree: 1%
 
 ---
 
@@ -17,12 +17,12 @@ Med [Marketo Social Marketing](https://business.adobe.com/products/marketo/socia
 ## Exempel på widget för inbäddad delning
 
 ```html
-<!-- Marketo Widget Loader Script --> 
+<!-- Marketo Widget Loader Script -->
 
 <script type="text/javascript" src="//b2c-mlm.marketo.com/jsloader/271d8232-1500-4305-b7ed-05d451b9ee0c/loader.php.js">
 </script>
 
- <!-- The Location of the Social Widget --> 
+ <!-- The Location of the Social Widget -->
 
 <divclass='cf_widgetloader cf_w_245d8f3c0955454cbd26abc39d0d874c'="" options="{&quot;outerHeight&quot;:400, &quot;outerWidth&quot;:600}">
 </divclass='cf_widgetloader'>
@@ -89,13 +89,13 @@ I det här exemplet visas ett tidigare dolt element med ID &quot;signedUp&quot; 
 ## Grundläggande händelsetabell
 
 | Händelsenamn | Beskrivning | Widgetar som använder den här händelsen | Argument som stöds (skickas till funktionen för händelseåteranrop) |
-| --- | --- | --- | --- | 
+| --- | --- | --- | --- |
 | share_sent | Utlöses varje gång en delningsbegäran skickas till servern för bearbetning | Alla widgetar som har möjlighet att dela | 1.&quot;share_sent&quot; (String)<br>2. Skickade parametrar (objekt) |
 | share_success | Utlöses när delningsbegäran har bearbetats. | Alla widgetar som kan dela. | 1.&quot;share_success&quot; (String)<br>2. Dela svarsobjekt, som innehåller skickat meddelande och förkortad URL (objekt) |
-| voice_success | Utlöses när en användare har röstat i en omröstning. | Omröstning, VS, Röstwidgetar | 1. &quot;voice_success&quot; (String)<br>2. Objekt som valts ut, inklusive titel, beskrivning, enhets-ID (objekt) |
+| voice_success | Utlöses när en användare har röstat i en omröstning. | Omröstning, VS, Röstwidgetar | &#x200B;1. &quot;voice_success&quot; (String)<br>2. Objekt som valts ut, inklusive titel, beskrivning, enhets-ID (objekt) |
 | offer_enrollated | Utlöses när en användare har registrerat sig för ett erbjudande | Alla widgetar för erbjudanden | 1.&quot;offer_enrolled (String)<br>2. Ändrade användaregenskaper (Object),<br>3. Ändrade användarattribut (Object) |
 | profile_saved | Utlöses när en användare har uppdaterat sin profil från profilhämtning | Alla widgetar som inte erbjuds och som har profilregistrering aktiverad | 1.&quot;profile_saved&quot; (String)<br>2. Ändrade användaregenskaper (objekt)<br>3. Ändrade användarattribut (Object) |
-| video_loaded | Utlöses när en inbäddad video är helt inläst och initierad. | VideoShare-widget | 1. &quot;video_loaded&quot; (String) 2. &quot;.cf_videoshare_wrap&quot; Element som innehåller videon (jQuery-objekt) |
+| video_loaded | Utlöses när en inbäddad video är helt inläst och initierad. | VideoShare-widget | &#x200B;1. &quot;video_loaded&quot; (String) 2. &quot;.cf_videoshare_wrap&quot; Element som innehåller videon (jQuery-objekt) |
 
 ## Ersätta användargränssnittet med ett anpassat användargränssnitt
 
@@ -172,7 +172,7 @@ cf_scripts.afterload(function($, CF){
 | tal | Ett heltal eller flyttal |
 | RTF | En HTML-sträng |
 | score | Ett 32-bitars heltal med tecken |
-| sfdc-kampanj | Används i Salesforce-kampanjhanteringsintegrering |
+| sfdc-kampanj | Används i Salesforce kampanjhanteringsintegrering |
 | text | En textsträng |
 
 ## Referenserbjudande för TrackProgress-användargränssnittets datareferens
@@ -183,7 +183,7 @@ cf_scripts.afterload(function($, CF){
 | tal | Ett heltal eller flyttal |
 | RTF | En HTML-sträng |
 | score | Ett 32-bitars heltal med tecken |
-| sfdc-kampanj | Används i Salesforce-kampanjhanteringsintegrering |
+| sfdc-kampanj | Används i Salesforce kampanjhanteringsintegrering |
 | text | En textsträng |
 
 ## Lotteriet UI Data Reference (för Lotteriet Social Campaign, inte Lotteriet LM Sweepstakes)
@@ -194,7 +194,7 @@ cf_scripts.afterload(function($, CF){
 | tal | Ett heltal eller flyttal |
 | RTF | En HTML-sträng |
 | score | Ett 32-bitars heltal med tecken |
-| sfdc-kampanj | Används i Salesforce-kampanjhanteringsintegrering |
+| sfdc-kampanj | Används i Salesforce kampanjhanteringsintegrering |
 | text | En textsträng |
 
 ## Datareferens för social inloggning (widgeten Formulärfyllning)
@@ -205,7 +205,7 @@ cf_scripts.afterload(function($, CF){
 | tal | Ett heltal eller flyttal |
 | RTF | En HTML-sträng |
 | score | Ett 32-bitars heltal med tecken |
-| sfdc-kampanj | Används i Salesforce-kampanjhanteringsintegrering |
+| sfdc-kampanj | Används i Salesforce kampanjhanteringsintegrering |
 | text | En textsträng |
 
 ```javascript
