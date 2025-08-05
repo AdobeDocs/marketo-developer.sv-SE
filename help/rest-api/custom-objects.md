@@ -994,7 +994,7 @@ Många-till-många-relationer representeras med ett&quot;brygga&quot;, eller mel
 1. Lägg till fält i **Kurs:** deduplicera på **Kurs-ID**
 1. Godkänn **kurs**
 1. Skapa ett **Registreringsbryggobjekt**
-1. Lägg till fält i **Registrering:** deduplicering på **Registrerings-ID**, länka till fältet **Kurs***/Kurs-ID** och länka till fältet **Lead****/Lead-ID**
+1. Lägg till fält i **Registrering:** deduplicering på **Registrerings-ID**, länka till fältet **Kurs***/Kurs-ID **&#x200B; och länka till fältet &#x200B;** Lead&#x200B;**&#x200B;**/Lead-ID**
 1. Godkänn **registrering**
 
 Skapa först kantobjekttypen som innehåller kursspecifik information:
