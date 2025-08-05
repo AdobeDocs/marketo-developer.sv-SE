@@ -3,7 +3,7 @@ title: Bulkladsextrahering
 feature: REST API
 description: Batchextrahering av lead-data.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1173'
 ht-degree: 0%
@@ -33,7 +33,6 @@ Leads har stöd för olika filteralternativ. Vissa filter, bland annat `updatedA
 | smartListName* | Sträng | Accepterar namnet på en smart lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i de smarta listorna när jobbet börjar bearbetas. Hämta smarta listnamn med slutpunkten Hämta smarta listor. |
 | smartListId* | Heltal | Accepterar ID:t för en smart lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i de smarta listorna när jobbet börjar bearbetas. Hämta smarta list-ID:n med slutpunkten Hämta smarta listor. |
 
-
 Filtertypen är inte tillgänglig för vissa prenumerationer. Om du inte är tillgänglig för din prenumeration får du ett felmeddelande när du anropar slutpunkten Skapa Lead-jobb (&quot;1035, filtertypen stöds inte för målprenumerationen&quot;). Kunder kan kontakta Marketo Support för att aktivera den här funktionen i prenumerationen.
 
 ## Alternativ
@@ -45,7 +44,6 @@ Slutpunkten Skapa exportlead-jobb innehåller flera formateringsalternativ som g
 | fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. Varje sträng måste vara REST API-namnet för ett Marketo lead-fält. De listade fälten inkluderas i den exporterade filen. Kolumnrubriken för varje fält blir REST API-namnet för varje fält, såvida det inte åsidosätts av columnHeader. Obs! När funktionen [!DNL Adobe Experience Cloud Audience Sharing] är aktiverad utförs en cookie-synkroniseringsprocess som associerar [!DNL Adobe Experience Cloud] ID (ECID) med Marketo leads. Du kan ange att fältet &quot;ecids&quot; ska innehålla ECID:n i exportfilen. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Detta är API-namnet för fältet som kan hämtas genom att anropa Beskriv lead. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |
-
 
 ## Skapa ett jobb
 

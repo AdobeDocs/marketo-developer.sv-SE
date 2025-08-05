@@ -3,7 +3,7 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Gruppbearbetning av aktivitetsdata från Marketo.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1332'
 ht-degree: 0%
@@ -105,7 +105,6 @@ När du använder `primaryAttributeValues` måste filtret `activityTypeIds` finn
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV Den exporterade filen återges som ett kommaavgränsat värde, tabbavgränsade värden eller en blankstegsavgränsad värdefil, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | fält | Array[String] | Nej | Valfri array med strängar som innehåller fältvärden. De listade fälten inkluderas i den exporterade filen. Som standard returneras följande fält: <ul><li>`marketoGUIDleadId`</li><li> `activityDate` </li><li>`activityTypeId` </li><li>`campaignId`</li><li> `primaryAttributeValueId` </li><li>`primaryAttributeValue`</li><li> `attributes`</li></ul>. Den här parametern kan användas för att minska antalet fält som returneras genom att ange en delmängd från listan ovan:`"fields": ["leadId", "activityDate", "activityTypeId"]`. Ett ytterligare fält `actionResult` kan anges för att inkludera aktivitetsåtgärden: `("succeeded", "skipped", or "failed")`. |
-
 
 ## Skapa ett jobb
 

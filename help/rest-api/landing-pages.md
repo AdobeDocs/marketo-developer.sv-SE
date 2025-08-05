@@ -3,7 +3,7 @@ title: Landningssidor
 feature: REST API, Landing Pages
 description: Fråga landningssidor i Marketo.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1000'
 ht-degree: 0%
@@ -113,11 +113,11 @@ Landningssidor följer standardmodellen för utkast, där det kan finnas ett utk
 
 ## Ta bort
 
-Om du vill ta bort en landningssida måste den först vara ur bruk och inte refereras till av några andra Marketo-resurser, samt vara icke-godkänd. Sidorna tas bort individuellt med slutpunkten [Ta bort landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) . Det går inte att ta bort landningssidor med inbäddade sociala knappar via det här API:t. 
+Om du vill ta bort en landningssida måste den först vara ur bruk och inte refereras till av några andra Marketo-resurser, samt vara icke-godkänd. Sidorna tas bort individuellt med slutpunkten [Ta bort landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) . Det går inte att ta bort landningssidor med inbäddade sociala knappar via det här API:t.
 
 ## Klona
 
-Marketo erbjuder en enkel metod för kloning av en landningssida. Det här är en begäran om POST av typen application/x-www-url-formencoded.
+Marketo erbjuder en enkel metod för kloning av en landningssida. Detta är en program/x-www-url-formencoded POST-begäran.
 
 Sökvägsparametern `id` anger ID:t för den Landing Page som ska klonas.
 
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Hantera innehållsavsnitt
 
-Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enligt de CSS-regler som tillämpas när de visas av klienten. Innehållsavsnitt inkluderas och hanteras med motsvarande slutpunkter för [Lägg till](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Uppdatera](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) och [Ta bort](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) startsidans innehåll, och kan frågas med [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Varje avsnitt har en typ och en värdeparameter. Typen avgör vad som ska sättas in i värdet.  För dessa slutpunkter skickas data som POSTEN x-www-form-urlencoded, inte som JSON.
+Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enligt de CSS-regler som tillämpas när de visas av klienten. Innehållsavsnitt inkluderas och hanteras med motsvarande slutpunkter för [Lägg till](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Uppdatera](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) och [Ta bort](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) startsidans innehåll, och kan frågas med [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Varje avsnitt har en typ och en värdeparameter. Typen avgör vad som ska sättas in i värdet.  För dessa slutpunkter skickas data som POST x-www-form-urlencoded, inte som JSON.
 
 **Avsnittstyper**
 
@@ -181,10 +181,10 @@ Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enlig
 |--- |--- |
 | DynamicContent | ID för segmenteringen. |
 | Formulär | Formulärets ID. |
-| HTML | Text HTML content. |
+| HTML | Text i HTML. |
 | Bild | ID för bildresursen. |
 | Rektangel | Tom. |
-| RichText | Text HTML content.  Får endast innehålla formaterade textelement. |
+| RichText | Text i HTML.  Får endast innehålla formaterade textelement. |
 | Fragment | Utdragets id. |
 | SocialButton | ID för  den sociala knappen. |
 | Video | Videons id. |
@@ -274,7 +274,7 @@ Variabler definieras som metataggar inuti elementet `<head>` i en landningssidma
 </head>
 ```
 
-Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Fråga
 
@@ -312,7 +312,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 
 I  I det här exemplet innehåller den guidade landningssidan tre variabler: stringVar, colorVar, boolVar.
 
-### Uppdatera
+### Uppdatering
 
 Uppdatera en variabel för en guidad landningssida genom att skicka landningssidans ID, variabel-ID och variabelvärdet för att uppdatera slutpunkten för landningssidans variabel.
 

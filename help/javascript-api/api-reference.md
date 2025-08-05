@@ -3,7 +3,7 @@ title: Munchkin API-referens
 description: Använd Munchkin Javascript-API:t för att anpassa dina Munchkin-data.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 1ad2d793832d882bb32ebf7ef1ecd4148a6ef8d5
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '414'
 ht-degree: 2%
@@ -40,7 +40,6 @@ När den anropas görs en kontroll för att se om det finns en `_mkto_trk`-cooki
 | Parameternamn | Valfritt/obligatoriskt | Typ | Beskrivning |
 | --- | --- | --- | --- |
 | forceCreate | Obligatoriskt | Boolean | Skapa cookie även om `cookieAnon` har värdet false. |
-
 
 ```javascript
 Munchkin.createTrackingCookie(true);

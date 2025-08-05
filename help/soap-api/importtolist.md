@@ -3,9 +3,9 @@ title: importToList
 feature: SOAP
 description: importToList SOAP anrop
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '393'
+source-wordcount: '387'
 ht-degree: 0%
 
 ---
@@ -20,9 +20,9 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 
 | E-post | Första | Senaste |
 | --- | --- | --- |
-| joe@company.com | Joe | Smith |
-| mary@company.com | Mary | Rodgers |
-| wanda@megacorp.com | Wanda | Williams |
+| <joe@company.com> | Joe | Smith |
+| <mary@company.com> | Mary | Rodgers |
+| <wanda@megacorp.com> | Wanda | Williams |
 
 `displayName`-värden ska användas i `importFileHeader` i stället för `name`-värden.
 
@@ -30,9 +30,9 @@ Med den här funktionen kan du importera en lista med leads till en befintlig st
 
 | E-post | Första | Senaste | {{my.specialToken}} | {{my.otherToken}} |
 | --- | --- | --- | --- | --- |
-| joe@company.com | Joe | Smith | Fisk | Blå |
-| mary@company.com | Mary | Rodgers | Kyckling | Brun |
-| wanda@megacorp.com | Wanda | Williams | Veggie | Hazel |
+| <joe@company.com> | Joe | Smith | Fisk | Blå |
+| <mary@company.com> | Mary | Rodgers | Kyckling | Brun |
+| <wanda@megacorp.com> | Wanda | Williams | Veggie | Hazel |
 
 **Viktigt!** Om du lägger till variabler för leads måste du ange den smarta kampanj som använder dem. Nästa gång den angivna smarta kampanjen körs kommer värdena från din lista att användas i stället för de normala My Token-värdena. När den enskilda kampanjen har körts kommer token att ignoreras.
 

@@ -3,7 +3,7 @@ title: Roller för affärsmöjlighet
 feature: REST API
 description: Hantera affärsmöjlighetsroller i Marketo.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '253'
 ht-degree: 0%
@@ -229,5 +229,5 @@ POST /rest/v1/opportunities/roles/delete.json
 ## Timeout
 
 - Slutpunkter för säljprojektsroll har en timeout på 30 sekunder om inget annat anges nedan
-   - Roller för synkroniseringsmöjlighet: 60-tal 
+   - Roller för synkroniseringsmöjlighet: 60-tal
    - Ta bort säljprojektsroller: 60-tal

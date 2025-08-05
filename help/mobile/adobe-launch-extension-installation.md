@@ -3,7 +3,7 @@ title: '[!DNL Adobe Launch]-tilläggsinstallation'
 feature: Mobile Marketing
 description: Installationsöversikt för tillägget [!DNL Adobe Launch]
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '664'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Installationsanvisningar för tillägget [!DNL Adobe Launch] Marketo. Stegen ned
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera egenskapen i [!DNL Adobe Launch] portalen](https://experience.adobe.com/#/@amc/data-collection/home)
 1. Konfigurera programhemlig nyckel och Munchkin-ID för egenskapen i portalen [!DNL Adobe Launch]
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
@@ -159,7 +159,7 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
       1. Välj [ i ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. Välj **[!UICONTROL Add Firebase to your Android App]** på välkomstskärmen i Firebase.
@@ -212,7 +212,6 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
         </intent-filter>
       </receiver>
       ```
-
 
 ### Vanliga frågor om FCM
 

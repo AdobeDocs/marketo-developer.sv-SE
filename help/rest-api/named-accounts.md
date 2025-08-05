@@ -3,7 +3,7 @@ title: Namngivna konton
 feature: REST API
 description: Hantera namngivna konton via API:t.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '679'
 ht-degree: 0%
@@ -390,5 +390,5 @@ Content-Type: application/json
 ## Timeout
 
 - Slutpunkter för namngivna konton har en timeout på 30 sekunder om inget annat anges nedan
-   - Synkronisera namngivna konton: 120-tal 
+   - Synkronisera namngivna konton: 120-tal
    - Ta bort namngivna konton: 60 s

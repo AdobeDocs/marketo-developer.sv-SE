@@ -3,9 +3,9 @@ title: getLeadChanges
 feature: SOAP
 description: getLeadChanges SOAP anrop
 exl-id: 23445684-d8d9-407b-8f19-cb69e806795c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '402'
+source-wordcount: '401'
 ht-degree: 0%
 
 ---
@@ -40,7 +40,7 @@ Obs! Det maximala antalet leads som stöds i en `LeadKeySelector` är 100. Om an
 | startPosition->aktivitetCreatedAt | Valfritt | Den tidsstämpel som används för att filtrera resultat så att endast leads med aktivitet sedan activityCreatedAt inkluderas. Obs! Du kan använda tidsstämpeln `LastUpdateAtSelector->latestUpdatedAt` för att ange `activityCreatedAt`. |
 | leadSelector | Valfritt | Kan vara någon av följande 3 typer: `LeadKeySelector`, `StaticListSelector`, `LastUpdateAtSelector` |
 | LeadKeySelector: leadSelector->keyType | Obligatoriskt | ID-typen som du vill fråga. Värdena är `IDNUM`, `COOKIE`, `EMAIL`, `LEADOWNEREMAIL`, `SFDCACCOUNTID`, `SFDCCONTACTID`, `SFDCLEADID`, `SFDCLEADOWNERID`, `SFDCOPPTYID`. |
-| LeadKeySelector: leadSelector->keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga&quot;lead@email.com&quot; |
+| LeadKeySelector: leadSelector->keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga <lead@email.com> |
 | StaticListSelector: leadSelector->staticListName | Valfritt när `leadSelector->staticListId` finns | Namnet på den statiska listan |
 | StaticListSelector: leadSelector->staticListId | Valfritt när `leadSelector->staticListName` finns | ID för den statiska listan |
 

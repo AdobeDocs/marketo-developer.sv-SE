@@ -5,7 +5,7 @@ breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 05f8966a2eafca71a00f1e22b6edd4d8dae6b6ac
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '247'
 ht-degree: 6%

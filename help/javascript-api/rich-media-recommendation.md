@@ -3,7 +3,7 @@ title: Rich Media Recommendation
 description: Rich Media Recommendation
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '812'
 ht-degree: 1%
@@ -21,7 +21,7 @@ Följande taggar och API-anrop måste ställas in på sidan som du vill visa rek
 1. I sidans brödtext
    1. Placera malltaggen (klassen div) på den plats där du vill att mallen ska visas
 
-Mer information finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Malltagg
 
@@ -66,7 +66,6 @@ Den här metoden fyller i alla multimedia `<divs>` på sidan med rekommendatione
 | rcmd | Obligatoriskt | Sträng | Metodnamn. |
 | &#39;richmedia&#39; | Obligatoriskt | Sträng | Undermetodnamn. |
 
-
 ## Ändra mallkonfiguration
 
 Den här metoden ändrar standardkonfigurationen för mallen.
@@ -84,7 +83,6 @@ Obs! När du använder den här metoden måste den anropas innan du anropar rtp(
 | &#39;richmedia&#39; | Obligatoriskt | Sträng | Namn på undermetod. |
 | template_id | Valfritt | Sträng | Mallens ID för konfigurationsändringar. Används för att ange inställningsändringar för endast en mall. |
 | conf_obj | Obligatoriskt | Objekt | Den nya konfigurationen. Objektet innehåller alla konfigurationer som nyckel/värde-par. |
-
 
 ### Exempel
 
@@ -150,7 +148,6 @@ rtp("set", "rcmd", "richmedia",
 | rcmd.cta.font.color | &quot;rcmd.cta.font.color&quot; : &quot;rgb(90, 84, 164)&quot; | Ändrar färg på knappteckensnitt. Den här egenskapen stöder alla teckensnittsfärgvärden (rgb, hex, ...) |
 | rcmd.cta.text | &quot;rcmd.cta.text&quot; : &quot;Push&quot; | Ändrar knapptexten. Texten är densamma för alla knappar. |
 | kategori | &quot;category&quot; : [&quot;one category&quot;] | Ändrar den rekommendationskategori som den här mallen stöder. I mallen visas endast rekommendationer med en av kategorierna som anges i den här konfigurationen. |
-
 
 Obs! Konfigurationsstödet kan ändras per mall.
 

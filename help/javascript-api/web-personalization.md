@@ -3,7 +3,7 @@ title: Web Personalization
 description: Web Personalization
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '401'
 ht-degree: 1%
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Personalization JavaScript API utökar plattformens automatiserade personaliseringsfunktion. Det gör det möjligt att spåra händelser och anpassa en webbsida dynamiskt. Ytterligare funktioner: [Anpassade datahändelser](custom-data-events.md), [dynamiskt innehåll](web-personalization.md), [Hämta besöksdata](get-visitor-data.md), [Uteslut tagg för specifika startsidor](#exclude_tag_for_specific_bots).
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Tagginställningar
@@ -41,7 +41,6 @@ Den här metoden anropas automatiskt på taggnivå för att ange det relevanta k
 | &#39;setAccount&#39; | Obligatoriskt | Sträng | Metodnamn. |
 | accountId | Obligatoriskt | Sträng | Konto-ID. |
 
-
 ```javascript
 var accountId = '561-HYG-937';
 rtp('setAccount', accountId);
@@ -58,7 +57,6 @@ Genom att skicka den valfria parametern &quot;page&quot; i den här metoden kan 
 | send | Obligatoriskt | Sträng | Metodåtgärd. |
 | view&#39; | Obligatoriskt | Sträng | Metodnamn. |
 | page | Valfritt | Sträng | Relativ sökväg eller URL för hel sida. |
-
 
 ```javascript
 // Example for Default Page
@@ -103,7 +101,6 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder Web
 | jquery.min.js | v1.8.3 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | jquery-custom-ui-min.js | v1.9.2 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | query-ui-1.8.17-dialog.js | v1.9.2* | Kan inaktiveras genom att kontakta Marketo kundsupport |
-
 
 *Används endast om dialogrutan jQuery-gränssnitt saknas
 

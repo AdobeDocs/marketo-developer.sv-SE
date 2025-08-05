@@ -3,7 +3,7 @@ title: Forms API-referens
 description: Forms API-referens
 feature: Forms, Javascript
 exl-id: 0f8d242f-0b27-4087-b080-3d41ebaa25b3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1327'
 ht-degree: 0%
@@ -121,7 +121,6 @@ Det finns två huvudobjekt som du kan interagera med med Forms 2.0 API. Objektet
       <td></td>
     </tr>
 </table>
-
 
 ## Formulärmetoder
 

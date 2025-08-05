@@ -3,7 +3,7 @@ title: scheduleCampaign
 feature: SOAP, Smart Campaigns
 description: scheduleCampaign SOAP-samtal
 exl-id: a9ef2c16-34ef-4e0f-b765-e332335b0b81
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '252'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Den här funktionen ställer in schemat för en batch Smart Campaign så att den körs antingen direkt eller vid ett framtida datum. Det kräver en befintlig Smart Campaign för att slutföras. Detta kan användas med importToList för att överföra en lista med leads och sedan köra en batchkampanj mot den nyligen skapade listan.
 
-## Tillvalstoken:
+## Programtoken som tillval
 
 På samma sätt som funktionen requestCampaign kan du skicka en array med Mina token till detta API-anrop som åsidosätter befintliga token. När kampanjen har körts ignoreras token.
 

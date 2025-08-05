@@ -3,9 +3,9 @@ title: Massextrahering
 feature: REST API
 description: Gruppåtgärder för att extrahera Marketo-data.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e7d893a81d3ed95e34eefac1ee8f1ddd6852f5cc
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '1683'
+source-wordcount: '1682'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Massextraherings-API:erna använder samma OAuth 2.0-autentiseringsmetod som andr
 - Maximalt antal samtidiga exportjobb: 2
 - Maximalt antal exportjobb i kö (inklusive aktuella exportjobb): 10
 - Bevarandeperiod för filer: sju dagar
-- Standardallokering för daglig export: 500 MB (som återställs dagligen till 01:00 CST). Kan köpas upp.
+- Standardallokering för daglig export: 500 MB (som återställs dagligen till 12:00AM CST). Kan köpas upp.
 - Maximal tidsrymd för datumintervallfilter (skapadVid eller uppdateradAt): 31 dagar
 
 Filtren Bulkextrahera för UpdatedAt och Smart List är inte tillgängliga för vissa prenumerationstyper. Om det inte är tillgängligt returnerar ett anrop till slutpunkten Skapa exportlead-jobb felmeddelandet&quot;1035, filtertypen stöds inte för målprenumerationen&quot;. Kunder kan kontakta Marketo Support för att aktivera den här funktionen i prenumerationen.
@@ -122,7 +122,6 @@ Varje jobbskapandeslutpunkt delar några vanliga parametrar för konfiguration a
 | format | Sträng | Bestämmer filformatet för extraherade data med alternativ för kommaavgränsade värden, tabbavgränsade värden och semikolonavgränsade värden. Accepterar något av följande: CSV, SSV, TSV. Standardformatet är CSV. |
 | columnHeaderNames | Objekt | Gör att du kan ange namn på kolumnrubriker i den returnerade filen. Varje medlemsnyckel är namnet på kolumnrubriken som ska bytas och värdet är det nya namnet på kolumnrubriken. Till exempel &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Objekt | Filter som används på extraheringsjobbet. Typer och alternativ varierar mellan olika jobbtyper. |
-
 
 ## Hämtar jobb
 

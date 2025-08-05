@@ -3,7 +3,7 @@ title: Aktiviteter
 feature: REST API
 description: Ett API för att hantera Marketo Engage-aktiviteter.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '2029'
 ht-degree: 0%
@@ -131,7 +131,7 @@ Om attributet `moreResult` är true innebär det att fler resultat är tillgäng
 
 I vissa fall kan denna API svara med färre än 300 aktivitetsobjekt, men har också attributet `moreResult` inställt på true.  Detta indikerar att det finns fler aktiviteter som kan returneras och att slutpunkten kan efterfrågas för senare aktiviteter genom att inkludera den returnerade `nextPageToken` i ett efterföljande anrop.
 
-Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av strängattributet `marketoGUID` som en unik identifierare. 
+Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av strängattributet `marketoGUID` som en unik identifierare.
 
 ### Ändringar av datavärde
 
@@ -435,7 +435,6 @@ POST /rest/v1/activities/external/type/{apiName}.json
 
 Typer kan hanteras med Godkänn anpassad aktivitetstyp, Ignorera anpassad aktivitetstyp utkast och Ta bort anpassad aktivitetstyp, på samma sätt som vanliga Marketo-resurser.
 
-
 ## Anpassade aktivitetstypattribut
 
 Varje anpassad aktivitetstyp kan ha mellan 0 och 20 sekundära attribut. Sekundära attribut kan ha vilken giltig fälttyp som helst för ett Marketo-fält. De läggs till, uppdateras och tas bort separat från den överordnade typen, men kan redigeras medan en aktivitetstyp används och sedan godkänns. När fält redigeras på en live-typ har alla aktiviteter av den typen som skapas efter godkännandet den nya sekundära attributuppsättningen. Ändringar tillämpas inte retroaktivt på befintliga aktiviteter som delar den typen.
@@ -450,7 +449,7 @@ När du ändrar det primära attributet för en aktivitetstyp ska alla befintlig
 
 ### Skapa attribut
 
-När du skapar ett attribut krävs en `apiName`-sökvägsparameter. Parametrarna `name` och `dataType` krävs också.` The description and` `isPrimary` parametrar är valfria.
+När du skapar ett attribut krävs en `apiName`-sökvägsparameter. Parametrarna `name` och `dataType` krävs också.`The description and` `isPrimary` parametrar är valfria.
 
 ```
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
@@ -709,5 +708,5 @@ POST /rest/v1/activities/external.json
 
 Slutpunkter för aktiviteter har en timeout på 30-tal om inget annat anges nedan.
 
-* Hämta sidtoken: 300s 
+* Hämta sidtoken: 300s
 * Lägg till anpassad aktivitet: 90s

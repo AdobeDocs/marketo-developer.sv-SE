@@ -3,9 +3,9 @@ title: getMultipleLeads
 feature: SOAP
 description: getMultipleLeads SOAP-anrop
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '384'
+source-wordcount: '383'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Ett vanligt användningsexempel för den här slutpunkten är att hitta leads so
 | --- | --- | --- |
 | leadSelector | Obligatoriskt | Kan vara någon av följande 3 typer: `LeadKeySelector`, `StaticListSelector`,`LastUpdateAtSelector` |
 | keyType | Obligatoriskt | ID-typen som du vill fråga. Värdena är IDNUM, COOKIE, EMAIL, LEADOWNEREMAIL, SFDCACCOUNTID, SFDCCONTACTID, SFDCLEADID, SFDCLEADOWNERID och SFDCOPPTYID. |
-| keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga&quot;lead@email.com&quot; |
+| keyValues->stringItem | Obligatoriskt | Lista med nyckelvärden. Det vill säga <lead@email.com> |
 | LastUpdateAtSelector: leadSelector->oldestUpdatedAt | Obligatoriskt | Tidsstämpeln som anger&quot;sedan&quot;-villkoret. Det vill säga returnera alla leads som har uppdaterats sedan den angivna tiden. (W3C WSDL, datum- och tidsformat) |
 | LastUpdateAtSelector: leadSelector->latestUpdatedAt | Valfritt | Tidsstämpeln som anger villkoret&quot;tills&quot;. Det vill säga, returnera alla leads som har uppdaterats fram till den angivna tidpunkten. (W3C WSDL, datum- och tidsformat) |
 | StaticListSelector: leadSelector->staticListName | Valfritt när `leadSelector->staticListId` finns | Namnet på den statiska listan |

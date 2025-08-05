@@ -3,7 +3,7 @@ title: Datainmatning
 feature: REST API, Dynamic Content
 description: Förbruka data med Marketo API:er.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 2%
@@ -223,7 +223,6 @@ Om ett länkfält till en person anges i begäran och den personen inte finns, g
 #### Begäran
 
 `POST /subscriptions/{munchkinId}/customobjects/{customObjectAPIName}`
-
 
 #### Sidhuvuden
 

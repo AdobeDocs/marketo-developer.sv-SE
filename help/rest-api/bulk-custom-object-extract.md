@@ -3,7 +3,7 @@ title: Extrahera anpassat objekt gruppvis
 feature: REST API, Custom Objects
 description: Gruppbearbetning av anpassade Marketo-objekt.
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 9830572277db2709c6853bea56fc70c455fd5e54
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1298'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Uppsättningen REST API:er för Bulk Custom Object Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar anpassade objektposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
-Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Behörigheter
 
@@ -50,7 +50,6 @@ Slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis
 | `columnHeaderNames` | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | `format` | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 
-
 ## Skapa ett jobb
 
 Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST).
@@ -62,7 +61,6 @@ Låt oss anta att vi har skapat ett anpassat objekt med namnet &quot;Car&quot; m
 Anpassad objektdefinition
 
 ![Eget objekt](assets/custom-object-car.png)
-
 
 Anpassade objektfält
 

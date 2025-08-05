@@ -3,7 +3,7 @@ title: Möjligheter
 feature: REST API
 description: ' Konfigurera möjligheter med Marketo API.'
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '786'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo visar API:er för att läsa, skriva, skapa och uppdatera poster för affärsmöjligheter. I Marketo länkas affärsmöjlighetsposter till lead- och kontaktposter via det mellanliggande säljprojektsrollobjektet, så att en affärsmöjlighet kan länkas till många enskilda leads.  Båda dessa objekttyper exponeras via API, och precis som de flesta objekttyperna för Lead-databasen har de båda ett motsvarande Describe-anrop som returnerar metadata om objekttyperna.
 
-API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=sv-SE) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=sv-SE) aktiverat.
+API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiverat.
 
 ## Beskriv
 
@@ -338,5 +338,5 @@ POST /rest/v1/opportunities/delete.json
 ## Timeout
 
 - Slutpunkter för affärsmöjlighet har en timeout på 30 sekunder såvida det inte anges nedan
-   - Synkroniseringsmöjligheter: 60-tal 
+   - Synkroniseringsmöjligheter: 60-tal
    - Ta bort affärsmöjligheter: 60-tal

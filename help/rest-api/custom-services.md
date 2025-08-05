@@ -3,7 +3,7 @@ title: Anpassade tjänster
 feature: REST API
 description: Autentiseringsuppgifter med Marketo.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '968'
 ht-degree: 0%
@@ -43,7 +43,6 @@ När du har skapat en roll måste du skapa en användare med endast API. Använd
 >[!MORELIKETHIS]
 >
 >Om du vill skapa en användare med endast API går du till menyn **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** och klickar på [!UICONTROL Invite New User].
-
 
 ![Ny användarinformation](assets/new-user-info.png)
 

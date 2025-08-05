@@ -3,7 +3,7 @@ title: Push-meddelanden
 feature: Mobile Marketing
 description: Aktivera push-meddelanden för Marketo Mobile
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1329'
 ht-degree: 0%
@@ -285,7 +285,7 @@ Här följer en aktivitetslogg från Marketo från Marketo som visar programhän
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Konfigurera FCM med HTTPv1 (Google har [föråldrat XMPP-protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) den 12 juni 2023 och kommer att tas bort i juni 2024) 
+1. Konfigurera FCM med HTTPv1 (Google har [föråldrat XMPP-protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) den 12 juni 2023 och kommer att tas bort i juni 2024)
 
 - Aktivera MME FCM HTTPv1 i Marketo-funktionshanteraren ![](assets/feature-manager.png)
    - Överför JSON-fil för tjänstkonto för appen i MLM.
@@ -390,7 +390,6 @@ Lägg till Marketo Activity i manifestfilen inuti programtaggen.
 ```
 
 1. Initiera Marketo Push När du har sparat konfigurationen ovan måste du initiera Marketo Push Notification. Skapa eller öppna din Application-klass och kopiera/klistra in koden nedan. Du kan hämta ditt avsändar-ID från Firebase-konsolen.
-
 
    ```java
    Marketo marketoSdk = Marketo.getInstance(getApplicationContext());

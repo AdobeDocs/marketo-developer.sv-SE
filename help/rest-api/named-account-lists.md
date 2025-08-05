@@ -3,7 +3,7 @@ title: Namngivna kontolistor
 feature: REST API
 description: Konfigurera listor med namngivna konton.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '696'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter
@@ -33,7 +33,6 @@ Namngivna kontolistor har ett begränsat antal standardfält och kan inte utöka
 | createdAt | Datetime | Falskt | Datum när listan skapades. Det här fältet hanteras av systemet och är inte tillåtet som fält när du skapar eller uppdaterar en post. |
 | updatedAt | Datetime | Falskt | Datum/tid för den senaste uppdateringen av listan. Det här fältet hanteras av systemet och är inte tillåtet som fält när du skapar eller uppdaterar en post. |
 | type | Sträng | Falskt | Typ av lista. Kan ha värdet &quot;default&quot; eller &quot;external&quot;. Externa listor är de som har skapats av CRM-kontovyn. |
-
 
 ## Fråga
 
@@ -294,9 +293,9 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ## Timeout
 
 - Slutpunkter för namngiven kontolista har en timeout på 30 sekunder om inget annat anges nedan
-   - Synkronisera namngivna kontolistor: 60s 
-   - Ta bort namngivna kontolistor: 60s 
-   - Hämta namngivna kontolistor: 60s 
-   - Lägg till medlemmar i namngiven kontolista: 60s 
-   - Ta bort medlemmar i listan över namngivna konton: 60s 
+   - Synkronisera namngivna kontolistor: 60s
+   - Ta bort namngivna kontolistor: 60s
+   - Hämta namngivna kontolistor: 60s
+   - Lägg till medlemmar i namngiven kontolista: 60s
+   - Ta bort medlemmar i listan över namngivna konton: 60s
    - Hämta medlemmar i namngiven kontolista: 60s

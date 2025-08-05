@@ -3,9 +3,9 @@ title: Installation
 feature: Mobile Marketing
 description: Installera SDK:er för Mobile Marketo
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '757'
+source-wordcount: '756'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ### Installera Framework via CocoaPods
@@ -37,7 +37,7 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
    ![Lägg till beroende](assets/dependency-manager-add.png)
 
-1. Lägg till Marketo-paket från denna repo. Lägg till den här URL:en för den här databasen: https://github.com/Marketo/ios-sdk.
+1. Lägg till Marketo-paket från denna repo. Lägg till den här URL:en för den här databasen: <https://github.com/Marketo/ios-sdk>.
 
    ![Repo URL](assets/dependency-manager-url.png)
 
@@ -132,7 +132,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md#android_setup_push) (valfritt)
 1. [Hämta Marketo SDK för Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -208,7 +208,7 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
       1. Välj [ i ](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen`Add Project`.
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
       1. Välj `Add Firebase to your Android App` på välkomstskärmen i Firebase.

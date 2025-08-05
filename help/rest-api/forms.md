@@ -3,7 +3,7 @@ title: Forms
 feature: REST API, Forms
 description: Skapa och hantera formulär med API:t.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1598'
 ht-degree: 0%
@@ -305,7 +305,6 @@ När du redigerar fält, eller deras beteende i ett formulär, ska fältlistan a
 | Valuta | valuta |
 | Kryssruta | single_checkbox |
 | Skjutreglage | omfång |
-
 
 ### Beroenden
 
@@ -631,7 +630,7 @@ GET /rest/asset/v1/form/programMemberFields.json
 
 Varje formulär innehåller en redigerbar lista med fält som visas för slutanvändaren när de läses in. Varje fält läggs till, uppdateras eller tas bort från fältlistan en åt gången via respektive slutpunkter.
 
-[Om du lägger till ett fält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) krävs bara ID:t för det överordnade formuläret och fieldId:t för fältet. Alla andra fält kommer antingen att vara tomma eller ha standardvärden som baseras på datatyp och fältmetadata. Data skickas som POSTEN x-www-form-urlencoded, inte som JSON.
+[Om du lägger till ett fält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldToAFormUsingPOST) krävs bara ID:t för det överordnade formuläret och fieldId:t för fältet. Alla andra fält kommer antingen att vara tomma eller ha standardvärden som baseras på datatyp och fältmetadata. Data skickas som POST x-www-form-urlencoded, inte som JSON.
 
 ```
 POST /rest/asset/v1/form/{id}/fields.json
@@ -789,8 +788,6 @@ values=[{"label":"Select...","value":"","isDefault":true,"selected":true}, {"lab
 }
 ```
 
- 
-
 Om du vill veta hur du formaterar ett komplext formulärfält kan du titta på svaret från Lägg till fält i formulär.
 
 ### Ordna om fält
@@ -833,7 +830,7 @@ positions=[{"columnNumber":0,"rowNumber":0,"fieldName":"FirstName"},{"columnNumb
 
 ### RTF
 
-RTF-fält läggs till via en [separat slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) från lead-fält. Fältinnehållet skickas som multipart/form-data. Det ska vara strukturerat som HTML-innehåll som inte innehåller några skript-, meta- eller link-taggar.
+RTF-fält läggs till via en [separat slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addRichTextFieldUsingPOST) från lead-fält. Fältinnehållet skickas som multipart/form-data. Det ska vara strukturerat som HTML-innehåll som inte innehåller några skript-, metataggar- eller länktaggar.
 
 ```
 POST /rest/asset/v1/form/{id}/richText.json
@@ -874,7 +871,7 @@ Content-Type: text/html
 
 Marketo-formulär har en valfri komponent som kallas fältuppsättningar. Fältuppsättningar är grupper av fält som behandlas som ett enda fält i den översta fältlistan för att kunna flyttas och behandlas enligt synlighetsregler. Om det till exempel finns ett fält för Krav på efterlevnad, och en klient väljer Ja, kan en fältuppsättning som innehåller fält för kompatibilitetskraven för HIPAA och PCI visas.
 
-Fält i fältuppsättningar är unika för formuläret som helhet, så dubblettfält kanske inte finns både i formulärets överordnade fältlista och i en underordnad fältuppsättning. Fältuppsättningar läggs till via slutpunkten [Lägg till fältuppsättning i formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) och visas sedan i resultatet [Hämta fält för formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fält läggs till i en fältuppsättning genom att de flyttas till fältuppsättningens fieldList via [Uppdatera fältpositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). För dessa slutpunkter skickas data som POSTEN x-www-form-urlencoded, inte som JSON.
+Fält i fältuppsättningar är unika för formuläret som helhet, så dubblettfält kanske inte finns både i formulärets överordnade fältlista och i en underordnad fältuppsättning. Fältuppsättningar läggs till via slutpunkten [Lägg till fältuppsättning i formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/addFieldSetUsingPOST) och visas sedan i resultatet [Hämta fält för formulär](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/getFormFieldByFormVidUsingGET). Fält läggs till i en fältuppsättning genom att de flyttas till fältuppsättningens fieldList via [Uppdatera fältpositioner](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields/operation/updateFieldPositionsUsingPOST). För dessa slutpunkter skickas data som POST x-www-form-urlencoded, inte som JSON.
 
 ## Synlighetsregel
 

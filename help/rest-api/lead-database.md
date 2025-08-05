@@ -3,7 +3,7 @@ title: Lead-databas
 feature: REST API, Database
 description: Ändra huvuddatabasen för lead.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1342'
 ht-degree: 0%
@@ -245,7 +245,7 @@ JSON-objektets struktur är oftast platt, och alla frågeparametrar för frågor
 
 Skapar och uppdaterar lead-databasposter, som alla utförs via POST med JSON-kroppar. Gränssnittet för säljprojekt, roller, anpassade objekt, företag och säljare är detsamma. Leadens gränssnitt är lite annorlunda och du kan läsa mer om det där specifikt.
 
-Den enda obligatoriska parametern är en array med namnet `input` som innehåller upp till 300 objekt, var och en med de fält som du vill infoga/uppdatera som medlemmar. Du kan också inkludera en `action`-parameter som kan vara någon av: `createOnly`, `updateOnly` eller `createOrUpdate`. Om åtgärden utelämnas blir läget som standard `createOrUpdate`. `dedupeBy` är en annan valfri parameter som kan användas när åtgärden är inställd på createOnly eller `createOrUpdate`. ` dedupeBy` kan vara antingen `idField` eller `dedupeFields`. Om `idField` väljs används `idField` i beskrivningen för borttagning av dubbletter och måste inkluderas i varje post. Läget `idField` är inte kompatibelt med läget `createOnly`. Om `dedupeFields` väljs används `dedupeFields` i objektbeskrivningen och vart och ett måste inkluderas i varje post. Om parametern `dedupeBy` utelämnas blir läget som standard `dedupeFields`.
+Den enda obligatoriska parametern är en array med namnet `input` som innehåller upp till 300 objekt, var och en med de fält som du vill infoga/uppdatera som medlemmar. Du kan också inkludera en `action`-parameter som kan vara någon av: `createOnly`, `updateOnly` eller `createOrUpdate`. Om åtgärden utelämnas blir läget som standard `createOrUpdate`. `dedupeBy` är en annan valfri parameter som kan användas när åtgärden är inställd på createOnly eller `createOrUpdate`. `dedupeBy` kan vara antingen `idField` eller `dedupeFields`. Om `idField` väljs används `idField` i beskrivningen för borttagning av dubbletter och måste inkluderas i varje post. Läget `idField` är inte kompatibelt med läget `createOnly`. Om `dedupeFields` väljs används `dedupeFields` i objektbeskrivningen och vart och ett måste inkluderas i varje post. Om parametern `dedupeBy` utelämnas blir läget som standard `dedupeFields`.
 
 När du skickar en lista med fältvärden skrivs värdet `null`, eller en tom sträng, till databasen som `null`.
 

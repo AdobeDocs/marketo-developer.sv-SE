@@ -3,7 +3,7 @@ title: React Native
 feature: Mobile Marketing
 description: Installera React Native för Marketo
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '810'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## Förutsättningar
 
-[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 
 ## SDK Integration
 
@@ -393,7 +393,7 @@ const { RNMarketoModule } = NativeModules;
 
 När ovanstående filer har placerats korrekt kan vi importera js-modulen i alla js-klasser och anropa dess metoder direkt. Exempel:
 
-Observera att vi måste skicka&quot;responseNative&quot; som ramverkstyp för React Native-program. 
+Observera att vi måste skicka&quot;responseNative&quot; som ramverkstyp för React Native-program.
 
 ```
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
@@ -489,7 +489,6 @@ RNMarketoModule.registerForRemoteNotifications();
 
 export { requestPermission, registerForRemoteNotifications };
 ```
-
 
 Lägg till `App.tsx` om du vill tillåta push-meddelanden
 
@@ -595,7 +594,7 @@ Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 1. Inkludera `application:openURL:sourceApplication:annotation:` i filen `AppDelegate.m` (mål-C)
 
-**iOS - Hantera anpassad URL-typ/anpassade URL-länkar i AppDelegate** 
+**iOS - Hantera anpassad URL-typ/anpassade URL-länkar i AppDelegate**
 
 ```
 - (BOOL)application:(UIApplication *)app

@@ -3,26 +3,26 @@ title: Fälttyper
 feature: REST API
 description: En lista över fälttyper i Marketo
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: fc9b9037986a35036dbd909339f59bd33aa67e71
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '311'
+source-wordcount: '307'
 ht-degree: 2%
 
 ---
 
 # Fälttyper
 
-Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Fälttyp | Beskrivning | Exempel |
 | --- | --- | --- |
 | Datetime | Används för att ange datum och tid. Följer [W3C-format](https://www.w3.org/TR/NOTE-datetime) (ISO 8601). Det bästa sättet är att inkludera tidszonsförskjutningen. Fullständigt datum plus timmar och minuter: YYYY-MM-DDThh:mm:ssTZD där TZD är &quot;+hh:mm&quot; eller &quot;-hh:mm&quot; Obs! Vissa resurs-API:er returnerar &quot;Z+0000&quot; som TZD för `updatedAt` och `createdAt`. | 2010-05-07T15:41:32-05:00 |
-| E-post | Ett strängfält som accepterar e-postadresser | example@example.com |
+| E-post | Ett strängfält som accepterar e-postadresser | <example@example.com> |
 | Float | Ett nummerfält som innehåller reella tal och kan använda en decimal. | 10,4 |
 | Heltal | Hela tal | 10 |
-| Formel | Fält vars värden genereras genom att data från andra fält i en lead-post ändras. De exporteras inte och kan inte användas i smarta kampanjer. | Se den här [artikeln](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formel | Fält vars värden genereras genom att data från andra fält i en lead-post ändras. De exporteras inte och kan inte användas i smarta kampanjer. | Se den här [artikeln](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Procent | Ett procenttal uttryckt som ett heltal | 30 |
-| URL | Ett textfält som begränsar indata till URL:er, inklusive URL-adressens protokoll. | http://example.com/ |
+| URL | Ett textfält som begränsar indata till URL:er, inklusive URL-adressens protokoll. | <http://example.com/> |
 | Tel. | Telefonnummer | 111-111-1111 |
 | Textområde | Längre text. | Stöder upp till 30 000 byte. Standard-ASCII-tecken använder 1 byte per tecken (upp till 30 000 tecken tillåts). Unicode-tecken kan använda upp till 4 byte per tecken (vilket minskar antalet  antalet tecken som får vara mindre än 30 000 tecken). |
 | Sträng | Kortare text | Text på upp till 255 tecken |

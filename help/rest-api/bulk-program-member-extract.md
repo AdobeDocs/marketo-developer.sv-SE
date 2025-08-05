@@ -3,7 +3,7 @@ title: Extract för programmedlem
 feature: REST API
 description: Batchbearbetning av extrahering av medlemsdata.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '1142'
 ht-degree: 0%
@@ -235,7 +235,7 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>isExforsted</td>
       <td>Boolean</td>
-      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
+      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
     </tr>
     <tr>
       <td>planttureCadence</td>
@@ -323,7 +323,6 @@ Slutpunkten Skapa medlemsjobb för exportprogram innehåller flera formateringsa
 | fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. De listade fälten inkluderas i den exporterade filen. Följande fälttyper kan exporteras: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Ange ett fält med hjälp av dess REST API-namn som kan hämtas med Beskriv lead2 och/eller Beskriv programmedlemmens slutpunkter. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |
-
 
 ## Skapa ett jobb
 

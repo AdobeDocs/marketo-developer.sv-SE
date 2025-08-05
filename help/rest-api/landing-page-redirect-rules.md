@@ -3,7 +3,7 @@ title: Regler för omdirigering av startsida
 feature: REST API, Landing Pages
 description: Konfigurera omdirigeringsregler för landningssidor via API:t.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
 source-wordcount: '641'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo erbjuder en uppsättning REST API:er för att utföra CRUD-åtgärder på URL:er för omdirigering av landningssidor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Skapa, Uppdatera och Ta bort.
 
-Regler för omdirigering av landningssidor ger möjlighet att omdirigera en URL för en landningssida till en annan sidas URL. Du kan dirigera om Marketo landningssidor, icke-Marketo landningssidor eller kombinationer av dessa. Ytterligare information om reglerna för omdirigeringssidan finns [här](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE).
+Regler för omdirigering av landningssidor ger möjlighet att omdirigera en URL för en landningssida till en annan sidas URL. Du kan dirigera om Marketo landningssidor, icke-Marketo landningssidor eller kombinationer av dessa. Ytterligare information om reglerna för omdirigeringssidan finns [här](https://experienceleague.adobe.com/docs/marketo/using/home.html).
 
 ## Fråga
 
@@ -136,7 +136,7 @@ GET /rest/asset/v1/redirectRules.json&maxReturn=3
 
 ## Skapa
 
-Slutpunkten [Skapa regel för omdirigering av startsida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) körs med en program/x-www-form-urlencoded-POST som har följande tre obligatoriska parametrar.
+Slutpunkten [Skapa regel för omdirigering av landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/createLandingPageRedirectRuleUsingPOST) körs med en POST-fil som har följande tre obligatoriska parametrar.
 
 Parametern `hostname` anger värdnamnet för landningssidan. Detta bör tillhöra en varumärkesdomän eller ett alias. Maxlängden är 255 tecken.
 
@@ -148,7 +148,6 @@ Parametern `redirectFrom` anger källans landningssida. Detta är ett JSON-objek
 | &#39;visitor&#39; | Obligatoriskt | Sträng | Metodnamn. |
 | callback | Obligatoriskt | Funktion | Återanropsfunktion som ska aktiveras för varje returnerad kampanj. |
 
-
 Parametern `redirectTo` anger målstartsidan. Detta är ett JSON-objekt som innehåller ett typ/värde-par som avgör om källan är en Marketo-landningssida eller en icke-Marketo-landningssida. Attributet `type` kan vara antingen&quot;landingPageId&quot; eller&quot;url&quot;.
 
 | Typ av landningssida | redirectTo-typ | Exempel |
@@ -156,7 +155,7 @@ Parametern `redirectTo` anger målstartsidan. Detta är ett JSON-objekt som inne
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Ej Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Mer information om hur du skapar omdirigeringsregler för landningssidor finns [här](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=sv-SE).
+Mer information om hur du skapar omdirigeringsregler för landningssidor finns [här](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
 ```
 POST /rest/asset/v1/redirectRules.json
@@ -197,9 +196,9 @@ hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&red
 }
 ```
 
-## Uppdatera
+## Uppdatering
 
-Slutpunkten [Uppdatera regler för omdirigering av landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) har en enda sökvägsparameter för omdirigeringsregel `id` för landningssidan. Slutpunkten körs med en application/x-www-form-urlencoded POST.
+Slutpunkten [Uppdatera regler för omdirigering av landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/updateLandingPageRedirectRuleUsingPOST) har en enda sökvägsparameter för omdirigeringsregel `id` för landningssidan. Den här slutpunkten körs med en application/x-www-form-urlencoded POST.
 
 Precis som med anropet för att skapa som beskrivs ovan skickas en eller flera av följande frågeparametrar för att ange vilket attribut för regeln som ska uppdateras: `hostname`, `redirectFrom`, `redirectTo`.
 

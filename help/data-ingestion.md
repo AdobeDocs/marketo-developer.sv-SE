@@ -1,17 +1,17 @@
 ---
-title: "Datainmatning"
-description: "API-översikt för datainmatning"
-source-git-commit: 6fc45ff98998217923e2a5b02d00d1522fe3272c
+title: Datainmatning
+description: API-översikt för datainmatning
+source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
 workflow-type: tm+mt
-source-wordcount: '945'
-ht-degree: 1%
+source-wordcount: '940'
+ht-degree: 3%
 
 ---
 
 
-# Inmatning av data
+# Datainmatning
 
-API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning. 
+API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning.
 
 Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup/). &#x200B;
 
@@ -55,13 +55,13 @@ Datainmatning använder följande anpassade HTTP-rubriker.
 
 ## Begäranden
 
-Använd metoden HTTP-POST för att skicka data till servern.
+Använd HTTP POST-metoden för att skicka data till servern.
 
 Datarepresentationen är inkluderad i begärandetexten som application/json.
 
 Domännamnet är: `mkto-ingestion-api.adobe.io`
 
-Sökvägen börjar med `/subscriptions/_MunchkinId_` där `_MunchkinId_` är specifik för din Marketo-instans. Du hittar ditt Munchkin-ID i användargränssnittet för Marketo Engage under **Admin** >**Mitt konto** > **Supportinformation**. Resten av sökvägen används för att ange den givna resursen.
+Sökvägen börjar med `/subscriptions/_MunchkinId_` där `_MunchkinId_` är specifik för din Marketo-instans. Du hittar ditt Munchkin-ID i Marketo Engage-gränssnittet under **Admin** >**Mitt konto** > **Supportinformation**. Resten av sökvägen används för att ange den givna resursen.
 
 Exempel-URL för personer:
 
@@ -130,7 +130,7 @@ Slutpunkt som används för att infoga personposter.
 |---|
 | POST |
 
-| Bana |
+| Sökväg |
 |---|
 | `/subscriptions/{munchkinId}/persons` |
 
@@ -143,10 +143,10 @@ Begärandetext
 
 | Nyckel | Datatyp | Obligatoriskt | Värde | Standardvärde |
 |---|---|---|---|---|
-| prioritet | Sträng | Nej | Förfrågans prioritet:normal hög | normal |
+| prioritet | Sträng | Nej | Prioritet för begäran :normalhigh | normal |
 | partitionName | Sträng | Nej | Namn på personpartition | Standard |
 | dedupeFields | Objekt | Nej | Attribut som inte ska dupliceras. Ett eller två attributnamn tillåts. Två attribut används i en AND-åtgärd. Om till exempel både `email` och `firstName` anges, används båda för att leta upp en person med operationen AND. Attribut som stöds är: `idemail`, `sfdcAccountId`, `sfdcContactId`, `sfdcLeadId`, `sfdcLeadOwnerIdCustom` attribut (&quot;string&quot; och&quot;integer&quot;) | e-post |
-| personer | Objektmatris | Ja | Lista över attributnamnvärdespar för personen | - |
+| personer | Objektmatris | Ja | Lista över attributnamnvärdespar för personen | – |
 
 | Behörighet |
 |---|
@@ -199,7 +199,7 @@ Slutpunkt som används för att infoga anpassade objektposter.
 |---|
 | POST |
 
-| Bana |
+| Sökväg |
 |---|
 | `/subscriptions/{munchkinId}/customobjects/{customObjectAPIName}` |
 
@@ -214,9 +214,9 @@ Begärandetext
 
 | Nyckel | Datatyp | Obligatoriskt | Värde | Standardvärde |
 |---|---|---|---|---|
-| prioritet | Sträng | Nej | Förfrågans prioritet:normal hög | normal |
-| dedupeBy | Sträng | Nej | Attribut som ska dedupliceras på:deduplicpeFieldMarketoGUID | dedupeFields |
-| customObjects | Objektmatris | Ja | Lista över attributnamnvärdespar för objektet. | - |
+| prioritet | Sträng | Nej | Prioritet för begäran :normalhigh | normal |
+| dedupeBy | Sträng | Nej | Attribut som ska dedupliceras på :dedupeFieldsmarketoGUID | dedupeFields |
+| customObjects | Objektmatris | Ja | Lista över attributnamnvärdespar för objektet. | – |
 
 | Behörighet |
 |---|
