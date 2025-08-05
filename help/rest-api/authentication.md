@@ -55,7 +55,7 @@ När anrop görs till REST API-metoder måste en åtkomsttoken inkluderas i varj
 
 >[!IMPORTANT]
 >
->Stöd för autentisering med frågeparametern `access_token` tas bort den 31 oktober 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att [auktoriseringshuvudet](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) används så snart som möjligt. Ny utveckling bör endast använda rubriken `Authorization`.
+>Stöd för autentisering med frågeparametern `access_token` tas bort den 31 oktober 2025. Om ditt projekt använder en frågeparameter för att skicka åtkomsttoken bör den uppdateras så att [auktoriseringshuvudet](https://experienceleague.adobe.com/sv/docs/marketo-developer/marketo/rest/authentication#using-an-access-token) används så snart som möjligt. Ny utveckling bör endast använda rubriken `Authorization`.
 
 ### Växla till auktoriseringsrubriken
 

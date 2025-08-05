@@ -16,7 +16,7 @@ Installationsanvisningar för tillägget [!DNL Adobe Launch] Marketo. Stegen ned
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera egenskapen i [!DNL Adobe Launch] portalen](https://experience.adobe.com/#/@amc/data-collection/home)
 1. Konfigurera programhemlig nyckel och Munchkin-ID för egenskapen i portalen [!DNL Adobe Launch]
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
