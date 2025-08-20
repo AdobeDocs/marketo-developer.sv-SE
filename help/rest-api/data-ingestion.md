@@ -1,9 +1,9 @@
 ---
-title: Datainmatning
+title: Datainhämtning
 feature: REST API, Dynamic Content
 description: Förbruka data med Marketo API:er.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
 workflow-type: tm+mt
 source-wordcount: '965'
 ht-degree: 2%
@@ -18,7 +18,9 @@ Data hämtas genom att begäranden som körs asynkront skickas. Status för beg�
 
 Gränssnitt erbjuds för två objekttyper: Personer, Egna objekt. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
-API:t för datainmatning finns för närvarande i en privat beta.  Inbjudna måste ha ett berättigande för [Marketo Engage Performance Tier](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)-paketet.
+>[!NOTE]
+>
+>API:t för datainmatning finns för närvarande i en privat beta.  Inbjudna måste ha ett berättigande för [Marketo Engage Performance Tier](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)-paketet.
 
 ## Autentisering
 
