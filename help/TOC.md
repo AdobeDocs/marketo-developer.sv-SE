@@ -5,9 +5,9 @@ breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: f269cbe6edbd6d3fd5b579b1ea03bab8b99208be
+source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
 workflow-type: tm+mt
-source-wordcount: '252'
+source-wordcount: '251'
 ht-degree: 5%
 
 ---
@@ -31,7 +31,6 @@ ht-degree: 5%
    - [Prediktivt innehåll](javascript-api/predictive-content.md)
    - [Omdirigeringar](javascript-api/redirect.md)
    - [Rekommendationer för multimedia](javascript-api/rich-media-recommendation.md)
-   - [Social](javascript-api/social.md)
    - [Utlösare](javascript-api/triggers.md)
    - [Web Personalization](javascript-api/web-personalization.md)
 - Mobil {#mobile}
