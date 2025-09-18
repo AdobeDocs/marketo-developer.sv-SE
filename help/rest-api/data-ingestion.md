@@ -3,10 +3,10 @@ title: Datainhämtning
 feature: REST API, Dynamic Content
 description: Förbruka data med Marketo API:er.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 4bac6968867f1fbee0846b1bcd75b5e34ad91dee
+source-git-commit: af2d0f266a271696dbf7d334f23bcd9962b9eba4
 workflow-type: tm+mt
-source-wordcount: '965'
-ht-degree: 2%
+source-wordcount: '957'
+ht-degree: 3%
 
 ---
 
@@ -14,13 +14,13 @@ ht-degree: 2%
 
 API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning.
 
-Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup). &#x200B;
+Data hämtas genom att begäranden som körs asynkront skickas. Status för begäran kan hämtas genom att prenumerera på händelser från [Marketo-dataströmmen för observabilitet](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-observability-data-stream-setup).
 
 Gränssnitt erbjuds för två objekttyper: Personer, Egna objekt. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
 >[!NOTE]
 >
->API:t för datainmatning finns för närvarande i en privat beta.  Inbjudna måste ha ett berättigande för [Marketo Engage Performance Tier](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)-paketet.
+>Åtkomst till API:t för datainmatning kräver tillstånd till [Marketo Engage Performance Tier](https://nation.marketo.com/t5/product-documents/marketo-engage-performance-tiers/ta-p/328835)-paketet.
 
 ## Autentisering
 
