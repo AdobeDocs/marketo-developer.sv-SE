@@ -105,7 +105,7 @@ Omdirigeringsanropet har stöd för flera samtal. Detta gör det möjligt att om
 | send | Obligatoriskt | Sträng | Metodåtgärd. |
 | &quot;redirect&quot; | Obligatoriskt | Sträng | Metodnamn. |
 | field_name | Obligatoriskt | Sträng | Fältnamn att matcha mot. Exempel: &quot;abm.name&quot; (se ovan). |
-| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<http://marketo.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]} |
+| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<http://marketo.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]&rbrace; |
 
 #### Exempel
 
