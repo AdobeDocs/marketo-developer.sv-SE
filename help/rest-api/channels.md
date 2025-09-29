@@ -1,11 +1,11 @@
 ---
 title: Kanaler
 feature: REST API
-description: Konfigurera kanaldata med Marketo API:er.
+description: Lär dig hur du frågar efter Marketo-kanaler via Asset REST API, bläddrar med sidnumrering eller hämtar efter namn, visar förloppsstatus och förstår regler för programtyper.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '125'
+source-wordcount: '144'
 ht-degree: 0%
 
 ---

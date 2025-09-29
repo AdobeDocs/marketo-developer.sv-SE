@@ -1,10 +1,11 @@
 ---
 title: Marketo Objects
 feature: Email Programs
-description: Översikt över hur du använder Marketo Objects med Velocity-skript
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: Guide till användning av Marketo Velocity med Leads, Opportunity och Custom Objects, inläsningsfält, de 10 främsta liståtkomstfunktionerna, SFDC-relationer och $TriggerObject.
+exl-id: 88c63d72-7aa5-4550-9e1a-887a479872e1
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '518'
+source-wordcount: '530'
 ht-degree: 0%
 
 ---

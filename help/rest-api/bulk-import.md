@@ -1,11 +1,11 @@
 ---
 title: Massimport
 feature: REST API
-description: Batchimportera persondata.
+description: Marketo massimport för att läsa in leads, anpassade objekt och programmedlemmar via multipart-överföringar, skapa asynkrona jobb, avsökningsstatus och hanteringsfel.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '592'
+source-wordcount: '610'
 ht-degree: 0%
 
 ---

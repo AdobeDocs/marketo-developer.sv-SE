@@ -1,11 +1,11 @@
 ---
 title: Anpassade objekt
 feature: SOAP
-description: Skapa anpassade objekt.
+description: Lär dig hur Marketo Custom Objects länkar ett leder till många poster, med struktur, begränsningar och SOAP API-anrop för hämtning, synkronisering, borttagning plus Smart List och e-postanvändning.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '231'
+source-wordcount: '256'
 ht-degree: 0%
 
 ---

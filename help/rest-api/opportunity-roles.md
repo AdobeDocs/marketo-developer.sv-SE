@@ -1,11 +1,11 @@
 ---
 title: Roller för affärsmöjlighet
 feature: REST API
-description: Hantera affärsmöjlighetsroller i Marketo.
+description: Hantera Marketo affärsmöjlighetsroller via REST API, inklusive beskrivning, frågor med sammansatta dedupliceringsfält, skapa borttagning av uppdatering, timeout och ingen CRM-synkronisering.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '253'
+source-wordcount: '270'
 ht-degree: 0%
 
 ---

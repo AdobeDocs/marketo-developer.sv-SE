@@ -1,11 +1,11 @@
 ---
 title: PhoneGap
 feature: Mobile Marketing
-description: Använda PhoneGap med Marketo på mobila enheter
+description: Konfigurera Marketo PhoneGap Plugin med Cordova, konfigurera Firebase Cloud Messaging, aktivera iOS och Android push, spåra meddelanden och initiera SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '797'
+source-wordcount: '813'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Integrering av Marketo PhoneGap Plugin
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
 1. [Installera PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
@@ -66,7 +66,7 @@ Kontrollera listan över plattformar som lagts till `$cordova platform ls`
 1. Stöd för Firebase Cloud Messaging
 
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://console.firebase.google.com/)Firebase-konsolen.
+   1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase-konsolen.
       1. Välj [ i ](https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.

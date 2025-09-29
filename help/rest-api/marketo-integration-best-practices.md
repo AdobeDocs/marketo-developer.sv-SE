@@ -1,11 +1,11 @@
 ---
 title: Metodtips för Marketo-integrering
 feature: REST API
-description: De bästa sätten att använda Marketo API:er.
+description: Bästa tillvägagångssätt för Marketo API-integreringar som omfattar kvoter, frekvens och samtidighetsgränser, batchbearbetning, bulkimport och -export, cachelagring och latensplanering.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '952'
+source-wordcount: '966'
 ht-degree: 0%
 
 ---
@@ -14,13 +14,13 @@ ht-degree: 0%
 
 ## API-gränser
 
-- **Daglig kvot:** De flesta prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
+- **Daglig kvot:** De flesta prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen med 12:00AM CST). Du kan öka din dagliga kvot med din kontohanterare.
 - **Hastighetsgräns:** API-åtkomst per instans begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
 - **Batchstorlek:** Lead DB - 300 poster; Tillgångsfråga - 200 poster
 - **REST API-nyttolaststorlek:** 1 MB
 - **Storlek på massimportfil:** 10 MB
-- **SOAP Maximal gruppstorlek:** 300 poster
+- **Maximal batchstorlek för SOAP:** 300 poster
 - **Massextraheringsjobb:** 2 körning; 10 köade (inklusive)
 
 ## Snabbtips

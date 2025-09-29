@@ -1,11 +1,11 @@
 ---
 title: importToList
 feature: SOAP
-description: importToList SOAP anrop
+description: Lär dig hur du använder importToList i Marketo SOAP för att importera leads till en statisk lista med CSV-rubriker, tokenåsidosättningar, XML-exempel och statuskontroller.
 exl-id: 7e4930a9-a78f-44a3-9e8c-eeca908080c8
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '387'
+source-wordcount: '409'
 ht-degree: 0%
 
 ---

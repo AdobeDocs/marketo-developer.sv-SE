@@ -1,11 +1,11 @@
 ---
 title: Företag
 feature: REST API
-description: Konfigurera företagsdata med Marketo API:er.
+description: Använd Marketo Companies REST API för att beskriva, fråga efter och synkronisera företagsposter, hantera fält och ta bort av externalCompanyId och för att anteckna i CRM-synkronisering som skrivskyddad.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '564'
+source-wordcount: '582'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Företagen representerar den organisation som lead-posterna tillhör. Leads läggs till i ett företag genom att fylla i motsvarande `externalCompanyId`-fält med hjälp av [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eller [Importera massleads](bulk-lead-import.md) . När en lead har lagts till i ett företag kan du inte ta bort den från det företaget (om du inte lägger till den i ett annat företag). Leads som är länkade till en företagspost ärver värdena direkt från en företagspost som om värdena fanns på leadets egen post.
 
-Företags-API:er är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=sv-SE) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=sv-SE) aktiverat.
+Företags-API:er är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiverat.
 
 ## Beskriv
 

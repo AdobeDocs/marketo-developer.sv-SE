@@ -1,11 +1,11 @@
 ---
 title: Aktivera djupa länkar
 feature: Mobile Marketing
-description: Instruktioner för aktivering av djupa länkar
+description: Lär dig hur du aktiverar djupa länkar i din app för push-meddelanden från Marketo med anpassade URI-scheman, med hjälp av guiderna för iOS, Android och PhoneGap samt bästa praxis.
 exl-id: c3647416-d81d-4f15-b660-bcb3e54cb9bc
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '376'
+source-wordcount: '397'
 ht-degree: 0%
 
 ---

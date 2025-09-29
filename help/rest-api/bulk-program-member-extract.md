@@ -1,11 +1,11 @@
 ---
 title: Extract för programmedlem
 feature: REST API
-description: Batchbearbetning av extrahering av medlemsdata.
+description: Använd Marketo Bulk Program Member Extract REST API:er för att exportera stora medlemsposter för ETL, datalagerhantering och arkivering med behörigheter och metadata.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1142'
+source-wordcount: '1160'
 ht-degree: 0%
 
 ---
@@ -235,7 +235,7 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>isExforsted</td>
       <td>Boolean</td>
-      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
+      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
     </tr>
     <tr>
       <td>planttureCadence</td>

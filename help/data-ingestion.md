@@ -1,15 +1,15 @@
 ---
-title: Datainmatning
-description: API-översikt för datainmatning
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+title: Datainhämtning
+description: Marketo-API för datainmatning för att öka latensen för personer och anpassade objekt i stora volymer, asynkron status via observabilitet, OAuth-huvudautentisering, privat beta.
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '940'
+source-wordcount: '960'
 ht-degree: 3%
 
 ---
 
 
-# Datainmatning
+# Datainhämtning
 
 API:t för datainmatning är en tjänst med hög volym, låg latens och hög tillgänglighet som är utformad för att hantera stora mängder personrelaterade data effektivt och med minimal fördröjning.
 

@@ -1,10 +1,10 @@
 ---
 title: Dataströmmar
-description: Översikt över dataströmmar
+description: Översikt över Marketo Engage dataströmmar som möjliggör nästan ledande aktivitet i realtid och användargranskningshändelser, easing API-gränser för Performance Tier-kunder
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1596'
+source-wordcount: '1615'
 ht-degree: 0%
 
 ---
@@ -262,7 +262,7 @@ Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo använd
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
-Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/se/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
+Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
 
 ### Konfigurera Adobe I/O
 

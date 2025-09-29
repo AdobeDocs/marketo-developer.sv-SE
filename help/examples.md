@@ -1,10 +1,11 @@
 ---
 title: Exempel på e-postskript
 feature: Email Programs
-description: Exempel på Marketo e-postskript
-source-git-commit: 3ccb27a0d184e0c1314979d404022bc4e0794f7b
+description: Exempel på Marketo e-postskript med hjälp av Snabb, inklusive slingor genom anpassade objekt, datumparsning/formatering, HTML escape-konvertering och URL-ID.
+exl-id: 7c801f1c-0ab3-49f0-8577-0c4dccc80d0b
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '52'
+source-wordcount: '67'
 ht-degree: 1%
 
 ---

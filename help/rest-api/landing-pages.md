@@ -1,11 +1,11 @@
 ---
 title: Landningssidor
 feature: REST API, Landing Pages
-description: Fråga landningssidor i Marketo.
+description: Använd Marketo REST API för att fråga efter metadata och innehåll, skapa, uppdatera, godkänna, ta bort och klona landningssidor, inklusive guidade och friformstyper.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1000'
+source-wordcount: '1018'
 ht-degree: 0%
 
 ---
@@ -274,7 +274,7 @@ Variabler definieras som metataggar inuti elementet `<head>` i en landningssidma
 </head>
 ```
 
-Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Fråga
 

@@ -1,11 +1,11 @@
 ---
 title: Bas-URL
 feature: REST API
-description: Beskriver hur du URL:er för Marketo används.
+description: Lär dig att skapa Marketo REST API-begäranden, förstå grundläggande URL-sökvägsresurs och parametrar samt hitta din unika bas-URL.
 exl-id: 6c3f122c-3ace-4ed3-bed0-a6b89cedc99a
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '138'
+source-wordcount: '152'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,7 @@ som består av följande delar:
 - Resurs: `318582.json`
 - Frågeparameter: `fields=email,firstName,lastName`
 
-Bas-URL:en innehåller konto-ID (även kallat Munchkin-ID) och är därför unik för varje Marketo-prenumeration. Du hittar din bas-URL genom att logga in på Marketo och navigera till menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**. Det är märkt som &quot;Endpoint:&quot; under avsnittet &quot;REST API&quot; som i följande skärmbilder.
+Bas-URL:en innehåller konto-ID (alias Munchkin-id) och är därför unik för varje Marketo-prenumeration. Du hittar din bas-URL genom att logga in på Marketo och navigera till menyn **[!UICONTROL Admin]** > **[!UICONTROL Integration]** > **[!UICONTROL Web Services]**. Det är märkt som &quot;Endpoint:&quot; under avsnittet &quot;REST API&quot; som i följande skärmbilder.
 
 ![Bas-URL-slutpunkt för webbtjänster](assets/rest-api-base-url-web-services.png)
 

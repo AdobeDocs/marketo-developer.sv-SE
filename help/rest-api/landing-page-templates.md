@@ -1,11 +1,11 @@
 ---
 title: Mallar för landningssidor
 feature: REST API, Landing Pages
-description: Skapa och redigera mallar för landningssidor.
+description: Hantera Marketo Landing Page Templates via REST API-slutpunkter för kostnadsfria formulär och guidade typer, fråga efter ID eller namn, skapa, uppdatera HTML, klona, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '533'
+source-wordcount: '552'
 ht-degree: 0%
 
 ---
@@ -18,15 +18,15 @@ Landningssidmallar är en överordnad resurs och beroende för enskilda Marketo 
 
 ## Malltyper
 
-Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Fråga
 
-Mallar för landningssidor har stöd för standardfrågetyper för resurser i [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) och [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av mallarnas HTML-innehåll måste göras per mall via dess ID.
+Mallar för landningssidor har stöd för standardfrågetyper för resurser i [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) och [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av HTML-innehåll från mallar måste göras per mall via dess ID.
 
 ## Skapa och uppdatera
 
-Mallar skapas som tomma resurser med associerade metadata. När du skapar en mall måste du inkludera ett namn och en mapp tillsammans med en valfri beskrivning, templateType och enableMunchkin-parameter. templateType kan vara antingen frihandsritad eller guidad och som standard används freeForm. Skillnader mellan typerna finns i avsnittet Guidad kontra Fri form. enableMunchkin har standardvärdet false och när det är aktiverat förhindras Munchkin-spårning från att utföras på mallens underordnade landningssidor.
+Mallar skapas som tomma resurser med associerade metadata. När du skapar en mall måste du inkludera ett namn och en mapp tillsammans med en valfri beskrivning, templateType och enableMunchkin-parameter. templateType kan vara antingen frihandsritad eller guidad och som standard används freeForm. Skillnader mellan typerna finns i avsnittet Guidad kontra Fri form. enableMunchkin har standardvärdet false och när den är aktiverad förhindras Munchkin tracking från att utföras på mallens underordnade landningssidor.
 
 ```
 POST /rest/asset/v1/landingPageTemplates.json
@@ -112,7 +112,7 @@ Content-Type: text/plain
 
 ## Klona
 
-Marketo erbjuder en enkel metod för kloning av landningssidmallar. Det här är en begäran om POST av typen application/x-www-url-formencoded.
+Marketo erbjuder en enkel metod för kloning av landningssidmallar. Detta är en program/x-www-url-formencoded POST-begäran.
 
 Sökvägsparametern `id` anger ID:t för den Landing Page Template som ska klonas.
 
@@ -167,9 +167,9 @@ Mallar för landningssidor följer standardmodellen för utkast, där det kan fi
 
 För att en mall ska kunna godkännas måste den följa reglerna för sin typ, antingen i form av kostnadsfria guider. Mer information om kraven för att skapa och godkänna mallar av respektive typ finns i respektive dokument:
 
-- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Guided Landing Page Templates](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Exempel på guidade mallar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Guided Landing Page Templates](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Exempel på guidade mallar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Ta bort
 

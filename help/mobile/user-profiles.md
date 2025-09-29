@@ -1,11 +1,11 @@
 ---
 title: Användarprofiler
 feature: Mobile Marketing, Users and Roles
-description: Använda användarprofiler i Marketo Mobile
+description: Lär dig skapa och uppdatera användarprofiler i Marketo Mobile SDK på iOS och Android med Objective C Swift och Java, standardfält och anpassade fält, AssociateLead
 exl-id: 1b2cfb7f-d678-4022-8cd9-a56004a1ac46
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '83'
+source-wordcount: '103'
 ht-degree: 0%
 
 ---

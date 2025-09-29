@@ -1,11 +1,11 @@
 ---
 title: Assets
 feature: REST API
-description: Ett API för att arbeta med Marketo-resurser.
+description: Översikt över Marketo Asset REST API:er för att fråga efter ID eller namn, bläddra med sidindelning och skapa eller uppdatera mappar, e-post, formulär, mallar, filer, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '876'
+source-wordcount: '894'
 ht-degree: 0%
 
 ---

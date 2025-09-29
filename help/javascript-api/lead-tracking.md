@@ -1,11 +1,11 @@
 ---
 title: Spårning av leads
-description: API för lead-spårning
+description: Lär dig bädda in Marketo Munchkin JavaScript, spåra besök och klickningar, hantera kända eller anonyma leads, domänöverskridande cookies och avanmäla dig för smarta kampanjer.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '764'
+source-wordcount: '784'
 ht-degree: 0%
 
 ---
@@ -28,7 +28,7 @@ Vi rekommenderar starkt att den asynkrona spårningskoden används för inbäddn
 
 Vissa innehållshanteringssystem kan ha specifika metoder eller begränsningar när du bäddar in godtyckliga skript.
 
-Som referens bör den sista sidan innehålla kod som liknar den här i `<head>` i ditt HTML-dokument:
+Som referens bör den sista sidan innehålla kod som liknar den här i `<head>` av ditt HTML-dokument:
 
 ```html
 <head>
@@ -100,7 +100,7 @@ Munchkin cookies är specifika för varje domännivå på andra nivån, det vill
 
 ## Beta
 
-Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
+Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
 
 ## Avanmäl dig
 

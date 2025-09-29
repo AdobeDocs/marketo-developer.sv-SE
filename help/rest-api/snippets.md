@@ -1,11 +1,11 @@
 ---
 title: Fragment
 feature: REST API, Snippets
-description: Hantera kodfragment via Marketo API.
+description: Marketo Asset REST API för kodfragment, som omfattar fråga efter ID och bläddra med status, hämta innehåll, skapa och uppdatera HTML, text och dynamiskt innehåll.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '438'
+source-wordcount: '456'
 ht-degree: 0%
 
 ---
@@ -183,7 +183,7 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 }
 ```
 
-Det är ID som lägger till eller ersätter innehåll i ett fragment. Innehållet kan vara av typen Text, HTML eller DynamicContent. Om typen är Text är innehållsparametern en oformaterad textslutpunkt, medan den är HTML är den önskade markeringstexten. Om typen är inställd på DynamicContent ska innehållsparametern vara inställd på det id för segmenteringen som ska associeras med fragmentet.
+Det är ID som lägger till eller ersätter innehåll i ett fragment. Innehållet kan vara av typen Text, HTML eller DynamicContent. Om typen är Text är innehållsparametern oformaterad textslutpunkt, medan den är HTML, då är den önskade markeringstexten. Om typen är inställd på DynamicContent ska innehållsparametern vara inställd på det id för segmenteringen som ska associeras med fragmentet.
 
 ```
 POST /rest/asset/v1/snippet/{id}/content.json

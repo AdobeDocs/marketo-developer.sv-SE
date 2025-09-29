@@ -1,11 +1,11 @@
 ---
 title: Filter för aktivitetstyp
 feature: SOAP
-description: Aktivitetstypfilter för SOAP anrop.
+description: Bläddra bland alla Activity Type-filter som stöds för SOAP-samtal, från e-postklick och formulärfyllningar till SFDC kampanjändringar och uppdateringar av affärsmöjligheter.
 exl-id: d661bb41-5615-4394-ade0-29254e48f7eb
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '210'
+source-wordcount: '226'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,7 @@ ht-degree: 0%
 | Lägg till i struktur |
 | Lägg till i affärsmöjlighet |
 | Lägg till i segment |
-| Lägg till i SFDC-kampanj |
+| Lägg till i SFDC Campaign |
 | Lägg till i Smart Campaign |
 | Tilldela strukturinnehåll |
 | Hämta historik för kampanjmedlemskap |
@@ -37,7 +37,7 @@ ht-degree: 0%
 | Ändra poäng |
 | Ändra segment |
 | Ändra status i progression |
-| Ändra status i SFDC-kampanj |
+| Ändra status i SFDC Campaign |
 | Klicka på E-post |
 | Klicka på Länk |
 | Klicka på E-postadress |
@@ -54,7 +54,7 @@ ht-degree: 0%
 | Lead tilldelad |
 | Sammanfoga leads |
 | Nytt lead |
-| Ny SFDC-möjlighet |
+| Nya möjligheter för SFDC |
 | Näturistransplantation |
 | Öppna e-post |
 | Open Sales Email |
@@ -63,7 +63,7 @@ ht-degree: 0%
 | Ta bort från flöde |
 | Ta bort från lista |
 | Ta bort från affärsmöjlighet |
-| Ta bort från SFDC-kampanj |
+| Ta bort från SFDC Campaign |
 | Begär kampanj |
 | Variant för belöningstestgrupp |
 | E-postförsäljning studsade |
@@ -72,9 +72,9 @@ ht-degree: 0%
 | Skicka e-post |
 | Skicka e-postmeddelande |
 | Vidarebefordra till väns-e-post |
-| SFDC-aktivitet |
-| SFDC-aktivitet har uppdaterats |
-| SFDC-sammanslagningsleads |
+| SFDC Activity |
+| SFDC Activity Updated |
+| SFDC Merge Leads |
 | Dela innehåll |
 | Synkronisera lead till SFDC |
 | Synkronisera leaduppdateringar till SFDC |

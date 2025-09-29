@@ -1,11 +1,11 @@
 ---
 title: Import av satsprogrammedlem
 feature: REST API
-description: Batchimport av medlemsdata.
+description: Lär dig hur du importerar flera programmedlemmar samtidigt via Marketo REST API med CSV TSV- eller SSV-filer under 10 MB, kögränser, obligatoriska parametrar och avsökningsjobbstatus.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: 8a785b0719e08544ed1a87772faf90bd9dda3077
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '837'
+source-wordcount: '860'
 ht-degree: 0%
 
 ---

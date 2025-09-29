@@ -1,11 +1,11 @@
 ---
 title: React Native
 feature: Mobile Marketing
-description: Installera React Native för Marketo
+description: Installera och konfigurera Marketo SDK i React Native-appar med Android Gradle och iOS CocoaPods, inbyggda modulöverbryggning, push och lead-associationer.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '810'
+source-wordcount: '830'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## Förutsättningar
 
-[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 
 ## SDK Integration
 

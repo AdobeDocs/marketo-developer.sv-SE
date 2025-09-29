@@ -1,11 +1,11 @@
 ---
 title: getCustomObjects
 feature: SOAP, Custom Objects
-description: getCustomObjects SOAP anrop
+description: Lär dig hur du använder getCustomObjects för att hämta anpassade Marketo-objekt via SOAP med nycklar, includeAttributes, batch size up to 100 och streamPosition pagination.
 exl-id: 32ff208a-f824-4420-a26f-1fd969a2bc4c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '156'
+source-wordcount: '176'
 ht-degree: 0%
 
 ---

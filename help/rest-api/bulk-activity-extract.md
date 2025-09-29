@@ -1,11 +1,11 @@
 ---
 title: Extrahera massaktivitet
 feature: REST API
-description: Gruppbearbetning av aktivitetsdata från Marketo.
+description: Marketo Bulk Activity Extract REST API för att exportera aktivitetsdata för stora volymer med ett 31-dagars datumintervall, aktivitet och primära attributfilter för ETL och CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1332'
+source-wordcount: '1351'
 ht-degree: 0%
 
 ---

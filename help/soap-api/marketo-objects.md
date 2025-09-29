@@ -1,11 +1,11 @@
 ---
 title: Marketo Objects
 feature: SOAP
-description: Marketo Objects - översikt
+description: Översikt över Marketo MObjects, inklusive typer, attribut, beteende för extern nyckel och vilka SOAP API:er som stöds för poster i säljprojekt, program och liknande.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '249'
+source-wordcount: '265'
 ht-degree: 0%
 
 ---

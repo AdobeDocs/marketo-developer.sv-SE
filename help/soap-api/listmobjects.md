@@ -1,11 +1,11 @@
 ---
 title: listMObjects
 feature: SOAP
-description: listMObjects SOAP call
+description: Referens för listMObjects SOAP-anropet som returnerar Marketo-objektnamn för describeMObjects, med XML-kod för begäran och svar samt exempelkod.
 exl-id: d8b32ba2-7c20-4611-9062-c3c5db2d2ccb
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '48'
+source-wordcount: '66'
 ht-degree: 0%
 
 ---

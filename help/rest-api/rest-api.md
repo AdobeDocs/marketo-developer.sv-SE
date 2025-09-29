@@ -1,11 +1,11 @@
 ---
 title: REST API
 feature: REST API
-description: REST API - översikt
+description: Lär dig använda Marketo REST API, konfigurera API-användare och LaunchPoint, visa kvoter och begränsningar, autentisera med auktoriseringshuvud och hämta leads.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 8ad3e3f0958ea705375651b1c8a75967d807ca80
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '770'
+source-wordcount: '790'
 ht-degree: 0%
 
 ---
@@ -17,10 +17,10 @@ Marketo visar ett REST API som tillåter fjärrexekvering av många av systemets
 Dessa API:er kan i allmänhet delas in i två kategorier: [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/) och [resurs](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper, som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
 
 >[!NOTE]
->SOAP API är borttaget och kommer inte att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](./rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API läser du i SOAP [Migreringshandbok](../soap-api/migration.md) för information om hur du migrerar.
+>SOAP-API:t har tagits bort och kommer inte längre att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](./rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](../soap-api/migration.md) för information om hur du migrerar.
 >
 
-- **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen kl. 12:00 CST). Du kan öka din dagliga kvot med din kontohanterare.
+- **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen med 12:00AM CST). Du kan öka din dagliga kvot med din kontohanterare.
 - **Hastighetsgräns:** API-åtkomst per instans är begränsad till 100 anrop per 20 sekunder.
 - **Samtidighetsgräns:**  Max tio samtidiga API-anrop.
 

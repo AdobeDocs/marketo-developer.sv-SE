@@ -1,11 +1,11 @@
 ---
 title: Rich Media Recommendation
-description: Rich Media Recommendation
+description: Ställ in Rich Media Recommendation med RTP-taggen Marketo Predictive Content, template1 template2 template3 divs, GET to fill, SET för att konfigurera kategorier.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '831'
 ht-degree: 1%
 
 ---
@@ -21,7 +21,7 @@ Följande taggar och API-anrop måste ställas in på sidan som du vill visa rek
 1. I sidans brödtext
    1. Placera malltaggen (klassen div) på den plats där du vill att mallen ska visas
 
-Mer information finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Malltagg
 

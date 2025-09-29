@@ -1,11 +1,11 @@
 ---
 title: syncCustomObjects
 feature: SOAP
-description: syncCustomObjects SOAP anrop
+description: Använd Marketo syncCustomObjects SOAP för att infoga, uppdatera eller uppdatera upp till 100 anpassade objekt per anrop med resultat per post och exempel på XML och PHP.
 exl-id: dbdd7ee6-f83f-4e20-b847-25a61f0f6046
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '226'
+source-wordcount: '248'
 ht-degree: 0%
 
 ---

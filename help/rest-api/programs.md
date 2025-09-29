@@ -1,11 +1,11 @@
 ---
 title: Program
 feature: REST API, Programs
-description: Skapa och redigera programinformation.
+description: Marketo Programs guide for the Asset REST API som omfattar typer, kanaler, taggar, medlemsstatus och slutpunkter för att komma via ID eller namn, bläddra och filtrera efter status.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: f28aa6daf53063381077b357061fe7813c64b5de
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '848'
+source-wordcount: '870'
 ht-degree: 0%
 
 ---

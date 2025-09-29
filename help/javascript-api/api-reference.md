@@ -1,11 +1,11 @@
 ---
 title: Munchkin API-referens
-description: Använd Munchkin Javascript-API:t för att anpassa dina Munchkin-data.
+description: Använd Munchkin Javascript-API:t för att spåra sidbesök, länkklick och anpassade händelser med init-, createTrackingCookie- och munchkinFunction-metoder.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '414'
+source-wordcount: '424'
 ht-degree: 2%
 
 ---

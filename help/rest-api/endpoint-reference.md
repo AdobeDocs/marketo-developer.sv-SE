@@ -1,11 +1,11 @@
 ---
 title: Referens för slutpunkt
 feature: REST API
-description: Marketo API-slutpunktsreferenser
+description: Omfattande slutpunktslista för Marketo REST API med metoder, URI:er och nödvändiga behörigheter för olika aktiviteter, bulkexport, identitet, leads, resurser, användare.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '4448'
+source-wordcount: '4464'
 ht-degree: 0%
 
 ---

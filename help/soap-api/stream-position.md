@@ -1,11 +1,11 @@
 ---
 title: Strömposition
 feature: SOAP
-description: Översikt över ångposition
+description: Beskriver strömpositionen för sidnumrering av tidssekvensdata i SOAP, enkla och komplexa format och användning i getLeadChanges, getLeadActivity med flera
 exl-id: c3a3fc1e-086b-4822-b2c7-2a7959db557c
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '138'
+source-wordcount: '156'
 ht-degree: 0%
 
 ---

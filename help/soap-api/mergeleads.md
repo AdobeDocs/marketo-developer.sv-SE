@@ -1,12 +1,12 @@
 ---
 title: mergeLeads
 feature: SOAP
-description: mergeLeads SOAP anrop
+description: Använd mergeLeads med Marketo SOAP för att sammanfoga vinnande och förlorade lead-poster. Innehåller begärandefält, XML-begäran och -svar samt PHP- och Java-exempel.
 exl-id: a667cb76-525d-4583-b26a-1181d320a68c
-source-git-commit: 981ed9b254f277d647a844803d05a1a2549cbaed
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '83'
-ht-degree: 1%
+source-wordcount: '104'
+ht-degree: 0%
 
 ---
 

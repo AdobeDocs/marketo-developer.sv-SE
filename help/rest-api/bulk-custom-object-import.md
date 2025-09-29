@@ -1,11 +1,11 @@
 ---
 title: Importera anpassat objekt gruppvis
 feature: Custom Objects
-description: Batchimport av anpassade objekt.
+description: Lär dig hur du importerar anpassade Marketo-objekt i grupp via REST med hjälp av CSV-, TSV- eller SSV-filer.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '855'
+source-wordcount: '866'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Du får skicka in mer än en bulkimportbegäran inom gränsen. Varje begäran l�
 
 ## Exempel på anpassat objekt
 
-Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
+Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
 
 ![Infoga anpassat objekt](assets/bulk-insert-co-car-1.png)
 

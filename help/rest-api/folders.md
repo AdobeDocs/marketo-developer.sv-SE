@@ -1,11 +1,11 @@
 ---
 title: Mappar
 feature: REST API
-description: Hantera mappar med Marketo API.
+description: Marketo REST API-guide för mappar som innehåller skapa, uppdatera, ta bort, fråga efter ID och namn, Bläddra bland flera med rot, arbetsyta, maxDepth och pagination.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '1008'
+source-wordcount: '1025'
 ht-degree: 0%
 
 ---
@@ -211,7 +211,7 @@ Sökvägen till en mapp visar sin hierarki i mappträdet, ungefär som en Unix-s
 
 ## Skapa och uppdatera
 
-[Det är enkelt att skapa mappar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) och det körs med en program/x-www-form-urlencoded-POST som har två obligatoriska parametrar, &quot;name&quot;, en sträng och &quot;parent&quot;, som är den överordnade som skapar mappen i, vilket är ett inbäddat JSON-objekt med två medlemmar, id och type, antingen Folder eller Program, beroende på målmappens typ. Om du vill kan du även använda&quot;description&quot;, en sträng, och den kan innehålla upp till 2 000 tecken.
+[Det är enkelt att skapa mappar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) och det körs med ett program/x-www-form-urlencoded POST som har två obligatoriska parametrar, &quot;name&quot;, en sträng och &quot;parent&quot;, som är det överordnade objektet som skapar mappen i, vilket är ett inbäddat JSON-objekt med två medlemmar, id och typ, antingen Folder eller Program, beroende på målmappens typ. Om du vill kan du även använda&quot;description&quot;, en sträng, och den kan innehålla upp till 2 000 tecken.
 
 ```
 POST /rest/asset/v1/folders.json

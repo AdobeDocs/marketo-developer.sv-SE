@@ -1,18 +1,18 @@
 ---
 title: Avancerat läge för säkerhetsåtkomst
 feature: Mobile Marketing
-description: Information om avancerat säkerhetsåtkomstläge
+description: Lär dig avancerat säkerhetsåtkomstläge för Marketo Mobile SDK, med HMAC-signaturgenerering, serverslutpunktskonfiguration, användning av enhets-ID samt iOS- och Android-exempel
 exl-id: bd4730ff-708b-465e-b494-485a4dbf67ff
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '303'
+source-wordcount: '321'
 ht-degree: 0%
 
 ---
 
 # Avancerat läge för säkerhetsåtkomst
 
-Marketo SDK visar metoder för att ange och ta bort säkerhetssignaturen. Det finns också en verktygsmetod för att hämta enhets-ID. Enhets-ID:t ska skickas tillsammans med e-postmeddelandet vid inloggning till kundservern för användning vid beräkning av säkerhetssignaturen. SDK ska använda den nya slutpunkten som pekar på den algoritm som anges ovan för att hämta de fält som krävs för att instansiera signaturobjektet. Det är nödvändigt att ange den här signaturen i SDK om säkerhetsåtkomstläget har aktiverats i Marketo Mobile Admin.
+Marketo SDK visar metoder för att ange och ta bort säkerhetssignaturen. Det finns också en verktygsmetod för att hämta enhets-ID. Enhets-ID:t ska skickas tillsammans med e-postmeddelandet vid inloggning till kundservern för användning vid beräkning av säkerhetssignaturen. SDK bör använda den nya slutpunkten som pekar på algoritmen som listas ovan för att hämta de fält som behövs för att instansiera signaturobjektet. Det är nödvändigt att ange den här signaturen i SDK om säkerhetsåtkomstläget har aktiverats i Marketo Mobile Admin.
 
 ## Inställningar för säkert åtkomstläge
 
@@ -61,7 +61,7 @@ if __name__ == '__main__':
     print 'HMAC is ', hmac_string
 ```
 
-Marketo SDK visar nya metoder för att ange och ta bort säkerhetssignaturen. Det finns också en verktygsmetod för att hämta enhets-ID. Enhets-ID:t ska skickas tillsammans med e-postmeddelandet vid inloggning till kundservern för användning vid beräkning av säkerhetssignaturen. SDK ska använda den nya slutpunkten som pekar på den algoritm som anges ovan för att hämta de fält som krävs för att instansiera signaturobjektet. Det är nödvändigt att ange den här signaturen i SDK om säkerhetsåtkomstläget har aktiverats i Marketo Mobile Admin.
+Marketo SDK visar nya metoder för att ställa in och ta bort säkerhetssignaturen. Det finns också en verktygsmetod för att hämta enhets-ID. Enhets-ID:t ska skickas tillsammans med e-postmeddelandet vid inloggning till kundservern för användning vid beräkning av säkerhetssignaturen. SDK bör använda den nya slutpunkten som pekar på algoritmen som listas ovan för att hämta de fält som behövs för att instansiera signaturobjektet. Det är nödvändigt att ange den här signaturen i SDK om säkerhetsåtkomstläget har aktiverats i Marketo Mobile Admin.
 
 ### iOS
 

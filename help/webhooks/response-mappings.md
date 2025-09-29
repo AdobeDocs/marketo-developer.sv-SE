@@ -1,18 +1,18 @@
 ---
 title: Svarsmappningar
 feature: Webhooks
-description: Svarsmappningar för Marketo
+description: Marketo Webhooks svarsmappningar för JSON och XML, mappningsattribut till huvudfält med SOAP API-namn, punkt- och arraynotation samt typkompatibilitet.
 exl-id: 95c6e33e-487c-464b-b920-3c67e248d84e
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '460'
+source-wordcount: '480'
 ht-degree: 0%
 
 ---
 
 # Svarsmappningar
 
-Marketo kan översätta data som tagits emot av en Webkrok från två innehållstyper och returnera dessa värden till ett lead-fält: JSON och XML. Marketo Field-parametern kommer alltid att använda fältets [SOAP API-namn](../rest-api/fields.md). Varje webkrok kan ha ett obegränsat antal svarsmappningar som läggs till och redigeras genom att klicka på knappen [!UICONTROL Edit] i rutan Svarsmappningar på din webkrok:
+Marketo kan översätta data som tagits emot av en Webkrok från två innehållstyper och returnera dessa värden till ett lead-fält: JSON och XML. Marketo Field-parametern använder alltid [SOAP API-namnet](../rest-api/fields.md) för fältet. Varje webkrok kan ha ett obegränsat antal svarsmappningar som läggs till och redigeras genom att klicka på knappen [!UICONTROL Edit] i rutan Svarsmappningar på din webkrok:
 
 ![Svarsmappning](assets/response-mapping.png)
 

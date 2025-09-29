@@ -1,22 +1,22 @@
 ---
 title: Marketo Mobile Extension för  [!DNL Adobe Launch]
 feature: Mobile Marketing
-description: Marketo Mobile Extension för  [!DNL Adobe Launch] översikt
+description: Installera och konfigurera tillägget Marketo Mobile SDK i Adobe Launch för iOS och Android, inklusive inställningar för push-meddelanden och meddelanden i appen.
 exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '269'
+source-wordcount: '287'
 ht-degree: 0%
 
 ---
 
 # Marketo Mobile Extension för [!DNL Adobe Launch]
 
-Installationsanvisningar för Marketo Mobile SDK-tillägg i [!DNL Adobe Launch]. Stegen nedan krävs för att skicka push-meddelanden och/eller meddelanden i appen.
+Installationsanvisningar för tillägget Marketo Mobile SDK i [!DNL Adobe Launch]. Stegen nedan krävs för att skicka push-meddelanden och/eller meddelanden i appen.
 
 ## Förutsättningar
 
-- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 - Följ anvisningarna i [!DNL Adobe Launch]-portalen för installation
 - [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
@@ -59,7 +59,7 @@ Följ instruktionerna [här](push-notifications.md) och använd klassnamnet ALMa
 
 ### ProGuard-konfiguration (valfritt)
 
-Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från döljningsprocessen.
+Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från den komplicerade processen.
 
 ```
 -dontwarn com.marketo.*

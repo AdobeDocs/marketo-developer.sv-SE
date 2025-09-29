@@ -1,11 +1,11 @@
 ---
 title: Datainhämtning
 feature: REST API, Dynamic Content
-description: Förbruka data med Marketo API:er.
+description: Använd API:t för Marketo-datainmatning för att få stora volymer, låga latenstider för personer och anpassade objekt med OAuth-huvudautentisering, asynkrona statushändelser och nya försök.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: af2d0f266a271696dbf7d334f23bcd9962b9eba4
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '957'
+source-wordcount: '978'
 ht-degree: 3%
 
 ---

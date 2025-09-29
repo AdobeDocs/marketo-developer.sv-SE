@@ -1,11 +1,11 @@
 ---
 title: Anpassade tjänster
 feature: REST API
-description: Autentiseringsuppgifter med Marketo.
+description: Skapa Marketo anpassade tjänster, ange roller och behörigheter för enbart API, hämta klient-ID och klienthemlighet i LaunchPoint och få åtkomsttoken.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '968'
+source-wordcount: '985'
 ht-degree: 0%
 
 ---

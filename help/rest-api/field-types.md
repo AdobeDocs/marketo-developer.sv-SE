@@ -1,18 +1,18 @@
 ---
 title: Fälttyper
 feature: REST API
-description: En lista över fälttyper i Marketo
+description: Omfattande lista med Marketo-fälttyper med definitioner, exempel och format, inklusive ISO 8601 datetime, textområdesgränser, valuta och boolesk.
 exl-id: a0ba9e02-ed42-4be3-9cdd-a97fee9a726e
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '307'
+source-wordcount: '322'
 ht-degree: 2%
 
 ---
 
 # Fälttyper
 
-Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
+Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om fälttyper finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/custom-field-type-glossary). Ytterligare information om fälttypsbegränsningar finns [här](https://nation.marketo.com/t5/knowledgebase/marketo-field-limits-by-field-type/ta-p/251613).
 
 | Fälttyp | Beskrivning | Exempel |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ Här följer en beskrivning av fälttyper i Marketo. Ytterligare information om
 | E-post | Ett strängfält som accepterar e-postadresser | <example@example.com> |
 | Float | Ett nummerfält som innehåller reella tal och kan använda en decimal. | 10,4 |
 | Heltal | Hela tal | 10 |
-| Formel | Fält vars värden genereras genom att data från andra fält i en lead-post ändras. De exporteras inte och kan inte användas i smarta kampanjer. | Se den här [artikeln](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
+| Formel | Fält vars värden genereras genom att data från andra fält i en lead-post ändras. De exporteras inte och kan inte användas i smarta kampanjer. | Se den här [artikeln](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/create-and-use-a-concatenated-string-formula-field) |
 | Procent | Ett procenttal uttryckt som ett heltal | 30 |
 | URL | Ett textfält som begränsar indata till URL:er, inklusive URL-adressens protokoll. | <http://example.com/> |
 | Tel. | Telefonnummer | 111-111-1111 |

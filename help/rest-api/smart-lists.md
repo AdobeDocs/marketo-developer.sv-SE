@@ -1,11 +1,11 @@
 ---
 title: Smarta listor
 feature: REST API
-description: Skapa och redigera smarta listor.
+description: Lär dig hur du använder Marketo REST API:er för att fråga efter, klona och ta bort smarta listor som skapats av användare, inklusive slutpunkter efter ID, namn, kampanj och program med regler.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '419'
+source-wordcount: '439'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo erbjuder en uppsättning REST API:er för att utföra åtgärder på smarta listor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Ta bort och Klona.
 
-Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Fråga
 
@@ -245,7 +245,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Klona
 
-[Kloning av en smart lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) utförs med en application/x-www-form-urlencoded-POST. Den smarta lista som ska klonas har angetts i sökvägsparametern `id`. Parametern `folder` används för att ange den överordnade mappen som den smarta listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Den överordnade mappen måste vara antingen en Program- eller en Smart List-mapp. Parametern `name` används för att namnge den nya smarta listan och måste vara unik. Parametern `description` kan också användas för att beskriva den smarta listan.
+[Kloning av en smart lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) utförs med en POST som kodats med application/x-www-form-urlencoded. Den smarta lista som ska klonas har angetts i sökvägsparametern `id`. Parametern `folder` används för att ange den överordnade mappen som den smarta listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Den överordnade mappen måste vara antingen en Program- eller en Smart List-mapp. Parametern `name` används för att namnge den nya smarta listan och måste vara unik. Parametern `description` kan också användas för att beskriva den smarta listan.
 
 ```
 POST /rest/asset/v1/smartList/{id}/clone.json

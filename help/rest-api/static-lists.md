@@ -1,11 +1,11 @@
 ---
 title: Statiska listor
 feature: REST API, Static Lists
-description: Utför CRUD-åtgärder på statiska listor.
+description: Använd Marketo REST API:er för att fråga efter, skapa, uppdatera och ta bort statiska listor med slutpunkter för ID, namn och bläddring, mappomfattningar, sidindelning och datumfilter.
 exl-id: 20679fd2-fae2-473e-84bc-cb4fdf2f5151
-source-git-commit: 66add4c38d0230c36d57009de985649bb67fde3e
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '741'
+source-wordcount: '760'
 ht-degree: 0%
 
 ---
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Skapa och uppdatera
 
-[Skapandet av en statisk lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) körs med en application/x-www-form-urlencoded-POST med två obligatoriska parametrar. Parametern `folder` används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Parametern `name` används för att namnge den statiska listan och måste vara unik. Parametern `description` kan också användas för att beskriva den statiska listan.
+[Skapandet av en statisk lista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/createStaticListUsingPOST) körs med en POST med två obligatoriska parametrar för application/x-www-form-urlencoded. Parametern `folder` används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Parametern `name` används för att namnge den statiska listan och måste vara unik. Parametern `description` kan också användas för att beskriva den statiska listan.
 
 ```
 POST /rest/asset/v1/staticLists.json

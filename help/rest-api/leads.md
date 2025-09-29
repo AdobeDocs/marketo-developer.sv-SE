@@ -1,11 +1,11 @@
 ---
 title: Leads
 feature: REST API
-description: Information om Leads-API-anrop
+description: Utforska Marketo Leads REST API-funktioner som Beskriv, fråga efter ID eller filter, standardfält, begränsningar och hämtning av ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 3649db037a95cfd20ff0a2c3d81a3b40d0095c39
+source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
 workflow-type: tm+mt
-source-wordcount: '3338'
+source-wordcount: '3351'
 ht-degree: 0%
 
 ---
@@ -814,7 +814,7 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Get Leads by Filter Type, men filterType och filterValues kan inte användas med denna API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ### Begäran
 
