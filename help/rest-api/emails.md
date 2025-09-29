@@ -14,13 +14,13 @@ ht-degree: 0%
 
 [Referens för e-postslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) En fullständig uppsättning REST-slutpunkter tillhandahålls för att hantera e-postresurser.
 
-Obs! Om du använder [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) misslyckas följande slutpunkter om de refererar till ett e-postmeddelande som innehåller prediktivt innehåll: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Anropet returnerar en 709-felkod och motsvarande felmeddelande.
+Obs! Om du använder [Marketo Predictive Content](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) misslyckas följande slutpunkter om de refererar till ett e-postmeddelande som innehåller prediktivt innehåll: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Anropet returnerar en 709-felkod och motsvarande felmeddelande.
 
 ## Fråga
 
 Frågemönstret för e-post är identiskt med det för mallar, vilket tillåter frågor [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) och [bläddring](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET) samt filtrering baserat på mapp med API:erna för bläddring och efter namn.
 
-Obs! Om ett e-postmeddelande är en del av ett e-postprogram som använder [A/B-testning](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) är det e-postmeddelandet inte tillgängligt för fråga med följande slutpunkter: [Hämta e-post med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Hämta e-post med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Hämta e-post](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Anropet anger att det lyckades, men det innehåller följande varning:&quot;Inga resurser hittades för de angivna sökvillkoren.&quot;
+Obs! Om ett e-postmeddelande är en del av ett e-postprogram som använder [A/B-testning](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) är det e-postmeddelandet inte tillgängligt för fråga med följande slutpunkter: [Hämta e-post med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Hämta e-post med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Hämta e-post](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Anropet anger att det lyckades, men det innehåller följande varning:&quot;Inga resurser hittades för de angivna sökvillkoren.&quot;
 
 ### Efter ID
 
@@ -484,7 +484,7 @@ Obs! Om automatisk kopiering till text är inaktiverat för ett utdrag som är i
 
 ## Moduler
 
-I e-postredigeraren 1.0 är en modul en del av e-postmeddelandet som definieras i mallen. Moduler kan innehålla valfri kombination av element, variabler och annat HTML-innehåll enligt beskrivningen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo erbjuder en uppsättning API:er för hantering av moduler i ett e-postmeddelande. För modulrelaterade slutpunkter som kräver HTTP POST-metoden formateras brödtexten som&quot;application/x-www-form-urlencoded&quot; (inte som JSON).
+I e-postredigeraren 1.0 är en modul en del av e-postmeddelandet som definieras i mallen. Moduler kan innehålla valfri kombination av element, variabler och annat HTML-innehåll enligt beskrivningen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo erbjuder en uppsättning API:er för hantering av moduler i ett e-postmeddelande. För modulrelaterade slutpunkter som kräver HTTP POST-metoden formateras brödtexten som&quot;application/x-www-form-urlencoded&quot; (inte som JSON).
 
 De flesta modulrelaterade slutpunkter kräver ett moduleId som sökvägsparameter. Detta är en sträng som beskriver modulen. moduleIds returneras av [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) som htmlId-attribut (se [Query](#modules_query) nedan).
 
@@ -856,7 +856,7 @@ name=MarketoVideo
 
 ## Variabel
 
-I e-postredigeraren 1.0 används variabler för att lagra värden för element i e-postmeddelandet. Varje variabel definieras genom att lägga till Marketo-specifik syntax i din HTML enligt beskrivningen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo erbjuder en uppsättning API:er för hantering av variabler i ett e-postmeddelande.
+I e-postredigeraren 1.0 används variabler för att lagra värden för element i e-postmeddelandet. Varje variabel definieras genom att lägga till Marketo-specifik syntax i din HTML enligt beskrivningen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo erbjuder en uppsättning API:er för hantering av variabler i ett e-postmeddelande.
 
 ### Fråga
 

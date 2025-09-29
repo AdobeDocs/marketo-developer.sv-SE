@@ -15,7 +15,7 @@ ht-degree: 0%
 Om du vill använda meddelandefunktionerna i appen från Marketo måste du utföra följande steg:
 
 1. Installera Marketo Mobile SDK enligt anvisningarna i [Mobile Installation](installation.md).
-1. Lägg till din mobilapp i Marketo enligt beskrivningen i [Lägg till en mobilapp](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app).
+1. Lägg till din mobilapp i Marketo enligt beskrivningen i [Lägg till en mobilapp](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app).
 1. Du kan också lägga till kod i din mobilapp för att hämta [anpassade åtgärder](custom-actions.md).
 
 När du har installerat Marketo Mobile SDK och lagt till din app i Marketo är du redo att skicka meddelanden i appen som visas när en användare öppnar appen.
@@ -34,4 +34,4 @@ Anpassade händelser utlöses av användarinteraktion när appen är öppen. Anp
 
 Se till att du tilldelar en åtgärd utöver&quot;visa&quot; till en av de primära eller sekundära knapparna för att spåra tryckningsaktiviteter och för att använda grundläggande visningsfrekvenser baserat på antalet tryckningar.
 
-Mer information finns i avsnittet [Meddelanden i appen](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) i vår produktdokumentation.
+Mer information finns i avsnittet [Meddelanden i appen](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/in-app-messages/creating-in-app-messages/create-an-in-app-message) i vår produktdokumentation.

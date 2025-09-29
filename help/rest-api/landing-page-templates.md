@@ -18,7 +18,7 @@ Landningssidmallar är en överordnad resurs och beroende för enskilda Marketo 
 
 ## Malltyper
 
-Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Fråga
 
@@ -167,9 +167,9 @@ Mallar för landningssidor följer standardmodellen för utkast, där det kan fi
 
 För att en mall ska kunna godkännas måste den följa reglerna för sin typ, antingen i form av kostnadsfria guider. Mer information om kraven för att skapa och godkänna mallar av respektive typ finns i respektive dokument:
 
-- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Guided Landing Page Templates](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Exempel på guidade mallar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Guided Landing Page Templates](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Exempel på guidade mallar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Ta bort
 

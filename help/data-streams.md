@@ -262,7 +262,7 @@ Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo använd
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
-Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
+Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/se/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
 
 ### Konfigurera Adobe I/O
 
