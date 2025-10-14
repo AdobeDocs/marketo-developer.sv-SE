@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Bas-URL
 
-[Dokumentationen för ](endpoint-reference.md)-slutpunktsreferensen för varje API-anrop visar REST-metod, sökväg, resurs och parametrar som måste läggas till i bas-URL:en för att en begäran ska kunna skapas.
+[Dokumentationen för &#x200B;](endpoint-reference.md)-slutpunktsreferensen för varje API-anrop visar REST-metod, sökväg, resurs och parametrar som måste läggas till i bas-URL:en för att en begäran ska kunna skapas.
 
 Följande är ett exempel på en korrekt formaterad REST-URL:
 

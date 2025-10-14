@@ -283,7 +283,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Ta bort
 
-[Om du tar bort en smart lista ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) används en smart lista `id` som sökvägsparameter.
+[Om du tar bort en smart lista &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) används en smart lista `id` som sökvägsparameter.
 
 ```
 POST /rest/asset/v1/smartList/{id}/delete.json

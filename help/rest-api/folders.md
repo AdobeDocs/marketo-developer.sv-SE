@@ -70,7 +70,7 @@ Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &
 
 ### Efter namn
 
-[Det är också tillåtet att fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
+[Det är också tillåtet att fråga efter namn &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
 
 ```
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly

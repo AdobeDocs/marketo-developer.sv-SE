@@ -41,7 +41,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Formatet på parametern `sinceDateTime` måste följa standarddatumnotationen för [ ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) . Bäst resultat får du om du använder en fullständig datetime som innehåller tidszonen. Tidszonen kan representeras som en förskjutning från GMT i följande format:
+Formatet på parametern `sinceDateTime` måste följa standarddatumnotationen för [&#x200B; ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) . Bäst resultat får du om du använder en fullständig datetime som innehåller tidszonen. Tidszonen kan representeras som en förskjutning från GMT i följande format:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
