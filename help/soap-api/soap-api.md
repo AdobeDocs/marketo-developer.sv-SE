@@ -3,7 +3,7 @@ title: SOAP API
 feature: SOAP
 description: Marketo SOAP API har tagits bort efter 31 oktober 2025. Lär dig att migrera till REST, hämta WSDL, se kvoter, hastighetsbegränsningar och auktoriseringsinställningar.
 exl-id: 6618cc82-15ae-4030-aa00-438e635d8369
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
 workflow-type: tm+mt
 source-wordcount: '249'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # SOAP API
 
-SOAP-API:t har tagits bort och kommer inte längre att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](../rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](./migration.md) för information om hur du migrerar.
+SOAP-API:t har tagits bort och är inte längre tillgängligt efter den 31 januari 2026. All ny utveckling ska utföras med Marketo [REST API](../rest-api/rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](./migration.md) för information om hur du migrerar.
 
 ## SOAP WSDL
 

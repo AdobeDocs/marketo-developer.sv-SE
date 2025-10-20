@@ -3,9 +3,9 @@ title: REST API
 feature: REST API
 description: Lär dig använda Marketo REST API, konfigurera API-användare och LaunchPoint, visa kvoter och begränsningar, autentisera med auktoriseringshuvud och hämta leads.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 5f2dcb4864cdcd110ba9f199ef9c86dcee522335
 workflow-type: tm+mt
-source-wordcount: '790'
+source-wordcount: '806'
 ht-degree: 0%
 
 ---
@@ -17,7 +17,11 @@ Marketo visar ett REST API som tillåter fjärrexekvering av många av systemets
 Dessa API:er kan i allmänhet delas in i två kategorier: [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/) och [resurs](https://developer.adobe.com/marketo-apis/api/asset/). Med API:er för lead-databaser kan du hämta och interagera med Marketo-personposter och associerade objekttyper, som säljprojekt och företag. Tillgångs-API:er möjliggör interaktion med marknadsföringsmaterial och arbetsflödesrelaterade poster.
 
 >[!NOTE]
->SOAP-API:t har tagits bort och kommer inte längre att vara tillgängligt efter den 31 oktober 2025. All ny utveckling ska utföras med Marketo [REST API](./rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](../soap-api/migration.md) för information om hur du migrerar.
+>SOAP-API:t har tagits bort och är inte längre tillgängligt efter den 31 januari 2026. All ny utveckling ska utföras med Marketo [REST API](./rest-api.md) och befintliga tjänster ska migreras före detta datum för att undvika avbrott i tjänsten. Om du har en tjänst som använder SOAP API kan du läsa SOAP API [Migreringshandbok](../soap-api/migration.md) för information om hur du migrerar.
+>
+
+>[!IMPORTANT]
+>Se det här [Nation-inlägget](https://nation.marketo.com/t5/product-blogs/rest-api-double-slash-deprecation/ba-p/358616) om borttagningen av det dubbla snedstrecket i API-gateway-URL:er.
 >
 
 - **Daglig kvot:** Prenumerationer tilldelas 50 000 API-anrop per dag (som återställs dagligen med 12:00AM CST). Du kan öka din dagliga kvot med din kontohanterare.
