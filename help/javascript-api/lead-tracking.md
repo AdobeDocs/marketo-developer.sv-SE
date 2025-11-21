@@ -3,9 +3,9 @@ title: Spårning av leads
 description: Lär dig bädda in Marketo Munchkin JavaScript, spåra besök och klickningar, hantera kända eller anonyma leads, domänöverskridande cookies och avanmäla dig för smarta kampanjer.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '784'
+source-wordcount: '785'
 ht-degree: 0%
 
 ---
@@ -70,7 +70,7 @@ Beteendet för Munchkin kan ändras genom att Munchkin [konfigurationsinställni
 
 ## Kända och anonyma leads
 
-På en leads första besök på en sida på din domän skapas en ny anonym lead-post i Marketo. Primärnyckeln för den här posten är Munchkin-cookien (`_mkto_trk`) som skapas i användarens webbläsare. Alla efterföljande webbaktiviteter i den webbläsaren registreras mot den här anonyma posten. För att kunna kopplas till en känd post i Marketo måste något av följande inträffa:
+På en leads första besök på en sida på din domän skapas en ny anonym lead-post i Marketo. Primärnyckeln för den här posten är Munchkin-cookien (`_mkto_trk`) som skapas i användarens webbläsare. Alla efterföljande webbaktiviteter i den webbläsaren registreras mot den här anonyma posten. Om du vill associeras med en känd post i Marketo måste något av följande inträffa:
 
 - Ledningen måste besöka en Munchkin-spårad sida med en `mkt_tok`-parameter i frågesträngen från en spårad Marketo-e-postlänk.
 - Lead-blanketten måste fylla i ett Marketo-formulär.
@@ -90,17 +90,17 @@ Om din toppnivådomän är två delar, till exempel `.co.uk`, lägger du sedan t
 
 Munchkin cookie använder nyckeln `_mkto_trk` och har ett värde som följer det här mönstret:
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-1374552656411\-90718`
+`id:561-HYG-937&token:_mch-marketo.com-1374552656411-90718`
 
 eller
 
-`id:561\-HYG\-937&token:_mch\-marketo.com\-97bf4361ef4433921a6da262e8df45a`
+`id:561-HYG-937&token:_mch-marketo.com-97bf4361ef4433921a6da262e8df45a`
 
 Munchkin cookies är specifika för varje domännivå på andra nivån, det vill säga `example.com`. Kakans standardlivscykel är 2 år (730 dagar).
 
 ## Beta
 
-Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
+Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
 
 ## Avanmäl dig
 

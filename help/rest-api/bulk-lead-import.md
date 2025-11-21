@@ -3,9 +3,9 @@ title: Import av massutr
 feature: REST API
 description: Skapa och övervaka asynkron import av bulkleads i Marketo med CSV TSV eller SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
 workflow-type: tm+mt
-source-wordcount: '812'
+source-wordcount: '795'
 ht-degree: 0%
 
 ---
@@ -18,13 +18,13 @@ För stora mängder lead-poster kan leads importeras asynkront med [bulk-API](ht
 
 ## Bearbetningsgränser
 
-Du får skicka in mer än en bulkimportbegäran, med vissa begränsningar. Varje begäran läggs till som ett jobb i en FIFO-kö som ska bearbetas. Högst två jobb bearbetas samtidigt. Högst tio jobb tillåts i kön vid en given tidpunkt (inklusive de två som för närvarande bearbetas). Om du överskrider det maximala antalet tio jobb returneras felet &quot;1016, för många importer&quot;.
+Du får skicka in mer än en bulkimportbegäran, med vissa begränsningar. Varje begäran läggs till som ett jobb i en FIFO-kö som ska bearbetas. Högst två jobb bearbetas samtidigt. Högst 10 jobb tillåts i kön vid en given tidpunkt (inklusive de två som för närvarande bearbetas). Om du överskrider det maximala antalet tio jobb returneras ett `1016, Too many imports`-fel.
 
 ## Importera fil
 
 Den första raden i filen måste vara en rubrik som listar motsvarande REST API-fält som värdena för varje rad ska mappas till. En vanlig fil skulle följa detta grundläggande mönster:
 
-```
+```csv
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -37,7 +37,7 @@ Den här typen av begäran kan vara svår att implementera, så vi rekommenderar
 
 ## Skapa ett jobb
 
-Om du vill göra en begäran om massimport måste du ange innehållstyphuvudet till multipart/form-data och inkludera minst en filparameter med filinnehållet, samt en formatparameter med värdet csv, tsv eller ssv som anger filformatet.
+Om du vill göra en begäran om massimport måste du ange innehållstyphuvudet till `multipart/form-data` och inkludera minst en `file`-parameter med filinnehållet, samt en `format`-parameter med värdet `csv`, `tsv` eller `ssv` som anger filformatet.
 
 ```
 POST /bulk/v1/leads.json?format=csv
@@ -54,7 +54,7 @@ Host: <munchkinId>.mktorest.com
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
 
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -75,16 +75,16 @@ Easy,Fox,easyfox@marketo.com,Marketo
 }
 ```
 
-Den här slutpunkten använder [multipart/form-data som innehållstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Detta kan vara svårt att få rätt, så det bästa sättet är att använda ett HTTP-supportbibliotek för det språk du föredrar. Ett enkelt sätt att göra detta med cURL från kommandoraden ser ut så här:
+Den här slutpunkten använder [multipart/form-data som innehållstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Det är bäst att använda ett HTTP-supportbibliotek för det språk du föredrar för att säkerställa korrekt användning. Följande exempel är ett enkelt sätt att göra detta med cURL från kommandoraden:
 
 ```
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
-Där importfilen &quot;lead_data.csv&quot; innehåller följande:
+Där importfilen `lead_data.csv` innehåller följande:
 
 ```
-FirstName,LastName,Email,Company
+firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
 Easy,Fox,easyfox@marketo.com,Marketo
@@ -130,19 +130,19 @@ Om jobbet har slutförts har du en lista med antalet rader som har bearbetats, m
 
 ## Fel
 
-Fel anges av attributet numOfRowsFailed i Get Import Lead Status-svaret. Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod.
+Fel indikeras av attributet `numOfRowsFailed` i Get Import Lead Status-svaret. Om `numOfRowsFailed` är större än noll anger det värdet antalet fel som uppstod.
 
-Om du vill hämta poster och orsaker till misslyckade rader måste du hämta felfilen:
+Om du vill hämta poster och orsaker till felaktiga rader måste du hämta felfilen:
 
 ```
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
-API:t svarar med en fil som anger vilka rader som misslyckades, tillsammans med ett meddelande som anger varför posten misslyckades. Filformatet är detsamma som anges i formatparametern när jobb skapas. Ett extra fält läggs till i varje post med en beskrivning av felet.
+API:t svarar med en fil som anger vilka rader som misslyckades, tillsammans med ett meddelande som anger varför posten misslyckades. Filformatet är detsamma som anges i parametern `format` när jobb skapas. Ett extra fält läggs till i varje post med en beskrivning av felet.
 
 ## Varningar
 
-Varningar indikeras av attributet &quot;numOfRowsWithWarning&quot; i Get Import Lead Status-svaret. Om &quot;numOfRowsWithWarning&quot; är större än noll visar det värdet antalet varningar som inträffade.
+Varningar indikeras av attributet `numOfRowsWithWarning` i ett Get Import Lead Status-svar. Om `numOfRowsWithWarning` är större än noll anger det värdet antalet varningar som inträffade.
 
 Hämta varningsfilen om du vill hämta poster och orsaker till varningsrader:
 
@@ -150,4 +150,4 @@ Hämta varningsfilen om du vill hämta poster och orsaker till varningsrader:
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 
-API:t svarar med en fil som anger vilka rader som orsakade varningar, tillsammans med ett meddelande som anger varför posten misslyckades. Filformatet är detsamma som anges i formatparametern när jobb skapas. Ett extra fält läggs till för varje post med en beskrivning av varningen.
+API:t svarar med en fil som anger vilka rader som orsakade varningar, tillsammans med ett meddelande som anger varför posten misslyckades. Filformatet är detsamma som anges i parametern `format` när jobb skapas. Ett extra fält läggs till för varje post med en beskrivning av varningen.
