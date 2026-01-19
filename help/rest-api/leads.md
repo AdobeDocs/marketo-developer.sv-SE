@@ -819,7 +819,7 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Get Leads by Filter Type, men filterType och filterValues kan inte användas med denna API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ### Begäran
 
