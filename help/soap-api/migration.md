@@ -16,7 +16,7 @@ Marketo Engage SOAP API kommer att upphöra efter den 31 mars 2026. Alla befintl
 
 ## Migrering
 
-SOAP API har stöd för ett begränsat antal användningsfall jämfört med [REST AP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/rest-api)I. När du avgör vilka slutpunkter du ska mappa dina användningsfall bör du följa [Marketo Integration Best Practices ](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/marketo-integration-best-practices)
+SOAP API har stöd för ett begränsat antal användningsfall jämfört med [REST AP](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/rest-api)I. När du avgör vilka slutpunkter du ska mappa dina användningsfall bör du följa [Marketo Integration Best Practices &#x200B;](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/marketo-integration-best-practices)
 
 [Referensarkitekturer](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/reference-architectures) är tillgängliga för [CRM-synkronisering](https://experienceleague.adobe.com/docs/marketo-developer/assets/sync-architecture-whitepaper.pdf?lang=en) och [Data Warehouse Export](https://experienceleague.adobe.com/docs/marketo-developer/assets/reference_architecture.pdf?lang=en).
 
