@@ -3,10 +3,10 @@ title: Standardfält
 feature: REST API, Field Management
 description: Bläddra i den fullständiga listan över Marketo standardlead-fält med REST- och SOAP-namn, etiketter och beskrivningar samt hur du hämtar dem via API:t Beskriv lead.
 exl-id: 147dbdff-4bc9-4ab3-8918-c4de3e1aa97a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
 workflow-type: tm+mt
-source-wordcount: '1161'
-ht-degree: 7%
+source-wordcount: '727'
+ht-degree: 12%
 
 ---
 
@@ -47,33 +47,6 @@ Du kan hämta listan med alla fältnamn som stöds i dina lead-poster med REST-s
 | mainPhone | MainPhone | Telefon | Huvudtelefonnummer till leadets företag |
 | jigsawContactId | Kontakt-ID för Marketo Jigsaw | MARKETO Data.com ID | Leads Data.com ID om tillgängligt |
 | jigsawContactStatus | Marketo Jigsaw-kontaktstatus | Marketo Data.com | Leadens Data.com status om den är tillgänglig |
-| facebookDisplayName | MarketoSocialFacebookDisplayName | Visningsnamn för Marketo Social Facebook | Leads Facebook-visningsnamn. Systemet fylldes i under social inloggning |
-| facebookId | MarketoSocialFacebookId | Marketo Social Facebook-ID | Leads Facebook-ID. Systemet fylldes i under social inloggning |
-| facebookPhotoURL | MarketoSocialFacebookPhotoURL | Marketo Social Facebook Photo URL | URL för leadets Facebook-profilfoto. Systemet fylldes i under social inloggning |
-| facebookProfileURL | MarketoSocialFacebookProfilURL | Profil-URL för Marketo Social Facebook | URL för leadets Facebook-profil. Systemet fylldes i under social inloggning |
-| facebookReach | MarketoSocialFacebookReach | Marketo Social Facebook Reach | Ledningens räckvidd på Facebook. Systemet fylldes i under social inloggning |
-| facebookReferredEnrollments | MarketoSocialFacebookRefereradRegistreringar | Refererade registreringar från Marketo Social Facebook | Antal refererade registreringar som tilldelats leadet via Facebook. Systemhantering |
-| facebookReferredVisits | MarketoSocialFacebookRefereradeBesök | Refererade besök på Marketo Social Facebook | Antal refererade besök som tilldelats leadet via Facebook. Systemhantering |
-| kön | MarketoSocialGenus | Marketo Social Genus | Ledens kön. Systemet fylldes i under social inloggning |
-| lastReferredEnrollment | MarketoSocialLastRefereradRegistrering | Marketo Social, senast refererad registrering | Datum för senaste avslutade hänskjutning. Systemhantering |
-| lastReferredVisit | MarketoSocialLastRefereradBesök | Marketo Social, senaste refererat besök | Datum för senaste refererat besök. Systemhantering |
-| linkedInDisplayName | MarketoSocialLinkedInDisplayName | Marketo Social LinkedIn-visningsnamn | Lead&#39;s LinkedIn display name. Systemet fylldes i under social inloggning |
-| linkedInId | MarketoSocialLinkedInId | Marketo Social LinkedIn ID | Lead har LinkedIn-ID. Systemet fylldes i under social inloggning |
-| linkedInPhotoURL | MarketoSocialLinkedInPhotoURL | Marketo Social LinkedIn Photo URL | Lead&#39;s LinkedIn photo URL. Systemet fylldes i under social inloggning |
-| linkedInProfileURL | MarketoSocialLinkedInProfileURL | Marketo Social LinkedIn Profile URL | Leads LinkedIn-profil. Systemet fylldes i under social inloggning |
-| linkedInReach | MarketoSocialLinkedInReach | Marketo Social LinkedIn Reach | Lead är LinkedIn. Systemet fylldes i under social inloggning |
-| linkedInReferredEnrollments | MarketoSocialLinkedInRefereradRegistreringar | Marketo Social LinkedIn-refererade registreringar | Antal refererade registreringar som tilldelats leadet via LinkedIn. Systemhantering |
-| linkedInReferredVisits | MarketoSocialLinkedInRefereradBesök | Marketo Social LinkedIn Refererade besök | Antal refererade besök som tilldelats leadet via LinkedIn. Systemhantering |
-| syndicationId |  - | Marketo Social Syndication ID | Leads interna Marketo Social ID. Systemhantering |
-| totalReferredEnrollments | MarketoSocialTotalRefereradRegistreringar | Marketo Social, totalt antal refererade registreringar | Totalt antal slutförda hänvisningsregistreringar som tilldelats leadet |
-| totalRefereradBesök | MarketoSocialTotalRefereradeBesök | Marketo Social, totalt antal refererade besök | Totalt antal refererade besök som tilldelats leadet |
-| twitterDisplayName | MarketoSocialTwitterDisplayName | Marketo Social Twitter-visningsnamn | Leads Twitter-visningsnamn. Systemet fylldes i under social inloggning |
-| twitterId | MarketoSocialTwitterId | Marketo Social Twitter-ID | Leads Twitter-ID. Systemet fylldes i under social inloggning |
-| twitterPhotoURL | MarketoSocialTwitterPhotoURL | Marketo Social Twitter Photo URL | Leads Twitter-foto-URL. Systemet fylldes i under social inloggning |
-| twitterProfileURL | MarketoSocialTwitterProfilURL | Profil-URL för Marketo Social Twitter | Leads Twitter-profils-URL. Systemet fylldes i under social inloggning |
-| twitterReach | MarketoSocialTwitterReach | Marketo Social Twitter Reach | Leads Twitter-räckvidd. Systemet fylldes i under social inloggning |
-| twitterReferredEnrollments | MarketoSocialTwitterRefereradeRegistreringar | Marketo Social Twitter - refererade registreringar | Antal refererade registreringar som tilldelats leadet via Twitter. Systemhantering |
-| twitterReferredVisits | MarketoSocialTwitterRefereradeBesök | Marketo Social Twitter - refererade besök | Antal refererade besök som tillskrivits leadet via Twitter. Systemhantering |
 | middleName | MiddleName | Mellannamn | Leads mellannamn |
 | mobilePhone | MobilePhone | Mobiltelefon | Leads mobiltelefonnummer |
 | numberOfEmployees | AntalAnställda | Antal anställda | Antal anställda i lead-företaget |
