@@ -107,7 +107,7 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Ta bort
 
-[Ta bort token med namnet ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) tar ett ID som en sökvägsparameter av antingen typen Program eller Mapp. Den här typen anges av parametern `folderType`. Tokens tas bort baserat på deras överordnade mapp, `name` och `type` för token, vilka alla är obligatoriska. Data skickas som POST x-www-form-urlencoded, inte som JSON.
+[Ta bort token med namnet &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) tar ett ID som en sökvägsparameter av antingen typen Program eller Mapp. Den här typen anges av parametern `folderType`. Tokens tas bort baserat på deras överordnade mapp, `name` och `type` för token, vilka alla är obligatoriska. Data skickas som POST x-www-form-urlencoded, inte som JSON.
 
 ```
 POST /rest/asset/v1/folder/{id}/tokens/delete.json

@@ -53,7 +53,7 @@ GET /rest/asset/v1/staticList/{id}.json
 
 #### Efter namn
 
-[Fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) tar en statisk lista `name` som parameter och returnerar en enda statisk listpost. En exakt strängmatchning utförs mot alla statiska listnamn i instansen och returnerar ett resultat för den statiska listan som matchar det namnet.
+[Fråga efter namn &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) tar en statisk lista `name` som parameter och returnerar en enda statisk listpost. En exakt strängmatchning utförs mot alla statiska listnamn i instansen och returnerar ett resultat för den statiska listan som matchar det namnet.
 
 ```
 GET /rest/asset/v1/staticList/byName.json?name=Foundation Seed List
@@ -133,7 +133,7 @@ GET /rest/asset/v1/staticLists.json?folder={"id":13,"type":"Folder"}
 
 ## Skapa och uppdatera
 
-[Skapandet av en statisk lista ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/createStaticListUsingPOST) körs med en `application/x-www-form-urlencoded` POST med två obligatoriska parametrar. Parametern `folder` används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller `id` och `type`. Parametern `name` används för att namnge den statiska listan och måste vara unik. Parametern `description` kan också användas för att beskriva den statiska listan.
+[Skapandet av en statisk lista &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/createStaticListUsingPOST) körs med en `application/x-www-form-urlencoded` POST med två obligatoriska parametrar. Parametern `folder` används för att ange den överordnade mappen som den statiska listan ska skapas i och formateras som ett JSON-objekt som innehåller `id` och `type`. Parametern `name` används för att namnge den statiska listan och måste vara unik. Parametern `description` kan också användas för att beskriva den statiska listan.
 
 ```
 POST /rest/asset/v1/staticLists.json
@@ -206,7 +206,7 @@ description=This is a static list used for testing
 
 ## Ta bort
 
-[Om du tar bort en statisk lista ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) används en enda statisk lista `id` som sökvägsparameter. Det går inte att ta bort statiska listor som används av en import- eller exportåtgärd, eller som används av andra resurser.
+[Om du tar bort en statisk lista &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/deleteStaticListByIdUsingPOST) används en enda statisk lista `id` som sökvägsparameter. Det går inte att ta bort statiska listor som används av en import- eller exportåtgärd, eller som används av andra resurser.
 
 ```
 POST /rest/asset/v1/staticList/{id}/delete.json

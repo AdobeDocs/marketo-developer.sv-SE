@@ -241,4 +241,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### Exempel på rekommendationsmall 3 för multimedia
 
-**Namn**: mall3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall ](assets/rich-media-template3.png)
+**Namn**: mall3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall &#x200B;](assets/rich-media-template3.png)
