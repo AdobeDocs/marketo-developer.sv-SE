@@ -3,9 +3,9 @@ title: Massimport
 feature: REST API
 description: Marketo massimport för att läsa in leads, anpassade objekt och programmedlemmar via multipart-överföringar, skapa asynkrona jobb, avsökningsstatus och hanteringsfel.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '610'
+source-wordcount: '660'
 ht-degree: 0%
 
 ---
@@ -93,7 +93,7 @@ När vi skickar jobbet returneras ett batchId, som vi sedan kan använda för at
 Varje jobbskapandeslutpunkt delar några vanliga parametrar för konfiguration av filformat, fältnamn och filter för ett bulkextraheringsjobb.  Varje deltyp av extraheringsjobb kan ha ytterligare parametrar:
 
 | Parameter | Datatyp | Anteckningar |
-|---|---|---|
+| --- | --- | --- |
 | format | Sträng | Bestämmer filformatet för importerade data med alternativ för kommaavgränsade värden, tabbavgränsade värden och semikolonavgränsade värden. Accepterar något av följande: CSV, SSV, TSV. Standardformatet är CSV. |
 | fil | Sträng | Data anges via formulärdata som består av flera delar i filen. |
 

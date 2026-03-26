@@ -3,9 +3,9 @@ title: Namngivna kontolistor
 feature: REST API
 description: Lär dig hur du hanterar Marketo Named Account Lists med REST API, inklusive behörigheter, fält, filtrering och slutpunkter för att fråga, skapa, uppdatera och ta bort.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '716'
+source-wordcount: '746'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter
@@ -27,7 +27,7 @@ Namngivna kontolistor har ett begränsat antal standardfält och kan inte utöka
 `Named Account List Field`
 
 | Namn | Datatyp | Uppdaterbar | Anteckningar |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | marketoGUID | Sträng | Falskt | Unik strängidentifierare för den namngivna kontolistan. Det här fältet hanteras av systemet och tillåts inte som ett fält när en post skapas. Fält som används av&quot;deduplicpeBy&quot;:&quot;idField&quot; när du skapar eller uppdaterar. |
 | name | Sträng | True | Listans namn. Fält som används av&quot;deduplicpeBy&quot;:&quot;deduplicpeFields&quot; när ett skapar eller uppdaterar. |
 | createdAt | Datetime | Falskt | Datum när listan skapades. Det här fältet hanteras av systemet och är inte tillåtet som fält när du skapar eller uppdaterar en post. |

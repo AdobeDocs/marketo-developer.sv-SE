@@ -3,9 +3,9 @@ title: Metodtips för Marketo-integrering
 feature: REST API
 description: Bästa tillvägagångssätt för Marketo API-integreringar som omfattar kvoter, frekvens och samtidighetsgränser, batchbearbetning, bulkimport och -export, cachelagring och latensplanering.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '966'
+source-wordcount: '1012'
 ht-degree: 0%
 
 ---
@@ -39,7 +39,7 @@ För att säkerställa bästa möjliga prestanda för dina integreringar bör po
 Om du fastställer dina latenstoleranser, eller den maximala tid som kan gå innan du skickar ett API-anrop, kommer många, om inte de flesta, att informera om de beslut du fattar när du designar din integrering till Marketo. Marketo har många olika metoder och konfigurationsalternativ som är lämpliga för olika användningsfall, och olika latensklasser. En realtidsintegrering för att meddela en säljare om att en användare registrerar sig för en testversion kanske bara skickar in batchar av en om en uppföljning krävs. I de flesta fall krävs dock inte detta, det kan tolerera ytterligare latens och kan hanteras mer effektivt genom köer och gruppanrop.
 
 | Godtagbar svarstid | Önskade metoder | Anteckningar |
-|---|---|---|
+| --- | --- | --- |
 | Låg (&lt;10s) | Synkrona API:er (grupperade eller grupperade) | Se till att ditt användningsexempel kräver detta. Om du skickar omedelbara och synkrona anrop för användning i stora volymer kan du snabbt få en daglig API-kvot och eventuellt överskrida både hastighets- och samtidighetsgränserna. |
 | Medium(10-60 m) | Synkrona API:er (grupperade) | Vi rekommenderar starkt att du använder en kö med både ålder och storlek för inkommande dataintegreringar till Marketo. När någon av gränserna nås tömmer du kön och skickar din API-begäran med de samlade posterna. Detta är en stark kompromiss mellan hastighet och effektivitet som säkerställer att dina förfrågningar görs vid den gräns som krävs, samtidigt som så många poster som köns ålder tillåter grupperas. |
 | Hög (>60 m) | Importera/exportera satsvis (om det stöds) | För inkommande dataintegreringar bör poster ställas i kö och skickas via Marketo Bulk API:er när de är tillgängliga. |
@@ -55,7 +55,7 @@ Eftersom kapaciteten delas mellan alla API-tjänster och användare i en instans
 Resultat från följande åtgärder kan vanligtvis cachelagras på klientsidan under en dag eller mer, eftersom de ändras sällan:
 
 - Resultat från Beskriv-åtgärder
-- [Aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Typ av aktivitet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
 - [Partitioner](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Cachelagring av vissa resurstyper, som program, e-post och mappar, är också lämpligt för vissa användningsfall, t.ex. databerikning för lead- eller aktivitetsposter.

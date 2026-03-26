@@ -1,14 +1,14 @@
 ---
-user-guide-title: '[!DNL Marketo] Utvecklarhandbok'
+user-guide-title: Utvecklarhandbok för [!DNL Marketo]
 user-guide-description: Den här handboken innehåller anvisningar om hur du använder  [!DNL Marketo] API:er.
-breadcrumb-title: '[!DNL Marketo] Utvecklarhandbok'
+breadcrumb-title: Utvecklarhandbok för [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: f314f153c80416bbccc4328756e71c07e696dd00
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '251'
-ht-degree: 6%
+source-wordcount: '277'
+ht-degree: 3%
 
 ---
 
@@ -50,8 +50,8 @@ ht-degree: 6%
 - REST{#rest}
    - [REST API - översikt](rest-api/rest-api.md)
    - [REST API-referens](https://developer.adobe.com/marketo-apis/)
-   - Assets {#assets}
-      - [Assets](rest-api/assets.md)
+   - Resurser {#assets}
+      - [Resurser](rest-api/assets.md)
       - [Dynamiskt innehåll](rest-api/dynamic-content.md)
       - [E-post](rest-api/emails.md)
       - [E-postmallar](rest-api/email-templates.md)
@@ -89,7 +89,7 @@ ht-degree: 6%
    - [Referens för slutpunkt](rest-api/endpoint-reference.md)
    - [Felkoder](rest-api/error-codes.md)
    - Lead-databas {#lead-database}
-      - [Aktiviteter](rest-api/activities.md)
+      - [Verksamhet](rest-api/activities.md)
       - [Företag](rest-api/companies.md)
       - [Anpassade objekt](rest-api/custom-objects.md)
       - [Fältlista](rest-api/fields.md)
@@ -102,6 +102,8 @@ ht-degree: 6%
       - [Roller för affärsmöjlighet](rest-api/opportunity-roles.md)
       - [Programmedlemmar](rest-api/program-members.md)
       - [Säljare](rest-api/sales-persons.md)
+      - [Statisk lista](rest-api/list-membership.md)
+      - [Användning](rest-api/usage.md)
    - [Utskriftstoken](rest-api/paging-tokens.md)
    - [Prestanda](rest-api/performance.md)
    - [Referensarkitekturer](rest-api/reference-architectures.md)
@@ -110,8 +112,8 @@ ht-degree: 6%
    - [Användarsammanhang](rest-api/user-context.md)
    - [Användarhantering](rest-api/user-management.md)
 - SOAP {#soap}
-   - Aktiviteter {#activities}
-      - [Aktiviteter](soap-api/activities.md)
+   - Verksamhet {#activities}
+      - [Verksamhet](soap-api/activities.md)
       - [[!DNL getLeadActivity]](soap-api/getleadactivity.md)
       - [[!DNL getLeadChanges]](soap-api/getleadchanges.md)
    - [Filter för aktivitetstyp](soap-api/activity-type-filters.md)

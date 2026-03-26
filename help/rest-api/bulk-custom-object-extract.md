@@ -3,20 +3,20 @@ title: Extrahera anpassat objekt gruppvis
 feature: REST API, Custom Objects
 description: Guide till Marketo Bulk Custom Object Extract REST API:er för export av länkade anpassade objekt med updateAt- och listfilter, markerade fält och..
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1315'
+source-wordcount: '1473'
 ht-degree: 0%
 
 ---
 
 # Extrahera anpassat objekt gruppvis
 
-[Slutpunktsreferens för extrahering av anpassat objekt gruppvis](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[Referens för extraheringsslutpunkt för anpassat objekt gruppvis](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
 
 Uppsättningen REST API:er för Bulk Custom Object Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar anpassade objektposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
-Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Behörigheter
 
@@ -27,8 +27,8 @@ API:erna för extrahering av anpassat objekt i grupp kräver att API-användaren
 Extrahering av anpassade objekt stöder flera filteralternativ som används för att ange en lista med leads som är länkade till det anpassade objektet. Om en lead i listan är länkad till anpassade objektposter som matchar ett angivet namn skrivs posterna i exportfilen. Endast en filtertyp kan anges per exportjobb.
 
 | Filtertyp | Datatyp | Anteckningar |
-|---|---|---|
-| `updatedAt` | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt` &amp;nbsp.;`startAt` accepterar ett datetime-värde som representerar den låga vattenstämpeln, och `endAt` accepterar ett datetime-värde som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Jobb med den här filtertypen returnerar alla tillgängliga poster som uppdaterats inom datumintervallet. Datumtider ska vara i ISO-8601-format, utan millisekunder. |
+| --- | --- | --- |
+| `updatedAt` | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt` &amp;nbsp.;`startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Jobb med den här filtertypen returnerar alla tillgängliga poster som uppdaterats inom datumintervallet. Datumtider ska vara i ISO-8601-format, utan millisekunder. |
 | `staticListName` | Sträng | Accepterar namnet på en statisk lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i den statiska listan när jobbet börjar bearbetas. Hämta statiska listnamn med slutpunkten Hämta listor. |
 | `staticListId` | Heltal | Accepterar ID:t för en statisk lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i den statiska listan när jobbet börjar bearbetas. Hämta statiska list-ID:n med slutpunkten Hämta listor. |
 | `smartListName`* | Sträng | Accepterar namnet på en smart lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i de smarta listorna när jobbet börjar bearbetas. Hämta namn på smarta listor med slutpunkten Hämta smarta listor. |
@@ -45,7 +45,7 @@ Slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis
 - Ange format för den exporterade filen
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `fields` | Array[String] | Ja | En matris med strängar som innehåller värdet för attributnamnet för det anpassade objektet som returneras av slutpunkten Beskriv anpassat objekt. De listade fälten inkluderas i den exporterade filen. |
 | `columnHeaderNames` | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | `format` | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |

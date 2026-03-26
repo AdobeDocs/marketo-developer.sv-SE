@@ -3,10 +3,10 @@ title: Web Personalization
 description: Guide till Web Personalization JavaScript API och RTP-taggen, som omfattar sidvisningshändelser, kontoinställningar, robotundantag samt centrala skript och on demand-skript
 feature: Web Personalization, Javascript
 exl-id: b2c26b28-e9bf-4faf-8b6e-c102f41aeaa1
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '422'
-ht-degree: 1%
+source-wordcount: '452'
+ht-degree: 3%
 
 ---
 
@@ -14,7 +14,7 @@ ht-degree: 1%
 
 Personalization JavaScript API utökar plattformens automatiserade personaliseringsfunktion. Det gör det möjligt att spåra händelser och anpassa en webbsida dynamiskt. Ytterligare funktioner: [Anpassade datahändelser](custom-data-events.md), [dynamiskt innehåll](web-personalization.md), [Hämta besöksdata](get-visitor-data.md), [Uteslut tagg för specifika startsidor](#exclude_tag_for_specific_bots).
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen &#x200B;](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Tagginställningar
@@ -37,7 +37,7 @@ g.src=f;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b)
 Den här metoden anropas automatiskt på taggnivå för att ange det relevanta konto-ID:t. Du kan ange konto-ID när du vill dela upp mellan olika domäner.
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|--------------|-------------------|--------|--------------|
+| --- | --- | --- | --- |
 | &#39;setAccount&#39; | Obligatoriskt | Sträng | Metodnamn. |
 | accountId | Obligatoriskt | Sträng | Konto-ID. |
 
@@ -53,7 +53,7 @@ Den här metoden skickar en view-händelse, som används för sidspårning. I ex
 Genom att skicka den valfria parametern &quot;page&quot; i den här metoden kan den aktuella sidan åsidosättas.
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|-----------|-------------------|--------|---------------------------------|
+| --- | --- | --- | --- |
 | send | Obligatoriskt | Sträng | Metodåtgärd. |
 | view&#39; | Obligatoriskt | Sträng | Metodnamn. |
 | page | Valfritt | Sträng | Relativ sökväg eller URL för hel sida. |
@@ -96,8 +96,8 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder Web
 ### Core/Dependent JavaScript
 
 | Namn | Beskrivning | Kontroll |
-|---------------------------|-------------|--------------------------------------------------------|
-| rtp.js | – | Kontrolleras av Marketo |
+| --- | --- | --- |
+| rtp.js | - | Kontrolleras av Marketo |
 | jquery.min.js | v1.8.3 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | jquery-custom-ui-min.js | v1.9.2 | Kan inaktiveras genom att kontakta Marketo kundsupport |
 | query-ui-1.8.17-dialog.js | v1.9.2* | Kan inaktiveras genom att kontakta Marketo kundsupport |
@@ -107,8 +107,8 @@ Beskrivning av JavaScript som läggs till på en webbplats när du använder Web
 ### On Demand JavaScript
 
 | Namn | Beskrivning | Kontroll |
-|-------------------------|-----------------------------------------------------------------------|-----------------------|
+| --- | --- | --- |
 | ga-integration-2.0.1.js | Används om integreringen mellan Google Analytics/Facebook/SiteCatalyst är aktiverad | Kontrolleras av Marketo |
 | insightera-bar-2.1.js | Används om rekommendationsfältet för prediktivt innehåll är aktiverat | Kontrolleras av Marketo |
-| froogaloop2.min.js | Används om innehållsspårning är aktiverat och Vimeo-spelaren finns på sidan | – |
-| iframe-api-v1.js | Används om innehållsspårning är aktiverat och YouTube-spelaren finns på sidan | – |
+| froogaloop2.min.js | Används om innehållsspårning är aktiverat och Vimeo-spelaren finns på sidan | - |
+| iframe-api-v1.js | Används om innehållsspårning är aktiverat och YouTube-spelaren finns på sidan | - |

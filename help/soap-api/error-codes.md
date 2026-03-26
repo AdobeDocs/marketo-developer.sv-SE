@@ -3,10 +3,10 @@ title: Felkoder
 feature: SOAP
 description: Referenshandbok för felkoder i Marketo SOAP API med meddelanden och anteckningar, som omfattar autentiseringsfel, frekvens- och samtidighetsbegränsningar samt frågor om begäran.
 exl-id: 71796520-7bd6-4a37-94e7-b073d17df06f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 6%
+source-wordcount: '408'
+ht-degree: 7%
 
 ---
 
@@ -17,7 +17,7 @@ När du utvecklar för Marketo är det mycket viktigt att begäranden och svar l
 Nedan finns en lista med felkoder för SOAP API.
 
 | Code | Meddelande | Anteckningar |
-|--- |--- |--- |
+| --- | --- | --- |
 | 10001 | Internt fel | Allvarligt systemfel |
 | 20011 | Internt fel | API-tjänstfel |
 | 20012 | Förfrågan är inte förstådd | Oväntat SOAP-meddelande |

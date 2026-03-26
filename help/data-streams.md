@@ -2,9 +2,9 @@
 title: Dataströmmar
 description: Översikt över Marketo Engage dataströmmar som möjliggör nästan ledande aktivitet i realtid och användargranskningshändelser, easing API-gränser för Performance Tier-kunder
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1615'
+source-wordcount: '1714'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Genom att förmedla vyer om förändringar i leads kan kunderna fatta snabbare b
 Lista över strömmade aktiviteter:
 
 | AchieveGoalInReferral | ClickPredictiveContent | MottagenVidarebefordraTillFriendEmail |
-|--- |--- |--- |
+| --- | --- | --- |
 | LäggTillLista | ClickRTPCallToAction | ReceiveSalesEmail |
 | LäggTillStruktur | ClickSalesEmail | ReferToSocialApp |
 | LäggTillMöjlighet | ClickSharedLink | TaBortFrånLista |
@@ -79,7 +79,7 @@ Ett bra sätt att prenumerera på den här strömmen är:
 Lista med strömmade användargranskningshändelser:
 
 | KOMPONENT | HÄNDELSETYPLISTA |
-|--- |--- |
+| --- | --- |
 | Standardprogram | klona, skapa, ta bort, redigera kanal, exportera, ändra programinställningar, ändra programtoken, byta namn |
 | E-post | godkänna, klona, skapa, ta bort, redigera, flytta, byta namn, avgodkänna |
 | E-postbatchprogram | godkänn, childUpdate, klona, skapa, ta bort, redigera kanal, ändra programschema, ändra programinställning, ändra programtoken, ändra namn, avgodkänn |
@@ -139,7 +139,7 @@ För närvarande kan meddelandecentret i Marketo konfigureras att skicka meddela
 Lista över meddelandehändelser:
 
 | KOMPONENT | HÄNDELSETYPLISTA |
-|--- |--- |
+| --- | --- |
 | Meddelande | kampanjavbrott, kampanjfel, näring (programmet är slut), synkfel för Salesforce, testgrupp (A/B-testresultat), webbtjänster (dagskvot) |
 
 Exempel på meddelandehändelse:
@@ -262,7 +262,7 @@ Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo använd
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 
-Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/se/legal/product-descriptions/adobe-marketo-engage---product-description.html) för produktbegränsningar och funktioner.
+Dataströmmen för användargranskning är för närvarande tillgänglig som en del av prestandapaketen tillsammans med de tre andra dataströmmarna. Mer information om paketen finns på [produktbeskrivningssidan](https://helpx.adobe.com/legal/product-descriptions/adobe-marketo-engage—product-description.html) för produktbegränsningar och funktioner.
 
 ### Konfigurera Adobe I/O
 
@@ -278,6 +278,6 @@ Om du vill börja använda Adobe-tjänster lägger du till ett API, händelser e
 
 ## Offentlig dokumentation
 
-- [Marketo-dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
+- [Marketo dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/)
 - [Introduktion till Adobe IO Events &amp; Webhooks](https://developer.adobe.com/events/docs/guides/)
 - [Bloggen Dataströmmar](https://blog.developer.adobe.com/introducing-the-adobe-marketo-engage-data-streams-61198b567fbb)

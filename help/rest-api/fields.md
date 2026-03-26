@@ -3,9 +3,9 @@ title: Fält
 feature: REST API, Field Management
 description: Lär dig REST och SOAP lead-fältnamn, lista fält via REST-beskriv lead, funktionsmappning, varför sfdcId är null och använd sfdcLeadId eller sfdcContactId.
 exl-id: 9033f32a-c7cb-4bbf-abcf-38ca4112139f
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '212'
+source-wordcount: '213'
 ht-degree: 0%
 
 ---
@@ -23,7 +23,7 @@ Hämta listan med alla fältnamn som stöds som är tillgängliga på dina lead-
 Ibland är det svårt att veta vilken fältnamnstyp som du måste använda när du använder en viss integrationsrelaterad funktion. Nedan följer en snabbreferens där funktionerna använder datafältnamnstyperna REST eller SOAP.
 
 | Funktion | Fältnamnstyp som ska användas |
-|--- |--- |
+| --- | --- |
 | API för spårning av leads (Munchkin) | SOAP |
 | Forms 2.0 API | SOAP |
 | Importera lista (UI) | SOAP |

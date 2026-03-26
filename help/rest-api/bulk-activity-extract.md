@@ -3,16 +3,16 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Marketo Bulk Activity Extract REST API för att exportera aktivitetsdata för stora volymer med ett 31-dagars datumintervall, aktivitet och primära attributfilter för ETL och CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1351'
+source-wordcount: '1571'
 ht-degree: 0%
 
 ---
 
 # Extrahera massaktivitet
 
-[Slutpunktsreferens för extrahering av gruppaktivitet](https://developer.adobe.com/marketo-apis/api/mapi/)
+[Referens för extraheringsslutpunkt för gruppaktivitet](https://developer.adobe.com/marketo-apis/api/mapi/)
 
 Uppsättningen REST API:er för Bulk Activity Extract utgör ett programmatiskt gränssnitt för att hämta stora mängder aktivitetsdata från Marketo.  I de fall där det inte krävs låg fördröjning och där man måste överföra betydande volymer aktivitetsdata från Marketo, t.ex. CRM-integrering, ETL, datalagerhantering och dataarkivering.
 
@@ -74,7 +74,7 @@ Exempeltext för begäran:
 | Ta bort från lista | Statiskt listnamn | [Hämta statisk lista med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statisk lista |
 | Fyll i formulär | Formulärnamn | [Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webbformulär |
 
-Observera att du måste använda &quot;&lt;<em>program</em>>.&lt;<em>asset</em>>&quot; notation to specify the name for the following asset groups: Marketing Program, Static List, Web Form. Ett formulär med namnet&quot;MPS Outbound&quot; som finns under ett program med namnet&quot;GL_OP_ALL_2021&quot; skulle till exempel anges som&quot;GL_OP_ALL_2021.MPS Outbound&quot;.
+Observera att du måste använda &quot;&lt;<em>program</em>>.&lt;<em>resurs</em>>&quot; för att ange namnet på följande resursgrupper: Marketing Program, Static List, Web Form. Ett formulär med namnet&quot;MPS Outbound&quot; som finns under ett program med namnet&quot;GL_OP_ALL_2021&quot; skulle till exempel anges som&quot;GL_OP_ALL_2021.MPS Outbound&quot;.
 
 Exempeltext för begäran:
 
@@ -100,7 +100,7 @@ När du använder `primaryAttributeValues` måste filtret `activityTypeIds` finn
 ## Alternativ
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | filter | Array[Object] | Ja | Accepterar en array med filter. Exakt ett `createdAt`-filter måste inkluderas i arrayen. Ett valfritt `activityTypeIds`-filter kan inkluderas. Filtren tillämpas på den tillgängliga aktivitetsuppsättningen och den resulterande uppsättningen aktiviteter returneras av exportjobbet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV Den exporterade filen återges som ett kommaavgränsat värde, tabbavgränsade värden eller en blankstegsavgränsad värdefil, om en sådan anges. Standardvärdet är CSV om den tas bort. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |

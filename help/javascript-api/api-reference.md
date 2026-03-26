@@ -3,10 +3,10 @@ title: Munchkin API-referens
 description: Använd Munchkin Javascript-API:t för att spåra sidbesök, länkklick och anpassade händelser med init-, createTrackingCookie- och munchkinFunction-metoder.
 feature: Munchkin Tracking Code, Javascript
 exl-id: e9727691-5501-4223-bc98-2b4bacc33513
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '424'
-ht-degree: 2%
+source-wordcount: '426'
+ht-degree: 4%
 
 ---
 

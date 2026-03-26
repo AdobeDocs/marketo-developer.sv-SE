@@ -3,10 +3,10 @@ title: Utlösare
 description: Använd RTP-utlösare i Web Personalization för att köra funktioner i rtp-läge, inklusive userContextReady, med syntax, parametrar och ett platsexempel.
 feature: Javascript
 exl-id: 588836fa-1e4d-41f3-aec5-5cd17eb16071
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '100'
-ht-degree: 2%
+source-wordcount: '116'
+ht-degree: 5%
 
 ---
 
@@ -14,14 +14,14 @@ ht-degree: 2%
 
 Lägger till möjligheten att utlösa funktioner i vissa lägen för det globala rtp-objektet.
 
-Du måste vara webbkund och ha [RTP-taggen &#x200B;](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
+Du måste vara webbkund och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
 
 ## Användning
 
 `rtp('triggerName', function_to_trigger);`
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|---------------------|-------------------|----------|----------------------|
+| --- | --- | --- | --- |
 | triggerName | Obligatoriskt | Sträng | Metodnamn. |
 | function_to_trigger | Obligatoriskt | Funktion | Funktion som ska utlösas. |
 

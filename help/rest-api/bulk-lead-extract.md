@@ -3,16 +3,16 @@ title: Bulkladsextrahering
 feature: REST API
 description: Lär dig hur du använder Marketo Bulk Lead Extract REST API:er för att gruppexportera leads med datum-, list- och smarta listfilter, anpassade fält och CSV/TSV-format.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1195'
+source-wordcount: '1273'
 ht-degree: 0%
 
 ---
 
 # Bulkladsextrahering
 
-[Referens för extrahering av slutpunkt i grupplead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
+[Referens för massutdrag för slutpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads)
 
 Uppsättningen REST API:er för Bulk Lead Extract utgör ett programmatiskt gränssnitt för att hämta stora uppsättningar lead-/personposter från Marketo. Den kan också användas för att hämta leads inkrementellt baserat på postens skapandedatum, senaste uppdatering, statiskt listmedlemskap eller smart listmedlemskap. Det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
@@ -25,7 +25,7 @@ API:erna för extrahering av grupplead kräver att den ägande API-användaren h
 Leads har stöd för olika filteralternativ. Vissa filter, bland annat `updatedAt`, `smartListName` och `smartListId`, kräver ytterligare infrastrukturkomponenter som ännu inte har lanserats för alla prenumerationer. Endast en filtertyp kan anges per exportjobb.
 
 | Filtertyp | Datatyp | Anteckningar |
-|---|---|---|
+| --- | --- | --- |
 | createdAt | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Jobb med den här filtertypen returnerar alla tillgängliga poster som skapades inom datumintervallet. |
 | updatedAt* | Datumintervall | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Obs! Det här filtret filtrerar inte på det synliga&quot;updatedAt&quot;-fältet som bara återger uppdateringar av standardfält. Den filtrerar baserat på när den senaste fältuppdateringen gjordes för en lead-postJobs med den här filtertypen returnerar alla tillgängliga poster som senast uppdaterades inom datumintervallet. |
 | staticListName | Sträng | Accepterar namnet på en statisk lista. Jobb med den här filtertypen returnerar alla tillgängliga poster som är medlemmar i den statiska listan när jobbet börjar bearbetas. Hämta statiska listnamn med slutpunkten Hämta listor. |
@@ -40,7 +40,7 @@ Filtertypen är inte tillgänglig för vissa prenumerationer. Om du inte är til
 Slutpunkten Skapa exportlead-jobb innehåller flera formateringsalternativ som gör att användaren kan ta med särskilda fält i den exporterade filen, ändra namn på kolumnrubriker i dessa fält och formatet för den exporterade filen.
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. Varje sträng måste vara REST API-namnet för ett Marketo lead-fält. De listade fälten inkluderas i den exporterade filen. Kolumnrubriken för varje fält blir REST API-namnet för varje fält, såvida det inte åsidosätts av columnHeader. Obs! När funktionen [!DNL Adobe Experience Cloud Audience Sharing] är aktiverad utförs en cookie-synkroniseringsprocess som associerar [!DNL Adobe Experience Cloud] ID (ECID) med Marketo leads. Du kan ange att fältet &quot;ecids&quot; ska innehålla ECID:n i exportfilen. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Detta är API-namnet för fältet som kan hämtas genom att anropa Beskriv lead. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |

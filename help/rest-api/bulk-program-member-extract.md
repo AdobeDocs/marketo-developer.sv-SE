@@ -3,16 +3,16 @@ title: Extract för programmedlem
 feature: REST API
 description: Använd Marketo Bulk Program Member Extract REST API:er för att exportera stora medlemsposter för ETL, datalagerhantering och arkivering med behörigheter och metadata.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1160'
-ht-degree: 0%
+source-wordcount: '1284'
+ht-degree: 1%
 
 ---
 
 # Extract för programmedlem
 
-[Referens för extrahering av slutpunkt för gruppprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
+[Referens för utdrag av slutpunkt för massprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members)
 
 Uppsättningen REST API:er för Bulk Program Member Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar programmedlemsposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
@@ -235,7 +235,7 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>isExforsted</td>
       <td>Boolean</td>
-      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
+      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
     </tr>
     <tr>
       <td>planttureCadence</td>
@@ -319,7 +319,7 @@ Slutpunkten Skapa medlemsjobb för exportprogram innehåller flera formateringsa
 - Ange format för den exporterade filen
 
 | Parameter | Datatyp | Obligatoriskt | Anteckningar |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | fält | Array[String] | Ja | Parametern fields accepterar en JSON-array med strängar. De listade fälten inkluderas i den exporterade filen. Följande fälttyper kan exporteras: `LeadCustom` `LeadProgram` MemberCustom `ProgramMember`. Ange ett fält med hjälp av dess REST API-namn som kan hämtas med Beskriv lead2 och/eller Beskriv programmedlemmens slutpunkter. |
 | columnHeaderNames | Objekt | Nej | Ett JSON-objekt som innehåller nyckelvärdepar med fält- och kolumnrubriknamn. Nyckeln måste vara namnet på ett fält som ingår i exportjobbet. Värdet är namnet på den exporterade kolumnrubriken för det fältet. |
 | format | Sträng | Nej | Accepterar något av följande: CSV, TSV, SSV. Den exporterade filen återges som en fil med kommaseparerade värden, tabbseparerade värden eller blankstegsavgränsade värden, om en sådan anges. Standardvärdet är CSV om den tas bort. |

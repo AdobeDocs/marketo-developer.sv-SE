@@ -3,16 +3,16 @@ title: Forms
 feature: REST API, Forms
 description: Marketo Forms REST API-guide för att skapa och hantera formulär, hämta efter ID eller namn, bläddra med statusfilter och hantera fält, fältuppsättningar och regler.
 exl-id: 2e5dfa70-3163-4ab4-b269-3112417714c3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1616'
+source-wordcount: '1823'
 ht-degree: 0%
 
 ---
 
 # Forms
 
-[Forms-slutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
+[Forms Endpoint Reference](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms)
 
 [Slutpunktsreferens för formulärfält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Form-Fields)
 
@@ -290,7 +290,7 @@ När du redigerar fält, eller deras beteende i ett formulär, ska fältlistan a
 ### Fälttyper
 
 | Gränssnittstyp | API Name |
-|--------------|-----------------|
+| --- | --- |
 | Kryssrutor | kryssruta |
 | Alternativknapp | radio |
 | Textområde | textområde |
@@ -298,9 +298,9 @@ När du redigerar fält, eller deras beteende i ett formulär, ska fältlistan a
 | Sträng | string |
 | E-post | e-post |
 | Datum | datum |
-| Nummer | tal |
+| Antal | tal |
 | Dubbel | double |
-| Tel. | telefon |
+| Telefon | telefon |
 | URL | url |
 | Valuta | valuta |
 | Kryssruta | single_checkbox |
@@ -918,7 +918,7 @@ En fullständig lista över tillgängliga operatorer finns på slutpunktsreferen
 
 ## Uppföljning
 
-Marketo-formulär kan ha en dynamisk uppföljningssidfunktion där regler för att omdirigera till en viss sida, eller behålla den aktuella sidan, kan tillämpas baserat på innehållet i angivna fält när de skickas. Regler kan kallas för Tack-sidan eller Regler för Uppföljningssida. Dessa regler representeras som en JSON-array med medlemmarna `followupType`, `followupValue`, `operator`, `subjectField`, `values` och `default`. `default` är ett booleskt värde där endast en post i arrayen kan vara sann. När en besökare inte kvalificerar sig för några andra regler, kommer den regel som angetts som standard att användas. `followupType` kan vara antingen lp eller url, där lp anger ett Marketo Landing Page-id för `followupValue` och url anger en URL till en annan sida. Operatorn används för att jämföra värdet i ämnesfältet med listan med värden som anges.
+Marketo-formulär kan ha en dynamisk uppföljningssidfunktion där regler för att omdirigera till en viss sida, eller behålla den aktuella sidan, kan tillämpas baserat på innehållet i angivna fält när de skickas. Regler kan kallas för Tack-sidan eller Regler för Uppföljningssida. Dessa regler representeras som en JSON-array med medlemmarna `followupType`, `followupValue`, `operator`, `subjectField`, `values` och `default`. `default` är ett booleskt värde för vilket endast en post i arrayen kan vara true. När en besökare inte kvalificerar sig för några andra regler, kommer den regel som angetts som standard att användas. `followupType` kan vara antingen lp eller url, där lp anger ett Marketo startsida-ID för `followupValue` och url anger en URL till en annan sida. Operatorn används för att jämföra värdet i ämnesfältet med listan med värden som anges.
 
 ## Skicka-knapp
 

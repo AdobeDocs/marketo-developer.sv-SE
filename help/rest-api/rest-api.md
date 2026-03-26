@@ -3,9 +3,9 @@ title: REST API
 feature: REST API
 description: Lär dig använda Marketo REST API, konfigurera API-användare och LaunchPoint, visa kvoter och begränsningar, autentisera med auktoriseringshuvud och hämta leads.
 exl-id: 4b9beaf0-fc04-41d7-b93a-a1ae3147ce67
-source-git-commit: a0901d2c67aa42368f03494dc8157d2ae93b3dce
+source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
 workflow-type: tm+mt
-source-wordcount: '842'
+source-wordcount: '859'
 ht-degree: 0%
 
 ---
@@ -112,3 +112,5 @@ Om du inte har någon lead-post med din e-postadress i databasen kan du ersätta
 ## API-användning
 
 Var och en av dina API-användare rapporteras separat i API-användningsrapporten, så om du delar upp dina webbtjänster efter användare kan du enkelt ta hänsyn till hur de olika integreringarna används. Om antalet API-anrop till din instans överstiger gränsen och leder till att efterföljande anrop misslyckas, kan du med den här metoden ta hänsyn till volymen från varje tjänst och låta dig utvärdera hur problemet kan lösas. Se din användning genom att gå till **[!UICONTROL Admin]** -> **[!UICONTROL Integration]** > **[!UICONTROL Web Services]** och klicka på antalet samtal under de senaste sju dagarna.
+
+Information om REST-slutpunkter som returnerar daglig och senaste sju dagars användnings- och felstatistik finns i [Användning](usage.md).

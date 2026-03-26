@@ -3,10 +3,10 @@ title: Anpassade datahändelser
 description: Skicka anpassade händelser med RTP JavaScript API för Web Personalization, med parametrar, sträng- eller matrisdata på upp till fyra objekt och klickbaserade utlösare.
 feature: Javascript
 exl-id: ef7cab9c-3bd0-450e-9247-9324b1e6f9ab
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '243'
-ht-degree: 1%
+source-wordcount: '263'
+ht-degree: 2%
 
 ---
 
@@ -14,10 +14,10 @@ ht-degree: 1%
 
 Den här metoden skickar anpassade händelser för spårning och personalisering i realtid. Den kan användas för att skicka data från tredje part eller för att utlösa en egen anpassad händelse utifrån besökarens beteende. Anpassade datahändelser räknas en gång i en besökares session.
 
-Du måste bli kund hos Web Personalization och ha [RTP-taggen &#x200B;](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
+Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad på din webbplats innan du kan använda API:t för användarkontext.
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | `send` | Obligatoriskt | Sträng | Metodåtgärd. |
 | `event` | Obligatoriskt | Sträng | Metodnamn. |
 | `customData` | Obligatoriskt | Sträng eller Array | Anpassade data. |

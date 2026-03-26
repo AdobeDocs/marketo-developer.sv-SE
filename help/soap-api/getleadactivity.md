@@ -3,10 +3,10 @@ title: getLeadActivity
 feature: SOAP
 description: Använd getLeadActivity SOAP för att hämta lead-aktivitetshistorik efter nyckel, filteraktivitetstyper, ange batchstorlek, paginera via strömposition med XML-exempel.
 exl-id: f38dee95-235f-4dc2-8839-61d6008132a5
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
 source-wordcount: '366'
-ht-degree: 0%
+ht-degree: 2%
 
 ---
 
@@ -668,7 +668,7 @@ En [strömposition](stream-position.md) kan användas för att paginera genom st
 </SOAP-ENV:Envelope>
 ```
 
-Observera att elementet `activityRecord` i `id`-elementen ersätts av elementet `marketoGUID` som en unik identifierare.  Denna ändring kommer att ske i vårversionen 2017.
+Observera att elementet `id` i `activityRecord`-elementen ersätts av elementet `marketoGUID` som en unik identifierare.  Denna ändring kommer att ske i vårversionen 2017.
 
 ## Exempelkod - PHP
 

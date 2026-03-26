@@ -3,10 +3,10 @@ title: getMultipleLeads
 feature: SOAP
 description: Lär dig hur du använder Marketo SOAP getMultipleLeads för att hämta upp till 1 000 leads efter nyckel, statisk lista eller uppdateringsdatum, paginera med strömposition och filterfält.
 exl-id: db9aabec-8705-40c6-b264-740fdcef8a52
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '407'
-ht-degree: 0%
+source-wordcount: '409'
+ht-degree: 2%
 
 ---
 

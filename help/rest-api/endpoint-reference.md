@@ -3,9 +3,9 @@ title: Referens för slutpunkt
 feature: REST API
 description: Omfattande slutpunktslista för Marketo REST API med metoder, URI:er och nödvändiga behörigheter för olika aktiviteter, bulkexport, identitet, leads, resurser, användare.
 exl-id: 27d16b6f-865a-4e40-ab9c-cbabe2927472
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '4464'
+source-wordcount: '4793'
 ht-degree: 0%
 
 ---
@@ -14,9 +14,9 @@ ht-degree: 0%
 
 Nedan finns länkar till Marketo REST API-referenser.
 
-- [Resurs](https://developer.adobe.com/marketo-apis/api/asset/)
+- [Tillgång](https://developer.adobe.com/marketo-apis/api/asset/)
 - [Identitet](https://developer.adobe.com/marketo-apis/api/identity/)
-- [Leaddatabas](https://developer.adobe.com/marketo-apis/api/mapi/)
+- [Lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/)
 - [Användarhantering](https://developer.adobe.com/marketo-apis/api/user/)
 
 ## Slutpunktslista {#endpoint_list}
@@ -24,23 +24,23 @@ Nedan finns länkar till Marketo REST API-referenser.
 Här är en omfattande lista över REST API-slutpunkter.
 
 | Namn | Grupp | Metod | URI | Nödvändig behörighet |
-|---|---|---|---|---|
-| Lägg till anpassade aktiviteter | Aktiviteter | POST | /rest/v1/activities/external.json | Aktivitet för läsning/skrivning |
-| Godkänn anpassad aktivitetstyp | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/approve.json | Metadata för aktiviteten Read-Write |
-| Skapa anpassade aktivitetstypattribut | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/attributes/create.json | Metadata för aktiviteten Read-Write |
-| Skapa anpassade aktivitetstyper | Aktiviteter | POST | /rest/v1/activities/external/type.json | Metadata för aktiviteten Read-Write |
-| Ta bort anpassad aktivitetstyp | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/delete.json | Metadata för aktiviteten Read-Write |
-| Ta bort anpassade aktivitetstypattribut | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/attributes/delete.json | Metadata för aktiviteten Read-Write |
-| Beskriv anpassad aktivitetstyp | Aktiviteter | GET | /rest/v1/tasks/external/type/{apiName}/describe.json | Metadata för skrivskyddad aktivitet |
-| Ignorera utkast för anpassad aktivitetstyp | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/discardDraft.json | Metadata för aktiviteten Read-Write |
-| Hämta aktivitetstyper | Aktiviteter | GET | /rest/v1/activities/types.json | Skrivskyddad aktivitet |
-| Hämta anpassade aktivitetstyper | Aktiviteter | GET | /rest/v1/activities/external/types.json | Metadata för skrivskyddad aktivitet |
-| Hämta borttagna leads | Aktiviteter | GET | /rest/v1/activities/deletedleads.json | Skrivskyddad aktivitet |
-| Hämta leadaktiviteter | Aktiviteter | GET | /rest/v1/activities.json | Skrivskyddad aktivitet |
-| Hämta leadändringar | Aktiviteter | GET | /rest/v1/activities/leadchanges.json | Skrivskyddad aktivitet |
-| Hämta växlingstoken | Aktiviteter | GET | /rest/v1/activities/pagingtoken.json | Skrivskyddad aktivitet |
-| Uppdatera anpassad aktivitetstyp | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}.json | Metadata för aktiviteten Read-Write |
-| Uppdatera anpassade aktivitetstypattribut | Aktiviteter | POST | /rest/v1/tasks/external/type/{apiName}/attributes/update.json | Metadata för aktiviteten Read-Write |
+| --- | --- | --- | --- | --- |
+| Lägg till anpassade aktiviteter | Verksamhet | POST | /rest/v1/activities/external.json | Aktivitet för läsning/skrivning |
+| Godkänn anpassad aktivitetstyp | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/approve.json | Metadata för aktiviteten Read-Write |
+| Skapa anpassade aktivitetstypattribut | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/attributes/create.json | Metadata för aktiviteten Read-Write |
+| Skapa anpassade aktivitetstyper | Verksamhet | POST | /rest/v1/activities/external/type.json | Metadata för aktiviteten Read-Write |
+| Ta bort anpassad aktivitetstyp | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/delete.json | Metadata för aktiviteten Read-Write |
+| Ta bort anpassade aktivitetstypattribut | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/attributes/delete.json | Metadata för aktiviteten Read-Write |
+| Beskriv anpassad aktivitetstyp | Verksamhet | GET | /rest/v1/tasks/external/type/{apiName}/describe.json | Metadata för skrivskyddad aktivitet |
+| Ignorera utkast för anpassad aktivitetstyp | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/discardDraft.json | Metadata för aktiviteten Read-Write |
+| Hämta aktivitetstyper | Verksamhet | GET | /rest/v1/activities/types.json | Skrivskyddad aktivitet |
+| Hämta anpassade aktivitetstyper | Verksamhet | GET | /rest/v1/activities/external/types.json | Metadata för skrivskyddad aktivitet |
+| Hämta borttagna leads | Verksamhet | GET | /rest/v1/activities/deletedleads.json | Skrivskyddad aktivitet |
+| Hämta leadaktiviteter | Verksamhet | GET | /rest/v1/activities.json | Skrivskyddad aktivitet |
+| Hämta leadändringar | Verksamhet | GET | /rest/v1/activities/leadchanges.json | Skrivskyddad aktivitet |
+| Hämta växlingstoken | Verksamhet | GET | /rest/v1/activities/pagingtoken.json | Skrivskyddad aktivitet |
+| Uppdatera anpassad aktivitetstyp | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}.json | Metadata för aktiviteten Read-Write |
+| Uppdatera anpassade aktivitetstypattribut | Verksamhet | POST | /rest/v1/tasks/external/type/{apiName}/attributes/update.json | Metadata för aktiviteten Read-Write |
 | Identitet | Autentisering | GET eller POST | /identity/oauth/token | Ingen |
 | Avbryt export av aktivitetsjobb | Massexportaktiviteter | POST | /bulk/v1/tasks/export/{exportid}/cancel.json | Skrivskyddad aktivitet |
 | Skapa exportaktivitetsjobb | Massexportaktiviteter | POST | /bulk/v1/activities/export/create.json | Skrivskyddad aktivitet |

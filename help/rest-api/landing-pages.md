@@ -3,16 +3,16 @@ title: Landningssidor
 feature: REST API, Landing Pages
 description: Använd Marketo REST API för att fråga efter metadata och innehåll, skapa, uppdatera, godkänna, ta bort och klona landningssidor, inklusive guidade och friformstyper.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1018'
+source-wordcount: '1221'
 ht-degree: 0%
 
 ---
 
 # Landningssidor
 
-[Referens för startsidans slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
+[Slutpunktsreferens för landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
 
 Landningssidor är webbsidor som lagras av Marketo.
 
@@ -178,7 +178,7 @@ Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enlig
 **Avsnittstyper**
 
 | Typ | Värde |
-|--- |--- |
+| --- | --- |
 | DynamicContent | ID för segmenteringen. |
 | Formulär | Formulärets ID. |
 | HTML | Text i HTML. |
@@ -257,7 +257,7 @@ segment=New Segment&value=New Content
 }
 ```
 
-## Variabel
+## Variabler
 
 En av de funktioner som introducerats på guidade landningssidor är redigerbara variabler.  Variabler innehåller värden för element på en landningssida.  Variabler kan enkelt ändras med landningssidans redigerare enligt nedan:
 
@@ -274,7 +274,7 @@ Variabler definieras som metataggar inuti elementet `<head>` i en landningssidma
 </head>
 ```
 
-Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Fråga
 
@@ -312,7 +312,7 @@ GET /rest/asset/v1/landingPage/{id}/variables.json
 
 I  I det här exemplet innehåller den guidade landningssidan tre variabler: stringVar, colorVar, boolVar.
 
-### Uppdatering
+### Uppdatera
 
 Uppdatera en variabel för en guidad landningssida genom att skicka landningssidans ID, variabel-ID och variabelvärdet för att uppdatera slutpunkten för landningssidans variabel.
 

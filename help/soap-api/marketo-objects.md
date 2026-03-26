@@ -3,9 +3,9 @@ title: Marketo Objects
 feature: SOAP
 description: Översikt över Marketo MObjects, inklusive typer, attribut, beteende för extern nyckel och vilka SOAP API:er som stöds för poster i säljprojekt, program och liknande.
 exl-id: 99b9aed4-94e8-46e8-84d9-2cc5215b0c13
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '265'
+source-wordcount: '274'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ Externa nycklar är anpassade fält som definieras för Marketo-objekt, som lead
 ### Tillgängliga API:er
 
 | API | Kan fungera på |
-|---|---|
+| --- | --- |
 | describeMObject | ActivityRecord, LeadRecord, Opportunity, OpportunityPersonRole |
 | getMObjects | Möjligheter, möjlighetPersonRole, program |
 | syncMObjects | Möjligheter, möjlighetPersonRole, program |

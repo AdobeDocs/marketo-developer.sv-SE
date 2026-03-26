@@ -3,9 +3,9 @@ title: Massextrahering
 feature: REST API
 description: Lär dig hur du använder Marketo Bulk Extract REST API för att exportera leads, aktiviteter, programmedlemmar och anpassade objekt, med OAuth, jobbköer och 500 MB dagliga begränsningar.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '1702'
+source-wordcount: '1723'
 ht-degree: 0%
 
 ---
@@ -15,7 +15,7 @@ ht-degree: 0%
 Marketo har gränssnitt för att hämta stora mängder persondata och personrelaterade data, som kallas Bulk Extract. För närvarande finns gränssnitt för tre objekttyper:
 
 - Leads (personer)
-- Aktiviteter
+- Verksamhet
 - Programmedlemmar
 - Anpassade objekt
 
@@ -118,7 +118,7 @@ När vi skapar jobbet returneras ett jobb-ID i attributet `exportId`. Vi kan sed
 Varje jobbskapandeslutpunkt delar några vanliga parametrar för konfiguration av filformat, fältnamn och filter för ett bulkextraheringsjobb. Varje deltyp av extraheringsjobb kan ha ytterligare parametrar:
 
 | Parameter | Datatyp | Anteckningar |
-|---|---|---|
+| --- | --- | --- |
 | format | Sträng | Bestämmer filformatet för extraherade data med alternativ för kommaavgränsade värden, tabbavgränsade värden och semikolonavgränsade värden. Accepterar något av följande: CSV, SSV, TSV. Standardformatet är CSV. |
 | columnHeaderNames | Objekt | Gör att du kan ange namn på kolumnrubriker i den returnerade filen. Varje medlemsnyckel är namnet på kolumnrubriken som ska bytas och värdet är det nya namnet på kolumnrubriken. Till exempel &quot;columnHeaderNames&quot;: { &quot;firstName&quot;: &quot;First Name&quot;, &quot;lastName&quot;: &quot;Last Name&quot; }, |
 | filter | Objekt | Filter som används på extraheringsjobbet. Typer och alternativ varierar mellan olika jobbtyper. |

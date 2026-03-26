@@ -3,10 +3,10 @@ title: Rich Media Recommendation
 description: Ställ in Rich Media Recommendation med RTP-taggen Marketo Predictive Content, template1 template2 template3 divs, GET to fill, SET för att konfigurera kategorier.
 feature: Javascript
 exl-id: ee92e46d-e529-40a2-a0d0-ee233916f004
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
 workflow-type: tm+mt
-source-wordcount: '831'
-ht-degree: 1%
+source-wordcount: '854'
+ht-degree: 3%
 
 ---
 
@@ -21,12 +21,12 @@ Följande taggar och API-anrop måste ställas in på sidan som du vill visa rek
 1. I sidans brödtext
    1. Placera malltaggen (klassen div) på den plats där du vill att mallen ska visas
 
-Mer information finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Malltagg
 
 | Attribut | Valfritt/obligatoriskt | Beskrivning |
-|---|---|---|
+| --- | --- | --- |
 | class | Obligatoriskt | Ange att det här div-elementet för HTML är RTP-rekommendation-div. |
 | data-rtp-template-id | Obligatoriskt | Mallens ID. Detta avgör justeringen av din rekommendation. Använd &quot;template1&quot; för vågrät justering, &quot;template2&quot; för lodrät justering eller &quot;template3&quot; för lodrät justering som endast innehåller rubrik och beskrivning. Skriptet infogar den matchande mallen i följande `div.Permissible`-värden: template1, template2, template3. |
 
@@ -61,7 +61,7 @@ Den här metoden fyller i alla multimedia `<divs>` på sidan med rekommendatione
 `rtp('get', 'rcmd', 'richmedia');`
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | get | Obligatoriskt | Sträng | Metodåtgärd. |
 | rcmd | Obligatoriskt | Sträng | Metodnamn. |
 | &#39;richmedia&#39; | Obligatoriskt | Sträng | Undermetodnamn. |
@@ -77,7 +77,7 @@ Obs! När du använder den här metoden måste den anropas innan du anropar rtp(
 `rtp('set', 'rcmd', 'richmedia', 'template_id', conf_obj);`
 
 | Parameter | Valfritt/obligatoriskt | Typ | Beskrivning |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | set | Obligatoriskt | Sträng | Metodåtgärd. |
 | rcmd | Obligatoriskt | Sträng | Metodnamn. |
 | &#39;richmedia&#39; | Obligatoriskt | Sträng | Namn på undermetod. |
@@ -136,7 +136,7 @@ rtp("set", "rcmd", "richmedia",
 #### Konfigurationsegenskaper
 
 | Konfiguration | Exempel | Beskrivning |
-|---|---|---|
+| --- | --- | --- |
 | rcmd.general.font.family | &quot;rcmd.general.font.family&quot; : &quot;arial&quot; | Ändrar teckensnittsfamiljen för all text i mallen. Den här egenskapen stöder alla CSS-värden efter webbläsartyp. Det går att använda en anpassad teckensnittsfamilj om den finns på sidan. |
 | rcmd.content.background.color | &quot;rcmd.content.background.color&quot; : &quot;black&quot; | Ändrar bakgrundsfärgen för mallens innerrutor. Den här egenskapen stöder alla CSS-värden efter webbläsartyp. |
 | rcmd.title.text | &quot;rcmd.title.text&quot; : &quot;REKOMMENDERAT INNEHÅLL&quot; | Ändrar mallens rubrik. |
@@ -241,4 +241,4 @@ rtp('get','rcmd', 'richmedia');
 
 #### Exempel på rekommendationsmall 3 för multimedia
 
-**Namn**: mall3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall](assets/rich-media-template3.png)
+**Namn**: mall3 **Beskrivning**: Lodrätt innehåll som endast innehåller rubrik och beskrivning. Vid hovring med musen ändrar sidhuvudet färg och är länkat till innehålls-URL. Beskrivningen länkar också till innehåll utan färgändring. ![Multimediamall ](assets/rich-media-template3.png)
