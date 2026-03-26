@@ -21,7 +21,7 @@ Följande taggar och API-anrop måste ställas in på sidan som du vill visa rek
 1. I sidans brödtext
    1. Placera malltaggen (klassen div) på den plats där du vill att mallen ska visas
 
-Mer information finns [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
+Mer information finns [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/enabling-predictive-content/enable-predictive-content-for-web-rich-media).
 
 ## Malltagg
 
