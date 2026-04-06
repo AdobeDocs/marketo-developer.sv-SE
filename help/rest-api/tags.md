@@ -3,10 +3,10 @@ title: Taggar
 feature: REST API, Tags
 description: Hämta taggtyper, hämta tillåtna värden per namn, uppdatera eller ta bort programtaggar i Marketo via REST Asset API, med exempel på begäran.
 exl-id: 64731d1a-a749-4d6f-b336-16c733d002f0
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
 workflow-type: tm+mt
-source-wordcount: '221'
-ht-degree: 1%
+source-wordcount: '258'
+ht-degree: 0%
 
 ---
 
@@ -75,7 +75,7 @@ GET /rest/asset/v1/tagType/byName.json?name=AAA1 Required Tag Type
 }
 ```
 
-## Uppdatering
+## Uppdatera
 
 Med slutpunkten [Uppdatera programtagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) kan du uppdatera värdet för en viss taggtyp. Slutpunkten har en `id`- och `tagType`-sökvägsparameter som anger program-ID:t och den taggtyp som ska uppdateras. En `tagValue`-frågeparameter används för att ange det nya värdet för taggtypen. Alla parametrar är obligatoriska.
 
@@ -97,7 +97,7 @@ POST /rest/asset/v1/program/{id}/tag/{tagType}.json?tagValue=David
 }
 ```
 
-Taggar kan uppdateras en massa med slutpunkten [Uppdatera programmetadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST). Ett exempel på det finns [här](programs.md#update).
+Taggar kan uppdateras en masse med slutpunkten [Uppdatera programmetadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) . Ett exempel finns i avsnittet [Programuppdatering](programs.md#update).
 
 ## Ta bort
 

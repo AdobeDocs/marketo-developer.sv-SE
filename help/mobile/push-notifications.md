@@ -3,9 +3,9 @@ title: Push-meddelanden
 feature: Mobile Marketing
 description: Guide för att aktivera push-meddelanden från iOS med Marketo, från APN-certifikat och Xcode-inställningar till Marketo SDK-integrering, tokenregistrering och -hantering.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
 workflow-type: tm+mt
-source-wordcount: '1344'
+source-wordcount: '1338'
 ht-degree: 0%
 
 ---
@@ -44,7 +44,7 @@ Aktivera funktionen för push-meddelanden i xCode-projektet.![](assets/push-xcod
 
 Lägg till följande kod i filen `AppDelegate.m` för att leverera push-meddelanden till dina kunders enheter.
 
-**Obs!** - Använd [!DNL Adobe Launch] som klassnamn om du använder tillägget `ALMarketo`
+**Obs!** - Använd `ALMarketo` som klassnamn om du använder tillägget [!DNL Adobe Launch]
 
 Importera följande i `AppDelegate.h`.
 
@@ -285,7 +285,7 @@ Här följer en aktivitetslogg från Marketo från Marketo som visar programhän
    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
    ```
 
-1. Konfigurera FCM med HTTPv1 (Google har [föråldrat XMPP-protokoll](https://firebase.google.com/docs/cloud-messaging/xmpp-server-ref) den 12 juni 2023 och kommer att tas bort i juni 2024)
+1. Konfigurera FCM med HTTPv1
 
 - Aktivera MME FCM HTTPv1 i Marketo-funktionshanteraren ![](assets/feature-manager.png)
    - Överför JSON-fil för tjänstkonto för appen i MLM.

@@ -5,9 +5,9 @@ breadcrumb-title: Utvecklarhandbok för [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '277'
+source-wordcount: '284'
 ht-degree: 3%
 
 ---
@@ -54,10 +54,13 @@ ht-degree: 3%
       - [Resurser](rest-api/assets.md)
       - [Dynamiskt innehåll](rest-api/dynamic-content.md)
       - [E-post](rest-api/emails.md)
+      - [E-post (ny)](rest-api/emails-new.md)
       - [E-postmallar](rest-api/email-templates.md)
+      - [E-postmallar (ny)](rest-api/email-templates-new.md)
       - [Filer](rest-api/files.md)
       - [Mappar](rest-api/folders.md)
       - [Forms](rest-api/forms.md)
+      - [Fragment (ny)](rest-api/fragments.md)
       - [Landningssidor](rest-api/landing-pages.md)
       - [Regler för omdirigering av startsida](rest-api/landing-page-redirect-rules.md)
       - [Mallar för landningssidor](rest-api/landing-page-templates.md)
@@ -161,7 +164,7 @@ ht-degree: 3%
 - [Dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams)
 - [E-postskript](email-scripting.md)
 - [Exempel på e-postskript](examples.md)
-- [Marketo-objekt](marketo-objects.md)
+- [Marketo Objects](marketo-objects.md)
 - [Licens](api-license.md)
 - [Partnersandlåda](partner-sandbox.md)
 - [Självbetjäningsflödessteg](self-service-flow-steps.md)

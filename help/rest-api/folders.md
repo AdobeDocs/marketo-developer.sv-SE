@@ -3,16 +3,16 @@ title: Mappar
 feature: REST API
 description: Marketo REST API-guide för mappar som innehåller skapa, uppdatera, ta bort, fråga efter ID och namn, Bläddra bland flera med rot, arbetsyta, maxDepth och pagination.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '1025'
+source-wordcount: '1099'
 ht-degree: 0%
 
 ---
 
 # Mappar
 
-[Slutpunktsreferens för mappar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Referens för mappslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
 
 Mappar är den viktigaste organisationsresursen i Marketo, och alla andra typer av resurser har minst en mapp som överordnad. Den överordnade mappen kan antingen vara en mapp som är helt organisatorisk eller ett program som har en funktionell relation till andra resurstyper och kan också vara överordnad andra resurser. Mappar kan skapas, frågas, uppdateras och tas bort via API:t, och även en lista över deras innehåll kan hämtas. Även om program kan returneras genom frågor till programmeringsgränssnittet måste du skapa, uppdatera och ta bort program via programmeringsgränssnittet.
 
@@ -59,7 +59,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 }
 ```
 
-Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &quot;Program&quot;.  Typen anger om sökningen efter mappen görs mot ett mapp-ID eller ett program-ID. För den här slutpunkten returneras bara en post i resultatarrayen. Observera parametern folderType i svaret. Detta kan tyda på många olika typer av mappar. Marketo aktivitetsmappar har antingen en typ av Marketing Folder eller Program, som kan innehålla många olika typer av resurser, medan Design Studio-mappar har en typ som motsvarar resurstypen som de kan innehålla. En mapp med till exempel folderType som &quot;Email&quot; kan bara innehålla e-post, eller andra undermappar, som kan ha en folderType som &quot;Email&quot; eller &quot;Email Template&quot;. Typer kan vara:
+Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &quot;Program&quot;.  Typen anger om sökningen efter mappen görs mot ett mapp-ID eller ett program-ID. För den här slutpunkten returneras bara en post i resultatarrayen. Observera parametern `folderType` i svaret. Detta kan tyda på många olika typer av mappar. Marketo aktivitetsmappar har antingen en typ av Marketing Folder eller Program, som kan innehålla många olika typer av resurser, medan Design Studio-mappar har en typ som motsvarar resurstypen som de kan innehålla. En mapp med till exempel `folderType` &quot;E-post&quot; kan bara innehålla e-postmeddelanden eller andra undermappar, som kan ha `folderType` som e-post eller e-postmall. Typer kan vara:
 
 - E-post
 - E-postmall
@@ -70,7 +70,7 @@ Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &
 
 ### Efter namn
 
-[Det är också tillåtet att fråga efter namn &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
+[Det är också tillåtet att fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
 
 ```
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly

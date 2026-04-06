@@ -2,7 +2,7 @@
 title: Dataströmmar
 description: Översikt över Marketo Engage dataströmmar som möjliggör nästan ledande aktivitet i realtid och användargranskningshändelser, easing API-gränser för Performance Tier-kunder
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
 source-wordcount: '1714'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 # Dataströmmar
 
 >[!NOTE]
-> Aktuell information om dataströmmar finns nu på [Använda dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams/).
+> Aktuell information om dataströmmar finns nu på [Använda dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
 Våra kunders marknadsföringsorganisationer förlitar sig på aktuella och fokuserade marknadsföringskampanjer för att ligga steget före sina affärer och vara konkurrenskraftiga. För att stödja snabba beslut och möjliggöra strategiska förändringar snabbt är det viktigt att ha data som stöder och driver de viktiga beslut som levererar fokuserade och målinriktade kampanjer. Det finns också vissa kunder som arbetar med marknadsföring i sina kundsegment både inom och utanför Marketo Engage. För att stödja dessa olika satsningar har Marketo skapat möjligheten att inhämta stora datavolymer i nära realtid via dataströmmar.
@@ -258,7 +258,7 @@ Granskningshändelser skickas till Adobe IO och kan användas genom att logga in
    1. För det här steget krävs en Adobe-organisation
    1. Kräver att Adobe Org User har rollen Developer eller System Admin
 
-Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup/) i avsnittet Offentlig dokumentation.
+Information om hur du konfigurerar Adobe IO finns i [Konfigurera Marketo användargranskningsdataströmmar med Adobe IO](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-user-audit-data-stream-setup#) i avsnittet Offentlig dokumentation.
 
 ### Konfigurera dataströmmen för användargranskning i Marketo
 

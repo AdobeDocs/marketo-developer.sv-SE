@@ -1,20 +1,20 @@
 ---
-title: Assets
+title: Resurser
 feature: REST API
 description: Översikt över Marketo Asset REST API:er för att fråga efter ID eller namn, bläddra med sidindelning och skapa eller uppdatera mappar, e-post, formulär, mallar, filer, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
 workflow-type: tm+mt
-source-wordcount: '894'
+source-wordcount: '898'
 ht-degree: 0%
 
 ---
 
-# Assets
+# Resurser
 
 Marketo tillhandahåller API:er för interaktion med de flesta marknadsförings- och organisationsresurser inom Marketo.
 
-## Assets
+## Resurser
 
 Marketo resurser omfattar:
 
@@ -22,6 +22,7 @@ Marketo resurser omfattar:
 - Program
 - E-post
 - E-postmallar
+- Fragment
 - Landningssidor
 - Mallar för landningssidor
 - Fragment

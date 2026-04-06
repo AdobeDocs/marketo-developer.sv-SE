@@ -3,9 +3,9 @@ title: Inmatning av data
 feature: REST API, Dynamic Content
 description: Använd Marketo API för datainmatning för att få stora volymer, låg latens för personer, anpassade objekt, företag och programmedlemmar.
 exl-id: 1d501916-53ac-42d8-a804-abb4ab01c7e8
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
 workflow-type: tm+mt
-source-wordcount: '1786'
+source-wordcount: '1789'
 ht-degree: 5%
 
 ---
@@ -116,7 +116,7 @@ Date: Wed, 18 Oct 2023 18:56:49 GMT
 
 ### Fel
 
-När ett anrop genererar ett fel returneras en status som inte är 202 tillsammans med ett svarstext med ytterligare felinformation.  Svarstexten är application/json och innehåller ett enda objekt med medlemserror_code och message.
+När ett anrop genererar ett fel returneras en status som inte är 202 tillsammans med ett svarstext med ytterligare felinformation. Svarstexten är `application/json` och innehåller ett enda objekt med medlemmarna `error_code` och `message`.
 
 Nedan visas återanvända felkoder från Adobe Developer Gateway.
 
@@ -139,7 +139,16 @@ Nedan visas felkoder som är unika för API:t för datainmatning och som består
 
 ## Försök igen
 
-När ett tillfälligt fel upptäcks försöker tjänsten utföra åtgärden igen tre gånger.  Det första återförsöket görs efter en 5 minuter lång vänteperiod, det andra efter 30 minuter till och slutligen det tredje efter 30 minuter till.  Försök görs på nytt av olika anledningar, i första hand när en beroende tjänst inte är tillgänglig eller inte är tillgänglig för tillfället.
+När ett tillfälligt fel upptäcks försöker tjänsten utföra åtgärden igen. Försök görs på nytt av olika anledningar, i första hand när en beroende tjänst inte är tillgänglig eller inte är tillgänglig för tillfället.
+
+Återförsöksintervall:
+
+* Inledande åtgärd och första försöket: 5 min
+* 1:a och 2:a: 15 min
+* 2 och 3: 20 min
+* 3:e och 4:e: 20 min
+* 4:e och 5:e : 2 timmar
+* efter femte försöket -> 3 timmar
 
 ## Slutpunkter
 
@@ -239,7 +248,7 @@ Slutpunkt som används för att infoga anpassade objektposter.
 
 Nödvändiga behörigheter är `Read-Write Custom Object`.
 
-Om ett länkfält till en person anges i begäran och den personen inte finns, görs flera försök. Om den personen läggs till under återförsöksfönstret (65 minuter) slutförs uppdateringen. Om t.ex. länkfältet är e-post för person och personen inte finns, görs ett nytt försök.
+Om ett länkfält till en person anges i begäran och den personen inte finns, görs flera försök. Om den personen läggs till under återförsöksfönstret (65 minuter) slutförs uppdateringen. Om länkfältet till exempel är `email` för person och personen inte finns, görs nya försök.
 
 ### Exempel på anpassade objekt
 
