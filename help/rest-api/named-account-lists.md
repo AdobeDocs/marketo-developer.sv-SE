@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter
