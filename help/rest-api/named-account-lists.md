@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter
@@ -178,8 +178,8 @@ Om det inte går att hitta en post för en viss nyckel kommer motsvarande result
 Det är enkelt att fråga om medlemskap i en lista med namngivna konton, vilket bara kräver `i` i kontolistan. Valfria parametrar är:
 
 -`field` - en kommaavgränsad lista med fält som ska inkluderas i svarsposterna
--`nextPageToke` - för att växla genom resultatuppsättningen
-- `batchSiz` - för att ange antalet poster som ska returneras
+-`nextPageToke` - för sidindelning genom resultatuppsättningen
+-`batchSiz` - för att ange antalet poster som ska returneras
 
 Om `field` inte anges returneras `marketoGUI`,`nam`, `createdA` och `updatedA`. `batchSiz` har ett högsta och standardvärde på 300.
 

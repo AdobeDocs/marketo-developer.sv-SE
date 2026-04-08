@@ -3,7 +3,7 @@ title: Push-meddelanden
 feature: Mobile Marketing
 description: Guide för att aktivera push-meddelanden från iOS med Marketo, från APN-certifikat och Xcode-inställningar till Marketo SDK-integrering, tokenregistrering och -hantering.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: 9002bcd494ba125fdc7d3ef5f02385465b6eb5a6
+source-git-commit: 14ca3ca1f1aa07bb3e54802003190a4a2b4fbcb9
 workflow-type: tm+mt
 source-wordcount: '1338'
 ht-degree: 0%
@@ -24,7 +24,7 @@ Det finns tre steg för att aktivera push-meddelanden:
 
 ### Konfigurera push-meddelanden på Apple Developer Account
 
-1. Logga in på Apple Developer [Member Center](http://developer.apple.com/membercenter).
+1. Logga in på Apple Developer [Member Center](https://developer.apple.com/membercenter).
 1. Klicka på Certifikat, Identifierare och profiler.
 1. Klicka på mappen &quot;Certificates->All&quot; under &quot;iOS, tvOS, watchOS&quot;.
 1. Markera plustecknet (+) på den övre vänstra skärmen bredvid certifikaten ![](assets/certificates-plus.png)

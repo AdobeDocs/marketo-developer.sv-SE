@@ -3,7 +3,7 @@ title: Omdirigering
 description: Implementera omdirigerings-API:t för RTP för att skicka segmenterade besökare till riktade URL:er med hjälp av fält som ABM, organisation, plats och segment, med exempel och tips.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: 18d828b5d98c00f04739d417d043a33fcbb9c37a
 workflow-type: tm+mt
 source-wordcount: '500'
 ht-degree: 5%
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Med RTP:s omdirigerings-API kan du omdirigera segmenterade målgrupper till en mål-URL.
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen &#x200B;](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Användning
@@ -34,16 +34,16 @@ Organisation, bransch, ABM-listor, plats, ISP, matchade segment
 
 | Villkor | Dataherarki | Exempel |
 | --- | --- | --- |
-| Matchade segment (fungerar endast efter första klickningen) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.name&#39;, [&#39;Fortune 1,000&#39;, &#39;Enterprise&#39;], &#39;<http://www.marketo.com>&#39;); |
-| Matchade segment (fungerar endast efter första klickningen) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.id&#39;, [106, 107, 190], &#39;<http://www.marketo.com>&#39;); |
-| ABM-listor | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customers&#39;], &#39;<http://www.marketo.com>&#39;); |
-| ABM-listor | abm.code | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.code&#39;, [13, 15] , &#39;<http://www.marketo.com>&#39;); |
-| Organisationer | org | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;<http://www.marketo.com>&#39;); |
-| Plats | location.country | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.country&#39;, [&#39;United States&#39;], &#39;<http://www.marketo.com>&#39;); |
-| Plats | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;<http://www.marketo.com>&#39;); |
-| Plats | location.city | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&#39;San Mateo&#39;], &#39;<http://www.marketo.com>&#39;); |
-| Branscher | branscher | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;industry&#39;, [&#39;Education&#39;], &#39;<http://www.marketo.com>&#39;); |
-| ISP | isp | rtp( &#39;send&#39;, &#39;redirect&#39;, isp, [&#39;False&#39;], &#39;<http://www.marketo.com>&#39;); |
+| Matchade segment (fungerar endast efter första klickningen) | matchedSegments.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.name&#39;, [&#39;Fortune 1,000&#39;, &#39;Enterprise&#39;], &#39;<https://www.example.com>&#39;); |
+| Matchade segment (fungerar endast efter första klickningen) | matchedSegments.id | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;matchedSegments.id&#39;, [106, 107, 190], &#39;<https://www.example.com>&#39;); |
+| ABM-listor | abm.name | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.name&#39;, [&#39;top_key_accounts&#39;, &#39;active_customers&#39;], &#39;<https://www.example.com>&#39;); |
+| ABM-listor | abm.code | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;abm.code&#39;, [13, 15] , &#39;<https://www.example.com>&#39;); |
+| Organisationer | org | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;org&#39;, [&#39;ebay&#39;], &#39;<https://www.example.com>&#39;); |
+| Plats | location.country | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.country&#39;, [&#39;United States&#39;], &#39;<https://www.example.com>&#39;); |
+| Plats | location.state | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.state&#39;, [&#39;ca&#39;], &#39;<https://www.example.com>&#39;); |
+| Plats | location.city | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;location.city&#39;, [&#39;San Mateo&#39;], &#39;<https://www.example.com>&#39;); |
+| Branscher | branscher | rtp( &#39;send&#39;, &#39;redirect&#39;, &#39;industry&#39;, [&#39;Education&#39;], &#39;<https://www.example.com>&#39;); |
+| ISP | isp | rtp( &#39;send&#39;, &#39;redirect&#39;, isp, [&#39;False&#39;], &#39;<https://www.example.com>&#39;); |
 
 ## Anteckningar
 
@@ -105,7 +105,7 @@ Omdirigeringsanropet har stöd för flera samtal. Detta gör det möjligt att om
 | send | Obligatoriskt | Sträng | Metodåtgärd. |
 | &quot;redirect&quot; | Obligatoriskt | Sträng | Metodnamn. |
 | field_name | Obligatoriskt | Sträng | Fältnamn att matcha mot. Exempel: &quot;abm.name&quot; (se ovan). |
-| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<http://marketo.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]&rbrace; |
+| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<https://www.example.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]} |
 
 #### Exempel
 
