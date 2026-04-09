@@ -3,9 +3,9 @@ title: Smarta kampanjer
 feature: REST API, Smart Campaigns
 description: Lär dig hur du använder Marketo REST API:er för smarta kampanjer, inklusive fråga efter ID eller namn, bläddra bland filter, skapa borttagning av klon samt schemalägga eller begära utlösare
 exl-id: 540bdf59-b102-4081-a3d7-225494a19fdd
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1196'
 ht-degree: 0%
 
 ---
@@ -237,7 +237,7 @@ name=Smart Campaign 02&folder={"type": "folder","id": 640}&description=This is a
 }
 ```
 
-## Uppdatering
+## Uppdatera
 
 Slutpunkten [Update Smart Campaign](https://developer.adobe.com/marketo-apis/api/asset/) körs med en POST som är kodad med application/x-www-form-urlencoded. Det krävs en smart kampanj `id` som sökvägsparameter. Du kan använda parametern `name` för att uppdatera namnet på den smarta kampanjen, eller parametern `description` för att uppdatera beskrivningen av den smarta kampanjen.
 
@@ -373,7 +373,7 @@ Starta smarta batchkampanjer vid en viss tidpunkt och påverka en viss uppsättn
 
 Använd slutpunkten för [Schemalägg kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) för att schemalägga en batchkampanj som ska köras antingen direkt eller vid ett framtida datum. Kampanjen `id` är en obligatorisk sökvägsparameter. Valfria parametrar är `tokens`, `runAt` och `cloneToProgram` som skickas i begärandetexten som application/json.
 
-Parametern för tokens-arrayen är en array med Mina token som åsidosätter befintliga programtoken. När kampanjen har körts ignoreras token.  Varje tokenmatrisobjekt innehåller namn/värde-par. Namnet på token måste vara formaterat som {{my.name}}.
+Parametern för tokens-arrayen är en array med Mina token som åsidosätter befintliga programtoken. När kampanjen har körts ignoreras token.  Varje tokenmatrisobjekt innehåller namn/värde-par. Namnet på token måste vara formaterat som `{{my.name}}`.
 
 Parametern runAt datetime anger när kampanjen ska köras. Om inget anges körs kampanjen 5 minuter efter att slutpunkten har anropats. Datetime-värdet får inte vara längre än två år framåt.
 
@@ -426,7 +426,7 @@ Använd slutpunkten [Begär kampanj](https://developer.adobe.com/marketo-apis/ap
 
 Den här slutpunkten kräver en kampanj `id` som sökvägsparameter och en `leads` heltalsarrayparameter som innehåller lead-ID. Högst 100 leads tillåts per samtal.
 
-Arrayparametern `tokens` kan också användas för att åsidosätta Mina token lokalt till kampanjens överordnade program. `tokens` accepterar högst 100 token. Varje `tokens`-matrisobjekt innehåller ett namn/värde-par. Namnet på token måste vara formaterat som {{my.name}}. Om du använder [Lägg till en systemtoken som en länk i en e-postadress](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) för att lägga till systemtoken viewAsWebpageLink kan du inte åsidosätta den med `tokens`. Använd i stället [Lägg till en vy som webbsideslänk i ett e-postmeddelande](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) som gör att du kan åsidosätta viewAsWebPageLink med `tokens`.
+Arrayparametern `tokens` kan också användas för att åsidosätta Mina token lokalt till kampanjens överordnade program. `tokens` accepterar högst 100 token. Varje `tokens`-matrisobjekt innehåller ett namn/värde-par. Namnet på token måste vara formaterat som `{{my.name}}`. Om du använder [Lägg till en systemtoken som en länk i en e-postadress](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/using-tokens/add-a-system-token-as-a-link-in-an-email) för att lägga till systemtoken viewAsWebpageLink kan du inte åsidosätta den med `tokens`. Använd i stället [Lägg till en vy som webbsideslänk i ett e-postmeddelande](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-a-view-as-web-page-link-to-an-email) som gör att du kan åsidosätta viewAsWebPageLink med `tokens`.
 
 Parametrarna `leads` och `tokens` skickas i begärandetexten som application/json.
 
