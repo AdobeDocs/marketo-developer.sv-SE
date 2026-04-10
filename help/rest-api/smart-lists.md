@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Marketo erbjuder en uppsättning REST API:er för att utföra åtgärder på smarta listor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Ta bort och Klona.
 
-Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Fråga
 

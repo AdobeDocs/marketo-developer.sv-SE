@@ -16,7 +16,7 @@ Installationsanvisningar för tillägget Marketo Mobile SDK i [!DNL Adobe Launch
 
 ## Förutsättningar
 
-- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 - Följ anvisningarna i [!DNL Adobe Launch]-portalen för installation
 - [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
