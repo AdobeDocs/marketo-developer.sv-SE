@@ -3,7 +3,7 @@ title: Resurser
 feature: REST API
 description: Översikt över Marketo Asset REST API:er för att fråga efter ID eller namn, bläddra med sidindelning och skapa eller uppdatera mappar, e-post, formulär, mallar, filer, tokens.
 exl-id: 4273a5b1-1904-46e8-b583-fc6f46b388d2
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '898'
 ht-degree: 0%
@@ -42,7 +42,7 @@ I vissa fall returnerar inte bläddringsslutpunkten för vissa resurstyper under
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -83,7 +83,7 @@ GET /rest/asset/v1/folder/{id}.json?type=Folder
 
 Av tekniska skäl kan resurs-API:erna inte söka efter resursnamn som innehåller kommatecken (,).  Vi rekommenderar att namnkonventionen exkluderar kommatecken för alla resurstyper.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=My File
 ```
 
@@ -119,7 +119,7 @@ Om du bläddrar bland resurserna kan du alltid använda två frågeparametrar:
 - offset - En heltalsförskjutning att returnera resultat från.
 - maxReturn - Begränsar antalet returnerade poster.  Standardvärdet är 20 om den tas bort och har högst 200.
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json?offset=10&maxReturn=50
 ```
 
@@ -179,15 +179,15 @@ För enkla resurstyper som mappar, token och filer finns det vanligtvis bara en 
 
 Så här skapar du till exempel en token:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&value=2015-04-01&type=date&folderType=Folder
 ```
 
@@ -218,15 +218,15 @@ name=April Fools&value=2015-04-01&type=date&folderType=Folder
 
 Så här uppdaterar du en mapp:
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -271,15 +271,15 @@ Om du till exempel vill skapa en landningssida måste du anropa dess skapandeslu
 
 För att landningssidor ska kunna skapas måste en resurs för landningssida skapas med hjälp av en överordnad mall.  Då skapas en ny landningssida med standardinnehållet i mallen för varje innehållsavsnitt.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -320,7 +320,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 
 Om du vill fylla i innehållet för en landningssida måste du hämta listan med innehållsavsnitt och sedan utföra individuella uppdateringar för avsnitt som avviker från mallen.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -352,7 +352,7 @@ GET /rest/asset/v1/landingPage/{id}/content.json
 
 #### Uppdatera avsnitt
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 ```
 
@@ -374,7 +374,7 @@ POST /rest/asset/v1/landingPage/{id}/content/{contentId}.json?type=Form&value=1
 
 Många resurstyper har ett tillhörande utkasts- och godkännandesystem, inklusive e-post, landningssidor, kodfragment, Forms och deras motsvarande mallar.  Om du försöker godkänna en resurs utvärderas den mot en viss uppsättning valideringsregler och ställs sedan in på ett godkänt tillstånd eller returnerar en felorsak.  För dessa typer av tillgångar görs ändringarna i ett utkast av tillgången varje gång en uppdatering görs av innehållet i en viss tillgång, vilket inte påverkar den godkända versionen.  Detta gör att ändringar i innehållet kan göras på ett säkert sätt utan att det påverkar liveversioner av resursen.  Ändringarna kan sedan tillämpas på den aktiva versionen med slutpunkten för godkännande.  Detta rensar också tillgångens utkastläge tills ytterligare uppdateringar görs.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -406,7 +406,7 @@ Godkännandet ersätter den tidigare versionen med den uppdaterade versionen.
 
 Utkasten kan också tas bort via en slutpunkt för varje giltig resurstyp.  Om du använder detta på en tillgång som är i ett godkänt utkasttillstånd kommer det aktuella utkastet och eventuella väntande ändringar att tas bort.  Om du använder detta på en resurs som för närvarande inte har någon godkänd version kommer ingenting att göras och ett fel returneras.  Resurser som bara är för utkast kan tas bort, men de kan inte tas bort.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -436,7 +436,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 Assets kan också avvisas om de är i ett godkänt läge.  Detta tar ned alla aktiva versioner av resursen och återställer resursen till ett läge med bara utkast, samtidigt som eventuella associerade utkast tas bort.  Den här åtgärden kan bara utföras på de flesta resurser om den inte används någonstans i Marketo, till exempel ett e-postmeddelande som hänvisas till i ett skicka-e-postflödessteg eller ett utdrag som bäddas in i ett e-postmeddelande.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -458,7 +458,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 Assets med tillstånd för godkännande och utkast, med undantag för formulär, får inte tas bort när de godkänns, och måste tas bort innan de tas bort.  Borttagningar kan i allmänhet bara utföras när en resurs inte är godkänd och inte används, och när det gäller mappar är den tom.  Ett viktigt undantag är program som kan tas bort tillsammans med allt underordnat innehåll, så länge programmet och dess innehåll inte används någonstans utanför programmets gränser.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

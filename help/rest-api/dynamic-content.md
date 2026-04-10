@@ -3,9 +3,9 @@ title: Dynamiskt innehåll
 feature: REST API, Dynamic Content
 description: Konfigurera Marketo dynamiska innehåll på avsnittsnivå via REST API:er med segmentering för att personalisera e-post, landningssidor och kodfragment med slutpunkter och exempel
 exl-id: 8ab97624-5fb5-4a41-911f-ec8616dd43c9
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '441'
+source-wordcount: '463'
 ht-degree: 0%
 
 ---
@@ -30,11 +30,11 @@ Obs! Både e-post och landningssidor följer det här mönstret. Kodfragment har
 
 I följande exempel anges att avsnittet ska vara ett avsnitt med dynamiskt innehåll, segmenterat med segmentering 1001.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/Q1-promotion-banner.json
 ```
 
-```
+```text
 type=DynamicContent&value=1001
 ```
 
@@ -56,11 +56,11 @@ Om du vill lägga till innehåll för enskilda segment måste vi anropa slutpunk
 
 Följande exempel ställer in avsnittet så att det visar vår speciella banderollbild för leads i segmentet sydväst i stället för standardbilden. Om vi vill skapa fler variationer för fler segment anropar vi den här slutpunkten igen för varje segment och avsnitt.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 segment=Southwest&type=HTML&value=<img src='//www.example.com/SuperSpecialBannerForAmericanSouthwestLeads.jpg'/>
 ```
 
@@ -86,7 +86,7 @@ Segmentering är kärnan i Marketo dynamiska innehåll. En segmentering är en a
 
 Segmenteringar har en listslutpunkt som returnerar ett svar med en lista över tillgängliga segmenteringar.
 
-```
+```http
 GET /rest/asset/v1/segmentation.json
 ```
 
@@ -133,7 +133,7 @@ GET /rest/asset/v1/segmentation.json
 
 Segmenteringar har också en slutpunkt som returnerar ett svar med en lista över segment från en överordnad segmentering.
 
-```
+```http
 GET /rest/asset/v1/segmentation/1001/segments.json
 ```
 

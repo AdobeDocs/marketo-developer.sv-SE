@@ -3,10 +3,10 @@ title: PhoneGap
 feature: Mobile Marketing
 description: Konfigurera Marketo PhoneGap Plugin med Cordova, konfigurera Firebase Cloud Messaging, aktivera iOS och Android push, spåra meddelanden och initiera SDK.
 exl-id: 99f14c76-9438-4942-9309-643bca434d07
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '813'
-ht-degree: 0%
+source-wordcount: '841'
+ht-degree: 1%
 
 ---
 
@@ -16,8 +16,8 @@ Integrering av Marketo PhoneGap Plugin
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
-1. Konfigurera push-meddelanden ([iOS](push-notifications.md)) | [Android](push-notifications.md)).
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+1. Konfigurera push-meddelanden ([iOS](push-notifications.md) | [Android](push-notifications.md)).
 1. [Installera PhoneGap/Cordova CLI](https://cordova.apache.org/docs/en/latest/guide/cli/).
 
 ## Installationsanvisningar
@@ -50,7 +50,7 @@ Kör följande kommando om du vill lägga till plugin-programmet igen:
 
 När Cordova Android-plattformen har byggts öppnar du appen med Android Studio och uppdaterar värdet `dirs` för filen `Marketo.gradle` som finns i mappen `com.marketo.plugin`.
 
-```
+```groovy
 repositories{
   jcenter()
   flatDir{
@@ -66,8 +66,8 @@ Kontrollera listan över plattformar som lagts till `$cordova platform ls`
 1. Stöd för Firebase Cloud Messaging
 
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://console.firebase.google.com/)Firebase-konsolen.
-      1. Välj [&#x200B; i &#x200B;](https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
+   1. Skapa/lägg till ett projekt på [](https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://console.firebase.google.com/).
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. I välkomstskärmen i Firebase väljer du Lägg till Firebase i din Android-app.
       1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny `google-services.json`-fil för din Firebase-app hämtas.
@@ -127,7 +127,7 @@ Klistra in följande kod i funktionen `application:didFinishLaunchingWithOptions
 
 Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 
 [sharedInstance trackPushNotification:launchOptions];
@@ -137,7 +137,7 @@ Marketo *sharedInstance = [Marketo sharedInstance];
 
 Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
-```
+```swift
 let sharedInstance: Marketo = Marketo.sharedInstance()
 
 sharedInstance.trackPushNotification(launchOptions)
@@ -153,7 +153,7 @@ Observera att vi måste skicka `phonegap` som ramverkstyp för PhoneGap-appar.
 
 ### Syntax
 
-```
+```javascript
 // This method will Initialize the Marketo Framework using Your MunchkinId and Secret Key
 marketo.initialize(
   function() { console.log("MarketoSDK Init done."); },
@@ -183,7 +183,7 @@ För att vara säker på att Marketo push-meddelanden initieras lägger du till 
 
 ### Syntax
 
-```
+```javascript
 // This function will Enable user notifications (prompts the user to accept push notifications in iOS)
 marketo.initializeMarketoPush(
     function() { console.log("Marketo push successfully initialized."); },
@@ -200,7 +200,7 @@ marketo.initializeMarketoPush(
 
 Token kan också avregistreras vid utloggning.
 
-```
+```javascript
 marketo. uninitializeMarketoPush(
   function() { console.log("Marketo push successfully uninitialized."); } ,
   function(error) { console.log("an error occurred:" + error); }
@@ -213,7 +213,7 @@ Du kan skapa en Marketo Lead genom att anropa funktionen associateLead.
 
 ### Syntax
 
-```
+```javascript
 marketo.associateLead(
   function(){ console.log("MarketoSDK : Lead Added"); },
   function(error){ console.log("an error occurred:" + error); },
@@ -229,7 +229,7 @@ marketo.associateLead(
 
 ### Exempel
 
-```
+```javascript
 // First create a lead as shown below
 var lead = {};
 lead[marketo.KEY_FIRST_NAME] = "Phone";
@@ -258,7 +258,7 @@ Du kan rapportera alla användaråtgärder som har utförts genom att anropa fun
 
 ### Syntax
 
-```
+```javascript
 marketo.reportaction(
   function(){ console.log("MarketoSDK : New event sent "); },
   function(error){ console.log("an error occurred:" + error); },
@@ -276,7 +276,7 @@ marketo.reportaction(
 
 ### Exempel
 
-```
+```javascript
 // First create an event as below
 var event = {
     "Action Type":"Add To Cart",
@@ -297,7 +297,7 @@ marketo.reportaction(
 
 Bind händelsetyperna &quot;pause&quot; och &quot;resume&quot; enligt nedan för att rapportera Start- och Stop-händelser.  Det här används för att spåra hur mycket tid du tillbringar i ditt mobilprogram. Obs! Detta krävs i Android.
 
-```
+```javascript
 //Add the following code in your www/js/index.js
 
 bindEvents: function() {

@@ -3,7 +3,7 @@ title: Bulkladsextrahering
 feature: REST API
 description: Lär dig hur du använder Marketo Bulk Lead Extract REST API:er för att gruppexportera leads med datum-, list- och smarta listfilter, anpassade fält och CSV/TSV-format.
 exl-id: 42796e89-5468-463e-9b67-cce7e798677b
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1273'
 ht-degree: 0%
@@ -49,7 +49,7 @@ Slutpunkten Skapa exportlead-jobb innehåller flera formateringsalternativ som g
 
 Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa exporthuvudjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/createExportLeadsUsingPOST). Vi måste definiera de `fields` som behövs för export, parametertypen för `filter`, `format` för filen och kolumnrubriknamnen, om det finns några.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -97,7 +97,7 @@ Denna begäran börjar exportera en uppsättning leads som skapats mellan 1 janu
 
 Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Om du vill göra det måste slutpunkten [Enqueue Export Lead Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/enqueueExportLeadsUsingPOST) anropas med exportId från svaret på status när projektet skapades:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -125,7 +125,7 @@ Status för `Note:` kan bara hämtas för jobb som har skapats av samma API-anv�
 
 Eftersom det här är en asynkron slutpunkt måste vi avfråga status när vi har skapat jobbet för att avgöra hur det förlöper. Avsök med slutpunkten [Hämta status för Lead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Låt oss ta en snabb titt på enkäten.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -160,7 +160,7 @@ Statusfältet kan svara med något av följande:
 
 Om du vill hämta filen för en slutförd leadexport anropar du [Get Export Lead File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsFileUsingGET) -slutpunkten med din `exportId`.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
@@ -179,7 +179,7 @@ Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extrah
 
 Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av lead-jobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/cancelExportLeadsUsingPOST) :
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 

@@ -3,9 +3,9 @@ title: Mallar för landningssidor
 feature: REST API, Landing Pages
 description: Hantera Marketo Landing Page Templates via REST API-slutpunkter för kostnadsfria formulär och guidade typer, fråga efter ID eller namn, skapa, uppdatera HTML, klona, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '552'
+source-wordcount: '703'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Landningssidmallar är en överordnad resurs och beroende för enskilda Marketo 
 
 ## Malltyper
 
-Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Fråga
 
@@ -28,15 +28,15 @@ Mallar för landningssidor har stöd för standardfrågetyper för resurser i [b
 
 Mallar skapas som tomma resurser med associerade metadata. När du skapar en mall måste du inkludera ett namn och en mapp tillsammans med en valfri beskrivning, templateType och enableMunchkin-parameter. templateType kan vara antingen frihandsritad eller guidad och som standard används freeForm. Skillnader mellan typerna finns i avsnittet Guidad kontra Fri form. enableMunchkin har standardvärdet false och när den är aktiverad förhindras Munchkin tracking från att utföras på mallens underordnade landningssidor.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplates.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 ```
 
@@ -76,11 +76,11 @@ Metadata för landningssidmallar kan uppdateras via [Update Landing Page Templat
 
 Innehåll i Landing Page Templates görs till en destruktiv uppdatering av hela HTML-innehållet. Innehållet måste skickas som multipart/form-data med den enda parametern som namnges content.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/286/content.json
 ```
 
-```
+```html
 content-type: multipart/form-data; boundary=--------------------------435851813185237176536801
 ----------------------------435851813185237176536801
 Content-Disposition: form-data; name="content"; filename="content.txt"
@@ -96,7 +96,7 @@ Content-Type: text/plain
 ----------------------------435851813185237176536801--
 ```
 
-```
+```json
  {
   "success": true,
   "warnings": [],
@@ -122,15 +122,15 @@ Parametern `folder` används för att ange den överordnade mappen där den nya 
 
 Den valfria parametern `description` används för att beskriva den nya mallen för landningssidor.
 
-```
+```http
 POST /rest/asset/v1/landingPageTemplate/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Standard Template Clone&folder={"type": "Folder", "id": 732}
 ```
 
@@ -167,9 +167,9 @@ Mallar för landningssidor följer standardmodellen för utkast, där det kan fi
 
 För att en mall ska kunna godkännas måste den följa reglerna för sin typ, antingen i form av kostnadsfria guider. Mer information om kraven för att skapa och godkänna mallar av respektive typ finns i respektive dokument:
 
-- [Sidmallar för landning av kostnadsfria formulär](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Guided Landing Page Templates](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Exempel på guidade mallar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Mallar för kostnadsfria startsidor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Guided Landing Page Templates](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Exempel på guidade mallar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Ta bort
 

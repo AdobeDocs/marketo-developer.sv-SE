@@ -2,7 +2,8 @@
 title: Användning
 feature: REST API
 description: Övervaka Marketo REST API-användning och fel med statusslutpunkter per dag och senaste veckan, inklusive antal per användare och felkodssummor.
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+exl-id: 935a00a4-1e1e-4b48-ae9c-72c5e578312a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '393'
 ht-degree: 5%
@@ -32,7 +33,7 @@ Användnings-API:erna använder samma autentiseringsmetod som andra Marketo REST
 
 Hämtar API-användning för den aktuella dagen.
 
-```
+```http
 GET /rest/v1/stats/usage.json
 ```
 
@@ -69,7 +70,7 @@ Varje objekt i `result`-arrayen innehåller en dags summor för användning och 
 
 Hämtar API-användning de senaste 7 dagarna. Varje element i arrayen `result` representerar en dag.
 
-```
+```http
 GET /rest/v1/stats/usage/last7days.json
 ```
 
@@ -77,7 +78,7 @@ GET /rest/v1/stats/usage/last7days.json
 
 Hämtar API-fel för den aktuella dagen.
 
-```
+```http
 GET /rest/v1/stats/errors.json
 ```
 
@@ -114,7 +115,7 @@ Varje objekt i `result`-arrayen innehåller en dag med felsummor och en uppdelni
 
 Hämtar API-fel de senaste 7 dagarna. Varje element i arrayen `result` representerar en dag.
 
-```
+```http
 GET /rest/v1/stats/errors/last7days.json
 ```
 

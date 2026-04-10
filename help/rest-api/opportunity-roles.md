@@ -3,16 +3,16 @@ title: Roller för affärsmöjlighet
 feature: REST API
 description: Hantera Marketo affärsmöjlighetsroller via REST API, inklusive beskrivning, frågor med sammansatta dedupliceringsfält, skapa borttagning av uppdatering, timeout och ingen CRM-synkronisering.
 exl-id: 2ba84f4d-82d0-4368-94e8-1fc6d17b69ed
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '270'
+source-wordcount: '279'
 ht-degree: 0%
 
 ---
 
 # Roller för affärsmöjlighet
 
-[Slutpunktsreferens för säljprojektsroller](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
+[Slutpunktsreferens för affärsmöjlighetsroller](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityRolesUsingGET)
 
 Leads länkas till affärsmöjligheter via det mellanliggande `opportunityRole`-objektet.
 
@@ -22,7 +22,7 @@ API:er för säljprojektsroller visas bara för prenumerationer som inte har en 
 
 Som affärsmöjligheter visas ett beskrivet anrop och CRUD-åtgärder för affärsmöjlighetsroller.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -108,7 +108,7 @@ GET /rest/v1/opportunities/roles/describe.json
 
 Observera att både `dedupeFields` och `searchableFields` skiljer sig lite från möjligheterna. `dedupeFields` innehåller faktiskt en sammansatt nyckel, där alla tre av `externalOpportunityId`, `leadId` och `role` krävs. Både affärsmöjlighets- och lead-länken för ID-fälten måste finnas i målinstansen för att posten ska kunna skapas. För `searchableFields`, `marketoGUID`, `leadId` och `externalOpportunityId` är alla giltiga för frågor och använder ett mönster som är identiskt med säljprojekt, men det finns ett ytterligare alternativ att använda den sammansatta nyckeln för att fråga, vilket kräver att ett JSON-objekt skickas via POST, med den extra frågeparametern `_method=GET`.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -147,7 +147,7 @@ Detta ger samma typ av svar som en vanlig GET-fråga, det har helt enkelt ett an
 
 Affärsmöjlighetsroller har samma gränssnitt för att skapa och uppdatera poster som affärsmöjligheter.
 
-```
+```http
 POST /rest/v1/opportunities/roles.json
 ```
 
@@ -195,7 +195,7 @@ POST /rest/v1/opportunities/roles.json
 
 Du kan ta bort affärsmöjlighetsroller genom att ta bort fält eller ID-fält. Ange med parametern deleteBy med värdet för dedupeFields eller idField. Om inget anges är dedupliceringsfält standard. Begärandetexten innehåller en indatamatris med affärsmöjlighetsroller som ska tas bort. Högst 300 affärsmöjlighetsroller per samtal tillåts.
 
-```
+```http
 POST /rest/v1/opportunities/roles/delete.json
 ```
 

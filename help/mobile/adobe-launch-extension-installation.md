@@ -3,9 +3,9 @@ title: '[!DNL Adobe Launch]-tilläggsinstallation'
 feature: Mobile Marketing
 description: Installera Adobe Launch Marketo-tillägget för mobila enheter. Följ iOS och Android installationsprogram, testa enheter, behörigheter och FCM-steg för push och i appen.
 exl-id: d71b7cd7-309b-4882-9bba-7daaaa5ef32d
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '684'
+source-wordcount: '753'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Installationsanvisningar för tillägget [!DNL Adobe Launch] Marketo. Stegen ned
 
 ## Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera egenskapen i [!DNL Adobe Launch] portalen](https://experience.adobe.com/#/@amc/data-collection/home)
 1. Konfigurera programhemlig nyckel och Munchkin-ID för egenskapen i portalen [!DNL Adobe Launch]
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
@@ -41,7 +41,7 @@ Installationsanvisningar för tillägget [!DNL Adobe Launch] Marketo. Stegen ned
 
 Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
-```
+```objectivec
 (void)applicationDidBecomeActive:(UIApplication*) application
 {
  [[ALMarketo sharedInstance] initializeMarketo:nil];
@@ -52,7 +52,7 @@ Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
 Uppdatera metoden `applicationDidBecomeActive` enligt nedan
 
-```
+```objectivec
 func applicationDidBecomeActive(_ application: UIApplication)
 {
  ALMarketo.sharedInstance().initializeMarketo(nil)
@@ -74,7 +74,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB Mål C]
 
-```
+```objectivec
 #ifdef __IPHONE_10_0
 -(BOOL)application:(UIApplication *)application
            openURL:(NSURL *)url
@@ -99,7 +99,7 @@ func applicationDidBecomeActive(_ application: UIApplication)
 
 >[!TAB Swift]
 
-```
+```objectivec
 func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
     return ALMarketo.sharedInstance().application(application, open: url, sourceApplication: nil, annotation: nil)
 }
@@ -128,7 +128,7 @@ ProGuard-konfiguration (valfritt)
 
 Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i mappen `project`. Om du lägger till den här koden utesluts Marketo SDK från den komplicerade processen.
 
-```
+```text
 -dontwarn com.marketo.*
 -dontnote com.marketo.*
 -keep class com.marketo.**{ *; }
@@ -159,8 +159,8 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
-      1. Välj [&#x200B; i &#x200B;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
+      1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/).
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
       1. Välj **[!UICONTROL Add Firebase to your Android App]** på välkomstskärmen i Firebase.
       1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny `google-services.json`-fil för din Firebase-app hämtas.
@@ -217,13 +217,13 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 Vanliga frågor och svar om stöd för Firebase Cloud Messaging.
 
-**F: Var hittar jag instruktioner om att uppdatera till den senaste versionen av MME SDK?** instruktioner finns på Marketo Developer Site [HERE](installation.md).
+**F: Var hittar jag instruktioner om att uppdatera till den senaste versionen av MME SDK?** Instruktioner finns på Marketo Developer Site [HERE](installation.md).
 
-**F: Kommer uppdateringen av till den senaste versionen av SDK att kräva att jag publicerar en uppdaterad version av mitt Android-program till mina befintliga användare?** Nej
+**F: Kommer uppdateringen av till den senaste versionen av SDK att kräva att jag publicerar en uppdaterad version av mitt Android-program till mina befintliga användare?** Nej.
 
 **F: Hur påverkar det befintliga MME-kunder som har publicerat Android-appar som är integrerade med Marketo Android SDK?** De kan migrera en befintlig GCM-klientapp på Android till Firebase Cloud Messaging (FCM) enligt följande:
 
-1. Välj [&#x200B; i &#x200B;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen **[!UICONTROL Add Project]**.
+1. Välj **[!UICONTROL Add Project]** i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/).
 1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj **[!UICONTROL Add Firebase]**.
 1. Välj **[!UICONTROL Add Firebase to your Android App]** på välkomstskärmen i Firebase.
 1. Ange ditt paketnamn och SHA-1 och välj **[!UICONTROL Add App]**. En ny Google-services.json-fil för

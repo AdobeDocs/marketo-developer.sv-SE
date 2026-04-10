@@ -3,9 +3,9 @@ title: Extract för programmedlem
 feature: REST API
 description: Använd Marketo Bulk Program Member Extract REST API:er för att exportera stora medlemsposter för ETL, datalagerhantering och arkivering med behörigheter och metadata.
 exl-id: 6e0a6bab-2807-429d-9c91-245076a34680
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '1284'
+source-wordcount: '1293'
 ht-degree: 1%
 
 ---
@@ -24,7 +24,7 @@ API:erna för extrahering av gruppprogrammedlemmar kräver att den ägande API-a
 
 [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) är den primära källan till sanning om fält är tillgängliga och metadata om fälten. Attributet `name` innehåller REST API-namnet.
 
-```
+```http
 GET /rest/v1/programs/members/describe.json
 ```
 
@@ -225,22 +225,22 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>programId</td>
       <td>Heltal</td>
-      <td>Accepterar ID:t för ett program. Jobb returnerar alla tillgängliga poster som är medlemmar i programmet när jobbet börjar bearbetas.Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>.Kan inte användas med filtret Program-ID.</td>
+      <td>Accepterar ID:t för ett program. Jobb returnerar alla tillgängliga poster som är medlemmar i programmet när jobbet börjar bearbetas.Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>.Kan inte användas med programIds-filter.</td>
     </tr>
     <tr>
       <td>programIds</td>
       <td>Array[heltal]</td>
-      <td>Accepterar en matris med upp till 10 program-ID. Jobb returnerar alla tillgängliga poster som är medlemmar i programmen när jobbet börjar bearbetas. Ett extra fält, "programId", läggs till i exportfilen som det första fältet. Det här fältet identifierar det program som en programmedlemspost har extraherats från. Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>. Det går inte att använda med filtret program-ID.</td>
+      <td>Accepterar en matris med upp till 10 program-ID. Jobb returnerar alla tillgängliga poster som är medlemmar i programmen när jobbet börjar bearbetas.Ett ytterligare fält, "programId", läggs till i exportfilen som det första fältet. Det här fältet identifierar programmet som en programmedlemspost har extraherats från.Hämta program-ID med slutpunkten <a href="https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs">Hämta program</a>.Kan inte användas med programId-filter.</td>
     </tr>
     <tr>
       <td>isExforsted</td>
       <td>Boolean</td>
-      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
+      <td>Accepterar ett booleskt värde som används för att filtrera programmedlemsposter för <a href="https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/drip-nurturing/using-engagement-programs/people-who-have-exhausted-content">personer som har slut på innehåll</a>.</td>
     </tr>
     <tr>
       <td>planttureCadence</td>
       <td>Sträng</td>
-      <td>Accepterar en sträng som används för att filtrera programmedlemsposter för en given vårdnadstest. Tillåtna värden är:
+      <td>Accepterar en sträng som används för att filtrera programmedlemsposter för en given vårdcentral.Tillåtna värden är:
         <ul>
           <li>pause - cadence is paused</li>
           <li>normal - cadence är normal</li>
@@ -249,7 +249,7 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>statusNames</td>
       <td>Array[String]</td>
-      <td>Accepterar en array med statusnamn för programmedlemmar. Flera statusnamn är ORed ihop.Jobb med den här filtertypen returnerar alla tillgängliga poster vars programmedlemmsstatus matchar något av de angivna statusnamnen. Både standard- och användardefinierade statusnamn kan användas.Om filtret statusNames används med filtret "programIds" söker varje program efter medlemsposter vars status matchar något av statusnamnen. Om inget statusnamn hittas i något av programmen returneras felet "1003, Invalid Data".
+      <td>Accepterar en array med statusnamn för programmedlemmar. Flera statusnamn är ELLER tillsammans.Jobb med den här filtertypen returnerar alla tillgängliga poster vars programmedlemsstatus matchar något av de angivna statusnamnen. Både standardnamn och användardefinierade statusnamn kan användas.Om filtret statusNames används med filtret "programIds" kontrolleras varje program för att hitta medlemsposter vars status matchar något av statusnamnen. Om inget statusnamn hittas i något av programmen returneras felet "1003, Invalid Data".
         <table>
           <tbody>
             <tr>
@@ -303,7 +303,7 @@ Programmedlemmar har stöd för olika filteralternativ. Flera filtertyper kan an
     <tr>
       <td>updatedAt*</td>
       <td>Datumintervall</td>
-      <td>Accepterar ett JSON-objekt med medlemmarna startAt och endAt. startAt accepterar ett datetime-värde som representerar den låga vattenstämpeln, och endAt accepterar ett datetime-värde som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder. Jobb med den här filtertypen returnerar alla tillgängliga poster som senast uppdaterades inom datumintervallet.</td>
+      <td>Accepterar ett JSON-objekt med medlemmarna startAt och endAt. startAt accepterar ett datetime-värde som representerar den låga vattenstämpeln, och endAt accepterar ett datetime-värde som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder.Jobb med den här filtertypen returnerar alla tillgängliga poster som senast uppdaterades inom datumintervallet.</td>
     </tr>
   </tbody>
 </table>
@@ -328,7 +328,7 @@ Slutpunkten Skapa medlemsjobb för exportprogram innehåller flera formateringsa
 
 Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa exportprogrammedlemjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/createExportProgramMembersUsingPOST). Vi måste definiera `filter` som innehåller program-ID:t och `fields` som behövs för exporten. Vi kan också definiera `format` för filen och `columnHeaderNames`.
 
-```
+```http
 POST /bulk/v1/program/members/export/create.json
 ```
 
@@ -372,7 +372,7 @@ POST /bulk/v1/program/members/export/create.json
 
 Detta returnerar ett statussvar som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Det gör du genom att anropa slutpunkten [Enqueue Export Program Member Job](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/enqueueExportProgramMembersUsingPOST) med hjälp av `exportId` från statussvaret för skapandet:
 
-```
+```http
 POST /bulk/v1/program/members/export/{exportId}/enqueue.json
 ```
 
@@ -400,7 +400,7 @@ Obs! Status kan bara hämtas för jobb som har skapats av samma API-användare.
 
 Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Avsök med slutpunkten [Hämta jobbstatus för medlem i exportprogrammet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Leads/operation/getExportLeadsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört, Misslyckat.
 
-```
+```http
 GET /bulk/v1/program/members/export/{exportId}/status.json
 ```
 
@@ -450,11 +450,11 @@ Om du vill hämta filen för en slutförd programmedlemsexport anropar du [Get E
 
 Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll. Om ett begärt programmedlemsfält är tomt (innehåller inga data) placeras `null` i motsvarande fält i exportfilen.
 
-```
+```http
 GET /bulk/v1/program/members/export/{exportId}/file.json
 ```
 
-```
+```text
 firstName,lastName,email,Member Date,Program,Status,Lead Id,Success,leadCustomField01,leadCustomField02,pMCustomField01,pMCustomField02
 Meera,Reed,mree@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1789,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
 Jon,Umber,jumb@housestark.com,2020-01-08T18:10:26Z,PMCF Program,On List,1790,false,Lead01_Value,Lead02_Value,PM01_Value,PM02_Value
@@ -476,7 +476,7 @@ Om du vill ha stöd för delvis och återinsättningsvänlig hämtning av extrah
 
 Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av programmedlemmen](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Program-Members/operation/cancelExportProgramMembersUsingPOST) :
 
-```
+```http
 POST /bulk/v1/program/members/export/{exportId}/cancel.json
 ```
 

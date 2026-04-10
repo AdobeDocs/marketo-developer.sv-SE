@@ -3,7 +3,7 @@ title: Mappar
 feature: REST API
 description: Marketo REST API-guide för mappar som innehåller skapa, uppdatera, ta bort, fråga efter ID och namn, Bläddra bland flera med rot, arbetsyta, maxDepth och pagination.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: 31a503b3892ed41b3defe3f4956cb5ee0c3d4c3e
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 0%
@@ -22,7 +22,7 @@ När mappar efterfrågas följer standardfrågetyperna för resurser i [via ID](
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/folder/{id}.json?type=Folder
 ```
 
@@ -70,9 +70,9 @@ Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &
 
 ### Efter namn
 
-[Det är också tillåtet att fråga efter namn &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
+[Det är också tillåtet att fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
 
-```
+```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
 ```
 
@@ -125,7 +125,7 @@ Precis som andra slutpunkter för hämtning av bulkresurser är offset och maxRe
 - workSpace - namnet på arbetsytan som ska filtreras.
 - maxDepth - Det maximala antalet nivåer att gå igenom i mapphierarkin. Om värdet är 0 returneras bara den mapp som anges i roten. Om inget anges är standardvärdet 2.
 
-```
+```http
 GET /rest/asset/v1/folders.json?root={"id":14,"type":"Folder"}
 ```
 
@@ -213,15 +213,15 @@ Sökvägen till en mapp visar sin hierarki i mappträdet, ungefär som en Unix-s
 
 [Det är enkelt att skapa mappar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) och det körs med ett program/x-www-form-urlencoded POST som har två obligatoriska parametrar, &quot;name&quot;, en sträng och &quot;parent&quot;, som är det överordnade objektet som skapar mappen i, vilket är ett inbäddat JSON-objekt med två medlemmar, id och typ, antingen Folder eller Program, beroende på målmappens typ. Om du vill kan du även använda&quot;description&quot;, en sträng, och den kan innehålla upp till 2 000 tecken.
 
-```
+```http
 POST /rest/asset/v1/folders.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a test
 ```
 
@@ -260,15 +260,15 @@ parent={"id":416,"type":"Folder"}&name=Test 10 - deverly&description=This is a t
 
 Uppdateringar av mappar görs via en separat slutpunkt, och description, name och `isArchive` är valfria parametrar för uppdatering. Om `isArchive` ändras av en uppdatering arkiveras mappen, om den ändras till true, eller om den inte arkiveras, om den ändras till false, i Marketo-gränssnittet. Program kan inte uppdateras med detta API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```sql
 type=Folder&description=This is a test (update 01)
 ```
 
@@ -309,7 +309,7 @@ type=Folder&description=This is a test (update 01)
 
 Du kan ta bort enstaka mappar om de är tomma, vilket innebär att de inte innehåller några resurser eller undermappar. Om en mapp är av typen Program eller har fältet isSystem inställt på true kan den inte tas bort med denna API.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/delete.json
 ```
 

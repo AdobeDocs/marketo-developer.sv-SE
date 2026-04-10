@@ -3,9 +3,9 @@ title: Lead-databas
 feature: REST API, Database
 description: Guide till Marketo Lead Database API:er som täcker objekt, CRUD- och Describe-metoder, frågemönster, batchbegränsningar och CRM-integreringsbegränsningar.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '1357'
+source-wordcount: '1373'
 ht-degree: 0%
 
 ---
@@ -25,7 +25,7 @@ Leaddatabasobjekten innehåller följande:
 - AffärsmöjlighetRoller
 - SalesPeople
 - Anpassade objekt
-- Aktiviteter
+- Verksamhet
 - List- och programmedlemskap
 
 De flesta av dessa objekt omfattar åtminstone metoderna Skapa, Läs, Uppdatera och Ta bort. Dessutom ingår en&quot;Beskriv&quot;-metod som innehåller en lista med tillgängliga fält för varje typ, och en lista med fält som används för borttagning av dubbletter (för icke-lead-objekt) och vilka fält som är sökbara för hämtning av poster. Den bästa uppsättningen finns för leads eftersom de har de största möjligheterna inom Marketo program.
@@ -46,7 +46,7 @@ För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft 
 
 För Leads, Companies, Opportunity, Roles, SalesPeople och Custom Objects finns en beskrivning av API:t. Anrop till detta hämtar metadata för objektet och en lista över fält som är tillgängliga för uppdatering och fråga. Att beskriva är en viktig del i utformningen av en bra integrering med Marketo. Det innehåller omfattande metadata om hur objekt kan och inte kan interagera med dem samt om hur de kan skapas, uppdateras och frågas. Förutom Beskriv leads returnerar vart och ett av dessa en lista med nycklar som är tillgängliga för `deduplication` i svarsparametern `dedupeFields`. En lista med fält är tillgänglig som nycklar för frågor i svarsparametern `searchableFields`.
 
-```
+```http
 GET /rest/v1/opportunities/roles/describe.json
 ```
 
@@ -136,7 +136,7 @@ Det finns också en fältsvarsparameter som ger namnet på varje fält, `display
 
 Leaddatabasobjekt har alla gemensamma grundmönster för frågor mot enkla nycklar, där bara ett fält refereras.
 
-```
+```http
 GET /rest/v1/{type}.json?filterType={field to query}&filterValues={comma-separated list of possible values}
 ```
 
@@ -149,7 +149,7 @@ För alla objekt utom leads kan du välja {field to query} bland sökbara fält 
 
 Låt oss titta på möjligheterna:
 
-```
+```http
 GET /rest/v1/opportunities.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
 ```
 
@@ -188,15 +188,15 @@ Om uppsättningen med poster i frågan överstiger 300 eller `batchSize` som har
 
 Ibland, t.ex. vid sökning med GUID, kan din URI vara lång och överskrida 8 kB som tillåts av REST-tjänsten. I det här fallet måste du använda HTTP POST-metoden i stället för GET och lägga till en frågeparameter, `_method=GET`. Dessutom måste resten av frågeparametrarna skickas i POST-brödtexten som en &quot;application/x-www-form-urlencoded&quot;-sträng, och den associerade Content-type-rubriken skickas.
 
-```
+```http
 POST /rest/v1/opportunities.json?_method=GET
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb,544fb7f5-2ddf-4fca-ae32-7e6ef1415e9f,f1ba41a2-69d1-4a35-9807-0e159d66f2c9,f7521272-3331-4a89-a768-222baff2f894
 ```
 
@@ -206,7 +206,7 @@ Förutom långa URI:er krävs den här parametern även när sammansatta nycklar
 
 Mönstret för att fråga efter sammansatta nycklar skiljer sig från enkla nycklar, eftersom det kräver att en POST skickas med en JSON-brödtext. Detta är inte nödvändigt i alla fall, endast i de fall där ett `dedupeFields`-alternativ med flera fält används som `filterType`. För närvarande används sammansatta nycklar bara av säljprojektsroller och vissa anpassade objekt. Vi tittar på ett exempel på en fråga om säljprojektsroller med den sammansatta nyckeln från `dedupeFields`:
 
-```
+```http
 POST /rest/v1/opportunities/roles.json?_method=GET
 ```
 
@@ -249,7 +249,7 @@ Den enda obligatoriska parametern är en array med namnet `input` som innehålle
 
 När du skickar en lista med fältvärden skrivs värdet `null`, eller en tom sträng, till databasen som `null`.
 
-```
+```http
 POST /rest/v1/opportunities.json
 ```
 
@@ -301,7 +301,7 @@ Anrop om att skapa eller uppdatera lead-databasobjekt returnerar, förutom lead-
 
 Gränssnittet för borttagningar är standard för Lead Database-objekt, förutom leads. Förutom indata finns det bara en obligatorisk parameter, `deleteBy,`, som kan ha värdet idField eller dedupeFields. Låt oss titta på hur du tar bort några anpassade objekt.
 
-```
+```http
 POST /rest/v1/customobjects/{name}/delete.json
 ```
 

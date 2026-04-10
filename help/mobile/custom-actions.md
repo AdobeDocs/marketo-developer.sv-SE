@@ -3,9 +3,9 @@ title: Anpassade åtgärder
 feature: Mobile Marketing
 description: Lär dig skicka och rapportera anpassade åtgärder med Marketo Mobile SDK för iOS och Android, köa offline, aktivera smarta kampanjer och få 20 tecken...
 exl-id: 8c2698ce-4e39-4b2b-9d36-0864c55be17a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '313'
+source-wordcount: '336'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 Du kan spåra användarinteraktion genom att skicka anpassade åtgärder. När din mobilapp ringer till Marketo SDK för att skicka en anpassad åtgärd, sparas den anpassade åtgärden först på enheten. Marketo SDK kontrollerar sedan om det finns tillräcklig internetanslutning innan den anpassade åtgärden skickas ut. Det innebär att det kan uppstå en fördröjning mellan den tidpunkt då den anpassade åtgärden skickas och den tidpunkt då den tas emot av Marketo.
 
-Anpassade åtgärder kan användas som utlösare och filter i smarta kampanjer. Mer information finns i [Mobilappsaktivitet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
+Anpassade åtgärder kan användas som utlösare och filter i smarta kampanjer. Mer information finns i [Mobilappsaktivitet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/flow-actions/triggers-and-filters-for-mobile-smart-campaigns).
 
 ## Skicka anpassade åtgärder på iOS
 
@@ -24,14 +24,14 @@ Skicka anpassad åtgärd.
 
 >[!TAB Mål C]
 
-```
+```objectivec
 Marketo *sharedInstance = [Marketo sharedInstance];
 [sharedInstance reportAction:@"Login" withMetaData:nil];
 ```
 
 >[!TAB Swift]
 
-```
+```swift
 sharedInstance.reportAction("Login", withMetaData:nil);
 ```
 
@@ -43,7 +43,7 @@ Skicka anpassad åtgärd med metadata.
 
 >[!TAB Mål C]
 
-```
+```objectivec
 MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 [meta setType:@"Shopping"];
 [meta setDetails:@"RedShirt"];
@@ -55,7 +55,7 @@ MarketoActionMetaData *meta = [[MarketoActionMetaData alloc] init];
 
 >[!TAB Swift]
 
-```
+```swift
 let meta = MarketoActionMetaData()
 meta.setType("Shopping");
 meta.setDetails("RedShirt");
@@ -73,13 +73,13 @@ Rapportera alla åtgärder direkt (skicka alla sparade åtgärder).
 
 >[!TAB Mål C]
 
-```
+```objectivec
 [sharedInstance reportAll];
 ```
 
 >[!TAB Swift]
 
-```
+```swift
 sharedInstance.reportAll();
 ```
 

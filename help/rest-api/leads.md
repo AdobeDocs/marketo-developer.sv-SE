@@ -3,7 +3,7 @@ title: Leads
 feature: REST API
 description: Utforska Marketo Leads REST API-funktioner som Beskriv, fråga efter ID eller filter, standardfält, begränsningar och hämtning av ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: 66154fa4aa37190a49dcc62f57debef5e1e829a1
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '3457'
 ht-degree: 0%
@@ -30,7 +30,7 @@ Beskrivning är den primära källan till sanning för om fält är tillgänglig
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/describe.json
 ```
 
@@ -68,7 +68,7 @@ Du kan också skicka en fältparameter som innehåller en kommaavgränsad lista 
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/lead/{id}.json
 ```
 
@@ -103,7 +103,7 @@ Om den totala längden på din GET-begäran överstiger 8 kB returneras ett HTTP
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads.json?filterType=id&filterValues=318581,318592
 ```
 
@@ -168,7 +168,7 @@ Förutom att hämta lead-data kan du skapa, uppdatera och ta bort lead-poster vi
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads.json
 ```
 
@@ -247,7 +247,7 @@ Slutpunkten Hämta lead-fält efter namn hämtar metadata för ett enskilt fält
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -279,7 +279,7 @@ Slutpunkten Hämta lead-fält hämtar metadata för alla fält i lead-objektet i
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/schema/fields.json
 ```
 
@@ -426,7 +426,7 @@ Det finns några regler associerade med namn och `displayName`-namn. Namnattribu
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/schema/fields.json
 ```
 
@@ -557,7 +557,7 @@ Sökvägsparametern `fieldApiName` som krävs anger API-namnet för det fält so
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/schema/fields/{fieldApiName}.json
 ```
 
@@ -600,7 +600,7 @@ Anmärkning om anonyma aktiviteter. Om du vill koppla tidigare anonyma aktivitet
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/push.json
 ```
 
@@ -710,13 +710,13 @@ Nya leads skapas i den primära partitionen för den arbetsyta där formuläret 
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/submitForm.json
 ```
 
 ### Sidhuvud
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -775,7 +775,7 @@ Ibland är det nödvändigt att sammanfoga dubblettposter och Marketo underlätt
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/{id}/merge.json?leadId=1324
 ```
 
@@ -798,7 +798,7 @@ Genom Lead Tracking (Munchkin) registrerar Marketo webbaktivitet för besökare 
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/{id}/associate.json?cookie=id:287-GTJ-838%26token:_mch-marketo.com-1396310362214-46169
 ```
 
@@ -817,13 +817,13 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Hämta leads efter filtertyp, men `filterType` och `filterValues` kan inte användas med detta API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ## Hämta program efter lead-ID
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/list/{listId}/leads.json?batchSize=3
 ```
 
@@ -864,7 +864,7 @@ Slutpunkten Hämta listor efter lead-ID tar en sökvägsparameter för lead-post
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/{id}/listMembership.json?batchSize=3
 ```
 
@@ -906,7 +906,7 @@ Svarsstrukturen är mycket lik, eftersom varje objekt i resultatarrayen är en l
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/programs/{programId}.json?batchSize=3
 ```
 
@@ -980,7 +980,7 @@ Slutpunkten Hämta program efter lead-ID tar en ID-sökvägsparameter för lead-
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/{id}/programMembership.json
 ```
 
@@ -1011,7 +1011,7 @@ Slutpunkten Hämta smarta kampanjer med lead-ID tar en ID-sökvägsparameter fö
 
 ### Begäran
 
-```
+```http
 GET /rest/v1/leads/{id}/smartCampaignMembership.json?batchSize=3
 ```
 
@@ -1049,7 +1049,7 @@ Det är enkelt att ta bort leads med slutpunkten Ta bort leads.  Ange lead-ID:n 
 
 ### Begäran
 
-```
+```http
 POST /rest/v1/leads/delete.json
 ```
 

@@ -3,7 +3,7 @@ title: Regler för omdirigering av startsida
 feature: REST API, Landing Pages
 description: Använd Marketo Asset REST API:er för att skapa, söka, uppdatera och ta bort omdirigeringsregler för landningssidor med filter, sidnumrering, värdnamnsalternativ och andra mål än Marketo.
 exl-id: f63aa5ef-5872-4401-be75-6fb9b2977734
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '776'
 ht-degree: 1%
@@ -16,7 +16,7 @@ ht-degree: 1%
 
 Marketo erbjuder en uppsättning REST API:er för att utföra CRUD-åtgärder på URL:er för omdirigering av landningssidor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Skapa, Uppdatera och Ta bort.
 
-Regler för omdirigering av landningssidor ger möjlighet att omdirigera en URL för en landningssida till en annan sidas URL. Du kan dirigera om Marketo landningssidor, icke-Marketo landningssidor eller kombinationer av dessa. Ytterligare information om reglerna för omdirigeringssidan finns [här](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE).
+Regler för omdirigering av landningssidor ger möjlighet att omdirigera en URL för en landningssida till en annan sidas URL. Du kan dirigera om Marketo landningssidor, icke-Marketo landningssidor eller kombinationer av dessa. Ytterligare information om reglerna för omdirigeringssidan finns [här](https://experienceleague.adobe.com/docs/marketo/using/home.html).
 
 ## Fråga
 
@@ -26,7 +26,7 @@ När du frågar efter omdirigeringsregler för landningssidor följer standardfr
 
 Slutpunkten [Get Landing Page Redirect Rules by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/getLandingPageRedirectRuleByIdUsingGET) tar en enkel sökvägsparameter för omdirigering av landningssidans regel `id` och returnerar en enda regel för omdirigering av landningssidor.
 
-```
+```http
 GET /rest/asset/v1/redirectRule/{id}.json
 ```
 
@@ -71,7 +71,7 @@ Parametern `hostname` kan användas för att filtrera efter startsidornas värdn
 
 Med parametrarna `earliestUpdatedAt` och `latestUpdatedAt` kan du ange vattenstämplar för låg och hög datetime för att returnera omdirigeringsregler för landningssidor som antingen har uppdaterats eller skapats initialt inom det angivna intervallet.
 
-```
+```http
 GET /rest/asset/v1/redirectRules.json&maxReturn=3
 ```
 
@@ -155,17 +155,17 @@ Parametern `redirectTo` anger målstartsidan. Detta är ett JSON-objekt som inne
 | Marketo | landingPageId | {&quot;type&quot;:&quot;landingPageId&quot;,&quot;value&quot;:&quot;1774&quot;} |
 | Ej Marketo | url | {&quot;type&quot;:&quot;url&quot;,&quot;value&quot;:&quot;www.contactLogs.com&quot;} |
 
-Mer information om hur du skapar omdirigeringsregler för landningssidor finns [här](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html?lang=sv-SE).
+Mer information om hur du skapar omdirigeringsregler för landningssidor finns [här](https://experienceleague.adobe.com/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-actions/redirect-a-marketo-landing-page-to-another-page.html).
 
-```
+```http
 POST /rest/asset/v1/redirectRules.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 hostname=calqeauto.com&redirectFrom={"type":"landingPageId", "value":"5483"}&redirectTo={"type":"landingPageId", "value":"5559"}
 ```
 
@@ -204,15 +204,15 @@ Precis som med anropet för att skapa som beskrivs ovan skickas en eller flera a
 
 Den uppdaterade posten för omdirigeringsregel för landningssidan returneras i svaret.
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 redirectTo={"type":"landingPageId", "value":"5561"}
 ```
 
@@ -245,9 +245,9 @@ redirectTo={"type":"landingPageId", "value":"5561"}
 
 ## Ta bort
 
-[Slutpunkten Ta bort regel för omdirigering av landningssida med ID &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) tar en sökvägsparameter för omdirigering av enskild landningssidregel `id` .
+[Slutpunkten Ta bort regel för omdirigering av landningssida med ID ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Redirect-Rules/operation/deleteLandingPageRedirectRuleUsingPOST) tar en sökvägsparameter för omdirigering av enskild landningssidregel `id` .
 
-```
+```http
 POST /rest/asset/v1/redirectRule/{id}/delete.json
 ```
 
@@ -275,7 +275,7 @@ Parametern `offset` är ett heltal som anger det maximala antalet poster som ska
 
 Parametern `maxReturn` är ett heltal som anger var poster ska hämtas. Kan användas tillsammans med `offset` (standardvärdet är 0).
 
-```
+```http
 POST /rest/asset/v1/landingPageDomains.json?maxReturn=3
 ```
 

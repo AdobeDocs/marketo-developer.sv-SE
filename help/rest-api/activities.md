@@ -1,16 +1,16 @@
 ---
-title: Aktiviteter
+title: Verksamhet
 feature: REST API
 description: Använd Marketo Engage Activity REST API för att lista aktivitetstyper, hämta lead-aktiviteter med sidtoken och hantera anpassade ändringar och datavärdesändringar.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '2046'
+source-wordcount: '2139'
 ht-degree: 0%
 
 ---
 
-# Aktiviteter
+# Verksamhet
 
 Marketo tillåter ett stort antal aktivitetstyper som hör ihop med lead-register.  Nästan varje ändring, åtgärd eller flödessteg registreras mot en leads aktivitetsloggar och kan hämtas via API:t eller utnyttjas i Smart List och Smart Campaign-filter och -utlösare.  Aktiviteter är alltid relaterade tillbaka till lead-posten via leadId, som motsvarar postens ID-fält, och har också ett unikt ID.
 
@@ -24,7 +24,7 @@ De flesta aktiviteter rensas efter en viss tid.
 
 Om du vill hämta en lista över tillgängliga typer och definitioner för en instans kan du använda slutpunkten [Hämta aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET).
 
-```
+```http
 GET /rest/v1/activities/types.json
 ```
 
@@ -79,7 +79,7 @@ Om du vill hämta aktiviteter från Marketo anropar du slutpunkten [Hämta leada
 
 Du kan antingen inkludera en listId-frågeparameter för att begränsa sökningen till enbart de poster som ingår i en viss statisk lista, eller en leadIds-frågeparameter och söka efter aktiviteter från endast en angiven uppsättning leads. Du kan skicka upp till 30 leadIds som en kommaseparerad lista.
 
-```
+```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
 ```
 
@@ -140,7 +140,7 @@ För datavärdesändringsaktiviteter finns en specialversion av aktivitets-API:t
 * Det finns ingen `activityTypeIds`-parameter eftersom slutpunkten bara returnerar datavärdesändring och nya lead-aktiviteter.
 * Frågeparametern `fields` krävs, där du kan skicka en kommaavgränsad lista med fält för att ange vilka fält du vill hämta ändringar för.
 
-```
+```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
 ```
 
@@ -192,7 +192,7 @@ Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av str
 
 Det finns också en särskild slutpunkt, [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET), för att hämta borttagna aktiviteter från Marketo.
 
-```
+```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
 ```
 
@@ -250,7 +250,7 @@ Förutom standardslutpunkten för Hämta aktivitetstyper returnerar slutpunktern
 
 ### Hämta typer
 
-```
+```http
 GET /rest/v1/activities/external/types.json
 ```
 
@@ -278,7 +278,7 @@ GET /rest/v1/activities/external/types.json
 
 För typbeskrivningar måste du skicka `apiName` som en sökvägsparameter. Som standard får du den godkända versionen av aktiviteten. Du kan också skicka parametern `draft=true` för att hämta aktivitetens utkastversion.
 
-```
+```http
 GET /rest/v1/activities/external/type/{apiName}/describe.json
 ```
 
@@ -344,7 +344,7 @@ När en anpassad aktivitet skapas skapas den som ett utkast och måste godkänna
 
 När du skapar en typ är description-parametern valfri, medan alla följande parametrar krävs: `apiName`, `name`, `triggerName`, `filterName`, `primaryAttribute`.
 
-```
+```http
 POST /rest/v1/activities/external/type.json
 ```
 
@@ -390,7 +390,7 @@ POST /rest/v1/activities/external/type.json
 
 Uppdateringen av en typ är mycket lik, förutom att apiName är den enda obligatoriska parametern som en path-parameter.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}.json
 ```
 
@@ -451,7 +451,7 @@ När du ändrar det primära attributet för en aktivitetstyp ska alla befintlig
 
 När du skapar ett attribut krävs en `apiName`-sökvägsparameter. Parametrarna `name` och `dataType` krävs också.`The description and` `isPrimary` parametrar är valfria.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 ```
 
@@ -518,7 +518,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/create.json
 
 När du uppdaterar attribut är `apiName` för attributet primärnyckel. Parametern `apiName` måste finnas för att uppdateringen ska lyckas (det vill säga du kan inte ändra parametern `apiName` med hjälp av uppdatering).
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 ```
 
@@ -585,7 +585,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/update.json
 
 Om du tar bort ett attribut krävs en `apiName`-sökvägsparameter som är det anpassade aktivitets-API-namnet.  Obligatoriskt är också en attributparameter som är en array med attributobjekt.  Varje objekt måste innehålla en `apiName`-parameter som är det anpassade API-namnet för aktivitetstypen.
 
-```
+```http
 POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 ```
 
@@ -629,7 +629,7 @@ Indatamedlemmen är en array med activity-objekt. Högst 300 aktivitetsposter k
 
 Attributmedlemmarna `leadId`, `activityDate`, `activityTypeId`, `primaryAttributeValue` och är obligatoriska. Attributarrayen måste innehålla det icke-primära attributet. Detta kan anges antingen med namn (fältnamn) eller apiName (API-namn) och värde som motsvarar det värde du anger.
 
-```
+```http
 POST /rest/v1/activities/external.json
 ```
 

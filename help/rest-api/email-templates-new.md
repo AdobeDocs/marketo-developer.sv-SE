@@ -3,7 +3,7 @@ title: E-postmallar
 feature: REST API
 description: Använd Marketo Asset REST API för att fråga efter, skapa, uppdatera, klona, ta bort, godkänna och inspektera beroenden för e-postmallar.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 0%
@@ -38,7 +38,7 @@ Du kan hämta metadata för e-postmallar efter resurs-ID eller med filterslutpun
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/{id}
 ```
 
@@ -69,7 +69,7 @@ Följande filter stöds: `folderId`, repeterad `folderIds`, repeterad `status`, 
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/emailtemplate/filter?workspaceId=1001&name=Newsletter&pageIndex=0&pageSize=20
 ```
 
@@ -99,7 +99,7 @@ Skapa en e-postmall genom att skicka en JSON-nyttolast. `name` och `appData` kr�
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate
 Content-Type: application/json
 ```
@@ -149,7 +149,7 @@ Uppdatera en mall efter resurs-ID.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/update
 Content-Type: application/json
 ```
@@ -193,7 +193,7 @@ Giltiga `action`-värden är:
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/state/transition
 Content-Type: application/json
 ```
@@ -213,7 +213,7 @@ Använd klonslutpunkten för att skapa en kopia av en befintlig mall.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/clone
 Content-Type: application/json
 ```
@@ -236,7 +236,7 @@ Ta bort en mall efter resurs-ID.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/{id}/delete
 Content-Type: application/json
 ```
@@ -249,7 +249,7 @@ Använd slutpunkten `usedby` för att hämta resurser som refererar till en viss
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/emailtemplate/usedby
 Content-Type: application/json
 ```

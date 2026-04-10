@@ -3,9 +3,9 @@ title: Importera anpassat objekt gruppvis
 feature: Custom Objects
 description: Lär dig hur du importerar anpassade Marketo-objekt i grupp via REST med hjälp av CSV-, TSV- eller SSV-filer.
 exl-id: e795476c-14bc-4e8c-b611-1f0941a65825
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '866'
+source-wordcount: '952'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Du får skicka in mer än en bulkimportbegäran inom gränsen. Varje begäran l�
 
 ## Exempel på anpassat objekt
 
-Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
+Innan du använder bulk-API:t måste du använda användargränssnittet i Marketo Admin för att [skapa ditt anpassade objekt](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/create-marketo-custom-objects). Anta till exempel att vi har skapat ett anpassat bildobjekt med fälten &quot;Färg&quot;, &quot;Märke&quot;, &quot;Modell&quot; och &quot;VIN&quot;. Nedan visas gränssnittsskärmar för administratörer som visar det anpassade objektet. Du ser att vi har använt VIN-fältet för borttagning av dubbletter. API-namnen markeras eftersom de måste användas vid anrop av massrelaterade API-relaterade slutpunkter.
 
 ![Infoga anpassat objekt](assets/bulk-insert-co-car-1.png)
 
@@ -34,7 +34,7 @@ Här är de anpassade objektfälten som visas i administratörsgränssnittet.
 
 Du kan hämta API-namn programmatiskt genom att skicka det anpassade objektets API-namn till slutpunkten [Beskriv anpassat objekt](#describe).
 
-```
+```text
 /rest/v1/customobjects/{apiName}/describe.json
 ```
 
@@ -119,7 +119,7 @@ Du kan hämta API-namn programmatiskt genom att skicka det anpassade objektets A
 
 Anta nu att du vill importera tre anpassade&quot;bildobjektsposter&quot;. Med kommaavgränsat format (CSV) kan filen se ut så här:
 
-```
+```text
 color,make,model,vin
 red,bmw,2002,WBA4R7C55HK895912
 yellow,bmw,320i,WBA4R7C30HK896061
@@ -132,18 +132,18 @@ Rad 1 är rubriken, och raderna 2-4 är de anpassade objektdataposterna.
 
 Om du vill göra en begäran om massimport måste du inkludera det anpassade objektets API-namn i sökvägen till slutpunkten [Importera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Identity/operation/identityUsingPOST). Du måste också inkludera en file-parameter som refererar till namnet på importfilen och en format-parameter som anger hur importfilen avgränsas (&quot;csv&quot;, &quot;tsv&quot; eller &quot;ssv&quot;).
 
-```
+```http
 POST /bulk/v1/customobjects/{apiName}/import.json?format=csv
 ```
 
-```
+```text
 Transfer-Encoding: chunked
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryXjWP6BP8Ciq6bPeo
 Content-Length: 290
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryXjWP6BP8Ciq6bPeo
 Content-Disposition: form-data; name="file"; filename="custom_object_import.csv"
 Content-Type: text/csv
@@ -175,13 +175,13 @@ Observera i svaret på vårt anrop att det inte finns någon lista över lyckade
 
 Ett enkelt sätt att replikera begäran om bulkimport är att använda url från kommandoraden:
 
-```
+```bash
 curl -X POST -i -F format='csv' -F file='@custom_object_import.csv' -F access_token='<Access Token>' <REST API Endpoint URL>/bulk/v1/customobjects/car_c/import.json
 ```
 
 Där importfilen &quot;custom_object_import.csv&quot; innehåller följande:
 
-```
+```text
 color,make,model,vin
 red,bmw,2002,WBA4R7C55HK895912
 yellow,bmw,320i,WBA4R7C30HK896061
@@ -192,7 +192,7 @@ blue,bmw,325i,WBS3U9C52HP970604
 
 När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka API-namnet för det anpassade objektet och `batchId` i sökvägen till slutpunkten [Hämta anpassad objektstatus](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectStatusUsingGET) .
 
-```
+```http
 GET /bulk/v1/customobjects/{apiName}/import/{batchId}/status.json
 ```
 
@@ -224,13 +224,13 @@ Fel indikeras av attributet `numOfRowsFailed` i svaret [Hämta status för anpas
 
 Som fortsättning på exemplet kan vi tvinga fram ett misslyckande genom att ändra rubriken och ändra &quot;vin&quot; till &quot; vin&quot; (genom att lägga till ett blanksteg mellan kommatecknet och &quot;vin&quot;).
 
-```
+```text
 color,make,model, vin
 ```
 
 När vi återimporterar och kontrollerar statusen ser vi det här svaret med `numRowsFailed`: 3. Detta indikerar tre fel.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 ```
 
@@ -256,11 +256,11 @@ GET /bulk/v1/customobjects/car_c/import/{batchId}/status.json
 
 Nu gör vi ett anrop till slutpunkten Hämta fel för anpassat objekt för att få mer information om felet:
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/failures.json
 ```
 
-```
+```text
 color,make,model, vin,Import Failure Reason
 red,bmw,2002,WBA4R7C55HK895912,missing.dedupe.fields
 yellow,bmw,320i,WBA4R7C30HK896061,missing.dedupe.fields
@@ -273,6 +273,6 @@ Vi ser att vi saknar dedupliceringsfältet `vin`.
 
 Varningar indikeras av attributet `numOfRowsWithWarning` i svaret Hämta status för anpassat objekt. Om numOfRowsWithWarning är större än noll visar det värdet antalet varningar som inträffade. Anropa slutpunkten [Hämta importvarningar för anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Custom-Objects/operation/getImportCustomObjectWarningsUsingGET) om du vill hämta en fil med varningsdetaljer. Även här måste du skicka det anpassade objekt-API:t och `batchId` i sökvägen. Om det inte finns någon varningsfil returneras en HTTP 404-statuskod.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/import/{batchId}/warnings.json
 ```

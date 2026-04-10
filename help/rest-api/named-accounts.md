@@ -3,9 +3,9 @@ title: Namngivna konton
 feature: REST API
 description: Marketo REST guide till CRUD för namngivna konton för ABM, med beskrivning, fråga, skapa uppdateringsexempel, sökbara fält, borttagningsregler och ingen lead-länkning.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '697'
+source-wordcount: '730'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ För närvarande är de enda ABM-relaterade funktionerna som är tillgängliga v
 
 Beskrivningen av namngivna konton returnerar metadata som relaterar till användningen av namngivna konton via Marketo API:er, inklusive en lista över giltiga sökbara fält vid frågor och en lista över alla fält som är tillgängliga för API-användning. `idField` för ett namngivet konto är alltid `marketoGUID` och den enda tillgängliga `dedupeField`, och nyckeln för att skapa är objektets `name`-fält.
 
-```
+```http
 GET /rest/v1/namedaccounts/describe.json
 ```
 
@@ -137,7 +137,7 @@ GET /rest/v1/namedaccounts/describe.json
 
 Frågorna efter namngivna konton baseras på användningen av en filterType och en uppsättning på upp till 300 kommaseparerade filterValues. `filterType` kan vara vilket enskilt fält som helst som returneras i `searchableFields`-medlemmen av det beskrivande resultatet för namngivna konton, medan filterValues kan vara vilken giltig inmatning som helst för fältets datatyp. Om du vill returnera en viss uppsättning fält från måste en fälteparameter skickas, där värdet är en kommaavgränsad lista med fält som ska returneras i svaret. Precis som för andra frågealternativ är det maximala antalet poster för en enskild frågesida 300, och ytterligare poster i uppsättningen måste begäras med användningen av nextPageToken som returneras av anropet.
 
-```
+```http
 GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 ```
 
@@ -168,11 +168,11 @@ GET /rest/v1/namedaccounts.json?filterType=name&filterValues=Google,Yahoo
 
 När du skapar och uppdaterar namngivna konton används standarddatabasmönstret lead. Poster måste skickas i indatamedlemmen för en JSON-brödtext i en POST-begäran. `input` är den enda obligatoriska medlemmen med `action` och `dedupeBy` som valfria medlemmar. Upp till 300 poster kan inkluderas i indata. Åtgärden kan vara en av createOnly, updateOnly eller createOrUpdate. Om det inte anges används åtgärden som standard createOrUpdate. dedupeBy kan bara anges när action är updateOnly, och bara accepterar en av dedupeFields eller idField, som motsvarar fälten name och marketoGUID.
 
-```
+```http
 POST /rest/v1/namedaccounts.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -226,7 +226,7 @@ Det är enkelt att fråga efter namngivna kontofält. Du kan fråga ett enskilt 
 
 Slutpunkten [Hämta namngivet kontofält med namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för ett enskilt fält i det namngivna kontoobjektet. Den obligatoriska parametern fieldApiName path anger fältets API-namn. Svaret är som slutpunkten för Beskriv namngivet konto men innehåller ytterligare metadata som attributet isCustom som anger om fältet är ett anpassat fält.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 ```
 
@@ -254,7 +254,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 Slutpunkten [Hämta fält för namngivet konto](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för alla fält i det namngivna kontoobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern batchSize för att minska det här talet. Om attributet moreResult är true betyder det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. nextPageToken som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
-```
+```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 ```
 
@@ -333,11 +333,11 @@ GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5
 
 Borttagningar görs via en JSON POST-begäran och har en obligatorisk indatamedlem och en valfri deleteBy-medlem. deleteBy kan vara en av &quot;dedupeFields&quot; eller &quot;idField&quot;, som motsvarar name eller marketoGUID, och dedupeFields tas bort som standard om den är ur. Indatamedlemmen accepterar en array med upp till 300 poster, som innehåller en medlem vardera, antingen name eller marketoGUID beroende på inställningen för deleteBy.
 
-```
+```http
 POST /rest/v1/namedaccounts/delete.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 

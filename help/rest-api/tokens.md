@@ -3,7 +3,7 @@ title: Tokens
 feature: REST API, Tokens
 description: Hantera Marketo My Tokens med Resurs REST API. Se vilka datatyper som stöds, hämta per mapp eller program, skapa eller uppdatera via formulärkodad POST och ta bort efter namn.
 exl-id: 4f8d87d7-ba2a-4c90-8b39-4d20679d404a
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '364'
 ht-degree: 0%
@@ -35,7 +35,7 @@ Detta är de enda datatyperna som kan användas när en token skapas via API.
 
 [Get Tokens by Folder Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/getTokensByFolderIdUsingGET) tar `id` som en sökvägsparameter av antingen typen Program eller Mapp. Den här typen anges av parametern `folderType`.
 
-```curl
+```http
 GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 ```
 
@@ -68,15 +68,15 @@ GET /rest/asset/v1/folder/{id}/tokens.json?folderType=Folder
 
 Slutpunkten [Skapa token](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/addTokenTOFolderUsingPOST) skapar token, eller om de finns, uppdaterar de dem med skickade värden. Token skapas i samband med en mapp eller ett program. Den obligatoriska `id`-sökvägsparametern är ID:t för mappen som token ska kopplas till. `name`, `type`, `value` och `folderType` är alla obligatoriska parametrar för token. Data skickas som POST x-www-form-urlencoded, inte som JSON. Fältet `name` i token får inte innehålla fler än 50 tecken.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=April Fools&type=date&value=2015-04-01&folderType=Folder
 ```
 
@@ -107,17 +107,17 @@ name=April Fools&type=date&value=2015-04-01&folderType=Folder
 
 ## Ta bort
 
-[Ta bort token med namnet &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) tar ett ID som en sökvägsparameter av antingen typen Program eller Mapp. Den här typen anges av parametern `folderType`. Tokens tas bort baserat på deras överordnade mapp, `name` och `type` för token, vilka alla är obligatoriska. Data skickas som POST x-www-form-urlencoded, inte som JSON.
+[Ta bort token med namnet ](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tokens/operation/deleteTokenByNameUsingPOST) tar ett ID som en sökvägsparameter av antingen typen Program eller Mapp. Den här typen anges av parametern `folderType`. Tokens tas bort baserat på deras överordnade mapp, `name` och `type` för token, vilka alla är obligatoriska. Data skickas som POST x-www-form-urlencoded, inte som JSON.
 
-```
+```http
 POST /rest/asset/v1/folder/{id}/tokens/delete.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=AprilFool - deverly&type=date&folderType=Program
 ```
 

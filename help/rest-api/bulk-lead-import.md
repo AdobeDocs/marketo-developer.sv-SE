@@ -3,16 +3,16 @@ title: Import av massutr
 feature: REST API
 description: Skapa och övervaka asynkron import av bulkleads i Marketo med CSV TSV eller SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '795'
+source-wordcount: '825'
 ht-degree: 0%
 
 ---
 
 # Import av massutr
 
-[Slutpunktsreferens för masslead-import](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Slutpunktsreferens för bulkimport](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
 
 För stora mängder lead-poster kan leads importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
@@ -39,17 +39,17 @@ Den här typen av begäran kan vara svår att implementera, så vi rekommenderar
 
 Om du vill göra en begäran om massimport måste du ange innehållstyphuvudet till `multipart/form-data` och inkludera minst en `file`-parameter med filinnehållet, samt en `format`-parameter med värdet `csv`, `tsv` eller `ssv` som anger filformatet.
 
-```
+```http
 POST /bulk/v1/leads.json?format=csv
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Length: 311
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ------WebKitFormBoundaryBQACkJZyaiIAXogC
 Content-Disposition: form-data; name="file"; filename="leads.csv"
 Content-Type: text/csv
@@ -77,13 +77,13 @@ Easy,Fox,easyfox@marketo.com,Marketo
 
 Den här slutpunkten använder [multipart/form-data som innehållstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Det är bäst att använda ett HTTP-supportbibliotek för det språk du föredrar för att säkerställa korrekt användning. Följande exempel är ett enkelt sätt att göra detta med cURL från kommandoraden:
 
-```
+```bash
 curl -i -F format=csv -F file=@lead_data.csv -F access_token=<Access Token> <REST API Endpoint Base URL>/bulk/v1/leads.json
 ```
 
 Där importfilen `lead_data.csv` innehåller följande:
 
-```
+```text
 firstName,lastName,email,company
 Able,Baker,ablebaker@marketo.com,Marketo
 Charlie,Dog,charliedog@marketo.com,Marketo
@@ -98,7 +98,7 @@ Observera i svaret på vårt anrop att det inte finns en lista över lyckade ell
 
 Det är bäst att avsöka jobbet var 5-30:e sekund, beroende på fördröjning och API-anropsbegränsningar, för att se importjobbets status. Du kan göra det med API:t Hämta status för importlead.
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}.json
 ```
 
@@ -134,7 +134,7 @@ Fel indikeras av attributet `numOfRowsFailed` i Get Import Lead Status-svaret. O
 
 Om du vill hämta poster och orsaker till felaktiga rader måste du hämta felfilen:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/failures.json
 ```
 
@@ -146,7 +146,7 @@ Varningar indikeras av attributet `numOfRowsWithWarning` i ett Get Import Lead S
 
 Hämta varningsfilen om du vill hämta poster och orsaker till varningsrader:
 
-```
+```http
 GET /bulk/v1/leads/batch/{id}/warnings.json
 ```
 

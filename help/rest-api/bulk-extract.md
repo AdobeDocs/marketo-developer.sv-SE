@@ -3,7 +3,7 @@ title: Massextrahering
 feature: REST API
 description: Lär dig hur du använder Marketo Bulk Extract REST API för att exportera leads, aktiviteter, programmedlemmar och anpassade objekt, med OAuth, jobbköer och 500 MB dagliga begränsningar.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1723'
 ht-degree: 0%
@@ -69,7 +69,7 @@ Slutpunkter för gruppextrahering känner inte till Marketo arbetsytor. Extraher
 
 Marketo API:er för bulkextrahering använder begreppet jobb för att initiera och köra dataextrahering. Låt oss titta på hur du skapar ett enkelt exportjobb för leads.
 
-```
+```http
 POST /bulk/v1/leads/export/create.json
 ```
 
@@ -127,7 +127,7 @@ Varje jobbskapandeslutpunkt delar några vanliga parametrar för konfiguration a
 
 Ibland kan du behöva hämta dina senaste jobb. Detta är enkelt med Hämta exportjobb för motsvarande objekttyp. Varje Get Export Jobs-slutpunkt har stöd för ett `status`-filterfält, en  `batchSize` för att begränsa antalet returnerade jobb och `nextPageToken` för växling mellan stora resultatuppsättningar. Statusfiltret har stöd för varje giltig status för ett exportjobb: Skapat, Köat, Bearbetning, Avbrutet, Slutfört och Misslyckat. batchSize har ett maximum och standard på 300. Vi hämtar listan med leadexportjobb:
 
-```
+```http
 GET /bulk/v1/leads/export.json?status=Completed,Failed
 ```
 
@@ -159,7 +159,7 @@ Slutpunkten svarar med `status`-svar för varje jobb som skapats under de senast
 
 Låt oss påbörja jobbet med vårt jobb:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/enqueue.json
 ```
 
@@ -171,7 +171,7 @@ Det är enkelt att avgöra jobbets status.
 
 Status kan bara avfrågas för jobb som skapats av samma API-användare som skapade dem.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/status.json
 ```
 
@@ -202,7 +202,7 @@ Den inre `status`-medlemmen anger förloppet för jobbet och kan vara något av 
 
 När jobbet är klart kan du enkelt hämta filen.
 
-```
+```http
 GET /bulk/v1/leads/export/{exportId}/file.json
 ```
 
@@ -210,13 +210,13 @@ Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurer
 
 Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extraherade data, kan filslutpunkten (valfritt) ha stöd för HTTP-huvudet `Range` av typen `bytes` (per [RFC 7233](https://datatracker.ietf.org/doc/html/rfc7233)). Om rubriken inte är inställd returneras hela innehållet. Om du vill hämta de första 10 000 byten i en fil skickar du följande rubrik som en del av din GET-begäran till slutpunkten, med början från byte 0:
 
-```
+```text
 Range: bytes=0-9999
 ```
 
 När den partiella filen hämtas svarar slutpunkten med statuskoden 206 och returnerar rubrikerna Accept-range, Content-Length och Content-Range:
 
-```
+```text
 Accept-Ranges: bytes
 Content-Length: 1000
 Content-Range: bytes 0-9999/123424
@@ -226,7 +226,7 @@ Content-Range: bytes 0-9999/123424
 
 Filer kan hämtas delvis eller återupptas senare med huvudet `Range`. Intervallet för en fil börjar med byte 0 och slutar med värdet `fileSize` minus 1. Längden på filen rapporteras också som nämnare i värdet för `Content-Range`-svarshuvudet när en Get Export File-slutpunkt anropas. Om en hämtning misslyckas delvis kan den återupptas senare. Om du till exempel försöker hämta en fil som är 1000 byte lång, men bara de första 725 byten togs emot, kan du försöka hämta igen från felpunkten genom att anropa slutpunkten igen och skicka ett nytt intervall:
 
-```
+```text
 Range: bytes 724-999
 ```
 
@@ -255,7 +255,7 @@ Här är ett exempelsvar som innehåller kontrollsumman:
 
 Här är ett exempel på hur du skapar SHA-256-hash för en hämtad fil med namnet&quot;bulk_lead_export.csv&quot; med kommandoradsverktyget sha256sum:
 
-```
+```bash
 $ sha256sum bulk_lead_export.csv
 83aca1351c9398d2770330e21a9e278880fd2f1eeaf8c8238bf7676d5c21d1c6 *bulk_lead_export.csv
 ```
@@ -264,7 +264,7 @@ $ sha256sum bulk_lead_export.csv
 
 Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas:
 
-```
+```http
 POST /bulk/v1/leads/export/{exportId}/cancel.json
 ```
 

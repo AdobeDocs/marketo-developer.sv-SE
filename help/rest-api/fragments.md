@@ -3,7 +3,7 @@ title: Fragment
 feature: REST API
 description: Använd Marketo Asset REST API för att fråga efter, skapa, uppdatera, klona, ta bort, godkänna och inspektera beroenden för fragment.
 exl-id: 9dd532d1-1dd7-4581-86dd-1943fab66cbb
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '272'
 ht-degree: 0%
@@ -36,7 +36,7 @@ Du kan hämta fragmentmetadata efter resurs-ID eller med filterslutpunkten.
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/fragment/{id}
 ```
 
@@ -68,7 +68,7 @@ Följande filter stöds: `folderId`, repeterad `folderIds`, repeterad `status`, 
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/fragment/filter?workspaceId=1001&fragmentType=email&pageIndex=0&pageSize=20
 ```
 
@@ -98,7 +98,7 @@ Skapa ett fragment genom att skicka en JSON-nyttolast. `name`, `appData` och `se
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment
 Content-Type: application/json
 ```
@@ -155,7 +155,7 @@ Uppdatera ett fragment efter resurs-ID.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/update
 Content-Type: application/json
 ```
@@ -202,7 +202,7 @@ Giltiga `action`-värden är:
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment/state/transition
 Content-Type: application/json
 ```
@@ -222,7 +222,7 @@ Använd klonslutpunkten för att skapa en kopia av ett befintligt fragment.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment/clone
 Content-Type: application/json
 ```
@@ -245,7 +245,7 @@ Ta bort ett fragment efter resurs-ID.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment/{id}/delete
 Content-Type: application/json
 ```
@@ -258,7 +258,7 @@ Använd slutpunkten `usedby` för att hämta resurser som refererar till ett vis
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/fragment/usedby
 Content-Type: application/json
 ```

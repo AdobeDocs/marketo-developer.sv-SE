@@ -3,9 +3,9 @@ title: E-postskript
 feature: Email Programs
 description: Lär dig hur du skriptar dynamiska Marketo-e-postmeddelanden med hjälp av Apache Velocity-tokens, variabler, snabbverktyg och testning med Skicka exempel och E-postförhandsgranskning.
 exl-id: ff396f8b-80c2-4c87-959e-fb8783c391bf
-source-git-commit: d674384b3ab979df2322ece3f02155259d05431a
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '953'
+source-wordcount: '1099'
 ht-degree: 0%
 
 ---
@@ -20,13 +20,13 @@ Obs! Vi rekommenderar att du läser användarhandboken [Snabb](https://velocity.
 
 Variabler har alltid prefixet &#39;$&#39; och ställs in och uppdateras med #set:
 
-```
+```velocity
 #set($variable = "value")
 ```
 
 Deras värden kan sedan hämtas via flera olika referenstyper med olika beteenden:
 
-```
+```text
 $variable ##outputs 'value'
 $variablename ##outputs '$variablename'
 ${variable}name ##outputs 'valuename'
@@ -34,7 +34,7 @@ ${variable}name ##outputs 'valuename'
 
 Det finns också en tyst referensnotation, där det finns en `!` inkluderad efter `$`. När hastigheten påträffar en odefinierad referens lämnas strängen som representerar referensen på plats. Om en odefinierad referens påträffas med tyst referensnotation genereras inget värde:
 
-```
+```velocity
 ##Defined Reference
 
 #set($foo = "bar")
@@ -57,7 +57,7 @@ Apache-snabbprojekt gör funktioner tillgängliga med [snabbverktyg](https://vel
 
 - [AlternatorTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/AlternatorTool.html)
 - [ComparisonDateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html)
-- [ConversionTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
+- [Konverteringsverktyg](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/ConversionTool.html)
 - [DateTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DateTool.html)
 - [DisplayTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/DisplayTool.html)
 - [MathTool](https://velocity.apache.org/tools/devel/apidocs/org/apache/velocity/tools/generic/MathTool.html)
@@ -67,7 +67,7 @@ Apache-snabbprojekt gör funktioner tillgängliga med [snabbverktyg](https://vel
 
 Om du till exempel vill använda en metod från `ComparisonDateTool` måste du få åtkomst till den från variabeln `$date` i en skripttoken:
 
-```
+```velocity
 #set($birthday = $convert.parseDate("2015-08-07","yyyy-MM-dd"))
 ##use whenIs to determine how many days away it is
 $date.whenIs($birthday).days ##outputs 1
@@ -107,11 +107,11 @@ Den sammanlagda längden för alla e-postskripttoken i ett visst e-postmeddeland
 
 - Variablerna som refereras i e-postskriptet måste finnas i Marketo på ett av de objekt som är tillgängliga för skriptet.
 - Du kan referera till anpassade objekt på första och andra nivån som härstammar från det inbyggda integrerade CRM-systemet och som är direkt kopplade till lead- eller kontaktpersonen, men inte till anpassade objekt på tredje nivån. Anpassade objekt får inte vara överordnade leads eller företag
-- För anpassade Marketo-objekt kan du referera till anpassade objekt på andra nivån med en överordnad-underordnad relation. Till exempel `Lead <- Parent <- Child`. Du kan inte referera till anpassade objekt på andra nivån med Edge-Bridge-relationen. t.ex., `Lead <- Bridge -> Edge`
+- För anpassade Marketo-objekt kan du referera till anpassade objekt på andra nivån med en överordnad-underordnad relation. Till exempel `Lead <- Parent <- Child`. Du kan inte referera till anpassade objekt på andra nivån med Edge-Bridge-relationen. e.g.,  `Lead <- Bridge -> Edge`
 - Du kan referera till anpassade objekt som är kopplade till ett lead, en kontakt eller ett konto, men inte till fler än ett.
 - Anpassade objekt kan bara refereras via en enda anslutning, lead, kontakt eller konto
 - Du måste markera kryssrutan i skriptredigeraren för de fält som du använder, annars kommer de inte att bearbeta
-- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga genom att [följa instruktionerna](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
+- För varje anpassat objekt är de tio senast uppdaterade posterna per person/kontakt tillgängliga vid körning och beställs från den senaste uppdateringen (0) till den äldsta (9). Du kan öka antalet poster som är tillgängliga genom att [följa instruktionerna](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/email-setup/change-custom-object-retrieval-limits-in-velocity-scripting).
 - Om du inkluderar mer än ett e-postskript i ett e-postmeddelande körs de uppifrån och ned. Variabelomfånget som definieras i det första skriptet som ska köras är tillgängligt i efterföljande skript.
 - Verktygsreferens: [https://velocity.apache.org/tools/2.0/index.html](https://velocity.apache.org/tools/2.0/index.html)
 - En anteckning om variabler som innehåller radmatningstecken &quot;\\n&quot; eller &quot;\\r\\n&quot;. När ett e-postmeddelande skickas via Skicka exempel eller via en gruppkampanj ersätts radmatningstecken med blanksteg. När e-post skickas via Trigger Campaign lämnas radmatningstecken orörda.

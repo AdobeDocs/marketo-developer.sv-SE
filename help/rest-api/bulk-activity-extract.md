@@ -3,7 +3,7 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Marketo Bulk Activity Extract REST API för att exportera aktivitetsdata för stora volymer med ett 31-dagars datumintervall, aktivitet och primära attributfilter för ETL och CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: b2b1027ccf8016c2e4c081753842a6febac832ec
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1564'
 ht-degree: 0%
@@ -110,7 +110,7 @@ När du använder `primaryAttributeValues` måste filtret `activityTypeIds` finn
 
 Om du vill exportera poster måste du först definiera jobbet och den uppsättning poster som du vill hämta.  Skapa jobbet med slutpunkten [Skapa exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  När du exporterar aktiviteter finns det två primära filter som kan användas: `createdAt`, som alltid krävs, och `activityTypeIds`, som är valfritt.  Filtret `createdAt` används för att definiera ett datumintervall i vilket aktiviteter skapades med parametrarna `startAt` och `endAt` som båda är datetime-fält och representerar det tidigaste tillåtna skapandedatumet respektive det senaste tillåtna skapandedatumet.  Du kan även filtrera på vissa typer av aktiviteter med hjälp av filtret `activityTypeIds`.  Detta är användbart när du vill ta bort resultat som inte är relevanta för ditt användningsfall.
 
-```
+```http
 POST /bulk/v1/activities/export/create.json
 ```
 
@@ -149,7 +149,7 @@ POST /bulk/v1/activities/export/create.json
 
 Jobbet har nu statusen&quot;Skapat&quot;, men finns ännu inte i bearbetningskön.  Om du vill placera den i kön så att den kan påbörja bearbetningen anropar du slutpunkten för [Enqueue-exportaktivitetsjobbet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) med exportId från svaret på statusen när den skapades.
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
 ```
 
@@ -177,7 +177,7 @@ Jobbstatus kan bara hämtas för jobb som skapats av samma API-användare.
 
 Marketo Bulk Activity Extract är en asynkron slutpunkt, så jobbstatusen måste avfrågas för att avgöra när jobbet är klart.  Avsök med slutpunkten [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) enligt följande:
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/status.json
 ```
 
@@ -215,7 +215,7 @@ Statusfältet kan svara med ett av följande värden:
 
 När jobbet är klart hämtar du dina data med slutpunkten [Hämta exportaktivitetsfil](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET).
 
-```
+```http
 GET /bulk/v1/activities/export/{exportId}/file.json
 ```
 
@@ -237,7 +237,7 @@ Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extrah
 
 Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) :
 
-```
+```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json
 ```
 

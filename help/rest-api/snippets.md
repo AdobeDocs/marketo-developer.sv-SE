@@ -3,16 +3,16 @@ title: Fragment
 feature: REST API, Snippets
 description: Marketo Asset REST API för kodfragment, som omfattar fråga efter ID och bläddra med status, hämta innehåll, skapa och uppdatera HTML, text och dynamiskt innehåll.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '456'
+source-wordcount: '511'
 ht-degree: 0%
 
 ---
 
 # Fragment
 
-[Referens för utdragsslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[Utdragsslutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
 
 Kodavsnitt är återanvändbara HTML-komponenter som kan bäddas in i e-postmeddelanden och landningssidor och som kan segmenteras för dynamiskt innehåll. Fragment har inga associerade mallar och kan skapas och distribueras i andra resurser i Marketo.
 
@@ -22,7 +22,7 @@ När du frågar efter fragment används standardmönstret för resurser, föruto
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}.json?status=approved
 ```
 
@@ -52,7 +52,7 @@ GET /rest/asset/v1/snippet/{id}.json?status=approved
 
 ### Bläddra
 
-```
+```http
 GET /rest/asset/v1/snippets.json?maxReturn=3
 ```
 
@@ -116,7 +116,7 @@ GET /rest/asset/v1/snippets.json?maxReturn=3
 
 Innehållet i ett visst fragment kan hämtas baserat på fragmentets ID.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/content.json
 ```
 
@@ -145,15 +145,15 @@ Anropet returnerar en lista med innehållsavsnitt,  som består av avsnitt av t
 
 Fragment följer det komplexa mönstret för att skapa resurser, där anropet till [skapa fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) och dess innehåll görs separat, så det första anropet måste vara till slutpunkten för att skapa, med en valfri beskrivning.   Data skickas som x-www-form-urlencoded, inte som JSON.
 
-```
+```http
 POST /rest/asset/v1/snippets.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 
@@ -185,15 +185,15 @@ name=Test Snippet 09 - deverly&folder={"id":395,"type":"Folder"}&description=Thi
 
 Det är ID som lägger till eller ersätter innehåll i ett fragment. Innehållet kan vara av typen Text, HTML eller DynamicContent. Om typen är Text är innehållsparametern oformaterad textslutpunkt, medan den är HTML, då är den önskade markeringstexten. Om typen är inställd på DynamicContent ska innehållsparametern vara inställd på det id för segmenteringen som ska associeras med fragmentet.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 ```
 
@@ -213,15 +213,15 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 
 [Uppdatering av metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) utförs även av ID. Endast namn och beskrivning kan uppdateras:
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet&description=New Description
 ```
 
@@ -255,7 +255,7 @@ name=Test Snippet&description=New Description
 
 Fragment följer standardmönstret för dynamiskt innehåll, men de representerar bara ett helt innehållsavsnitt separat, så varje fragment kan bara innehålla ett dynamiskt avsnitt, med en lista över interna avsnitt som kan användas för varje segment i den segmentering som används. Dynamiskt innehåll kan efterfrågas enbart av utdrags-ID, eftersom det bara kan finnas ett avsnitt med dynamiskt innehåll i ett utdrag.
 
-```
+```http
 GET /rest/asset/v1/snippet/{id}/dynamicContent.json
 ```
 
@@ -312,7 +312,7 @@ Kodavsnitt har slutpunkter som kan användas för att godkänna, ta bort och ta 
 
 ### Godkänn
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/approveDraft.json
 ```
 
@@ -346,7 +346,7 @@ POST /rest/asset/v1/snippet/{id}/approveDraft.json
 
 Slutpunkten `unapprove` kan bara användas på godkända fragment.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/unapprove.json
 ```
 
@@ -380,7 +380,7 @@ POST /rest/asset/v1/snippet/{id}/unapprove.json
 
 Utdragsstatusen för utdraget måste vara ett utkast för att det ska tas bort.  Ett godkänt utdrag kan inte tas bort.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/discardDraft.json
 ```
 
@@ -402,15 +402,15 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 [Klona ett fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) med API:t är enkelt och följer standardmönstret med ett obligatoriskt namn, ID:t för det ursprungliga fragmentet och mappen, samt en valfri beskrivning.  Om det inte finns någon godkänd version klonas utkastversionen.
 
-```
+```http
 POST /rest/asset/v1/snippet/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Test Snippet Clone 3 - deverly&folder={"id":395,"type":"Folder"}&description=This is a test snippet
 ```
 

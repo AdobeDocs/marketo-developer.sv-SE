@@ -3,7 +3,7 @@ title: Landningssidor
 feature: REST API, Landing Pages
 description: Använd Marketo REST API för att fråga efter metadata och innehåll, skapa, uppdatera, godkänna, ta bort och klona landningssidor, inklusive guidade och friformstyper.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1221'
 ht-degree: 0%
@@ -22,7 +22,7 @@ Liksom de flesta andra resurser kan landningssidor efterfrågas [med namn](https
 
 Om du frågar innehållet på landningssidan returneras en lista med avsnitt som är tillgängliga på landningssidan. Det måste finnas ett avsnitt i innehållslistan på en sida för att innehållet ska kunna uppdateras:
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/content.json
 ```
 
@@ -60,15 +60,15 @@ Resultaten skiljer sig åt mellan guidade och friformsmallar, eftersom guidade l
 
 Giltiga innehållstyper för [landningssidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) är: richText, HTML, Form, Image, Rectangle, Snippet.
 
-```
+```http
 POST rest/asset/v1/landingPages.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&description=this is a test&workspace=default&title=test create&keywords=awesome&formPrefill=false
 ```
 
@@ -129,15 +129,15 @@ Parametern `template` används för att ange källsidmallens ID.
 
 Den valfria parametern `description` används för att beskriva den nya landningssidan.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 ```
 
@@ -195,7 +195,7 @@ För frihandssidor måste alla önskade innehållsavsnitt läggas till och bädd
 
 Om du vill skapa ett avsnitt med dynamiskt innehåll måste det redan finnas i landningssidans innehållslista. [Slutpunkten för uppdatering av innehållet på landningssidan](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) måste sedan användas för att ange typen till DynamicContent. När ett avsnitt är inställt på dynamiskt innehåll skapas underliggande dynamiska avsnitt i innehållsavsnittet som alla ärver det konverterade elementets bastyp. Varje dynamiskt avsnitt ärver också innehållet från det konverterade avsnittet.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 ```
 
@@ -231,15 +231,15 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 
 [Uppdatering av innehållet](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) för varje enskilt segment görs utifrån segment-ID:t.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 segment=New Segment&value=New Content
 ```
 
@@ -274,13 +274,13 @@ Variabler definieras som metataggar inuti elementet `<head>` i en landningssidma
 </head>
 ```
 
-Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Fråga
 
 Hämta variabler för en guidad landningssida genom att skicka landningssidans ID till slutpunkten Get Landing Page Variables.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/variables.json
 ```
 
@@ -316,7 +316,7 @@ I  I det här exemplet innehåller den guidade landningssidan tre variabler: st
 
 Uppdatera en variabel för en guidad landningssida genom att skicka landningssidans ID, variabel-ID och variabelvärdet för att uppdatera slutpunkten för landningssidans variabel.
 
-```
+```http
 POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 ```
 
@@ -343,7 +343,7 @@ Marketo tillhandahåller slutpunkten [Get Landing Page Full Content](https://dev
 - segmentering: Accepterar en array med JSON-objekt som innehåller attributen segmentationId och segmentId. När det är inställt förhandsvisas landningssidan som om du var en lead som matchar de segmenten.
 - leadId:  Accepterar heltals-ID för en lead. När det är inställt förhandsgranskar landningssidan som om den betraktades av det valda leadet.
 
-```
+```http
 GET /rest/asset/v1/landingPage/{id}/fullContent.json?leadId=1001&segmentation=[{"segmentationId":1030,"segmentId":1103}]
 ```
 

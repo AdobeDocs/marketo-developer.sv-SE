@@ -3,7 +3,7 @@ title: E-post
 feature: REST API
 description: Lär dig hur du använder Marketo Asset REST API för att fråga efter och hantera e-postresurser efter ID, namn eller mappbläddring, med information om prediktivt innehåll och A/B-testbegränsningar.
 exl-id: 6875730d-c74a-42cf-a3d2-dad7a3ac535d
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '2301'
 ht-degree: 0%
@@ -14,17 +14,17 @@ ht-degree: 0%
 
 [Referens för e-postslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails) En fullständig uppsättning REST-slutpunkter tillhandahålls för att hantera e-postresurser.
 
-Obs! Om du använder [Marketo Predictive Content](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) misslyckas följande slutpunkter om de refererar till ett e-postmeddelande som innehåller prediktivt innehåll: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Anropet returnerar en 709-felkod och motsvarande felmeddelande.
+Obs! Om du använder [Marketo Predictive Content](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/predictive-content/working-with-predictive-content/understanding-predictive-content) misslyckas följande slutpunkter om de refererar till ett e-postmeddelande som innehåller prediktivt innehåll: [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET), [Update Email Content Section](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailComponentContentUsingPOST), [Approve Email Draft](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/approveDraftUsingPOST). Anropet returnerar en 709-felkod och motsvarande felmeddelande.
 
 ## Fråga
 
 Frågemönstret för e-post är identiskt med det för mallar, vilket tillåter frågor [efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET) och [bläddring](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET) samt filtrering baserat på mapp med API:erna för bläddring och efter namn.
 
-Obs! Om ett e-postmeddelande är en del av ett e-postprogram som använder [A/B-testning](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) är det e-postmeddelandet inte tillgängligt för fråga med följande slutpunkter: [Hämta e-post med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Hämta e-post med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Hämta e-post](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Anropet anger att det lyckades, men det innehåller följande varning:&quot;Inga resurser hittades för de angivna sökvillkoren.&quot;
+Obs! Om ett e-postmeddelande är en del av ett e-postprogram som använder [A/B-testning](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/email-programs/email-program-actions/email-test-a-b-test/add-an-a-b-test) är det e-postmeddelandet inte tillgängligt för fråga med följande slutpunkter: [Hämta e-post med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByIdUsingGET), [Hämta e-post med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailByNameUsingGET), [Hämta e-post](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailUsingGET). Anropet anger att det lyckades, men det innehåller följande varning:&quot;Inga resurser hittades för de angivna sökvillkoren.&quot;
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/email/1351.json
 ```
 
@@ -86,7 +86,7 @@ GET /rest/asset/v1/email/1351.json
 
 Du kan t.ex. skicka en mapp som du bara vill söka i i den mappen.
 
-```
+```http
 GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Folder"}
 ```
 
@@ -151,9 +151,9 @@ GET /rest/asset/v1/email/byName.json?name=My Email&folder={"id":1056,"type"="Fol
 
 ### Bläddra
 
-Att bläddra bland mappar fungerar som andra Resurs-API:ts slutpunkter och tillåter valfri filtrering på `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` och `offset`. `status` är antingen Godkänd eller Utkast. `folder` är ett JSON-objekt som innehåller `id` och `type`. `maxReturn` är ett heltal som begränsar antalet resultat (standardvärdet är 20, maxvärdet är 200) och `offset` är ett heltal som kan användas med `maxReturn` för att läsa igenom stora resultatuppsättningar (standardvärdet är 0).
+Att bläddra bland mappar fungerar på samma sätt som andra Resurs-API:ts bläddringsslutpunkter och tillåter valfri filtrering på `status`, `folder`, `earliestUpdatedAt`/`latestUpdatedAt`, `maxReturn` och `offset`. `status` är antingen Godkänd eller Utkast. `folder` är ett JSON-objekt som innehåller `id` och `type`. `maxReturn` är ett heltal som begränsar antalet resultat (standardvärdet är 20, maxvärdet är 200) och `offset` är ett heltal som kan användas med `maxReturn` för att läsa igenom stora resultatuppsättningar (standardvärdet är 0).
 
-```
+```http
 GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 ```
 
@@ -220,7 +220,7 @@ GET /rest/asset/v1/emails.json?maxReturn=3&folder={"id":341,"type":"Folder"}
 
 Du kan [hämta tillgängliga redigerbara avsnitt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) för ett e-postmeddelande genom att fråga efter dess innehåll och eventuellt filtrera efter status för att hämta avsnitten för antingen Godkänd eller Utkast.
 
-```
+```http
 GET /rest/asset/v1/email/1356/content.json
 ```
 
@@ -255,7 +255,7 @@ Avsnitt kan returneras som om de har en typ av dynamicContent. Mer information f
 
 Du kan hämta de fält som är aktiverade för e-post-CC i målinstansen genom att anropa slutpunkten [Hämta e-post-CC-fält](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailCCFieldsUsingGET).
 
-```
+```http
 GET /rest/asset/v1/email/ccFields.json
 ```
 
@@ -286,17 +286,17 @@ GET /rest/asset/v1/email/ccFields.json
 
 [E-postmeddelanden skapas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/createEmailUsingPOST) baserat på en källmall och har en lista med redigerbara avsnitt som härleds från varje separat HTML-element i den mallen med klassen&quot;mktEditable&quot; och en unik id-egenskap. Om du skapar ett e-postmeddelande med API:t skapas en post som baseras på mallen tillsammans med eventuella ytterligare metadata som skickas. Följande parametrar krävs för ett lyckat Create Email-anrop: name, template, folder.
 
-Följande parametrar kan inte skapas: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. Om den tas bort kommer `subject` att vara tom, `fromName`, `fromEmail` och `replyEmail` kommer att anges till standardvärden för instanser och `operational` och `isOpenTrackingDisabled` kommer att vara false. `isOpenTrackingDisabled` Anger om pixeln för öppen spårning inkluderas i ett e-postmeddelande när den skickas.
+Följande parametrar kan inte skapas: `subject`, `fromName`, `fromEmail`, `replyEmail`, `operational`, `isOpenTrackingDisabled`. Om den tas bort kommer `subject` att vara tom, `fromName`, `fromEmail` och `replyEmail` kommer att anges till standardvärden för instanser och `operational` och `isOpenTrackingDisabled` kommer att vara false. `isOpenTrackingDisabled` avgör om pixeln för öppen spårning inkluderas i ett e-postmeddelande när den skickas.
 
-```
+```http
 POST /rest/asset/v1/emails.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&description=This is a test email&subject=Hey There&fromName=SomeBody&fromEmail=somebody@marketo.com&replyEmail=somebody@marketo.com
 ```
 
@@ -354,15 +354,15 @@ name=My New Email 02 - deverly&folder={"id":1017,"type":"Program"}&template=24&d
 
 [Uppdatering av en post](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST) kan göras av ID. Detta gör att du kan uppdatera beskrivningen eller namnet på e-postmeddelandet.
 
-```
+```http
 POST /rest/asset/v1/email/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an Email&name=Updated Email
 ```
 
@@ -422,15 +422,15 @@ description=This is an Email&name=Updated Email
 
 Innehållet för varje avsnitt i ett e-postmeddelande måste uppdateras individuellt, förutom ämnet fromName, fromEmail och replyEmail, som uppdateras med slutpunkten [Uppdatera e-postinnehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/updateEmailContentUsingPOST). När du använder den här slutpunkten kan dessa värden även anges till att använda dynamiskt innehåll i stället för statiskt innehåll. Varje parameter är ett JSON-objekt av typen/värde, där typen är antingen &quot;Text&quot; eller &quot;DynamicContent&quot; och värdet antingen är rätt textvärde eller det ID för segmenteringen som ska användas för det dynamiska innehållet. Data skickas som POST x-www-form-urlencoded, inte som JSON.  isOpenTrackingDisabled kan anges med Uppdatera e-postinnehåll
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 subject={"type":"Text","value":"Gettysburg Address"}&fromEmail={"type":"Text","value":"abe@testmail.com"}&fromName={"type":"Text","value":"Abe Lincoln"}&replyTO={"type":"Text","value":"replies@testmail.com"}
 ```
 
@@ -454,15 +454,15 @@ Om du anger att ett avsnitt ska använda dynamiskt innehåll, måste avsnitts-ID
 
 Redigerbara avsnitt uppdateras av de enskilda htmlIds-objekten. Endast ID:t för avsnitts e-post och htmlId krävs som sökvägsparametrar, medan typ, värde och textValue är valfria. Typen kan vara antingen Text, DynamicContent eller Snippet och påverkar det som skickas i värdet. Om typen är Text är värdet en sträng som innehåller HTML-innehållet i avsnittet. Om det är DynamicContent är det ett JSON-block, med tre medlemmar, type, som blir &quot;DynamicContent&quot;, segmentering, som är det id för segmenteringen som ska användas för innehållet, och default, som är en sträng som innehåller standardinnehållet för HTML i avsnittet. Den valfria parametern textValue är en sträng som innehåller textversionen av avsnittet. Data skickas som POST x-www-form-urlencoded, inte som JSON.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{htmlId}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 type=Text&value=<h1>Hello World!</h1>&textValue=Hello World!
 ```
 
@@ -484,7 +484,7 @@ Obs! Om automatisk kopiering till text är inaktiverat för ett utdrag som är i
 
 ## Moduler
 
-I e-postredigeraren 1.0 är en modul en del av e-postmeddelandet som definieras i mallen. Moduler kan innehålla valfri kombination av element, variabler och annat HTML-innehåll enligt beskrivningen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo erbjuder en uppsättning API:er för hantering av moduler i ett e-postmeddelande. För modulrelaterade slutpunkter som kräver HTTP POST-metoden formateras brödtexten som&quot;application/x-www-form-urlencoded&quot; (inte som JSON).
+I e-postredigeraren 1.0 är en modul en del av e-postmeddelandet som definieras i mallen. Moduler kan innehålla valfri kombination av element, variabler och annat HTML-innehåll enligt beskrivningen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Modules). Marketo erbjuder en uppsättning API:er för hantering av moduler i ett e-postmeddelande. För modulrelaterade slutpunkter som kräver HTTP POST-metoden formateras brödtexten som&quot;application/x-www-form-urlencoded&quot; (inte som JSON).
 
 De flesta modulrelaterade slutpunkter kräver ett moduleId som sökvägsparameter. Detta är en sträng som beskriver modulen. moduleIds returneras av [Get Email Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/getEmailContentByIdUsingGET) som htmlId-attribut (se [Query](#modules_query) nedan).
 
@@ -496,7 +496,7 @@ Om du vill arbeta med moduler måste du ange en moduleId-parameter som unikt ide
 
 I följande exempel efterfrågas ett 1.0-e-postmeddelande baserat på mallen Skeleton som finns i avsnittet Startmallar i mallväljarens användargränssnitt.
 
-```
+```http
 GET /rest/asset/v1/email/{moduleId}/content.json
 ```
 
@@ -724,19 +724,19 @@ Följande tabell innehåller en sammanfattning av moduleIds och deras motsvarand
 
 [Lägg till en modul](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/addModuleUsingPOST) i ett e-postmeddelande genom att välja någon av de befintliga modulerna i e-postmallen som används. Det gör du genom att ange e-post-id och moduleId som sökvägsparametrar. Indexfrågeparametern är obligatorisk och avgör ordningen på modulen i e-postmeddelandet. Om indexvärdet överskrider det största befintliga indexvärdet läggs modulen till i e-postmeddelandet.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/add.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 index=10
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -754,11 +754,11 @@ index=10
 
 [Ta bort en modul](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/deleteModuleUsingPOST) genom att ange e-post-ID och moduleId som sökvägsparametrar.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -776,11 +776,11 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/delete.json
 
 [Duplicera en modul](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/duplicateModuleUsingPOST) genom att ange e-post-ID och moduleId som sökvägsparametrar. Det här anropet duplicerar modulen, placerar den under den ursprungliga modulen och flyttar de andra modulerna nedåt.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 ```
 
-```
+```json
 {
     "success": true,
     "warnings": [ ],
@@ -798,19 +798,19 @@ POST /rest/asset/v1/email/{id}/content/{moduleId}/duplicate.json
 
 [Ordna om modulerna](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/rearrangeModulesUsingPOST)en matris som innehåller alla moduler och den önskade positionen i e-postmeddelandet för varje. Varje arrayelement innehåller ett JSON-objekt med följande format:  { &quot;index&quot;: &lt;_index_>, &quot;moduleId&quot;: &quot;&lt;_moduleId_>&quot; }, där &lt;_index_> är det nollbaserade modulordernumret och &lt;_module ID_> är moduleId.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/rearrange.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "title"}, {"index": 2, "moduleId": "mkvideo"}, {"index": 3, moduleId": "free-text"}, {"index": 4, "moduleId": "blankSpace"}, {"index": 5, "moduleId": "Separator"}, {"index": 6, "moduleId": "callToAction"}, {"index": 7, "moduleId": "blankSpace2"}, {"index": 8, "moduleId": "blankSpace3"} ]
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -828,19 +828,19 @@ positions=[ {"index": 0, "moduleId": "free-image"}, {"index": 1, "moduleId": "ti
 
 [Byt namn på en modul](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails/operation/renameUsingPOST) i ett e-postmeddelande genom att skicka det nya namnet via name-parametern. Ange e-post-ID och moduleId (befintligt namn) som sökvägsparametrar.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/content/{moduleId}/rename.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=MarketoVideo
 ```
 
-```
+```json
 {
     "success": true,
     "warnings":[ ],
@@ -856,7 +856,7 @@ name=MarketoVideo
 
 ## Variabler
 
-I e-postredigeraren 1.0 används variabler för att lagra värden för element i e-postmeddelandet. Varje variabel definieras genom att lägga till Marketo-specifik syntax i din HTML enligt beskrivningen [här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo erbjuder en uppsättning API:er för hantering av variabler i ett e-postmeddelande.
+I e-postredigeraren 1.0 används variabler för att lagra värden för element i e-postmeddelandet. Varje variabel definieras genom att lägga till Marketo-specifik syntax i din HTML enligt beskrivningen [här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/email-editor-2/email-template-syntax#EmailTemplateSyntax-Variables). Marketo erbjuder en uppsättning API:er för hantering av variabler i ett e-postmeddelande.
 
 ### Fråga
 
@@ -864,11 +864,11 @@ I e-postredigeraren 1.0 används variabler för att lagra värden för element i
 
 I följande exempel efterfrågas ett 1.0-e-postmeddelande baserat på mallen Skeleton som finns i avsnittet Startmallar i mallväljarens användargränssnitt.
 
-```
+```http
 GET /rest/asset/v1/email/{id}/variables.json
 ```
 
-```
+```json
 {
   "success": true,
   "warnings": [ ],
@@ -1084,19 +1084,19 @@ Variabler kan omfatta hela e-postmeddelandet eller lokalt till en viss modul. Va
 
 I följande exempel uppdaterar vi en global variabel med namnet &quot;hrBorderSize&quot; till värdet 1.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/variable/{name}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded; charset=utf-8
 ```
 
-```
+```text
 value=2
 ```
 
-```
+```json
 {
     "success":true,
     "warnings":[ ],
@@ -1114,15 +1114,15 @@ value=2
 
 I följande exempel uppdaterar vi en lokal variabel med namnet&quot;ctaLinkText&quot; till värdet&quot;Click this button!&quot; i moduleId&quot;CTA&quot;.
 
-```
+```http
 POST /rest/asset/v1/email/1032/variable/ctaLinkText.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 value=Click this button!&moduleId=CTA
 ```
 
@@ -1151,7 +1151,7 @@ E-postmeddelanden följer standardmönstret för godkännande av tillgångsposte
 
 När du anropar slutpunkten för godkännandet valideras e-postmeddelandet mot reglerna för Marketo-e-postmeddelanden. `from name`, `from email`, `reply to email` och `subject` måste fyllas i innan e-postmeddelandet kan godkännas.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/approveDraft.json
 ```
 
@@ -1173,7 +1173,7 @@ POST /rest/asset/v1/email/{id}/approveDraft.json
 
 Åtgärden `unapprove` kan bara utföras på godkända e-postmeddelanden.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/unapprove.json
 ```
 
@@ -1195,7 +1195,7 @@ POST /rest/asset/v1/email/{id}/unapprove.json
 
 E-postmeddelandet måste ha utkaststatus för att tas bort. Ett godkänt e-postmeddelande kan inte ignoreras.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/discardDraft.json
 ```
 
@@ -1215,7 +1215,7 @@ POST /rest/asset/v1/email/{id}/discardDraft.json
 
 #### Ta bort
 
-```
+```http
 POST /rest/asset/v1/email/{id}/delete.json
 ```
 
@@ -1237,15 +1237,15 @@ POST /rest/asset/v1/email/{id}/delete.json
 
 Marketo erbjuder en enkel metod för kloning av e-postmeddelanden. Den här typen av begäran görs med en application/x-www-url-urlencoded POST och har två obligatoriska parametrar, name och folder, ett inbäddat JSON-objekt med id och type. description är också en valfri parameter. Om det inte finns någon godkänd version klonas utkastversionen.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&description=This is a test of clone email
 ```
 
@@ -1301,15 +1301,15 @@ name=Clone of Social Sharing in Email&folder={"id":239,"type":"Folder"}&descript
 
 Du kan utlösa ett exempelmeddelande via api som ska skickas till frågeparametern emailAddress. Du kan också lägga till en leadId-parameter för att personifiera ett visst lead från databasen och en textOnly-parameter för att skicka endast textversionen av e-postmeddelandet.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/sendSample.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 emailAddress=abe@testmail.com&textOnly=true
 ```
 
@@ -1335,7 +1335,7 @@ Marketo tillhandahåller slutpunkten [Get Email Full Content](https://developer.
 - type: Accepterar &quot;Text&quot; eller &quot;HTML&quot; och standardvärdet är HTML
 - leadId:. Accepterar heltals-ID för en lead. Förhandsgranskar e-postmeddelandet som om det hade tagits emot av det valda leadet
 
-```
+```http
 GET /rest/asset/v1/email/{id}/fullContent.json
 ```
 
@@ -1361,11 +1361,11 @@ Marketo tillhandahåller slutpunkten [Uppdatera e-post med fullständigt innehå
 
 Den här slutpunkten förväntar sig en Content-Type: multipart/form-data med id-parametern i sökvägen, id:t för e-postmeddelandet och en parameter i brödtexten, innehåll som ett fullständigt HTML-e-postdokument med Content-Type&quot;text/html&quot;. Ett felformaterat HTML-dokument genererar en varning, men kanske inte tillåter godkännande, medan om JavaScript- och/eller `<script>`taggar inkluderas i dokumentet misslyckas anropet och ett fel genereras.
 
-```
+```http
 POST /rest/asset/v1/email/{id}/fullContent.json
 ```
 
-```
+```text
 content-type: multipart/form-data; boundary=--------------------------116301888604800085728247
 content-length: 599
 ```

@@ -3,9 +3,9 @@ title: E-postmallar
 feature: REST API
 description: Lär dig hur du skapar och hanterar e-postmallar för Marketo REST API, inklusive HTML-krav, frågar efter ID eller namn och bläddrar bland mappar
 exl-id: 0ecf4da6-eb7e-43c1-8d5c-0517c43b47c8
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '585'
+source-wordcount: '725'
 ht-degree: 0%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för e-postmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
 
-E-postmallar utgör grunden för varje nytt e-postmeddelande i Marketo.  E-postmeddelanden kan kopplas bort från mallar genom att HTML ersätter dem, men först måste e-postmeddelanden skapas med en mall som grund.  Mallar skapas som rena HTML-dokument i Marketo med metadata som namn och beskrivningar.  Det finns få begränsningar för innehåll, men mallens HTML måste vara giltigt och innehålla minst ett redigerbart avsnitt, vilket uppfyller kraven [som beskrivs här](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
+E-postmallar utgör grunden för varje nytt e-postmeddelande i Marketo.  E-postmeddelanden kan kopplas bort från mallar genom att HTML ersätter dem, men först måste e-postmeddelanden skapas med en mall som grund.  Mallar skapas som rena HTML-dokument i Marketo med metadata som namn och beskrivningar.  Det finns få begränsningar för innehåll, men mallens HTML måste vara giltigt och innehålla minst ett redigerbart avsnitt, vilket uppfyller kraven [som beskrivs här](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/email-marketing/general/functions-in-the-editor/add-editable-sections-to-email-templates-v1-0).
 
 ## Fråga
 
@@ -22,7 +22,7 @@ När du frågar efter e-postmallar används standardmönstret för resurser, vil
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/emailTemplate/{id}.json
 ```
 
@@ -52,7 +52,7 @@ GET /rest/asset/v1/emailTemplate/{id}.json
 
 #### Efter namn
 
-```
+```http
 GET /rest/asset/v1/emailTemplate/byName.json?name=Test Template
 ```
 
@@ -82,7 +82,7 @@ GET /rest/asset/v1/emailTemplate/byName.json?name=Test Template
 
 #### Bläddra
 
-```
+```http
 GET /rest/asset/v1/emailTemplates.json
 ```
 
@@ -196,11 +196,11 @@ Om du frågar efter själva posten returneras bara metadata om posten. Mer infor
 
 När du skapar en mall måste du ta med tre parametrar: namn, mapp, innehåll. En valfri beskrivningsparameter kan inkluderas.  HTML-dokumentet skickas i content-parametern, som också måste innehålla den vanliga filename-parametern som en del av Content-Disposition-huvudet.
 
-```
+```http
 POST /rest/asset/v1/emailTemplates.json
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=mktoBoundary1480963323998
 ```
 
@@ -259,11 +259,11 @@ Create email template using API
 
 Innehållet uppdateras med en [separat slutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateContentUsingPOST) som kräver e-postmallens ID. Den här slutpunkten tillåter bara att innehållsparametern skickas i brödtexten. När en uppdatering görs kommer det som skickas i innehållsparametern att helt ersätta det befintliga innehållet i e-postmeddelandet i ett nytt utkast om en godkänd version uppdateras, eller ersätta det aktuella utkastet om resursen är i ett utkastläge.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/content.json
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=mktoBoundaryEiJFFFPFKK2WovsT
 ```
 
@@ -301,15 +301,15 @@ Content-Type: text/html
 
 Om du vill [uppdatera en malls metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/updateEmailTemplateUsingPOST), namn och beskrivning, kan du använda samma slutpunkt som när du uppdaterar innehåll, men skicka ett program/x-www-url-formencoded POST i stället, med parametrarna name och description.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=Updated description&name=New Name
 ```
 
@@ -345,7 +345,7 @@ E-postmallar följer standardmönstret för godkännande av tillgångsposter. Du
 
 När du anropar slutpunkten för godkännandet valideras e-postmeddelandet mot reglerna för Marketo-e-postmeddelanden. Formulärnamnet, från e-post, svar till e-post och ämnet måste fyllas i innan e-postmeddelandet kan godkännas.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 ```
 
@@ -377,7 +377,7 @@ POST /rest/asset/v1/emailTemplate/{id}/approveDraft.json
 
 Den ogodkända slutpunkten kan bara användas för godkända mallar.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/unapprove.json
 ```
 
@@ -409,7 +409,7 @@ POST /rest/asset/v1/emailTemplate/{id}/unapprove.json
 
 Utkastversionen av mallen skapas när ett godkänt e-postmeddelande uppdateras.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 ```
 
@@ -439,7 +439,7 @@ POST /rest/asset/v1/emailTemplate/{id}/discardDraft.json
 
 ### Ta bort
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/delete.json
 ```
 
@@ -461,15 +461,15 @@ POST /rest/asset/v1/emailTemplate/{id}/delete.json
 
 Marketo tillhandahåller en enkel metod för att [klona en e-postmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates/operation/cloneTemplateUsingPOST). Till skillnad från när du skapar programmet görs den här typen av begäran med POST-metoden application/x-www-url-formencoded och har två obligatoriska parametrar, namn och mapp, ett inbäddat JSON-objekt med id och typ.  Beskrivning är också en valfri parameter.
 
-```
+```http
 POST /rest/asset/v1/emailTemplate/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Sample Template 01 - deverly&folder={"id":12,"type":"Folder"}&description=This is a sample template
 ```
 
@@ -505,7 +505,7 @@ Använd slutpunkten [Hämta e-postmall som används av](https://developer.adobe.
 
 Det finns två valfria parametrar. `maxReturn`  är ett heltal som begränsar antalet resultat (standardvärdet är 20, maxvärdet är 200) och `offset` är ett heltal som kan användas med `maxReturn` för att läsa igenom stora resultatuppsättningar (standardvärdet är 0).
 
-```
+```http
 GET /rest/asset/v1/emailTemplates/{id}/usedBy.json
 ```
 

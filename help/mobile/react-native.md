@@ -3,9 +3,9 @@ title: React Native
 feature: Mobile Marketing
 description: Installera och konfigurera Marketo SDK i React Native-appar med Android Gradle och iOS CocoaPods, inbyggda modulöverbryggning, push och lead-associationer.
 exl-id: 462fd32e-91f1-4582-93f2-9efe4d4761ff
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '830'
+source-wordcount: '854'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 ## Förutsättningar
 
-[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
+[Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID).
 
 ## SDK Integration
 
@@ -26,7 +26,7 @@ Den här artikeln innehåller information om hur du installerar och konfigurerar
 
 Lägg till Marketo SDK-beroendet med den senaste versionen: Lägg till (inklusive lämplig version av Marketo SDK) i filen på programnivå `build.gradle` under avsnittet Beroenden
 
-```
+```groovy
 implementation 'com.marketo:MarketoSDK:0.x.x'
 ```
 
@@ -34,7 +34,7 @@ implementation 'com.marketo:MarketoSDK:0.x.x'
 
 Marketo SDK finns på [maven central databas](https://mvnrepository.com/). Om du vill synkronisera dessa filer lägger du till databasen `mavencentral` i roten `build.gradle`
 
-```
+```groovy
 build script {
   repositories {
     google()
@@ -91,7 +91,7 @@ React Native bridge används för kommunikation mellan JSX-lagren och inbyggda a
 
 Den här filen innehåller wrapper-metoder som kan anropa Marketo SDK-metoder internt med parametrar som du anger.
 
-```
+```java
 public class RNMarketoModule extends ReactContextBaseJavaModule {
 
    final Marketo marketoSdk;
@@ -179,7 +179,7 @@ public class RNMarketoModule extends ReactContextBaseJavaModule {
 
 Låt respondenterna få veta om Marketo-paketet.
 
-```
+```java
 public class MarketoPluginPackage implements ReactPackage {
 
    @NonNull
@@ -202,7 +202,7 @@ public class MarketoPluginPackage implements ReactPackage {
 
 Slutför paketregistreringen genom att lägga till MarketoPluginPackage i listan React-paket i programklassen:
 
-```
+```java
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -231,7 +231,7 @@ Kom igång genom att öppna iOS-projektet i ditt React Native-program i Xcode. D
 
 Skapa vår huvudrubrik och implementeringsfiler för den egna modulen. Skapa en ny fil med namnet `MktoBridge.h` och lägg till följande i den:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //
@@ -252,7 +252,7 @@ NS_ASSUME_NONNULL_END
 
 Skapa motsvarande implementeringsfil, `MktoBridge.m`, i samma mapp och inkludera följande innehåll:
 
-```
+```objectivec
 //
 //  MktoBridge.h
 //  Created by Marketo, An Adobe company.
@@ -364,7 +364,7 @@ RCT_EXPORT_METHOD(registerForRemoteNotifications) {
 
 Hitta en plats i programmet där du vill lägga till ett anrop till den inbyggda modulens createCalendarEvent()-metod. Nedan visas ett exempel på en komponent, NewModuleButton, som du kan lägga till i din app. Du kan anropa den inbyggda modulen inuti funktionen onPress() i NewModuleButton.
 
-```
+```javascript
 import React from 'react';
 import { NativeModules, Button } from 'react-native';
 
@@ -391,11 +391,11 @@ import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 ```
 
-När ovanstående filer har placerats korrekt kan vi importera js-modulen i alla js-klasser och anropa dess metoder direkt. Exempel:
+När ovanstående filer har placerats korrekt kan vi importera js-modulen i alla js-klasser och anropa dess metoder direkt. Till exempel:
 
 Observera att vi måste skicka&quot;responseNative&quot; som ramverkstyp för React Native-program.
 
-```
+```javascript
 // Initialize marketo SDK with Munchkin & Seretkey you have from step 1.
 RNMarketoModule.initializeSDK("MunchkinID","SecreteKEY","FrameworkType")
 
@@ -419,7 +419,7 @@ RNMarketoModule.uninitializeMarketoPush()
 
 Initiera push med projekt-ID och kanalnamn
 
-```
+```javascript
 RNMarketoModule.initializeMarketoPush("ProjectId", "Channel_name")
 ```
 
@@ -467,7 +467,7 @@ Om du vill skicka push-meddelanden [lägger du till push-meddelanden](push-notif
 Konfigurera push-meddelanden för iOS,
 skapa filen PushNotifications.tsx och lägg till följande:
 
-```
+```javascript
 import { NativeModules } from 'react-native';
 const { RNMarketoModule } = NativeModules;
 
@@ -492,7 +492,7 @@ export { requestPermission, registerForRemoteNotifications };
 
 Lägg till `App.tsx` om du vill tillåta push-meddelanden
 
-```
+```javascript
 import React, { useEffect } from 'react';
 
 useEffect(() => {
@@ -506,7 +506,7 @@ registerForRemoteNotifications();
 
 Uppdatera `AppDelegate.mm` med APNS-delegeringsmetoder:
 
-```
+```objectivec
 #import "AppDelegate.h"
 #import "MktoBridge.h"
 #import <MarketoFramework/Marketo.h>
@@ -596,7 +596,7 @@ Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 **iOS - Hantera anpassad URL-typ/anpassade URL-länkar i AppDelegate**
 
-```
+```objectivec
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options{
@@ -609,7 +609,7 @@ Lägg till MarketoActivity i filen `AndroidManifest.xml` inuti programtaggen.
 
 Dessa konstanter används vid anrop av API från javascript. Du måste skapa konstanta filer och lägga till följande.
 
-```
+```objectivec
 // Lead attributes.
 static NSString *const KEY_FIRST_NAME = @"firstName";
 static NSString *const KEY_LAST_NAME = @"lastName";
@@ -641,7 +641,7 @@ static NSString *const KEY_TIMESTAMP = @"timeStamp";
 
 Exempel på användning
 
-```
+```javascript
 //You can create a Marketo Lead by calling the associateLead function.
 RNMarketoModule.associateLead({ email: "", firstName: "", lastName:"", city:""})
 ```

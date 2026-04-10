@@ -3,9 +3,9 @@ title: Filer
 feature: REST API
 description: Guide till Marketo REST API-filer fråga efter ID eller namn, bläddra med mapp och förskjutning, skapa eller uppdatera via multipart-överföring, insertOnly, MIME-typer, ingen direktuppspelning
 exl-id: 17361cdc-2309-442c-803c-34ce187aee1a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '289'
+source-wordcount: '347'
 ht-degree: 0%
 
 ---
@@ -22,7 +22,7 @@ Det är enkelt att fråga efter filer och standardfrågetyperna för resurserna 
 
 ### Efter ID
 
-```
+```http
 GET /rest/asset/v1/file/{id}.json
 ```
 
@@ -55,7 +55,7 @@ GET /rest/asset/v1/file/{id}.json
 
 Ange namnet på filen med den obligatoriska parametern `name`.
 
-```
+```http
 GET /rest/asset/v1/file/byName.json?name=foo.png
 ```
 
@@ -93,7 +93,7 @@ Det finns tre valfria parametrar:
 - offset - heltal som anger var poster ska hämtas (standardvärdet är 0); kan användas med parametern maxReturn
 - maxReturn - heltal som anger det maximala antalet poster som ska returneras (standard är 20, maximalt är 200)
 
-```
+```http
 GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 ```
 
@@ -157,11 +157,11 @@ GET /rest/asset/v1/files.json?folder={"id":436, "type": "Folder"}&maxReturn=3
 
 [Skapandet av en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/Files/operation/createFileUsingPOST) görs med en begäran av typen multipart/form-data. Som ett minimum krävs namnet, mappen och filen i begäran, med en valfri beskrivning och en insertOnly-flagga, vilket förhindrar att ett anrop till create uppdaterar en befintlig fil med samma namn. För filparametern krävs ett filnamn i Content-Disposition-huvudet, förutom name-parametern. Du måste också skicka en Content-Type-rubrik för filen, som är den MIME-typ som Marketo ska använda för att hantera filen med.
 
-```
+```http
 POST /rest/asset/v1/files.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html
@@ -210,11 +210,11 @@ This is a test file
 
 [Det går att uppdatera en fil](https://developer.adobe.com/marketo-apis/api/asset/#tag/File-Contents/operation/updateContentUsingPOST) baserat på dess ID. Den enda parametern är en filparameter som har samma krav som när filen skapas.
 
-```
+```http
 POST /rest/asset/v1/file/{id}/content.json
 ```
 
-```
+```html
 ------WebKitFormBoundary2VyWOacQSupl4gUL
 Content-Disposition: form-data; name="file"; filename="marketo.html"
 Content-Type: text/html

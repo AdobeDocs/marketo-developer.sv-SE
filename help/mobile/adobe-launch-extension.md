@@ -3,9 +3,9 @@ title: Marketo Mobile Extension för  [!DNL Adobe Launch]
 feature: Mobile Marketing
 description: Installera och konfigurera tillägget Marketo Mobile SDK i Adobe Launch för iOS och Android, inklusive inställningar för push-meddelanden och meddelanden i appen.
 exl-id: 2f8691ff-0442-45a5-aeba-c91c3af5c711
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '287'
+source-wordcount: '305'
 ht-degree: 0%
 
 ---
@@ -16,7 +16,7 @@ Installationsanvisningar för tillägget Marketo Mobile SDK i [!DNL Adobe Launch
 
 ## Förutsättningar
 
-- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+- [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 - Följ anvisningarna i [!DNL Adobe Launch]-portalen för installation
 - [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
@@ -61,7 +61,7 @@ Följ instruktionerna [här](push-notifications.md) och använd klassnamnet ALMa
 
 Om du använder ProGuard för din app lägger du till följande rader i din `proguard.cfg`-fil. Filen finns i projektmappen. Om du lägger till den här koden utesluts Marketo SDK från den komplicerade processen.
 
-```
+```text
 -dontwarn com.marketo.*
 -dontnote com.marketo.*
 -keep class com.marketo.**{ *; }

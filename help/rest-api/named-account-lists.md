@@ -3,7 +3,7 @@ title: Namngivna kontolistor
 feature: REST API
 description: Lär dig hur du hanterar Marketo Named Account Lists med REST API, inklusive behörigheter, fält, filtrering och slutpunkter för att fråga, skapa, uppdatera och ta bort.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 0%
@@ -14,7 +14,7 @@ ht-degree: 0%
 
 [Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter
@@ -38,7 +38,7 @@ Namngivna kontolistor har ett begränsat antal standardfält och kan inte utöka
 
 Det är enkelt och enkelt att fråga kontolistor. För närvarande finns det bara två giltiga filterTypes för att fråga efter namngivna kontolistor: dedupliceringsfält och idField. Fältet som ska filtreras anges i parametern `filterType` i frågan och värdena anges i `filterValues as` en kommaavgränsad lista. Filtren `nextPageToken` och `batchSize` är också valfria parametrar.
 
-```
+```http
 GET /rest/v1/namedAccountLists.json?filterType=idField&filterValues=dff23271-f996-47d7-984f-f2676861b5fb,dff23271-f996-47d7-984f-f2676861b5fc
 ```
 
@@ -77,7 +77,7 @@ Slutpunkten tillåter de två standardåtgärdstyperna: &quot;createOnly&quot; o
 
 Den valfria `dedupeBy parameter` kan anges om åtgärden är `updateOnly`.  Tillåtna värden är &quot;deduplicpeFields&quot; (motsvarar &quot;name&quot;) eller &quot;idField&quot; (motsvarar &quot;marketoGUID&quot;).  I `createOnly`-lägen tillåts bara &quot;name&quot; som `dedupeBy`-fält. Du kan skicka upp till 300 poster åt gången.
 
-```
+```http
 POST /rest/v1/namedAccountLists.json
 ```
 
@@ -119,7 +119,7 @@ POST /rest/v1/namedAccountLists.json
 
 Det är enkelt att ta bort listor med namngivna konton. Du kan göra det utifrån antingen `name` eller `marketoGUID` i listan. Om du vill välja den nyckel du vill använda skickar du antingen &quot;dedupeFields&quot; för namn eller &quot;idField&quot; för marketoGUID i `deleteB`-medlemmen i din begäran. Om den tas bort används dedupliceringsfält som standard. Du kan ta bort upp till 300 poster åt gången.
 
-```
+```http
 POST /rest/v1/namedAccountLists/delete.json
 ```
 
@@ -183,7 +183,7 @@ Det är enkelt att fråga om medlemskap i en lista med namngivna konton, vilket 
 
 Om `field` inte anges returneras `marketoGUI`,`nam`, `createdA` och `updatedA`. `batchSiz` har ett högsta och standardvärde på 300.
 
-```
+```http
 GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -214,7 +214,7 @@ GET /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Namngivna konton kan enkelt läggas till i en lista över namngivna konton. Konton kan bara läggas till med hjälp av deras marketoGUID. Du kan lägga till upp till 300 poster åt gången.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 ```
 
@@ -254,7 +254,7 @@ POST /rest/v1/namedAccountList/{id}/namedAccounts.json
 
 Borttagning av poster från en kontolista har en annan sökväg, men samma gränssnitt, som kräver `marketoGUI` för varje post som du vill ta bort. Du kan ta bort upp till 300 poster åt gången.
 
-```
+```http
 POST /rest/v1/namedAccountList/{id}/namedAccounts/remove.json
 ```
 

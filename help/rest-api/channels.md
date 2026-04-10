@@ -3,10 +3,10 @@ title: Kanaler
 feature: REST API
 description: Lär dig hur du frågar efter Marketo-kanaler via Asset REST API, bläddrar med sidnumrering eller hämtar efter namn, visar förloppsstatus och förstår regler för programtyper.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '144'
-ht-degree: 0%
+source-wordcount: '151'
+ht-degree: 1%
 
 ---
 
@@ -22,7 +22,7 @@ Kanaler kan frågas som standardresurser, men har ingen slutpunkt för att hämt
 
 ### Bläddra
 
-```
+```http
 GET /rest/asset/v1/channels.json?offset=10
 ```
 
@@ -120,7 +120,7 @@ GET /rest/asset/v1/channels.json?offset=10
 
 ### Efter namn
 
-```
+```http
 GET /rest/asset/v1/channel/byName.json?name=Online Advertising
 ```
 

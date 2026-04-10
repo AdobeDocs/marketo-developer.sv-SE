@@ -3,16 +3,16 @@ title: Program
 feature: REST API, Programs
 description: Marketo Programs guide for the Asset REST API som omfattar typer, kanaler, taggar, medlemsstatus och slutpunkter för att komma via ID eller namn, bläddra och filtrera efter status.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '870'
+source-wordcount: '979'
 ht-degree: 0%
 
 ---
 
 # Program
 
-[Programslutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+[Referens för programslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
 
 Program är en viktig del i organisationen av Marketo marknadsföringsaktiviteter. De kan vara överordnade till de flesta typer av resurser och göra det möjligt att spåra medlemskap och framgångar för leads inom ramen för enskilda marknadsföringsinitiativ. Program kan vara överordnade alla typer av poster förutom LP, E-postmallar och Filer.
 
@@ -40,7 +40,7 @@ Slutpunkten [Get Program by Id](https://developer.adobe.com/marketo-apis/api/ass
 
 Program-ID kan hämtas från URL:en för programmet i användargränssnittet, där URL:en liknar `https://app-\*\*\*.marketo.com/#PG1001A1`. I denna URL är `id` 1001. Den kommer alltid att vara mellan den första teckenuppsättningen i URL:en och den andra teckenuppsättningen.
 
-```
+```http
 GET /rest/asset/v1/program/{id}.json
 ```
 
@@ -84,7 +84,7 @@ GET /rest/asset/v1/program/{id}.json
 
 Slutpunkten [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset/) kräver en `name`-frågeparameter. Valfria booleska frågeparametrar är `includeTags` och `includeCosts` som används för att returnera programtaggar respektive programkostnader.
 
-```
+```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 ```
 
@@ -134,7 +134,7 @@ Den valfria parametern `maxReturn` styr antalet program som ska returneras (hög
 
 Observera att taggar som är kopplade till ett program inte returneras av den här slutpunkten. Programtaggar kan hämtas med [Hämta program med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) eller [Hämta program med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
 
-```
+```http
 GET /rest/asset/v1/programs.json
 ```
 
@@ -189,7 +189,7 @@ GET /rest/asset/v1/programs.json
 
 Parametrarna `earliestUpdatedAt` och `latestUpdatedAt` i slutpunkten för [Get Programs](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) gör att du kan ange vattenstämplar för låg och hög datetime för att returnera program som antingen uppdaterats eller ursprungligen skapats inom det angivna intervallet.
 
-```
+```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
 ```
 
@@ -282,7 +282,7 @@ Slutpunkten [Hämta program efter tagg](https://developer.adobe.com/marketo-apis
 
 Det finns två obligatoriska parametrar, `tagType`, som är den typ av tagg som ska filtreras och `tagValue` som är det taggvärde som ska filtreras.  Det finns en valfri heltalsparameter `maxReturn` som styr antalet program som ska returneras (högst 200, standardvärdet är 20) och en valfri heltalsparameter `offset` som används för sidindelningsresultat (standardvärdet är 0).  Resultaten returneras i slumpmässig ordning.
 
-```
+```http
 GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 ```
 
@@ -329,15 +329,15 @@ När du skapar eller uppdaterar ett e-postprogram kan ett `startDate` och `endDa
 
 ### Skapa
 
-```
+```http
 POST /rest/asset/v1/programs.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API Program&type=Default&channel=Email Blast&costs=[{"startDate":"2015-01-01","cost":2000}]
 ```
 
@@ -377,19 +377,19 @@ name=API Test Program&folder={"id":1035,"type":"Folder"}&description=Sample API 
 }
 ```
 
-### Uppdatering
+### Uppdatera
 
 När du uppdaterar programkostnader lägger du bara till dem i `costs`-arrayen för att lägga till nya kostnader. Om du vill utföra en förstörande uppdatering skickar du de nya kostnaderna tillsammans med parametern `costsDestructiveUpdate` inställd på `true`. Om du vill rensa alla kostnader från ett program skickar du inte någon `costs`-parameter och skickar bara `costsDestructiveUpdate` som angetts till `true`.
 
-```
+```http
 POST /rest/asset/v1/program/{id}.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 description=This is an updated description&name=Updated Program Name&costs=[{"startDate":"2016-01-01","cost":200,"note":"Google Adwords"}]
 ```
 
@@ -445,7 +445,7 @@ E-postprogram kan fjärrgodkännas eller inte godkännas, vilket gör att progra
 
 ### Godkänn
 
-```
+```http
 POST /rest/asset/v1/program/{id}/approve.json
 ```
 
@@ -465,7 +465,7 @@ POST /rest/asset/v1/program/{id}/approve.json
 
 ### Ogodkänd
 
-```
+```http
 POST /rest/asset/v1/program/{id}/unapprove.json
 ```
 
@@ -489,15 +489,15 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 Program som innehåller vissa typer av resurser kan inte klonas via detta API, bland annat push-meddelanden, meddelanden i appen, rapporter och sociala Assets. Program i appen kan inte klonas via denna API.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/clone.json
 ```
 
-```
+```text
 Content-Type: application/x-www-form-urlencoded
 ```
 
-```
+```text
 name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Description
 ```
 
@@ -536,7 +536,7 @@ name=Cloned Program - PHP&folder={"id":5562,"type":"Folder"}&description=Descrip
 
 När du tar bort program används standardmönstret för borttagning av resurser.
 
-```
+```http
 POST /rest/asset/v1/program/{id}/delete.json
 ```
 

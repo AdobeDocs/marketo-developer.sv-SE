@@ -3,7 +3,7 @@ title: Extrahera anpassat objekt gruppvis
 feature: REST API, Custom Objects
 description: Guide till Marketo Bulk Custom Object Extract REST API:er för export av länkade anpassade objekt med updateAt- och listfilter, markerade fält och..
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '1473'
 ht-degree: 0%
@@ -16,7 +16,7 @@ ht-degree: 0%
 
 Uppsättningen REST API:er för Bulk Custom Object Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar anpassade objektposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
-Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Behörigheter
 
@@ -68,7 +68,7 @@ Anpassade objektfält
 
 Vi kan anropa [Beskriv anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) för att programmässigt kontrollera de anpassade objektattribut som visas i attributet `fields` i svaret.
 
-```
+```http
 GET /rest/v1/customobjects/car_c/describe.json
 ```
 
@@ -178,7 +178,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 
 Skapa flera anpassade objektposter och länka vart och ett till ett annat lead med slutpunkten [Synkronisera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) . En lead kan länkas till många anpassade objektposter. Detta kallas en &quot;en till många&quot;-relation.
 
-```
+```http
 POST /rest/v1/customobjects/car_c.json
 ```
 
@@ -237,7 +237,7 @@ POST /rest/v1/customobjects/car_c.json
 
 Var och en av de tre leads som det hänvisas till ovan tillhör en statisk lista med namnet&quot;Bil-köpare&quot; vars `id` är 1081, vilket visas nedan genom att anropa slutpunkten för [Hämta leads efter lista-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1) .
 
-```
+```http
 GET /rest/v1/lists/1081/leads.json
 ```
 
@@ -276,7 +276,7 @@ GET /rest/v1/lists/1081/leads.json
 
 Nu ska vi skapa ett exportjobb för att hämta posterna. Med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) anger vi anpassade objektattribut i parametern `fields` och ett statiskt list-ID i parametern `filter`.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/create.json
 ```
 
@@ -312,7 +312,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 
 Detta returnerar en status i svaret som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Om du vill göra det måste slutpunkten [Återställ anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) anropas med `apiName` och `exportId` från statussvaret för skapandet.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
 ```
 
@@ -340,7 +340,7 @@ Status kan bara hämtas för jobb som har skapats av samma API-användare.
 
 Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Avsök med slutpunkten [Hämta status för anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört eller Misslyckat.
 
-```
+```http
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
 ```
 
@@ -390,7 +390,7 @@ Om du vill hämta filen för en slutförd anpassad objektexport anropar du [Get 
 
 Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll. Om ett begärt anpassat objektattribut är tomt (innehåller inga data) placeras `null` i motsvarande fält i exportfilen.
 
-```
+```http
 GET /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/file.json
 ```
 
@@ -407,7 +407,7 @@ Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extrah
 
 Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST) . Detta svarar med en `status` som anger att jobbet har avbrutits.
 
-```
+```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json
 ```
 

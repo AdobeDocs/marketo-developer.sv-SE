@@ -3,7 +3,7 @@ title: E-post
 feature: REST API
 description: Använd Marketo Asset REST API för att fråga efter, skapa, uppdatera, klona, ta bort, godkänna och inspektera beroenden för e-postresurser.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: 0e0a3e5a08e81f349044cbc327d1aba963ab30e4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 0%
@@ -38,7 +38,7 @@ Du kan hämta e-postmetadata per resurs `id` eller med filterslutpunkten.
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/email/{id}
 ```
 
@@ -95,7 +95,7 @@ Frågeparametrar som stöds:
 
 #### Begäran
 
-```text
+```http
 GET /rest/asset/v2/email/filter?workspaceId=1001&name=Spring%20Launch&status=draft&status=approved&pageIndex=0&pageSize=20
 ```
 
@@ -125,7 +125,7 @@ Skapa ett e-postmeddelande genom att skicka en JSON-nyttolast. `name`, `appData`
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email
 Content-Type: application/json
 ```
@@ -192,7 +192,7 @@ Uppdatera ett e-postmeddelande efter resurs-ID. Begärandetexten använder `Upda
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/update
 Content-Type: application/json
 ```
@@ -240,7 +240,7 @@ Giltiga `action`-värden är:
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email/state/transition
 Content-Type: application/json
 ```
@@ -260,7 +260,7 @@ Använd klonslutpunkten för att skapa en kopia av ett befintligt e-postmeddelan
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email/clone
 Content-Type: application/json
 ```
@@ -283,7 +283,7 @@ Ta bort ett e-postmeddelande efter resurs-ID.
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email/{id}/delete
 Content-Type: application/json
 ```
@@ -296,7 +296,7 @@ Använd slutpunkten `usedby` för att hämta resurser som refererar till ett vis
 
 ### Begäran
 
-```text
+```http
 POST /rest/asset/v2/email/usedby
 Content-Type: application/json
 ```

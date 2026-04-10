@@ -3,26 +3,26 @@ title: Företag
 feature: REST API
 description: Använd Marketo Companies REST API för att beskriva, fråga efter och synkronisera företagsposter, hantera fält och ta bort av externalCompanyId och för att anteckna i CRM-synkronisering som skrivskyddad.
 exl-id: 80e514a2-1c86-46a7-82bc-e4db702189b0
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '582'
+source-wordcount: '676'
 ht-degree: 0%
 
 ---
 
 # Företag
 
-[Företagets slutpunktsreferens](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
+[Slutpunktsreferens för företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies)
 
 Företagen representerar den organisation som lead-posterna tillhör. Leads läggs till i ett företag genom att fylla i motsvarande `externalCompanyId`-fält med hjälp av [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST) eller [Importera massleads](bulk-lead-import.md) . När en lead har lagts till i ett företag kan du inte ta bort den från det företaget (om du inte lägger till den i ett annat företag). Leads som är länkade till en företagspost ärver värdena direkt från en företagspost som om värdena fanns på leadets egen post.
 
-Företags-API:er är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=sv-SE) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=sv-SE) aktiverat.
+Företags-API:er är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiverat.
 
 ## Beskriv
 
 Genom att beskriva företagsobjektet får du all information du behöver interagera med dem.
 
-```
+```http
 GET /rest/v1/companies/describe.json
 ```
 
@@ -109,7 +109,7 @@ Om parametern fields utelämnas returneras följande standarduppsättning med f�
 - updatedAt
 - createdAt
 
-```
+```http
 GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 ```
 
@@ -138,11 +138,11 @@ GET /rest/v1/companies.json?filterType=id&filterValues=3433,5345
 
 Slutpunkten [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) accepterar den obligatoriska parametern `input` som innehåller en array med företagsobjekt. Precis som möjligheter finns det tre lägen för att skapa och uppdatera företag: createOnly, updateOnly och createOrUpdate.  Lägen anges i parametern `action` i begäran. Både parametern `dedupeBy` och parametern `action` är valfria, och som standard används lägena dedupeFields och createOrUpdate.
 
-```
+```http
 POST /rest/v1/companies.json
 ```
 
-```
+```text
 Content-Type: application/json
 ```
 
@@ -196,7 +196,7 @@ Att fråga efter företagsfält är enkelt. Du kan fråga ett enskilt företagsf
 
 Slutpunkten [Hämta företagsfält efter namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldByNameUsingGET) hämtar metadata för ett enskilt fält i företagsobjektet. Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn. Svaret liknar slutpunkten för Beskriv företag men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
 
-```
+```http
 GET /rest/v1/companies/schema/fields/industry.json
 ```
 
@@ -225,7 +225,7 @@ GET /rest/v1/companies/schema/fields/industry.json
 
 Slutpunkten [Hämta företagsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/getCompanyFieldsUsingGET) hämtar metadata för alla fält i företagsobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
-```
+```http
 GET /rest/v1/companies/schema/fields.json?batchSize=5
 ```
 
@@ -303,11 +303,11 @@ GET /rest/v1/companies/schema/fields.json?batchSize=5
 
 Borttagningsvillkoren anges i arrayen `input` som innehåller en lista med sökvärden.  Borttagningsmetoden har angetts i parametern `deleteBy`.  Tillåtna värden är: dedupliceringsfält, idField.  Standard är dedupliceringsfält.
 
-```
+```text
 Content-Type: application/json
 ```
 
-```
+```http
 POST /rest/v1/companies/delete.json
 ```
 

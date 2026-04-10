@@ -3,9 +3,9 @@ title: Import av satsprogrammedlem
 feature: REST API
 description: Lär dig hur du importerar flera programmedlemmar samtidigt via Marketo REST API med CSV TSV- eller SSV-filer under 10 MB, kögränser, obligatoriska parametrar och avsökningsjobbstatus.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
-source-wordcount: '860'
+source-wordcount: '962'
 ht-degree: 0%
 
 ---
@@ -26,7 +26,7 @@ Den första raden i filen måste vara en rubrik som listar motsvarande REST API-
 
 En vanlig fil skulle följa detta grundläggande mönster:
 
-```
+```text
 email,firstName,lastName
 test@example.com,John,Doe
 ```
@@ -43,17 +43,17 @@ Sökvägsparametern `programId` anger programmet som medlemmarna läggs till i.
 
 Det finns tre obligatoriska frågeparametrar. Parametern `format` anger importfilformatet (CSV, TSV eller SSV), parametern `programMemberStatus` anger programstatusen för medlemmarna som läggs till i programmet och parametern `file` innehåller namnet på importfilen som innehåller programmedlemsposter.
 
-```
+```http
 POST /bulk/v1/program/{programId}/members/import.json?format=csv&programMemberStatus=On List
 ```
 
-```
+```text
 Content-Type: multipart/form-data; boundary=--------------------------118046853683028616211319
 Content-Length: 772
 Host: <munchkinId>.mktorest.com
 ```
 
-```
+```text
 ----------------------------118046853683028616211319
 Content-Disposition: form-data; name="file"; filename="Lead-House-Lannister.csv"
 Content-Type: text/csv
@@ -95,7 +95,7 @@ curl -i -F format='csv' -F programMemberStatus='On List' -F file='@Lead-House-La
 
 Om importfilen &quot;Lead-House-Lannister.csv&quot; innehåller följande:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Joanna,Lannister,Joanna@Lannister.com,Lannister,House Lannister,0
 Tywin,Lannister,Tywin@Lannister.com,Lannister,House Lannister,0
@@ -111,7 +111,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka sökvägsparametern `batchId` till slutpunkten för [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) .
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -143,7 +143,7 @@ Fel indikeras av attributet `numOfRowsFailed` i svaret [Get Import Program Membe
 
 Använd slutpunkten Get Import Program Member Failures för att hämta poster och orsaker till felaktiga rader genom att skicka sökvägsparametern `batchId`.
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
@@ -151,14 +151,14 @@ Slutpunkten svarar med en fil som anger vilka rader som misslyckades, tillsamman
 
 Anta till exempel att du importerar följande fil med ett ogiltigt lead-poäng:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD
 ```
 
 När du kontrollerar jobbstatusen visas `numOfRowsFailed` som ett tecken på att ett fel uppstod:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -182,11 +182,11 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 Hämta sedan felfilen för mer information om felet:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/failures.json
 ```
 
-```
+```text
 firstName,lastName,email,title,company,leadScore,Import Failure Reason
 Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTEGER_FIELD,Invalid data type in field Lead Score
 ```
@@ -197,7 +197,7 @@ Varningar indikeras av attributet `numOfRowsWithWarning` i svaret [Get Import Pr
 
 Använd slutpunkten [Hämta varningsmeddelanden för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) om du vill hämta poster och orsaker till varningsrader genom att skicka sökvägsparametern `batchId`.
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
@@ -205,14 +205,14 @@ Slutpunkten svarar med en fil som anger vilka rader som genererade varningar, ti
 
 Anta att du importerar följande fil med en ogiltig e-postadress:
 
-```
+```text
 firstName,lastName,email,title,company,leadScore
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0
 ```
 
 När du kontrollerar jobbstatusen visas `numOfRowsWithWarning` som ett tecken på att en varning har inträffat:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
 ```
 
@@ -236,11 +236,11 @@ GET /bulk/v1/program/members/import/{batchId}/status.json
 
 Du kan sedan hämta varningsfilen om du vill ha mer information om varningen:
 
-```
+```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json
 ```
 
-```
+```text
 firstName,lastName,email,title,company,leadScore,Import Warning Reason
 Aerys,Targaryen,INVALID_EMAIL,Targaryen,House Targaryen,0,Invalid email address
 ```

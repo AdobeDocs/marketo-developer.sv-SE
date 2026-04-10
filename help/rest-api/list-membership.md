@@ -2,8 +2,8 @@
 title: Listmedlemskap (statiska listor)
 feature: REST API, Static Lists
 description: Använd Marketo Lead Database REST API:er för att lägga till leads till statiska listor, ta bort leads, hämta listmedlemmar och medlemskap för checklistor.
-exl-id: 2a91b0f3-5ba1-4b0c-b5e7-a19ab9a7fdc3
-source-git-commit: 73fa4c85ecabd4cfd24bc6591aad11dc4e75010a
+exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
+source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
 workflow-type: tm+mt
 source-wordcount: '482'
 ht-degree: 0%
@@ -31,7 +31,7 @@ Slutpunkten [Lägg till i listan](https://developer.adobe.com/marketo-apis/api/m
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
-```
+```http
 POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 ```
 
@@ -64,7 +64,7 @@ Slutpunkten [Ta bort från listan](https://developer.adobe.com/marketo-apis/api/
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
-```
+```http
 DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 ```
 
@@ -107,7 +107,7 @@ Parametern `fields` innehåller en kommaavgränsad lista med fältnamn som ska r
 
 Svaret innehåller en `result`-matris som består av JSON-objekt som innehåller de lead-fält som har angetts i begäran.
 
-```
+```http
 GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 ```
 
@@ -151,7 +151,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
-```
+```http
 GET /rest/v1/lists/{listId}/leads/ismember.json?id=309901&id=318603&id=999999
 ```
 
