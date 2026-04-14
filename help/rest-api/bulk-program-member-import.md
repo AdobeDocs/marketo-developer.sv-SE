@@ -3,7 +3,7 @@ title: Import av satsprogrammedlem
 feature: REST API
 description: Lär dig hur du importerar flera programmedlemmar samtidigt via Marketo REST API med CSV TSV- eller SSV-filer under 10 MB, kögränser, obligatoriska parametrar och avsökningsjobbstatus.
 exl-id: b0e1039a-fe9b-4fb7-9aa6-9980a06da673
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '962'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Import av satsprogrammedlem
 
-[Slutpunktsreferens för import av satsprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members)
+[Slutpunktsreferens för import av satsprogrammedlem](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members)
 
-För stora mängder programmedlemsposter kan programmedlemmar importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
+För stora mängder programmedlemsposter kan programmedlemmar importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
 ## Bearbetningsgränser
 
@@ -22,7 +22,7 @@ Du får skicka in mer än en bulkimportbegäran, med vissa begränsningar. Varje
 
 ## Importera fil
 
-Den första raden i filen måste vara en rubrik som listar motsvarande REST API-namn som fält som värdena för varje rad ska mappas till. REST API-namn kan hämtas med [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) och/eller [Beskriv programmedlemsslutpunkter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeProgramMemberUsingGET). Poster kan innehålla lead-fält, anpassade lead-fält och anpassade programmedlemsfält.
+Den första raden i filen måste vara en rubrik som listar motsvarande REST API-namn som fält som värdena för varje rad ska mappas till. REST API-namn kan hämtas med [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) och/eller [Beskriv programmedlemsslutpunkter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeProgramMemberUsingGET). Poster kan innehålla lead-fält, anpassade lead-fält och anpassade programmedlemsfält.
 
 En vanlig fil skulle följa detta grundläggande mönster:
 
@@ -37,7 +37,7 @@ Den här typen av begäran kan vara svår att implementera, så vi rekommenderar
 
 ## Skapa ett jobb
 
-Slutpunkten [Importera programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) läser en fil som innehåller programmedlemsposter och lägger till dem i ett program med en viss status. Posterna kan innehålla både lead-fält och anpassade fält för programmedlemmar. Alla poster måste innehålla e-postfältet, som används för borttagning av dubbletter.
+Slutpunkten [Importera programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/importProgramMemberUsingPOST) läser en fil som innehåller programmedlemsposter och lägger till dem i ett program med en viss status. Posterna kan innehålla både lead-fält och anpassade fält för programmedlemmar. Alla poster måste innehålla e-postfältet, som används för borttagning av dubbletter.
 
 Sökvägsparametern `programId` anger programmet som medlemmarna läggs till i.
 
@@ -109,7 +109,7 @@ Lancel,Lannister,Lancel@Lannister.com,Lannister,House Lannister,0
 
 ## Avsökningsjobbstatus
 
-När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka sökvägsparametern `batchId` till slutpunkten för [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) .
+När importjobbet har skapats måste du kontrollera dess status. Det är bäst att avsöka importjobbet var 5-30:e sekund. Det gör du genom att skicka sökvägsparametern `batchId` till slutpunkten för [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) .
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/status.json
@@ -139,7 +139,7 @@ Om jobbet har slutförts finns en lista med antalet rader som har bearbetats, mi
 
 ## Fel
 
-Fel indikeras av attributet `numOfRowsFailed` i svaret [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET). Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod.
+Fel indikeras av attributet `numOfRowsFailed` i svaret [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET). Om numOfRowsFailed är större än noll visar det värdet antalet fel som uppstod.
 
 Använd slutpunkten Get Import Program Member Failures för att hämta poster och orsaker till felaktiga rader genom att skicka sökvägsparametern `batchId`.
 
@@ -193,9 +193,9 @@ Aerys,Targaryen,Aerys@Targaryen.com,Targaryen,House Targaryen,TEXT_VALUE_IN_INTE
 
 ## Varningar
 
-Varningar indikeras av attributet `numOfRowsWithWarning` i svaret [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) . Om `numOfRowsWithWarning` är större än noll anger det värdet antalet varningar som inträffade.
+Varningar indikeras av attributet `numOfRowsWithWarning` i svaret [Get Import Program Member Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberStatusUsingGET) . Om `numOfRowsWithWarning` är större än noll anger det värdet antalet varningar som inträffade.
 
-Använd slutpunkten [Hämta varningsmeddelanden för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) om du vill hämta poster och orsaker till varningsrader genom att skicka sökvägsparametern `batchId`.
+Använd slutpunkten [Hämta varningsmeddelanden för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Program-Members/operation/getImportProgramMemberWarningsUsingGET) om du vill hämta poster och orsaker till varningsrader genom att skicka sökvägsparametern `batchId`.
 
 ```http
 GET /bulk/v1/program/members/import/{batchId}/warnings.json

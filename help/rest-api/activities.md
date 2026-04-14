@@ -3,7 +3,7 @@ title: Verksamhet
 feature: REST API
 description: Använd Marketo Engage Activity REST API för att lista aktivitetstyper, hämta lead-aktiviteter med sidtoken och hantera anpassade ändringar och datavärdesändringar.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '2139'
 ht-degree: 0%
@@ -22,7 +22,7 @@ De flesta aktiviteter rensas efter en viss tid.
 
 ## Beskriv
 
-Om du vill hämta en lista över tillgängliga typer och definitioner för en instans kan du använda slutpunkten [Hämta aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET).
+Om du vill hämta en lista över tillgängliga typer och definitioner för en instans kan du använda slutpunkten [Hämta aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET).
 
 ```http
 GET /rest/v1/activities/types.json
@@ -75,7 +75,7 @@ Verkliga reaktioner innehåller mycket fler definitioner. I det här exemplet ä
 
 ## Fråga
 
-Om du vill hämta aktiviteter från Marketo anropar du slutpunkten [Hämta leadaktiviteter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET). Du måste först hämta en växlingstoken för datetime som du vill börja hämta aktiviteter från. Du skickar sedan sidindelningstoken i frågeparametern `nextPageToken`. Dessutom skickar du upp till tio aktivitetstyp-ID:n i frågeparametern `activityTypeIds` som en kommaavgränsad lista.
+Om du vill hämta aktiviteter från Marketo anropar du slutpunkten [Hämta leadaktiviteter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET). Du måste först hämta en växlingstoken för datetime som du vill börja hämta aktiviteter från. Du skickar sedan sidindelningstoken i frågeparametern `nextPageToken`. Dessutom skickar du upp till tio aktivitetstyp-ID:n i frågeparametern `activityTypeIds` som en kommaavgränsad lista.
 
 Du kan antingen inkludera en listId-frågeparameter för att begränsa sökningen till enbart de poster som ingår i en viss statisk lista, eller en leadIds-frågeparameter och söka efter aktiviteter från endast en angiven uppsättning leads. Du kan skicka upp till 30 leadIds som en kommaseparerad lista.
 
@@ -135,7 +135,7 @@ Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av str
 
 ### Ändringar av datavärde
 
-För datavärdesändringsaktiviteter finns en specialversion av aktivitets-API:t. Slutpunkten [Hämta lead-ändringar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) returnerar bara aktiviteter för datavärdesändringsposter till huvudfält. Gränssnittet är detsamma som API:t Hämta leadaktiviteter med två skillnader:
+För datavärdesändringsaktiviteter finns en specialversion av aktivitets-API:t. Slutpunkten [Hämta lead-ändringar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) returnerar bara aktiviteter för datavärdesändringsposter till huvudfält. Gränssnittet är detsamma som API:t Hämta leadaktiviteter med två skillnader:
 
 * Det finns ingen `activityTypeIds`-parameter eftersom slutpunkten bara returnerar datavärdesändring och nya lead-aktiviteter.
 * Frågeparametern `fields` krävs, där du kan skicka en kommaavgränsad lista med fält för att ange vilka fält du vill hämta ändringar för.
@@ -190,7 +190,7 @@ Observera att i varje resultatarrayobjekt ersätts heltalsattributet `id` av str
 
 ### Borttagna leads
 
-Det finns också en särskild slutpunkt, [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET), för att hämta borttagna aktiviteter från Marketo.
+Det finns också en särskild slutpunkt, [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET), för att hämta borttagna aktiviteter från Marketo.
 
 ```http
 GET /rest/v1/activities/deletedleads.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ
@@ -242,11 +242,11 @@ Anpassade aktiviteter fungerar på samma sätt som vanliga aktiviteter, förutom
 * Maximalt antal anpassade aktiviteter: 10
 * Maximalt antal attribut per anpassad aktivitet: 20
 
-Hämtning av anpassade aktivitetsdata görs på samma sätt som standardaktiviteter via API:t [Hämta lead-aktiviteter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET).
+Hämtning av anpassade aktivitetsdata görs på samma sätt som standardaktiviteter via API:t [Hämta lead-aktiviteter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET).
 
 ## Frågetyper
 
-Förutom standardslutpunkten för Hämta aktivitetstyper returnerar slutpunkterna [Hämta anpassade aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getCustomActivityTypeUsingGET) och [Beskriv anpassad aktivitetstyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/describeCustomActivityTypeUsingGET) information om aktivitetstyperna som har etablerats i Marketo-instansen samt metadata om attributen för en viss typ. De normala [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET) returnerar fortfarande metadata för anpassade aktiviteter, men anger inte om en viss typ är anpassad.
+Förutom standardslutpunkten för Hämta aktivitetstyper returnerar slutpunkterna [Hämta anpassade aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getCustomActivityTypeUsingGET) och [Beskriv anpassad aktivitetstyp](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/describeCustomActivityTypeUsingGET) information om aktivitetstyperna som har etablerats i Marketo-instansen samt metadata om attributen för en viss typ. De normala [Get Activity Types](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET) returnerar fortfarande metadata för anpassade aktiviteter, men anger inte om en viss typ är anpassad.
 
 ### Hämta typer
 
@@ -621,7 +621,7 @@ POST /rest/v1/activities/external/type/{apiName}/attributes/delete.json
 
 ## Lägg till anpassade aktiviteter
 
-Anpassade aktiviteter är register över historiska aktiviteter som är kopplade till enskilda personposter i Marketo. De här aktiviteterna har ett schema som hanteras av Marketo-administratörer eller via fjärråtkomst via en API-integrering. Anpassade aktiviteter läggs till i lead-poster via slutpunkten [Lägg till anpassade aktiviteter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/addCustomActivityUsingPOST) och relateras till varje lead-post via fältet `leadId`. Anpassade aktiviteter kan visas i användargränssnittet via leadets aktivitetslogg eller hämtas via slutpunkten Hämta leadaktiviteter genom att ange den anpassade aktivitetens typ-ID.
+Anpassade aktiviteter är register över historiska aktiviteter som är kopplade till enskilda personposter i Marketo. De här aktiviteterna har ett schema som hanteras av Marketo-administratörer eller via fjärråtkomst via en API-integrering. Anpassade aktiviteter läggs till i lead-poster via slutpunkten [Lägg till anpassade aktiviteter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/addCustomActivityUsingPOST) och relateras till varje lead-post via fältet `leadId`. Anpassade aktiviteter kan visas i användargränssnittet via leadets aktivitetslogg eller hämtas via slutpunkten Hämta leadaktiviteter genom att ange den anpassade aktivitetens typ-ID.
 
 Anpassade aktiviteter är lämpliga för att registrera data som är relaterade till en enskild personpost och som inte behöver uppdateras eller skrivas över. Ett exempel är att spela in en person som deltar i en händelse som en &quot;Attended Event&quot;-aktivitet. För poster som rör en person som kan ändras, t.ex. studentregistrering, bör anpassade objekt användas i stället, eftersom de kan uppdateras, där anpassade aktiviteter kanske inte gör det.
 

@@ -3,7 +3,7 @@ title: Extrahera anpassat objekt gruppvis
 feature: REST API, Custom Objects
 description: Guide till Marketo Bulk Custom Object Extract REST API:er för export av länkade anpassade objekt med updateAt- och listfilter, markerade fält och..
 exl-id: 86cf02b0-90a3-4ec6-8abd-b4423cdd94eb
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1473'
 ht-degree: 0%
@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Extrahera anpassat objekt gruppvis
 
-[Referens för extraheringsslutpunkt för anpassat objekt gruppvis](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects)
+[Referens för extraheringsslutpunkt för anpassat objekt gruppvis](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects)
 
 Uppsättningen REST API:er för Bulk Custom Object Extract är ett programmatiskt gränssnitt för att hämta stora uppsättningar anpassade objektposter från Marketo. Det här är det rekommenderade gränssnittet för användningsfall som kräver kontinuerligt datautbyte mellan Marketo och ett eller flera externa system för ETL, datalagerhantering och arkivering.
 
-Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
+Detta API stöder export av anpassade Marketo-objektposter på första nivån som är länkade direkt till ett lead. Ange namnet på det anpassade objektet och en lista med leads som objektet är länkat till. För varje lead i listan skrivs de länkade anpassade objektsposterna som matchar det angivna anpassade objektnamnet som rader till exportfilen. Anpassade objektdata kan visas på fliken [Eget objekt på leadets detaljsida i Marketo-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/marketo-custom-objects/understanding-marketo-custom-objects).
 
 ## Behörigheter
 
@@ -38,7 +38,7 @@ Filtertypen är inte tillgänglig för vissa prenumerationer. Om du inte är til
 
 ## Alternativ
 
-Slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) innehåller flera formateringsalternativ. Dessa alternativ ger användaren möjlighet att:
+Slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) innehåller flera formateringsalternativ. Dessa alternativ ger användaren möjlighet att:
 
 - Ange vilka fält som ska inkluderas i den exporterade filen
 - Byt namn på kolumnrubriker i dessa fält
@@ -52,9 +52,9 @@ Slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis
 
 ## Skapa ett jobb
 
-Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST).
+Parametrarna för jobbet definieras innan exporten avbryts med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST).
 
-Sökvägsparametern `apiName` som krävs är det anpassade objektnamnet som returneras av slutpunkten [Beskriv anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1). Detta anger vilket anpassat Marketo-objekt som ska exporteras. Egna CRM-objekt tillåts inte. Den obligatoriska parametern `filter` innehåller listan med leads som är länkade till det anpassade objektet. Detta kan referera till en statisk lista eller en smart lista. Den obligatoriska parametern `fields` innehåller API-namnen för de anpassade objektattribut som ska inkluderas i exportfilen. Vi kan också definiera `format` för filen och `columnHeaderNames`.
+Sökvägsparametern `apiName` som krävs är det anpassade objektnamnet som returneras av slutpunkten [Beskriv anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1). Detta anger vilket anpassat Marketo-objekt som ska exporteras. Egna CRM-objekt tillåts inte. Den obligatoriska parametern `filter` innehåller listan med leads som är länkade till det anpassade objektet. Detta kan referera till en statisk lista eller en smart lista. Den obligatoriska parametern `fields` innehåller API-namnen för de anpassade objektattribut som ska inkluderas i exportfilen. Vi kan också definiera `format` för filen och `columnHeaderNames`.
 
 Låt oss anta att vi har skapat ett anpassat objekt med namnet &quot;Car&quot; med följande fält: Color, Make, Model, VIN. Länkfältet är lead-ID och dedupliceringsfältet är VIN.
 
@@ -66,7 +66,7 @@ Anpassade objektfält
 
 ![Anpassade objektfält](assets/custom-object-car-fields.png)
 
-Vi kan anropa [Beskriv anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/describeUsingGET_1) för att programmässigt kontrollera de anpassade objektattribut som visas i attributet `fields` i svaret.
+Vi kan anropa [Beskriv anpassat objekt](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/describeUsingGET_1) för att programmässigt kontrollera de anpassade objektattribut som visas i attributet `fields` i svaret.
 
 ```http
 GET /rest/v1/customobjects/car_c/describe.json
@@ -176,7 +176,7 @@ GET /rest/v1/customobjects/car_c/describe.json
 }
 ```
 
-Skapa flera anpassade objektposter och länka vart och ett till ett annat lead med slutpunkten [Synkronisera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) . En lead kan länkas till många anpassade objektposter. Detta kallas en &quot;en till många&quot;-relation.
+Skapa flera anpassade objektposter och länka vart och ett till ett annat lead med slutpunkten [Synkronisera anpassade objekt](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST) . En lead kan länkas till många anpassade objektposter. Detta kallas en &quot;en till många&quot;-relation.
 
 ```http
 POST /rest/v1/customobjects/car_c.json
@@ -235,7 +235,7 @@ POST /rest/v1/customobjects/car_c.json
 }
 ```
 
-Var och en av de tre leads som det hänvisas till ovan tillhör en statisk lista med namnet&quot;Bil-köpare&quot; vars `id` är 1081, vilket visas nedan genom att anropa slutpunkten för [Hämta leads efter lista-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1) .
+Var och en av de tre leads som det hänvisas till ovan tillhör en statisk lista med namnet&quot;Bil-köpare&quot; vars `id` är 1081, vilket visas nedan genom att anropa slutpunkten för [Hämta leads efter lista-ID](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET_1) .
 
 ```http
 GET /rest/v1/lists/1081/leads.json
@@ -274,7 +274,7 @@ GET /rest/v1/lists/1081/leads.json
 }
 ```
 
-Nu ska vi skapa ett exportjobb för att hämta posterna. Med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) anger vi anpassade objektattribut i parametern `fields` och ett statiskt list-ID i parametern `filter`.
+Nu ska vi skapa ett exportjobb för att hämta posterna. Med slutpunkten [Skapa anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/createExportCustomObjectsUsingPOST) anger vi anpassade objektattribut i parametern `fields` och ett statiskt list-ID i parametern `filter`.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/create.json
@@ -310,7 +310,7 @@ POST /bulk/v1/customobjects/car_c/export/create.json
 }
 ```
 
-Detta returnerar en status i svaret som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Om du vill göra det måste slutpunkten [Återställ anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) anropas med `apiName` och `exportId` från statussvaret för skapandet.
+Detta returnerar en status i svaret som anger att jobbet har skapats. Jobbet har definierats och skapats, men har ännu inte startats. Om du vill göra det måste slutpunkten [Återställ anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/enqueueExportCustomObjectsUsingPOST) anropas med `apiName` och `exportId` från statussvaret för skapandet.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/enqueue.json
@@ -338,7 +338,7 @@ Detta svarar med en inledande `status` av &quot;Köad&quot;, efter vilken instä
 
 Status kan bara hämtas för jobb som har skapats av samma API-användare.
 
-Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Avsök med slutpunkten [Hämta status för anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört eller Misslyckat.
+Eftersom detta är en asynkron slutpunkt måste vi, när vi har skapat jobbet, undersöka dess status för att avgöra dess förlopp. Avsök med slutpunkten [Hämta status för anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsStatusUsingGET). Statusen uppdateras endast en gång var 60:e sekund, så en lägre avsökningsfrekvens rekommenderas inte och är i nästan alla fall fortfarande för hög. Statusfältet kan svara med något av följande: Skapat, Köat, Bearbetning, Avbrutet, Slutfört eller Misslyckat.
 
 ```http
 GET /bulk/v1/customobjects/{apiName}/export/{exportId}/status.json
@@ -386,7 +386,7 @@ Statusslutpunkten svarar som anger att jobbet fortfarande bearbetas, så filen �
 
 ## Hämtar data
 
-Om du vill hämta filen för en slutförd anpassad objektexport anropar du [Get Export Custom Object File](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) -slutpunkten med `apiName` och `exportId`.
+Om du vill hämta filen för en slutförd anpassad objektexport anropar du [Get Export Custom Object File](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingGET) -slutpunkten med `apiName` och `exportId`.
 
 Svaret innehåller en fil som är formaterad på det sätt som jobbet konfigurerades. Slutpunkten svarar med filens innehåll. Om ett begärt anpassat objektattribut är tomt (innehåller inga data) placeras `null` i motsvarande fält i exportfilen.
 
@@ -405,7 +405,7 @@ Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extrah
 
 ## Avbryta ett jobb
 
-Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST) . Detta svarar med en `status` som anger att jobbet har avbrutits.
+Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt export av anpassat objektjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Custom-Objects/operation/getExportCustomObjectsFileUsingPOST) . Detta svarar med en `status` som anger att jobbet har avbrutits.
 
 ```http
 POST /bulk/v1/customobjects/car_c/export/f2c03f1d-226f-47c1-a557-357af8c2b32a/cancel.json

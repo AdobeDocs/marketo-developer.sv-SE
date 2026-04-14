@@ -3,7 +3,7 @@ title: Utskriftstoken
 feature: REST API
 description: Använd Marketo REST API-token för sidindelning för att hämta aktiviteter och leads, som omfattar datumbaserade och positionsbaserade token, ISO 8601 sinceDateTime och 414 fel.
 exl-id: 63fbbf03-8daf-4add-85b0-a8546c825e5b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '424'
 ht-degree: 0%
@@ -16,7 +16,7 @@ Om du vill bläddra igenom resultaten, eller hämta data som har uppdaterats i f
 
 I vissa fall kan långa växlingstokensträngar returneras. Detta kan göra att du får en HTTP 414-felkod. Mer information om hur du hanterar dessa [fel](error-codes.md) finns.
 
-Se dokumentationen för [Paging Token API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET).
+Se dokumentationen för [Paging Token API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET).
 
 ## Tokentyper
 
@@ -27,7 +27,7 @@ Det finns två relaterade, men distinkta, typer av växlingstoken som Marketo ti
 
 ## Datumbaserad
 
-Den första är en växlingstoken som representerar ett datum. Dessa används för att hämta aktiviteter, ändringar av datavärden och borttagna leads som har inträffat efter det datum som representeras av sidindelningstoken. Den här typen av växlingstoken genereras genom anrop av slutpunkten [Get Paging Token](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getActivitiesPagingTokenUsingGET) och en datetime.
+Den första är en växlingstoken som representerar ett datum. Dessa används för att hämta aktiviteter, ändringar av datavärden och borttagna leads som har inträffat efter det datum som representeras av sidindelningstoken. Den här typen av växlingstoken genereras genom anrop av slutpunkten [Get Paging Token](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getActivitiesPagingTokenUsingGET) och en datetime.
 
 ```http
 GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
@@ -41,7 +41,7 @@ GET /rest/v1/activities/pagingtoken.json?sinceDatetime=2014-10-06T13:22:17-08:00
 }
 ```
 
-Formatet på parametern `sinceDateTime` måste följa standarddatumnotationen för [&#x200B; ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) . Bäst resultat får du om du använder en fullständig datetime som innehåller tidszonen. Tidszonen kan representeras som en förskjutning från GMT i följande format:
+Formatet på parametern `sinceDateTime` måste följa standarddatumnotationen för [ ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) . Bäst resultat får du om du använder en fullständig datetime som innehåller tidszonen. Tidszonen kan representeras som en förskjutning från GMT i följande format:
 
 `yyyy-mm-ddThh:mm:ss+|-hh:mm`
 
@@ -57,7 +57,7 @@ Exempel
 
 Eftersom `sinceDateTime` är en frågeparameter måste den vara URL-kodad.
 
-Strängen `nextPageToken` tillhandahålls sedan till ett [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadActivitiesUsingGET), [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getLeadChangesUsingGET) eller [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) -anrop, och aktiviteter hämtas från efter det datum/tid som anges till API:t Get Paging Token.
+Strängen `nextPageToken` tillhandahålls sedan till ett [Get Lead Activities](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET), [Get Lead Changes](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadChangesUsingGET) eller [Get Deleted Leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) -anrop, och aktiviteter hämtas från efter det datum/tid som anges till API:t Get Paging Token.
 
 ```http
 GET /rest/v1/activities.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&activityTypeIds=1&activityTypeIds=12

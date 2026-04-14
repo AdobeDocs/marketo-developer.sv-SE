@@ -3,7 +3,7 @@ title: Mallar för landningssidor
 feature: REST API, Landing Pages
 description: Hantera Marketo Landing Page Templates via REST API-slutpunkter för kostnadsfria formulär och guidade typer, fråga efter ID eller namn, skapa, uppdatera HTML, klona, Munchkin.
 exl-id: f9d1255e-ec13-4b75-96d5-b4cc9457a51b
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '703'
 ht-degree: 0%
@@ -12,17 +12,17 @@ ht-degree: 0%
 
 # Mallar för landningssidor
 
-[Slutpunktsreferens för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates)
+[Slutpunktsreferens för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates)
 
 Landningssidmallar är en överordnad resurs och beroende för enskilda Marketo landningssidor. Landningssidor härleder innehållets struktur från den överordnade mallen.
 
 ## Malltyper
 
-Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
+Marketo har två typer av Landing Page Templates, kostnadsfria och guidade. Mallar för landningssidor i kostnadsfri form ger en löst strukturerad redigeringsupplevelse för sidor som härrör från dem. Med guidade mallar får du en mycket strukturerad upplevelse, där elementtyperna och platserna kan begränsas på mallnivå. Mer information om skillnaderna finns i [det här dokumentet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/understanding-landing-pages/understanding-free-form-vs-guided-landing-pages).
 
 ## Fråga
 
-Mallar för landningssidor har stöd för standardfrågetyper för resurser i [by id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) och [browsing](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av HTML-innehåll från mallar måste göras per mall via dess ID.
+Mallar för landningssidor har stöd för standardfrågetyper för resurser i [by id](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByIdUsingGET), [by name](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplateByNameUsingGET) och [browsing](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/getLandingPageTemplatesUsingGET). Dessa slutpunkter returnerar metadata för mallarna. Hämtning av HTML-innehåll från mallar måste göras per mall via dess ID.
 
 ## Skapa och uppdatera
 
@@ -66,11 +66,11 @@ name=New LPT - PHP&folder={"id":12,"type":"Folder"}
 }
 ```
 
-Innehåll för mallen måste fyllas i separat via slutpunkten [Uppdatera innehåll för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST).
+Innehåll för mallen måste fyllas i separat via slutpunkten [Uppdatera innehåll för landningssidmall](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLandingPageTemplateContentUsingPOST).
 
 ### Uppdatera metadata
 
-Metadata för landningssidmallar kan uppdateras via [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) -slutpunkten. Namn, beskrivning och enableMunchkin-inställning kan uppdateras på det här sättet.
+Metadata för landningssidmallar kan uppdateras via [Update Landing Page Template Metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Templates/operation/updateLpTemplateUsingPOST) -slutpunkten. Namn, beskrivning och enableMunchkin-inställning kan uppdateras på det här sättet.
 
 ### Uppdatera innehåll
 
@@ -167,9 +167,9 @@ Mallar för landningssidor följer standardmodellen för utkast, där det kan fi
 
 För att en mall ska kunna godkännas måste den följa reglerna för sin typ, antingen i form av kostnadsfria guider. Mer information om kraven för att skapa och godkänna mallar av respektive typ finns i respektive dokument:
 
-- [Mallar för kostnadsfria startsidor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
-- [Guided Landing Page Templates](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
-- [Exempel på guidade mallar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
+- [Mallar för kostnadsfria startsidor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-free-form-landing-page-template)
+- [Guided Landing Page Templates](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template)
+- [Exempel på guidade mallar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/guided-landing-page-template-list)
 
 ## Ta bort
 

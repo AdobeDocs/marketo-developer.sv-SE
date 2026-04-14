@@ -3,7 +3,7 @@ title: Program
 feature: REST API, Programs
 description: Marketo Programs guide for the Asset REST API som omfattar typer, kanaler, taggar, medlemsstatus och slutpunkter för att komma via ID eller namn, bläddra och filtrera efter status.
 exl-id: 30700de2-8f4a-4580-92f2-7036905deb80
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '979'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Program
 
-[Referens för programslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs)
+[Referens för programslutpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs)
 
 Program är en viktig del i organisationen av Marketo marknadsföringsaktiviteter. De kan vara överordnade till de flesta typer av resurser och göra det möjligt att spåra medlemskap och framgångar för leads inom ramen för enskilda marknadsföringsinitiativ. Program kan vara överordnade alla typer av poster förutom LP, E-postmallar och Filer.
 
@@ -32,11 +32,11 @@ Programmen har alltid en kanal, de hämtar möjliga programmedlemskapsstatusar f
 
 ## Fråga
 
-Programmen följer standardmönstret för resursfrågor med ytterligare ett alternativ för att fråga efter taggtyp och värden. Tillgängliga taggar och värden kan hämtas med [Hämta taggtyper](https://developer.adobe.com/marketo-apis/api/asset/#tag/Tags/operation/getTagTypesUsingGET).
+Programmen följer standardmönstret för resursfrågor med ytterligare ett alternativ för att fråga efter taggtyp och värden. Tillgängliga taggar och värden kan hämtas med [Hämta taggtyper](https://developer.adobe.com/marketo-apis/api/asset#tag/Tags/operation/getTagTypesUsingGET).
 
 ### Efter ID
 
-Slutpunkten [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) kräver en `id`-sökvägsparameter.
+Slutpunkten [Get Program by Id](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) kräver en `id`-sökvägsparameter.
 
 Program-ID kan hämtas från URL:en för programmet i användargränssnittet, där URL:en liknar `https://app-\*\*\*.marketo.com/#PG1001A1`. I denna URL är `id` 1001. Den kommer alltid att vara mellan den första teckenuppsättningen i URL:en och den andra teckenuppsättningen.
 
@@ -82,7 +82,7 @@ GET /rest/asset/v1/program/{id}.json
 
 ### Efter namn
 
-Slutpunkten [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset/) kräver en `name`-frågeparameter. Valfria booleska frågeparametrar är `includeTags` och `includeCosts` som används för att returnera programtaggar respektive programkostnader.
+Slutpunkten [Get Program by Name](https://developer.adobe.com/marketo-apis/api/asset) kräver en `name`-frågeparameter. Valfria booleska frågeparametrar är `includeTags` och `includeCosts` som används för att returnera programtaggar respektive programkostnader.
 
 ```http
 GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
@@ -126,13 +126,13 @@ GET /rest/asset/v1/program/byName.json?name=TestProgramName&includeTags=true
 
 ### Bläddra
 
-Med slutpunkten [Hämta program](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) kan du söka efter program.
+Med slutpunkten [Hämta program](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) kan du söka efter program.
 
 Med den valfria parametern `status` kan du filtrera efter programstatus. Den här parametern gäller endast för engagemangs- och e-postprogram. Möjliga värden är &quot;på&quot; och &quot;av&quot; för engagemangsprogram och &quot;olåst&quot; för e-postprogram.
 
 Den valfria parametern `maxReturn` styr antalet program som ska returneras (högst 200, standardvärdet är 20). Den valfria parametern `offset` som används för sidindelningsresultat (standard är 0).
 
-Observera att taggar som är kopplade till ett program inte returneras av den här slutpunkten. Programtaggar kan hämtas med [Hämta program med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) eller [Hämta program med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET).
+Observera att taggar som är kopplade till ett program inte returneras av den här slutpunkten. Programtaggar kan hämtas med [Hämta program med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) eller [Hämta program med namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET).
 
 ```http
 GET /rest/asset/v1/programs.json
@@ -187,7 +187,7 @@ GET /rest/asset/v1/programs.json
 
 ### Efter datumintervall
 
-Parametrarna `earliestUpdatedAt` och `latestUpdatedAt` i slutpunkten för [Get Programs](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) gör att du kan ange vattenstämplar för låg och hög datetime för att returnera program som antingen uppdaterats eller ursprungligen skapats inom det angivna intervallet.
+Parametrarna `earliestUpdatedAt` och `latestUpdatedAt` i slutpunkten för [Get Programs](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) gör att du kan ange vattenstämplar för låg och hög datetime för att returnera program som antingen uppdaterats eller ursprungligen skapats inom det angivna intervallet.
 
 ```http
 GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&latestUpdatedAt=2017-01-30T00:00:00-05:00
@@ -278,7 +278,7 @@ GET /rest/asset/v1/programs.json?earliestUpdatedAt=2017-01-01T00:00:00-05:00&lat
 
 ### Efter taggtyp
 
-Slutpunkten [Hämta program efter tagg](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramListByTagUsingGET) hämtar en lista med program som matchar taggtypen och taggvärdena som anges.
+Slutpunkten [Hämta program efter tagg](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramListByTagUsingGET) hämtar en lista med program som matchar taggtypen och taggvärdena som anges.
 
 Det finns två obligatoriska parametrar, `tagType`, som är den typ av tagg som ska filtreras och `tagValue` som är det taggvärde som ska filtreras.  Det finns en valfri heltalsparameter `maxReturn` som styr antalet program som ska returneras (högst 200, standardvärdet är 20) och en valfri heltalsparameter `offset` som används för sidindelningsresultat (standardvärdet är 0).  Resultaten returneras i slumpmässig ordning.
 
@@ -320,7 +320,7 @@ GET /rest/asset/v1/program/byTag.json?tagType=Presenter&tagValue=Dennis
 
 ## Skapa och uppdatera
 
-[När du skapar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/createProgramUsingPOST) och [uppdaterar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/updateProgramUsingPOST) program följer standardtillgångsmönstret och har `folder`, `name`, `type` och `channel` som obligatoriska parametrar, där `description`, `costs` och `tags` är valfria. Kanal och typ kan bara anges när programmet skapas. Endast beskrivning, namn, `tags` och `costs` kan uppdateras efter att de har skapats, med ytterligare en `costsDestructiveUpdate`-parameter tillåten. Om `costsDestructiveUpdate` skickas som true rensas alla befintliga kostnader och ersätts med alla kostnader som ingår i samtalet. Observera att taggar kan behövas för vissa programtyper i vissa prenumerationer, men detta är konfigurationsberoende och bör först kontrolleras med Hämta taggar för att se om det finns instansspecifika krav.
+[När du skapar](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/createProgramUsingPOST) och [uppdaterar](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/updateProgramUsingPOST) program följer standardtillgångsmönstret och har `folder`, `name`, `type` och `channel` som obligatoriska parametrar, där `description`, `costs` och `tags` är valfria. Kanal och typ kan bara anges när programmet skapas. Endast beskrivning, namn, `tags` och `costs` kan uppdateras efter att de har skapats, med ytterligare en `costsDestructiveUpdate`-parameter tillåten. Om `costsDestructiveUpdate` skickas som true rensas alla befintliga kostnader och ersätts med alla kostnader som ingår i samtalet. Observera att taggar kan behövas för vissa programtyper i vissa prenumerationer, men detta är konfigurationsberoende och bör först kontrolleras med Hämta taggar för att se om det finns instansspecifika krav.
 
 När du skapar eller uppdaterar ett e-postprogram kan ett `startDate` och `endDate` också skickas som UTC-datum/tid:
 
@@ -485,7 +485,7 @@ POST /rest/asset/v1/program/{id}/unapprove.json
 
 ## Klona
 
-[Klonande program](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/cloneProgramUsingPOST) följer standardresursen det nya namnet och den nya mappen som obligatoriska parametrar och en valfri beskrivning.  Parametern `name` måste vara globalt unik och får inte innehålla fler än 255 tecken.  Parametern `folder` är den överordnade mappen.  Parametertypsattributet `folder` måste anges till &quot;Mapp&quot; och målmappen måste finnas i samma arbetsyta som det program som ska klonas.
+[Klonande program](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/cloneProgramUsingPOST) följer standardresursen det nya namnet och den nya mappen som obligatoriska parametrar och en valfri beskrivning.  Parametern `name` måste vara globalt unik och får inte innehålla fler än 255 tecken.  Parametern `folder` är den överordnade mappen.  Parametertypsattributet `folder` måste anges till &quot;Mapp&quot; och målmappen måste finnas i samma arbetsyta som det program som ska klonas.
 
 Program som innehåller vissa typer av resurser kan inte klonas via detta API, bland annat push-meddelanden, meddelanden i appen, rapporter och sociala Assets. Program i appen kan inte klonas via denna API.
 

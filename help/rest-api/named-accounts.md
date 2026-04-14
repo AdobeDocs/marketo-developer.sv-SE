@@ -3,7 +3,7 @@ title: Namngivna konton
 feature: REST API
 description: Marketo REST guide till CRUD för namngivna konton för ABM, med beskrivning, fråga, skapa uppdateringsexempel, sökbara fält, borttagningsregler och ingen lead-länkning.
 exl-id: 2aa1d2a0-9e54-4a9a-abb1-0d0479ed3558
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '730'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Namngivna konton
 
-[Slutpunktsreferens för namngivna konton](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts)
+[Slutpunktsreferens för namngivna konton](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts)
 
 Marketo erbjuder en uppsättning API:er för att utföra CRUD-åtgärder på namngivna konton som kan användas med Marketo ABM. Dessa API:er följer standardgränssnittsmönstret för lead-databas-API:er, med alternativen Beskrivning, Skapa/Uppdatera, Ta bort och Fråga.
 
@@ -224,7 +224,7 @@ Det är enkelt att fråga efter namngivna kontofält. Du kan fråga ett enskilt 
 
 #### Efter namn
 
-Slutpunkten [Hämta namngivet kontofält med namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för ett enskilt fält i det namngivna kontoobjektet. Den obligatoriska parametern fieldApiName path anger fältets API-namn. Svaret är som slutpunkten för Beskriv namngivet konto men innehåller ytterligare metadata som attributet isCustom som anger om fältet är ett anpassat fält.
+Slutpunkten [Hämta namngivet kontofält med namn](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för ett enskilt fält i det namngivna kontoobjektet. Den obligatoriska parametern fieldApiName path anger fältets API-namn. Svaret är som slutpunkten för Beskriv namngivet konto men innehåller ytterligare metadata som attributet isCustom som anger om fältet är ett anpassat fält.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
@@ -252,7 +252,7 @@ GET /rest/v1/namedaccounts/schema/fields/annualRevenue.json
 
 #### Bläddra
 
-Slutpunkten [Hämta fält för namngivet konto](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för alla fält i det namngivna kontoobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern batchSize för att minska det här talet. Om attributet moreResult är true betyder det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. nextPageToken som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten [Hämta fält för namngivet konto](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Accounts/operation/getNamedAccountFieldByNameUsingGET) hämtar metadata för alla fält i det namngivna kontoobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern batchSize för att minska det här talet. Om attributet moreResult är true betyder det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. nextPageToken som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ```http
 GET /rest/v1/namedaccounts/schema/fields.json?batchSize=5

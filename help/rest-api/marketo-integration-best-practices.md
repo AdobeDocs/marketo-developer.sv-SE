@@ -3,9 +3,9 @@ title: Metodtips för Marketo-integrering
 feature: REST API
 description: Bästa tillvägagångssätt för Marketo API-integreringar som omfattar kvoter, frekvens och samtidighetsgränser, batchbearbetning, bulkimport och -export, cachelagring och latensplanering.
 exl-id: 1e418008-a36b-4366-a044-dfa9fe4b5f82
-source-git-commit: 6145067629ce78175af3b7464807a0fa100c7b57
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1012'
+source-wordcount: '1013'
 ht-degree: 0%
 
 ---
@@ -36,7 +36,7 @@ För att säkerställa bästa möjliga prestanda för dina integreringar bör po
 
 ## Godtagbar svarstid
 
-Om du fastställer dina latenstoleranser, eller den maximala tid som kan gå innan du skickar ett API-anrop, kommer många, om inte de flesta, att informera om de beslut du fattar när du designar din integrering till Marketo. Marketo har många olika metoder och konfigurationsalternativ som är lämpliga för olika användningsfall, och olika latensklasser. En realtidsintegrering för att meddela en säljare om att en användare registrerar sig för en testversion kanske bara skickar in batchar av en om en uppföljning krävs. I de flesta fall krävs dock inte detta, det kan tolerera ytterligare latens och kan hanteras mer effektivt genom köer och gruppanrop.
+Om du fastställer dina latenstoleranser, eller den maximala tid som kan gå innan du skickar ett API-anrop, kommer många, om inte de flesta, att informera om de beslut du fattar när du designar din integrering till Marketo. Marketo har många olika metoder och konfigurationsalternativ som är lämpliga för olika användningsfall, och olika latensklasser. En realtidsintegrering för att meddela en säljare om att en användare registrerar sig för en testversion kanske bara skickar in batchar av en om en uppföljning krävs. De flesta fall kräver dock inte detta och kan tolerera ytterligare latens och kan hanteras effektivare genom köer och gruppanrop.
 
 | Godtagbar svarstid | Önskade metoder | Anteckningar |
 | --- | --- | --- |
@@ -48,15 +48,15 @@ Om du fastställer dina latenstoleranser, eller den maximala tid som kan gå inn
 
 Alla API-aktiverade instanser av Marketo har en daglig allokering av minst 10 000 REST API-anrop per dag, men oftast 50 000 eller mer, och 500 MB eller mer av kapaciteten för Bulk Extract. Även om ytterligare dagskapacitet kan köpas som en del av en Marketo-prenumeration, bör du i din programdesign ta hänsyn till de gemensamma gränserna för Marketo prenumerationer.
 
-Eftersom kapaciteten delas mellan alla API-tjänster och användare i en instans är det bästa sättet att eliminera redundanta anrop och att gruppera poster i så få anrop som möjligt. Det mest effektiva sättet att importera poster är att använda Marketo-API:er för bulkimport, som är tillgängliga för [Leads/People](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) och [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Snippets/operation/createSnippetUsingPOST). Marketo tillhandahåller också massutdrag för [leads](bulk-lead-extract.md) och [aktiviteter](bulk-activity-extract.md).
+Eftersom kapaciteten delas mellan alla API-tjänster och användare i en instans är det bästa sättet att eliminera redundanta anrop och att gruppera poster i så få anrop som möjligt. Det mest effektiva sättet att importera poster är att använda Marketo-API:er för bulkimport, som är tillgängliga för [Leads/People](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST) och [Custom Objects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Snippets/operation/createSnippetUsingPOST). Marketo tillhandahåller också massutdrag för [leads](bulk-lead-extract.md) och [aktiviteter](bulk-activity-extract.md).
 
 ### Cachning
 
 Resultat från följande åtgärder kan vanligtvis cachelagras på klientsidan under en dag eller mer, eftersom de ändras sällan:
 
 - Resultat från Beskriv-åtgärder
-- [Typ av aktivitet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET)
-- [Partitioner](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadPartitionsUsingGET)
+- [Typ av aktivitet](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET)
+- [Partitioner](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadPartitionsUsingGET)
 
 Cachelagring av vissa resurstyper, som program, e-post och mappar, är också lämpligt för vissa användningsfall, t.ex. databerikning för lead- eller aktivitetsposter.
 

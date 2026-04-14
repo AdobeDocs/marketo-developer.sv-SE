@@ -3,9 +3,9 @@ title: Massimport
 feature: REST API
 description: Marketo massimport för att läsa in leads, anpassade objekt och programmedlemmar via multipart-överföringar, skapa asynkrona jobb, avsökningsstatus och hanteringsfel.
 exl-id: f7922fd2-8408-4d04-8955-0f8f58914d24
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '660'
+source-wordcount: '661'
 ht-degree: 0%
 
 ---
@@ -46,7 +46,7 @@ Massimport är en poståtgärd av typen&quot;infoga eller uppdatera&quot;. Om en
 
 ## Skapa ett jobb
 
-Marketo-API:er för bulkimport använder begreppet jobb för att utföra dataimport. Låt oss titta på hur du skapar ett enkelt lead-importjobb med slutpunkten [Importera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST).  Observera att den här slutpunkten använder [multipart/form-data som innehållstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Detta kan vara svårt att få rätt, så det bästa sättet är att använda ett HTTP-supportbibliotek för det språk du föredrar.  Om du håller på att bli blöt rekommenderar vi att du använder [curl](https://curl.se/).
+Marketo-API:er för bulkimport använder begreppet jobb för att utföra dataimport. Låt oss titta på hur du skapar ett enkelt lead-importjobb med slutpunkten [Importera leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST).  Observera att den här slutpunkten använder [multipart/form-data som innehållstyp](https://www.w3.org/Protocols/rfc1341/7_2_Multipart.html). Detta kan vara svårt att få rätt, så det bästa sättet är att använda ett HTTP-supportbibliotek för det språk du föredrar.  Om du håller på att bli blöt rekommenderar vi att du använder [curl](https://curl.se/).
 
 ```http
 POST /bulk/v1/leads.json?format=csv
@@ -99,7 +99,7 @@ Varje jobbskapandeslutpunkt delar några vanliga parametrar för konfiguration a
 
 ## Avsökningsjobbstatus
 
-Det är enkelt att avgöra jobbets status med slutpunkten [Hämta status för importlead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
+Det är enkelt att avgöra jobbets status med slutpunkten [Hämta status för importlead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadStatusUsingGET).
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}.json
@@ -129,7 +129,7 @@ Den inre `status`-medlemmen visar förloppet för jobbet och kan vara något av 
 
 Fel indikeras av attributet `numOfRowsFailed` i Get Import Lead Status-svaret. Om `numOfRowsFailed` är större än noll anger det värdet antalet fel som uppstod.
 
-Om du vill hämta poster och orsaker till felaktiga rader måste du hämta felfilen med slutpunkten [Hämta lead-fel](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET).
+Om du vill hämta poster och orsaker till felaktiga rader måste du hämta felfilen med slutpunkten [Hämta lead-fel](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/getImportLeadFailuresUsingGET).
 
 ```http
 GET /bulk/v1/leads/batch/{batchId}/failures.json

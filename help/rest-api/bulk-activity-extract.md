@@ -3,7 +3,7 @@ title: Extrahera massaktivitet
 feature: REST API
 description: Marketo Bulk Activity Extract REST API för att exportera aktivitetsdata för stora volymer med ett 31-dagars datumintervall, aktivitet och primära attributfilter för ETL och CRM.
 exl-id: 6bdfa78e-bc5b-4eea-bcb0-e26e36cf6e19
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1564'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Extrahera massaktivitet
 
-[Referens för extraheringsslutpunkt för gruppaktivitet](https://developer.adobe.com/marketo-apis/api/mapi/)
+[Referens för extraheringsslutpunkt för gruppaktivitet](https://developer.adobe.com/marketo-apis/api/mapi)
 
 Uppsättningen REST API:er för Bulk Activity Extract utgör ett programmatiskt gränssnitt för att hämta stora mängder aktivitetsdata från Marketo.  I de fall där det inte krävs låg fördröjning och där man måste överföra betydande volymer aktivitetsdata från Marketo, t.ex. CRM-integrering, ETL, datalagerhantering och dataarkivering.
 
@@ -25,20 +25,20 @@ API:erna för extrahering av gruppaktivitet kräver att API-användaren har beh�
 | Filtertyp | Datatyp | Obligatoriskt | Anteckningar |
 | --- | --- | --- | --- |
 | `createdAt` | Datumintervall | Ja | Accepterar ett JSON-objekt med medlemmarna `startAt` och `endAt`. `startAt` accepterar en datetime som representerar den låga vattenstämpeln och `endAt` accepterar en datetime som representerar den övre vattenstämpeln. Intervallet måste vara högst 31 dagar. Jobb med den här filtertypen returnerar alla tillgängliga poster som har skapats inom datumintervallet. Datumtider ska vara i ISO-8601-format, utan millisekunder. |
-| `activityTypeIds` | Array\[heltal\] | Nej | Accepterar ett JSON-objekt med en medlem, `activityTypeIds`. Värdet måste vara en array med heltal som motsvarar de önskade aktivitetstyperna. Aktiviteten Ta bort lead stöds inte (använd slutpunkten [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getDeletedLeadsUsingGET) i stället). Hämta aktivitetstyp-ID med slutpunkten [Hämta aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Activities/operation/getAllActivityTypesUsingGET). |
-| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[heltal\] | Nej | Accepterar ett JSON-objekt med en medlem, `primaryAttributeValueIds`. Värdet är en array med id:n som anger de primära attribut som ska filtreras. Högst 50 ID:n får anges. ID:n är den unika identifieraren för antingen ett lead-fält eller en resurs, och kan hämtas genom att anropa rätt REST API-slutpunkt. Om du till exempel vill filtrera ett specifikt formulär för aktiviteten Fyll i formulär skickar du formulärnamnet till slutpunkten [Hämta formulär efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) för att hämta formulär-ID:t. Här följer en lista över aktivitetstyper där filtrering av primära attribut stöds. |
-| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nej | Accepterar ett JSON-objekt med en medlem, `primaryAttributeValues`. Värdet är en array med namn som anger de primära attribut som ska filtreras. Högst 50 namn får anges. Namnen är den unika identifieraren för antingen ett lead-fält eller en resurs och kan hämtas genom att anropa rätt REST API-slutpunkt. Om du till exempel vill filtrera ett specifikt formulär för aktiviteten Fyll i formulär skickar du formulär-ID:t till [Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5)-slutpunkten för att hämta formulärnamnet. Här följer en lista över aktivitetstyper där filtrering av primära attribut stöds. |
+| `activityTypeIds` | Array\[heltal\] | Nej | Accepterar ett JSON-objekt med en medlem, `activityTypeIds`. Värdet måste vara en array med heltal som motsvarar de önskade aktivitetstyperna. Aktiviteten Ta bort lead stöds inte (använd slutpunkten [Hämta borttagna leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getDeletedLeadsUsingGET) i stället). Hämta aktivitetstyp-ID med slutpunkten [Hämta aktivitetstyper](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getAllActivityTypesUsingGET). |
+| [`primaryAttributeValueIds`](#primaryattributevalueids-options) | Array\[heltal\] | Nej | Accepterar ett JSON-objekt med en medlem, `primaryAttributeValueIds`. Värdet är en array med id:n som anger de primära attribut som ska filtreras. Högst 50 ID:n får anges. ID:n är den unika identifieraren för antingen ett lead-fält eller en resurs, och kan hämtas genom att anropa rätt REST API-slutpunkt. Om du till exempel vill filtrera ett specifikt formulär för aktiviteten Fyll i formulär skickar du formulärnamnet till slutpunkten [Hämta formulär efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) för att hämta formulär-ID:t. Här följer en lista över aktivitetstyper där filtrering av primära attribut stöds. |
+| [`primaryAttributeValues`](#primaryattributevalues-options) | Array\[String\] | Nej | Accepterar ett JSON-objekt med en medlem, `primaryAttributeValues`. Värdet är en array med namn som anger de primära attribut som ska filtreras. Högst 50 namn får anges. Namnen är den unika identifieraren för antingen ett lead-fält eller en resurs och kan hämtas genom att anropa rätt REST API-slutpunkt. Om du till exempel vill filtrera ett specifikt formulär för aktiviteten Fyll i formulär skickar du formulär-ID:t till [Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5)-slutpunkten för att hämta formulärnamnet. Här följer en lista över aktivitetstyper där filtrering av primära attribut stöds. |
 
 ### Alternativ för primärAttributeValueIds {#primaryattributevalueids-options}
 
 | Typ av aktivitet | ID för primärt attributvärde | Hämtningsslutpunkt | Resursgrupp |
 | --- | --- | --- | --- |
-| Ändra datavärde | Lead-fält-ID | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
-| Ändra poäng | Lead-fält-ID | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
-| Ändra status i progression | Program-ID | [Hämta program efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByNameUsingGET) | Marketing Program |
-| Lägg till i listan | Statiskt list-id | [Hämta statisk lista efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statisk lista |
-| Ta bort från lista | Statiskt list-id | [Hämta statisk lista efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statisk lista |
-| Fyll i formulär | Formulär-ID | [Hämta formulär efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Forms/operation/getLpFormByNameUsingGET) | Webbformulär |
+| Ändra datavärde | Lead-fält-ID | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
+| Ändra poäng | Lead-fält-ID | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
+| Ändra status i progression | Program-ID | [Hämta program efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByNameUsingGET) | Marketing Program |
+| Lägg till i listan | Statiskt list-id | [Hämta statisk lista efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statisk lista |
+| Ta bort från lista | Statiskt list-id | [Hämta statisk lista efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByNameUsingGET) | Statisk lista |
+| Fyll i formulär | Formulär-ID | [Hämta formulär efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Forms/operation/getLpFormByNameUsingGET) | Webbformulär |
 
 När du använder `primaryAttributeValueIds` måste filtret `activityTypeIds` finnas och bara innehålla aktivitets-ID:n som matchar motsvarande resursgrupp. Om du till exempel filtrerar resurser i webbformulär tillåts bara aktivitetstypen &quot;Fyll i formulär&quot; i `activityTypeIds`.
 
@@ -67,12 +67,12 @@ Exempeltext för begäran:
 
 | Typ av aktivitet | Primärt attributvärde | Hämtningsslutpunkt | Resursgrupp |
 | --- | --- | --- | --- |
-| Ändra datavärde | Visningsnamn för leadfält | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
-| Ändra poäng | Visningsnamn för leadfält | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
-| Ändra status i progression | Programnamn | [Hämta program med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getProgramByIdUsingGET) | Marketing Program |
-| Lägg till i listan | Statiskt listnamn | [Hämta statisk lista med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statisk lista |
-| Ta bort från lista | Statiskt listnamn | [Hämta statisk lista med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statisk lista |
-| Fyll i formulär | Formulärnamn | [Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Sales-Persons/operation/describeUsingGET_5) | Webbformulär |
+| Ändra datavärde | Visningsnamn för leadfält | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
+| Ändra poäng | Visningsnamn för leadfält | [Beskriv lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/describeUsingGET_2) | Attributnamn |
+| Ändra status i progression | Programnamn | [Hämta program med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getProgramByIdUsingGET) | Marketing Program |
+| Lägg till i listan | Statiskt listnamn | [Hämta statisk lista med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statisk lista |
+| Ta bort från lista | Statiskt listnamn | [Hämta statisk lista med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Static-Lists/operation/getStaticListByIdUsingGET) | Statisk lista |
+| Fyll i formulär | Formulärnamn | [Hämta formulär med ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Sales-Persons/operation/describeUsingGET_5) | Webbformulär |
 
 Observera att du måste använda `&lt;program&gt;.&lt;asset&gt;`-notation för att ange namnet på följande resursgrupper: Marknadsföringsprogram, Statisk lista, Webbformulär. Ett formulär med namnet&quot;MPS Outbound&quot; som finns under ett program med namnet&quot;GL_OP_ALL_2021&quot; skulle till exempel anges som&quot;GL_OP_ALL_2021.MPS Outbound&quot;.
 
@@ -108,7 +108,7 @@ När du använder `primaryAttributeValues` måste filtret `activityTypeIds` finn
 
 ## Skapa ett jobb
 
-Om du vill exportera poster måste du först definiera jobbet och den uppsättning poster som du vill hämta.  Skapa jobbet med slutpunkten [Skapa exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  När du exporterar aktiviteter finns det två primära filter som kan användas: `createdAt`, som alltid krävs, och `activityTypeIds`, som är valfritt.  Filtret `createdAt` används för att definiera ett datumintervall i vilket aktiviteter skapades med parametrarna `startAt` och `endAt` som båda är datetime-fält och representerar det tidigaste tillåtna skapandedatumet respektive det senaste tillåtna skapandedatumet.  Du kan även filtrera på vissa typer av aktiviteter med hjälp av filtret `activityTypeIds`.  Detta är användbart när du vill ta bort resultat som inte är relevanta för ditt användningsfall.
+Om du vill exportera poster måste du först definiera jobbet och den uppsättning poster som du vill hämta.  Skapa jobbet med slutpunkten [Skapa exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/createExportActivitiesUsingPOST).  När du exporterar aktiviteter finns det två primära filter som kan användas: `createdAt`, som alltid krävs, och `activityTypeIds`, som är valfritt.  Filtret `createdAt` används för att definiera ett datumintervall i vilket aktiviteter skapades med parametrarna `startAt` och `endAt` som båda är datetime-fält och representerar det tidigaste tillåtna skapandedatumet respektive det senaste tillåtna skapandedatumet.  Du kan även filtrera på vissa typer av aktiviteter med hjälp av filtret `activityTypeIds`.  Detta är användbart när du vill ta bort resultat som inte är relevanta för ditt användningsfall.
 
 ```http
 POST /bulk/v1/activities/export/create.json
@@ -147,7 +147,7 @@ POST /bulk/v1/activities/export/create.json
 }
 ```
 
-Jobbet har nu statusen&quot;Skapat&quot;, men finns ännu inte i bearbetningskön.  Om du vill placera den i kön så att den kan påbörja bearbetningen anropar du slutpunkten för [Enqueue-exportaktivitetsjobbet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) med exportId från svaret på statusen när den skapades.
+Jobbet har nu statusen&quot;Skapat&quot;, men finns ännu inte i bearbetningskön.  Om du vill placera den i kön så att den kan påbörja bearbetningen anropar du slutpunkten för [Enqueue-exportaktivitetsjobbet](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/enqueueExportActivitiesUsingPOST) med exportId från svaret på statusen när den skapades.
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/enqueue.json
@@ -175,7 +175,7 @@ Nu rapporterar statusen att jobbet har placerats i kö.  När en arbetare blir 
 
 Jobbstatus kan bara hämtas för jobb som skapats av samma API-användare.
 
-Marketo Bulk Activity Extract är en asynkron slutpunkt, så jobbstatusen måste avfrågas för att avgöra när jobbet är klart.  Avsök med slutpunkten [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) enligt följande:
+Marketo Bulk Activity Extract är en asynkron slutpunkt, så jobbstatusen måste avfrågas för att avgöra när jobbet är klart.  Avsök med slutpunkten [Get Export Activity Job Status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesStatusUsingGET) enligt följande:
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/status.json
@@ -213,7 +213,7 @@ Statusfältet kan svara med ett av följande värden:
 
 ## Hämtar data
 
-När jobbet är klart hämtar du dina data med slutpunkten [Hämta exportaktivitetsfil](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET).
+När jobbet är klart hämtar du dina data med slutpunkten [Hämta exportaktivitetsfil](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/getExportActivitiesFileUsingGET).
 
 ```http
 GET /bulk/v1/activities/export/{exportId}/file.json
@@ -235,7 +235,7 @@ Om du vill ha stöd för delvis och återanvändningsvänlig hämtning av extrah
 
 ## Avbryta ett jobb
 
-Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) :
+Om ett jobb konfigurerades felaktigt eller blir onödigt kan det enkelt avbrytas med slutpunkten [Avbryt exportaktivitetsjobb](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Export-Activities/operation/cancelExportActivitiesUsingPOST) :
 
 ```http
 POST /bulk/v1/activities/export/{exportId}/cancel.json

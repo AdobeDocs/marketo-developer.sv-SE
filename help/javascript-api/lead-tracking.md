@@ -3,9 +3,9 @@ title: Spårning av leads
 description: Lär dig bädda in Marketo Munchkin JavaScript, spåra besök och klickningar, hantera kända eller anonyma leads, domänöverskridande cookies och avanmäla dig för smarta kampanjer.
 feature: Munchkin Tracking Code, Javascript
 exl-id: 7ece5133-9d32-4be3-a940-4ac0310c4d8b
-source-git-commit: c1b9763835b25584f0c085274766b68ddf5c7ae2
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '785'
+source-wordcount: '818'
 ht-degree: 0%
 
 ---
@@ -74,7 +74,7 @@ På en leads första besök på en sida på din domän skapas en ny anonym lead-
 
 - Ledningen måste besöka en Munchkin-spårad sida med en `mkt_tok`-parameter i frågesträngen från en spårad Marketo-e-postlänk.
 - Lead-blanketten måste fylla i ett Marketo-formulär.
-- Ett REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/associateLeadUsingPOST)-anrop måste skickas.
+- Ett REST [Associate Lead](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/associateLeadUsingPOST)-anrop måste skickas.
 
 När ett av dessa villkor är uppfyllt kopplas cookien och all tillhörande webbaktivitet till det kända leadet.
 
@@ -100,7 +100,7 @@ Munchkin cookies är specifika för varje domännivå på andra nivån, det vill
 
 ## Beta
 
-Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
+Gå till menyn [Admin -> Treasure Chest](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/settings/enable-or-disable-treasure-chest-features) och aktivera inställningen &quot;Munchkin Beta on Landing Pages&quot; för att välja betakanalen för dina landningssidor från Munchkin. Detta innehåller nya kodfragment i **[!UICONTROL Admin]** ->  **[!UICONTROL Munchkin]** -menyn så att du kan använda betaversionen på externa platser.
 
 ## Avanmäl dig
 

@@ -3,9 +3,9 @@ title: Anpassade objekt
 feature: SOAP
 description: Lär dig hur Marketo Custom Objects länkar ett leder till många poster, med struktur, begränsningar och SOAP API-anrop för hämtning, synkronisering, borttagning plus Smart List och e-postanvändning.
 exl-id: 29d65841-4b44-4d94-b14e-c583d433d015
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '256'
+source-wordcount: '286'
 ht-degree: 0%
 
 ---
@@ -36,6 +36,6 @@ Anpassade objekt består av:
 
 Följande anrop kan användas för att interagera med CO:er.
 
-- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
-- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
-- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)
+- [getCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/getCustomObjectsUsingGET)
+- [syncCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/syncCustomObjectsUsingPOST)
+- [deleteCustomObjects](https://developer.adobe.com/marketo-apis/api/mapi#tag/Custom-Objects/operation/deleteCustomObjectsUsingPOST)

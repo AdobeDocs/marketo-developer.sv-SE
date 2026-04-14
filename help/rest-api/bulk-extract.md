@@ -3,9 +3,9 @@ title: Massextrahering
 feature: REST API
 description: Lär dig hur du använder Marketo Bulk Extract REST API för att exportera leads, aktiviteter, programmedlemmar och anpassade objekt, med OAuth, jobbköer och 500 MB dagliga begränsningar.
 exl-id: 6a15c8a9-fd85-4c7d-9f65-8b2e2cba22ff
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '1723'
+source-wordcount: '1724'
 ht-degree: 0%
 
 ---
@@ -53,7 +53,7 @@ Massextraherings-API:erna mäts baserat på storleken på disken för de data so
 
 Den dagliga kvoten är högst 500 MB per dag, vilket delas mellan leads, aktiviteter, programmedlemmar och anpassade objekt. När kvoten överskrids kan du inte skapa eller köa ett annat jobb förrän den dagliga kvoten återställs vid [centraltid](https://en.wikipedia.org/wiki/Central_Time_Zone) kl. midnatt. Till dess returneras felmeddelandet&quot;1029, Export day quota  . Förutom den dagliga kvoten finns ingen maximal filstorlek.
 
-När ett jobb står i kö eller bearbetas slutförs det (utan att ett fel eller jobb avbryts). Om ett jobb misslyckas av någon anledning måste du återskapa det. Filerna skrivs bara helt när ett jobb når det slutförda läget (delar av filer skrivs aldrig). Du kan verifiera att en fil skrivits helt genom att beräkna dess SHA-256-hash och jämföra den med kontrollsumman som returneras av jobbstatusslutpunkterna.
+När ett jobb står i kö eller bearbetas slutförs det (utan att ett fel eller jobb avbryts). Om ett jobb misslyckas av någon anledning måste du återskapa det. Filerna skrivs bara helt när ett jobb når det slutförda läget (delar av filer skrivs aldrig). Du kan verifiera att en fil skrivits helt genom att beräkna den som SHA-256-hash och jämföra den med kontrollsumman som returneras av jobbstatusslutpunkterna.
 
 Du kan fastställa den totala mängden disk som används för den aktuella dagen genom att anropa Hämta lead-/aktivitets-/programmedlemsjobb för export. Dessa slutpunkter returnerar en lista över alla jobb de senaste sju dagarna. Du kan filtrera listan ned till endast de jobb som har slutförts under den aktuella dagen (med attributen `status` och `finishedAt`). Sedan summerar du filstorlekarna för dessa jobb för att få fram det totala beloppet som används. Det går inte att ta bort en fil för att frigöra diskutrymme.
 

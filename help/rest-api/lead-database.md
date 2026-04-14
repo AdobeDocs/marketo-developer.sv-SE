@@ -3,7 +3,7 @@ title: Lead-databas
 feature: REST API, Database
 description: Guide till Marketo Lead Database API:er som täcker objekt, CRUD- och Describe-metoder, frågemönster, batchbegränsningar och CRM-integreringsbegränsningar.
 exl-id: e62e381f-916b-4d56-bc3d-0046219b68d3
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1373'
 ht-degree: 0%
@@ -32,7 +32,7 @@ De flesta av dessa objekt omfattar åtminstone metoderna Skapa, Läs, Uppdatera 
 
 ## API
 
-En fullständig lista över Lead Database API-slutpunkter, inklusive parametrar och modelleringsinformation finns i [API-slutpunktsreferens för lead-databas](https://developer.adobe.com/marketo-apis/api/mapi/).
+En fullständig lista över Lead Database API-slutpunkter, inklusive parametrar och modelleringsinformation finns i [API-slutpunktsreferens för lead-databas](https://developer.adobe.com/marketo-apis/api/mapi).
 
 För instanser där en intern CRM-integrering är aktiverad (antingen Microsoft Dynamics eller Salesforce.com) inaktiveras API:erna Company, Opportunity, Opportunity Role och Sales Person. Posterna hanteras via CRM när de är aktiverade och kan inte öppnas eller uppdateras via Marketo API:er.
 

@@ -3,7 +3,7 @@ title: Import av massutr
 feature: REST API
 description: Skapa och övervaka asynkron import av bulkleads i Marketo med CSV TSV eller SSV.
 exl-id: 615f158b-35f9-425a-b568-0a7041262504
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '825'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Import av massutr
 
-[Slutpunktsreferens för bulkimport](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads)
+[Slutpunktsreferens för bulkimport](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads)
 
-För stora mängder lead-poster kan leads importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
+För stora mängder lead-poster kan leads importeras asynkront med [bulk-API](https://developer.adobe.com/marketo-apis/api/mapi#tag/Bulk-Import-Leads/operation/importLeadUsingPOST). Det gör att du kan importera en lista med poster till Marketo med hjälp av en platt fil med avgränsarna (komma, tabb eller semikolon). Filen kan innehålla ett valfritt antal poster, så länge filen är mindre än 10 MB. Poståtgärden är bara&quot;infoga eller uppdatera&quot;.
 
 ## Bearbetningsgränser
 

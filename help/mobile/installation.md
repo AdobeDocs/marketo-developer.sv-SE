@@ -3,9 +3,9 @@ title: Installation
 feature: Mobile Marketing
 description: Guide för att installera och initiera Marketo Mobile SDK på iOS och Android med CocoaPods, Swift Package Manager eller Gradle, vilket möjliggör push- och in-app-meddelanden.
 exl-id: e0b79d85-3509-46d2-a77d-cee211c5ec7f
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '850'
+source-wordcount: '848'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ Installationsanvisningar för Marketo Mobile SDK. Stegen nedan krävs för att s
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md) (valfritt)
 
 ### Installera Framework via CocoaPods
@@ -132,7 +132,7 @@ private func application(_ app: UIApplication, open url: URL, options: [UIApplic
 
 ### Förutsättningar
 
-1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
+1. [Lägg till ett program i Marketo Admin](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/mobile-marketing/admin/add-a-mobile-app) (hämta programhemlig nyckel och Munchkin-ID)
 1. [Konfigurera push-meddelanden](push-notifications.md#android_setup_push) (valfritt)
 1. [Ladda ned Marketo SDK för Android](https://codeload.github.com/Marketo/android-sdk/zip/refs/heads/master)
 
@@ -208,7 +208,7 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
 
 1. Integrera den senaste versionen av Marketo Android SDK i Android App.  Steg är tillgängliga på [GitHub](https://github.com/Marketo/android-sdk).
 1. Konfigurera Firebase-appen på Firebase Console.
-   1. Skapa/lägg till ett projekt på [&#128279;](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
+   1. Skapa/lägg till ett projekt på [](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/)Firebase-konsolen.
       1. Välj `Add Project` i [Firebase-konsolen](https://accounts.google.com/ServiceLogin?passive=1209600&osid=1&continue=https://console.firebase.google.com/&followup=https://console.firebase.google.com/).
       1. Välj ditt GCM-projekt i listan över befintliga Google Cloud-projekt och välj `Add Firebase`.
       1. Välj `Add Firebase to your Android App` på välkomstskärmen i Firebase.
@@ -241,7 +241,7 @@ Android apputvecklare kan nu direkt använda Google [Firebase Cloud Messaging](h
             apply plugin: 'com.google.gms.google-services'
             ```
 
-         1. Klicka slutligen på Synkronisera nu i fältet som visas i ID:t
+         1. Välj slutligen **[!UICONTROL Sync now]** i fältet som visas i ID:t
    1. Redigera appens manifest FCM SDK lägger automatiskt till alla nödvändiga behörigheter och den nödvändiga mottagarfunktionen. Se till att ta bort följande föråldrade (och potentiellt skadliga, eftersom de kan orsaka duplicering av meddelanden) element från appens manifest:
 
       ```xml

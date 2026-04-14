@@ -3,7 +3,7 @@ title: E-postmallar
 feature: REST API
 description: Använd Marketo Asset REST API för att fråga efter, skapa, uppdatera, klona, ta bort, godkänna och inspektera beroenden för e-postmallar.
 exl-id: 50bb0047-d6ea-4c94-a900-18c37b17a147
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '292'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # E-postmallar
 
-[Slutpunktsreferens för e-postmall](https://developer.adobe.com/marketo-apis/api/asset/#tag/Email-Templates)
+[Slutpunktsreferens för e-postmall](https://developer.adobe.com/marketo-apis/api/asset#tag/Email-Templates)
 
 E-postmallar definierar strukturen och den återanvändbara layout som används när e-postmeddelanden skapas.
 

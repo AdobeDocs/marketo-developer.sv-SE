@@ -3,22 +3,22 @@ title: Transaktionell e-post
 feature: REST API
 description: Lär dig hur du konfigurerar Marketo för transaktionsmeddelanden och utlöser dem via REST API Request Campaign, med konfigurationssteg och Java-kodexempel.
 exl-id: 057bc342-53f3-4624-a3c0-ae619e0c81a5
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '988'
+source-wordcount: '1092'
 ht-degree: 0%
 
 ---
 
 # Transaktionell e-post
 
-Ett vanligt användningsexempel för Marketo API är att utlösa sändning av transaktionsmeddelanden till specifika poster via API-anropet [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/triggerCampaignUsingPOST) . Det finns några konfigurationskrav i Marketo för att köra det anrop som krävs med Marketo REST API.
+Ett vanligt användningsexempel för Marketo API är att utlösa sändning av transaktionsmeddelanden till specifika poster via API-anropet [Request Campaign](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/triggerCampaignUsingPOST) . Det finns några konfigurationskrav i Marketo för att köra det anrop som krävs med Marketo REST API.
 
 - Mottagaren måste ha en post i Marketo
 - Det måste finnas ett Transactional Email som skapats och godkänts i din Marketo-instans.
 - Det måste finnas en aktiv utlösarkampanj med namnet&quot;Campaign is Requested, 1. Source: Web Service API&quot;, som är konfigurerat för att skicka e-post
 
-[Skapa och godkänn din e-postadress](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE) först. Om e-postmeddelandet verkligen är transaktionellt måste du förmodligen ställa in det på operativ nivå, men se till att det lagligen klassificeras som operativt. Detta konfigureras från med redigeringsskärmen under E-poståtgärder > E-postinställningar:
+[Skapa och godkänn din e-postadress](https://experienceleague.adobe.com/docs/marketo/using/home.html) först. Om e-postmeddelandet verkligen är transaktionellt måste du förmodligen ställa in det på operativ nivå, men se till att det lagligen klassificeras som operativt. Detta konfigureras från med redigeringsskärmen under E-poståtgärder > E-postinställningar:
 
 ![Request-Campaign-email-Settings](assets/request-campaign-email-settings.png)
 
@@ -28,7 +28,7 @@ Godkänn det så är vi redo att skapa vår kampanj:
 
 ![RequestCampaign-Approve-Draft](assets/request-campaign-approve-draft.png)
 
-Om du inte har skapat några kampanjer tidigare kan du läsa artikeln [Skapa en ny smart kampanj](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html?lang=sv-SE) . När ni väl har skapat er kampanj måste vi gå igenom dessa steg. Konfigurera din smarta lista med kampanjutlösaren:
+Om du inte har skapat några kampanjer tidigare kan du läsa artikeln [Skapa en ny smart kampanj](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/smart-campaigns/creating-a-smart-campaign/create-a-new-smart-campaign.html) . När ni väl har skapat er kampanj måste vi gå igenom dessa steg. Konfigurera din smarta lista med kampanjutlösaren:
 
 ![Request-Campaign-Smart-List](assets/request-campaign-smart-list.png)
 
@@ -46,7 +46,7 @@ Nu kan vi aktivera:
 
 **Obs!** I Java-exemplen nedan använder vi paketet [minimum-json](https://github.com/ralfstx/minimal-json) för att hantera JSON-representationer i vår kod.
 
-Den första delen av att skicka ett transaktionsmejl via API:t är att se till att det finns en post med motsvarande e-postadress i din Marketo-instans och att vi har tillgång till dess lead-ID. För det här inlägget antar vi att e-postadresserna redan finns i Marketo och att vi bara måste hämta postens ID. För detta använder vi anropet [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET). Låt oss titta på vår huvudmetod för att begära kampanjen:
+Den första delen av att skicka ett transaktionsmejl via API:t är att se till att det finns en post med motsvarande e-postadress i din Marketo-instans och att vi har tillgång till dess lead-ID. För det här inlägget antar vi att e-postadresserna redan finns i Marketo och att vi bara måste hämta postens ID. För detta använder vi anropet [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET). Låt oss titta på vår huvudmetod för att begära kampanjen:
 
 ```java
 package dev.marketo.blog_request_campaign;
@@ -182,11 +182,11 @@ Den här klassen har en konstruktor som tar en Auth och kampanjens ID. Leads lä
 
 ### Bygger din e-postadress
 
-För att kunna anpassa innehållet måste vi först konfigurera ett [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html?lang=sv-SE) och ett [e-postmeddelande](https://experienceleague.adobe.com/docs/marketo/using/home.html?lang=sv-SE) i Marketo. För att kunna generera vårt anpassade innehåll måste vi skapa variabler i programmet och sedan placera dem i det e-postmeddelande som vi ska skicka. För enkelhetens skull använder vi bara en token i det här exemplet, men du kan ersätta ett valfritt antal token i ett e-postmeddelande, i Från e-post, Från namn, Svar till eller valfritt innehåll i e-postmeddelandet. Låt oss skapa en variabel med formaterad text för ersättning och kalla den för&quot;bodyReplacement&quot;. Med RTF kan vi ersätta innehåll i token med godtycklig HTML som vi vill mata in.
+För att kunna anpassa innehållet måste vi först konfigurera ett [program](https://experienceleague.adobe.com/docs/marketo/using/product-docs/core-marketo-concepts/programs/creating-programs/create-a-program.html) och ett [e-postmeddelande](https://experienceleague.adobe.com/docs/marketo/using/home.html) i Marketo. För att kunna generera vårt anpassade innehåll måste vi skapa variabler i programmet och sedan placera dem i det e-postmeddelande som vi ska skicka. För enkelhetens skull använder vi bara en token i det här exemplet, men du kan ersätta ett valfritt antal token i ett e-postmeddelande, i Från e-post, Från namn, Svar till eller valfritt innehåll i e-postmeddelandet. Låt oss skapa en variabel med formaterad text för ersättning och kalla den för&quot;bodyReplacement&quot;. Med RTF kan vi ersätta innehåll i token med godtycklig HTML som vi vill mata in.
 
 ![Ny-token](assets/New-Token.png)
 
-Token kan inte sparas när den är tom, så infoga lite platshållartext här. Nu måste vi infoga vår token i e-postmeddelandet:
+Token kan inte sparas om den är tom, så infoga lite platshållartext här. Nu måste vi infoga vår token i e-postmeddelandet:
 
 ![Add-Token](assets/Add-Token.png)
 
@@ -264,4 +264,4 @@ Result:
 
 ## Radbrytning
 
-Den här metoden är utökningsbar på många olika sätt, och ändrar innehåll i e-postmeddelanden inom enskilda layoutavsnitt eller externa e-postmeddelanden, så att anpassade värden kan skickas till uppgifter eller intressanta ögonblick. Du kan anpassa varifrån som helst en token kan användas från i ett program med den här metoden. Liknande funktioner är också tillgängliga med anropet [Schemalägg kampanj](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Campaigns/operation/scheduleCampaignUsingPOST) som gör att du kan bearbeta tokens i en hel gruppkampanj. Dessa kan inte anpassas per lead, men är användbara för att anpassa innehåll för en mängd leads.
+Den här metoden är utökningsbar på många olika sätt, och ändrar innehåll i e-postmeddelanden inom enskilda layoutavsnitt eller externa e-postmeddelanden, så att anpassade värden kan skickas till uppgifter eller intressanta ögonblick. Du kan anpassa varifrån som helst en token kan användas från i ett program med den här metoden. Liknande funktioner är också tillgängliga med anropet [Schemalägg kampanj](https://developer.adobe.com/marketo-apis/api/mapi#tag/Campaigns/operation/scheduleCampaignUsingPOST) som gör att du kan bearbeta tokens i en hel gruppkampanj. Dessa kan inte anpassas per lead, men är användbara för att anpassa innehåll för en mängd leads.

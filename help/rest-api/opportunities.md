@@ -3,7 +3,7 @@ title: Möjligheter
 feature: REST API
 description: Marketo REST API som beskriver, frågar, skapar och uppdaterar möjligheter, tar bort och söker efter fält, begränsningar och skrivskyddade beteenden med SFDC- eller Dynamics-synkronisering.
 exl-id: 46451285-4125-4857-890a-575069a68288
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '879'
 ht-degree: 0%
@@ -12,11 +12,11 @@ ht-degree: 0%
 
 # Möjligheter
 
-[Slutpunktsreferens för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities)
+[Slutpunktsreferens för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities)
 
 Marketo visar API:er för att läsa, skriva, skapa och uppdatera poster för affärsmöjligheter. I Marketo länkas affärsmöjlighetsposter till lead- och kontaktposter via det mellanliggande säljprojektsrollobjektet, så att en affärsmöjlighet kan länkas till många enskilda leads.  Båda dessa objekttyper exponeras via API, och precis som de flesta objekttyperna för Lead-databasen har de båda ett motsvarande Describe-anrop som returnerar metadata om objekttyperna.
 
-API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=sv-SE) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=sv-SE) aktiverat.
+API:er för affärsmöjligheter är skrivskyddade för prenumerationer som har [SFDC Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/salesforce-sync/sfdc-sync-details/sfdc-sync-field-sync.html?lang=en) eller [Microsoft Dynamics Sync](https://experienceleague.adobe.com/docs/marketo/using/product-docs/crm-sync/microsoft-dynamics/microsoft-dynamics-sync-details/microsoft-dynamics-sync-user-sync.html?lang=en) aktiverat.
 
 ## Beskriv
 
@@ -85,7 +85,7 @@ De viktigaste fälten för den här svarstypen är `idField`, `dedupeFields` och
 
 ## Fråga
 
-Mönstret för [frågemöjligheter](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunitiesUsingGET) följer noga det för lead-API:t med den extra begränsningen att parametern `filterType` accepterar fälten som listas i arrayen `searchableFields` eller i motsvarande describe-anrop, eller dedupeFields.  Observera att om du använder anpassade affärsmöjlighetsfält, kommer endast anpassade affärsmöjlighetsfält av typen String eller Integer att listas i sökbar fältsarray.
+Mönstret för [frågemöjligheter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunitiesUsingGET) följer noga det för lead-API:t med den extra begränsningen att parametern `filterType` accepterar fälten som listas i arrayen `searchableFields` eller i motsvarande describe-anrop, eller dedupeFields.  Observera att om du använder anpassade affärsmöjlighetsfält, kommer endast anpassade affärsmöjlighetsfält av typen String eller Integer att listas i sökbar fältsarray.
 
 ```http
 GET /rest/v1/opportunities.json?filterType=marketoGUID&filterValues=dff23271-f996-47d7-984f-f2676861b5fa&dff23271-f996-47d7-984f-f2676861b5fc,dff23271-f996-47d7-984f-f2676861b5fb
@@ -188,7 +188,7 @@ Det är enkelt att fråga efter affärsmöjlighetsfält.  Du kan fråga ett ens
 
 #### Efter namn
 
-Slutpunkten [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) hämtar metadata för ett enskilt fält i företagsobjektet.  Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn.  Svaret är som slutpunkten för Beskriv säljprojekt men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
+Slutpunkten [Get Opportunity Field by Name](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldByNameUsingGET) hämtar metadata för ett enskilt fält i företagsobjektet.  Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn.  Svaret är som slutpunkten för Beskriv säljprojekt men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
 
 ```http
 GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
@@ -217,7 +217,7 @@ GET /rest/v1/opportunities/schema/fields/externalOpportunityId.json
 
 #### Bläddra
 
-Slutpunkten [Hämta fält för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Opportunities/operation/getOpportunityFieldsUsingGET) hämtar metadata för alla fält i företagsobjektet.  Som standard returneras högst 300 poster.  Du kan använda frågeparametern `batchSize` för att minska det här talet.  Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga.  Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat.  `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten [Hämta fält för affärsmöjlighet](https://developer.adobe.com/marketo-apis/api/mapi#tag/Opportunities/operation/getOpportunityFieldsUsingGET) hämtar metadata för alla fält i företagsobjektet.  Som standard returneras högst 300 poster.  Du kan använda frågeparametern `batchSize` för att minska det här talet.  Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga.  Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat.  `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ```http
 GET /rest/v1/opportunities/schema/fields.json?batchSize=5

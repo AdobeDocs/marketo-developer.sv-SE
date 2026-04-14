@@ -3,7 +3,7 @@ title: Programmedlemmar
 feature: REST API
 description: Använd Marketo REST API för att läsa, skapa, uppdatera och ta bort programmedlemmar, hantera standardfält och anpassade fält samt fråga med sökbara fält.
 exl-id: 22f29a42-2a30-4dce-a571-d7776374cf43
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1924'
 ht-degree: 0%
@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Programmedlemmar
 
-[Slutpunktsreferens för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members)
+[Slutpunktsreferens för programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members)
 
-Marketo visar API:er för att läsa, skapa, uppdatera och ta bort programmedlemsposter. Poster för programmedlemmar är relaterade till lead-poster via fältet lead-id. Posterna består av en uppsättning standardfält och eventuellt upp till 20 ytterligare anpassade fält. Fälten innehåller programspecifika data för varje medlem och kan användas i formulär, filter, utlösare och flödesåtgärder. Dessa data kan visas på fliken [Medlemmar](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) i Marketo Engage-gränssnittet.
+Marketo visar API:er för att läsa, skapa, uppdatera och ta bort programmedlemsposter. Poster för programmedlemmar är relaterade till lead-poster via fältet lead-id. Posterna består av en uppsättning standardfält och eventuellt upp till 20 ytterligare anpassade fält. Fälten innehåller programspecifika data för varje medlem och kan användas i formulär, filter, utlösare och flödesåtgärder. Dessa data kan visas på fliken [Medlemmar](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/manage-and-view-members) i Marketo Engage-gränssnittet.
 
 ## Beskriv
 
-Slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) följer standardmönstret för lead-databasobjekt. Arrayen `searchableFields` ger dig en uppsättning fält som är giltiga för frågor. Arrayen `fields` innehåller fältmetadata, inklusive REST API-namn, visningsnamn och möjlighet att uppdatera fält.
+Slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) följer standardmönstret för lead-databasobjekt. Arrayen `searchableFields` ger dig en uppsättning fält som är giltiga för frågor. Arrayen `fields` innehåller fältmetadata, inklusive REST API-namn, visningsnamn och möjlighet att uppdatera fält.
 
 ```http
 GET /rest/v1/programs/members/describe.json
@@ -209,11 +209,11 @@ GET /rest/v1/programs/members/describe.json
 
 ## Fråga
 
-Med slutpunkten [Hämta programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMembersUsingGET) kan du hämta medlemmar i ett program. Det kräver en `programId`-sökvägsparameter samt `filterType`- och `filterValues`-frågeparametrar.
+Med slutpunkten [Hämta programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMembersUsingGET) kan du hämta medlemmar i ett program. Det kräver en `programId`-sökvägsparameter samt `filterType`- och `filterValues`-frågeparametrar.
 
 `programId` används för att ange vilket program som ska sökas igenom.
 
-`filterType` används för att ange vilket fält som ska användas som sökfilter. Det accepterar alla fält i listan &quot;searchableFields&quot; som returneras av slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2). Om du anger en filterType som är ett anpassat fält måste det anpassade fältets dataType vara antingen &quot;string&quot; eller &quot;integer&quot;. Om du anger en annan filterType än leadId kan högst 100 000 programmedlemsposter bearbetas av begäran. Beroende på hur din Marketo-instans är konfigurerad får du ett av följande fel:
+`filterType` används för att ange vilket fält som ska användas som sökfilter. Det accepterar alla fält i listan &quot;searchableFields&quot; som returneras av slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2). Om du anger en filterType som är ett anpassat fält måste det anpassade fältets dataType vara antingen &quot;string&quot; eller &quot;integer&quot;. Om du anger en annan filterType än leadId kan högst 100 000 programmedlemsposter bearbetas av begäran. Beroende på hur din Marketo-instans är konfigurerad får du ett av följande fel:
 
 - Om det totala antalet programmedlemmar överstiger 100 000 returneras ett fel: &quot;1 003, total medlemsstorlek: 100 001 överskrider gränsen som tillåts 100 000 för filtret&quot;.
 - Om det totala antalet programmedlemmar _som matchar filtret_ överstiger 100 000 returneras ett fel: &quot;1 003, Matchande medlemsstorlek: 100 001 överskrider den tillåtna gränsen (100 000) för det här API:t&quot;.
@@ -224,7 +224,7 @@ Om du vill fråga ett program vars medlemsantal överskrider gränsen använder 
 
 Du kan också filtrera efter datumintervall genom att ange `updatedAt` som filterType med parametrarna `startAt` och `endAt` datetime. Intervallet måste vara minst sju dagar. Datumtider ska vara i ISO-8601-format, utan millisekunder.
 
-Den valfria frågeparametern `fields` accepterar en kommaavgränsad lista med fält-API-namn som returneras av slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2). När de inkluderas innehåller varje post i svaret de angivna fälten. När det utelämnas är standarduppsättningen med returnerade fält `acquiredBy`, `leadId`, `membershipDate`, `programId` och `reachedSuccess`.
+Den valfria frågeparametern `fields` accepterar en kommaavgränsad lista med fält-API-namn som returneras av slutpunkten [Beskriv programmedlem](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2). När de inkluderas innehåller varje post i svaret de angivna fälten. När det utelämnas är standarduppsättningen med returnerade fält `acquiredBy`, `leadId`, `membershipDate`, `programId` och `reachedSuccess`.
 
 Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet **moreResult** är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
@@ -346,11 +346,11 @@ Det finns två slutpunkter som har stöd för att skapa/uppdatera för programme
 
 ### Status för programmedlem
 
-Slutpunkten [Synkronisera programmedlemmens status](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) används för att skapa eller uppdatera programstatusen för en eller flera medlemmar.
+Slutpunkten [Synkronisera programmedlemmens status](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberStatusUsingPOST) används för att skapa eller uppdatera programstatusen för en eller flera medlemmar.
 
 Sökvägsparametern `programId` som krävs anger programmet som innehåller medlemmar som ska skapas eller uppdateras.
 
-Den obligatoriska parametern `statusName` anger vilken programstatus som ska användas på en lista med leads. StatusName måste matcha en tillgänglig status för programmets kanal. Giltiga statusvärden kan hämtas med slutpunkten [Hämta kanaler](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels/operation/getAllChannelsUsingGET). Om en leads status har ett större stegvärde än den angivna statusName hoppas denna lead över.
+Den obligatoriska parametern `statusName` anger vilken programstatus som ska användas på en lista med leads. StatusName måste matcha en tillgänglig status för programmets kanal. Giltiga statusvärden kan hämtas med slutpunkten [Hämta kanaler](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels/operation/getAllChannelsUsingGET). Om en leads status har ett större stegvärde än den angivna statusName hoppas denna lead över.
 
 Den obligatoriska parametern `input` är en matris av `leadId` som motsvarar programmedlemmar. Du kan skicka upp till 300 leadIds per samtal. En upsert-åtgärd utförs för varje post. Om leadId är associerat med en programmedlem uppdateras medlemskapsstatusen. Om inte skapas en ny programmedlemspost, posten kopplas till leadId och medlemskapsstatusen tilldelas.
 
@@ -414,7 +414,7 @@ Content-Type: application/json
 
 ### Programmedlemsdata
 
-Slutpunkten [Synkronisera programmedlemsdata](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) används för att uppdatera programmedlemsfältdata för en eller flera medlemmar. Du kan ändra anpassade fält eller standardfält som är&quot;uppdateringsbara&quot; (se [Beskriv programmedlemmens](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/describeProgramMemberUsingGET2) slutpunkt).
+Slutpunkten [Synkronisera programmedlemsdata](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/syncProgramMemberDataUsingPOST) används för att uppdatera programmedlemsfältdata för en eller flera medlemmar. Du kan ändra anpassade fält eller standardfält som är&quot;uppdateringsbara&quot; (se [Beskriv programmedlemmens](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/describeProgramMemberUsingGET2) slutpunkt).
 
 Sökvägsparametern `programId` som krävs anger programmet som innehåller medlemmar som ska uppdateras.
 
@@ -492,7 +492,7 @@ Det är enkelt att fråga programmedlemsfält. Du kan fråga ett enskilt program
 
 #### Efter namn
 
-Slutpunkten [Hämta programmedlemsfält efter namn](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) hämtar metadata för ett enskilt fält i programmedlemsobjektet. Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn. Svaret är som Beskriv programmedlemmens slutpunkt men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
+Slutpunkten [Hämta programmedlemsfält efter namn](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldByNameUsingGET) hämtar metadata för ett enskilt fält i programmedlemsobjektet. Sökvägsparametern `fieldApiName` som krävs anger fältets API-namn. Svaret är som Beskriv programmedlemmens slutpunkt men innehåller ytterligare metadata som attributet `isCustom` som anger om fältet är ett anpassat fält.
 
 ```http
 GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
@@ -521,7 +521,7 @@ GET /rest/v1/programs/members/schema/fields/{fieldApiName}.json
 
 #### Bläddra
 
-Slutpunkten [Hämta programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) hämtar metadata för alla fält i programmedlemsobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
+Slutpunkten [Hämta programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/getProgramMemberFieldsUsingGET) hämtar metadata för alla fält i programmedlemsobjektet. Som standard returneras högst 300 poster. Du kan använda frågeparametern `batchSize` för att minska det här talet. Om attributet `moreResult` är true innebär det att fler resultat är tillgängliga. Fortsätt anropa den här slutpunkten tills attributet moreResult returnerar false, vilket betyder att det inte finns några tillgängliga resultat. `nextPageToken` som returneras från detta API ska alltid återanvändas för nästa iteration av det här anropet.
 
 ```http
 GET /rest/v1/programs/members/schema/fields.json?batchSize=5
@@ -597,9 +597,9 @@ GET /rest/v1/programs/members/schema/fields.json?batchSize=5
 
 ### Skapa fält
 
-Slutpunkten [Skapa programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) skapar ett eller flera anpassade fält i programmedlemsobjektet. Den här slutpunkten innehåller funktioner som är jämförbara med vad som är [tillgängligt i Marketo Engage-gränssnittet](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Du kan skapa upp till 20 anpassade fält med den här slutpunkten.
+Slutpunkten [Skapa programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/createProgramMemberFieldUsingPOST) skapar ett eller flera anpassade fält i programmedlemsobjektet. Den här slutpunkten innehåller funktioner som är jämförbara med vad som är [tillgängligt i Marketo Engage-gränssnittet](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/programs/working-with-programs/program-member-custom-fields). Du kan skapa upp till 20 anpassade fält med den här slutpunkten.
 
-Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t. När ett fält har skapats kan du inte ta bort det ([du kan bara dölja det](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
+Tänk noga igenom varje fält som du skapar i din produktionsinstans av Marketo Engage med API:t. När ett fält har skapats kan du inte ta bort det ([du kan bara dölja det](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/administration/field-management/delete-a-custom-field-in-marketo)). Oanvända fält sprids ofta på ett dåligt sätt, vilket gör att instansen blir rörig.
 
 Den obligatoriska parametern `input` är en matris med programmedlemsfältobjekt. Varje objekt innehåller ett eller flera attribut. Attribut som krävs är `displayName`, `name` och `dataType` som motsvarar fältets gränssnittsvisningsnamn, fältets API-namn och fälttypen. Du kan också ange `description`, `isHidden`, `isHtmlEncodingInEmail` och `isSensitive`.
 
@@ -637,7 +637,7 @@ POST /rest/v1/programs/members/schema/fields.json
 
 ### Uppdatera fält
 
-Slutpunkten [Uppdatera programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) uppdaterar ett anpassat fält i programmedlemsobjektet. I allmänhet går det att utföra fältuppdateringsåtgärder som utförs med Marketo Engage-gränssnittet med API:t. I tabellen nedan sammanfattas några skillnader.
+Slutpunkten [Uppdatera programmedlemsfält](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/updateProgramMemberFieldUsingPOST) uppdaterar ett anpassat fält i programmedlemsobjektet. I allmänhet går det att utföra fältuppdateringsåtgärder som utförs med Marketo Engage-gränssnittet med API:t. I tabellen nedan sammanfattas några skillnader.
 
 | Attribut | Kan uppdateras av API? | Kan uppdateras av användargränssnittet? | Kan uppdateras av API? | Kan uppdateras av användargränssnittet? |
 | --- | --- | --- | --- | --- |
@@ -684,7 +684,7 @@ POST /rest/v1/programs/members/schema/fields/pMCFCustomField03.json
 
 ## Ta bort
 
-Slutpunkten [Ta bort programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Program-Members/operation/deleteProgramMemberUsingPOST) används för att ta bort programmedlemsposter. Sökvägsparametern `programId` som krävs anger programmet som innehåller medlemmar som ska tas bort. Begärandetexten innehåller en `input`-matris med lead-ID:n. Högst 300 blyid  per samtal tillåts.
+Slutpunkten [Ta bort programmedlemmar](https://developer.adobe.com/marketo-apis/api/mapi#tag/Program-Members/operation/deleteProgramMemberUsingPOST) används för att ta bort programmedlemsposter. Sökvägsparametern `programId` som krävs anger programmet som innehåller medlemmar som ska tas bort. Begärandetexten innehåller en `input`-matris med lead-ID:n. Högst 300 blyid  per samtal tillåts.
 
 Slutpunkten svarar med `status` av &quot;deleted&quot; eller &quot;Skipped&quot;. Om den hoppas över inkluderas även en `reasons`-matris. Slutpunkten kommer också att svara med ett `seq`-fält som är ett index som kan användas för att korrelera skickade poster till svarsordningen.
 

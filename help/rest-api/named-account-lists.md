@@ -3,7 +3,7 @@ title: Namngivna kontolistor
 feature: REST API
 description: Lär dig hur du hanterar Marketo Named Account Lists med REST API, inklusive behörigheter, fält, filtrering och slutpunkter för att fråga, skapa, uppdatera och ta bort.
 exl-id: 98f42780-8329-42fb-9cd8-58e5dbea3809
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '746'
 ht-degree: 0%
@@ -12,9 +12,9 @@ ht-degree: 0%
 
 # Namngivna kontolistor
 
-[Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Named-Account-Lists)
+[Slutpunktsreferens för namngiven kontolista](https://developer.adobe.com/marketo-apis/api/mapi#tag/Named-Account-Lists)
 
-[Namngivna kontolistor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
+[Namngivna kontolistor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/target-account-management/target/account-lists) i Marketo representerar samlingar med namngivna konton. De kan användas i en mängd olika fall, t.ex. kategorisering, databerikning och smart kampanjfiltrering. API:erna för namngiven kontolista tillåter fjärrhantering av dessa listresurser och deras medlemskap.
 `Content`
 
 ## Behörigheter

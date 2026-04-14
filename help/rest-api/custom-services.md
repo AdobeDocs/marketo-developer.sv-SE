@@ -3,9 +3,9 @@ title: Anpassade tjänster
 feature: REST API
 description: Skapa Marketo anpassade tjänster, ange roller och behörigheter för enbart API, hämta klient-ID och klienthemlighet i LaunchPoint och få åtkomsttoken.
 exl-id: 38b05c4c-4404-4c30-a7cb-d31b28a3a72e
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 1f01457919b9fe110b98603f5b8c0996ba8aee4b
 workflow-type: tm+mt
-source-wordcount: '985'
+source-wordcount: '1031'
 ht-degree: 0%
 
 ---
@@ -18,7 +18,7 @@ En anpassad tjänst tillhandahåller autentiseringsuppgifter för autentisering 
 
 Det första steget i att skapa en anpassad tjänst är att skapa en roll som du kan tillämpa på den aktuella användaren med enbart API. Detta görs på menyn **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Roles]**.
 
-Roller är behållare för individuella behörigheter som tillåter eller begränsar åtkomst till vissa funktioner. I prenumerationer där Arbetsytor och Partitioner är aktiverade tilldelas behörigheter per arbetsyta. Om en användare har en behörighet på en arbetsyta men inte en annan, kan de bara utföra tillåtna åtgärder på den arbetsytan. Om du vill skapa en roll klickar du på knappen Ny roll.
+Roller är behållare för individuella behörigheter som tillåter eller begränsar åtkomst till vissa funktioner. I prenumerationer där Arbetsytor och Partitioner är aktiverade tilldelas behörigheter per arbetsyta. Om en användare har en behörighet på en arbetsyta men inte en annan, kan de bara utföra tillåtna åtgärder på den arbetsytan. Välj **[!UICONTROL New Role]** om du vill skapa en roll.
 
 ![Användare och roller](assets/admin-users-and-roles-roles.png)
 
@@ -42,15 +42,15 @@ När du har skapat en roll måste du skapa en användare med endast API. Använd
 
 >[!MORELIKETHIS]
 >
->Om du vill skapa en användare med endast API går du till menyn **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** och klickar på [!UICONTROL Invite New User].
+>Om du vill skapa en användare med endast API går du till menyn **[!UICONTROL Admin]** > **[!UICONTROL Users & Roles]** > **[!UICONTROL Users]** och väljer **[!UICONTROL Invite New User]**.
 
 ![Ny användarinformation](assets/new-user-info.png)
 
-Ge användaren ett beskrivande namn och en e-postadress (det måste inte vara giltigt) utifrån den tjänst och det program som det ska användas för. Fyll i de obligatoriska fälten i dialogrutan, klicka i kryssrutan Endast API och tilldela en av dina API-roller till användaren. Detta tilldelar rollens behörigheter till användaren.
+Ge användaren ett beskrivande namn och en e-postadress (det måste inte vara giltigt) utifrån den tjänst och det program som det ska användas för. Fyll i de obligatoriska fälten på dialogmenyn, markera kryssrutan **[!UICONTROL API Only]** och tilldela användaren en av dina API-roller. Detta tilldelar rollens behörigheter till användaren.
 
 ![Nya användarbehörigheter](assets/new-user-permissions.png)
 
-Klicka slutligen på&quot;Skicka&quot; för att skapa användaren med endast API.
+Slutligen väljer du **[!UICONTROL Send]** för att skapa användaren med endast API.
 
 När du etablerar ett nytt program med autentiseringsuppgifter bör du överväga att skapa en ny användare för tjänsten även om den har samma behörighetsuppsättning som en annan befintlig integrering. Statistik och fel för användning av API-anrop spåras per användare, så om du etablerar en användare för varje program kan du isolera användning och problem i specifika program. Detta är praktiskt om du stöter på problem med att följa API-anropsgränserna eller fel som beror på API-anrop från integreringar.
 
@@ -58,7 +58,7 @@ När du etablerar ett nytt program med autentiseringsuppgifter bör du överväg
 
 Anpassade tjänster tillhandahåller de faktiska autentiseringsuppgifter, klient-ID och klienthemlighet, som krävs för att utföra autentisering med en Marketo-instans. Om du vill etablera en sådan går du till menyn **[!UICONTROL Admin]** > **[!UICONTROL Integrations]** > **[!UICONTROL LaunchPoint]** och väljer **[!UICONTROL New Service]**.
 
-Ge tjänsten ett beskrivande namn och välj Anpassad i listan Tjänst. Ge tjänsten en detaljerad beskrivning och välj en lämplig användare i listan Endast API-användare. Klicka sedan på [!UICONTROL Create].
+Ge tjänsten ett beskrivande namn och välj Anpassad i listan Tjänst. Ge tjänsten en detaljerad beskrivning och välj en lämplig användare i listan Endast API-användare och välj sedan **[!UICONTROL Create]**.
 
 ![Ny anpassad tjänst](assets/admin-launchpoint-new-service.png)
 

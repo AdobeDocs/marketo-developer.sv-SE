@@ -3,16 +3,16 @@ title: Leads
 feature: REST API
 description: Utforska Marketo Leads REST API-funktioner som Beskriv, fråga efter ID eller filter, standardfält, begränsningar och hämtning av ECID.
 exl-id: 0a2f7c38-02ae-4d97-acfe-9dd108a1f733
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '3457'
+source-wordcount: '3460'
 ht-degree: 0%
 
 ---
 
 # Leads
 
-[Referens för leadslutpunkt](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads)
+[Referens för leadslutpunkt](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads)
 
 Marketo Leads API innehåller en stor uppsättning funktioner för enkla CRUD-program mot lead-poster, samt möjlighet att ändra ett leadmedlemskap i statiska listor och program och initiera Smart Campaign-bearbetning för leads.
 
@@ -95,7 +95,7 @@ För den här metoden finns det alltid en enda post i den första positionen i r
 
 Hämta leads efter filtertyp returnerar samma typ av poster, men kan returnera upp till 300 per sida. Det kräver frågeparametrarna `filterType` och `filterValues`.
 
-`filterType` accepterar alla anpassade fält eller de flesta vanliga fält. Anropa `Describe2`-slutpunkten för att få en omfattande lista över sökbara fält som är tillåtna för användning i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältinformation (beskrivning, typ osv.) med den beskrivande metoden.
+`filterType` accepterar alla anpassade fält eller de flesta vanliga fält. Anropa `Describe2`-slutpunkten för att få en omfattande lista över sökbara fält som är tillåtna för användning i `filterType`. Vid sökning efter anpassat fält stöds endast följande datatyper: `string`, `email`, `integer`. Du kan hämta fältinformation (beskrivning, typ och så vidare) med den tidigare beskrivningsmetoden.
 
 `filterValues` accepterar upp till 300 värden i kommaavgränsat format. Samtalet söker efter poster där leadets fält matchar en av de inkluderade `filterValues`. Om antalet leads som matchar leadfiltret är större än 1 000 returneras ett fel: &quot;1 003, för många resultat matchar filtret&quot;.
 
@@ -160,7 +160,7 @@ Förutom att hämta lead-data kan du skapa, uppdatera och ta bort lead-poster vi
 
 >[!NOTE]
 >
-> Det går inte att uppdatera företagsfält med slutpunkten [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/syncLeadUsingPOST). Använd slutpunkten [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Companies/operation/syncCompaniesUsingPOST) i stället.
+> Det går inte att uppdatera företagsfält med slutpunkten [Synkronisera leads](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/syncLeadUsingPOST). Använd slutpunkten [Synkronisera företag](https://developer.adobe.com/marketo-apis/api/mapi#tag/Companies/operation/syncCompaniesUsingPOST) i stället.
 
 >[!NOTE]
 >
@@ -767,6 +767,7 @@ Här ser vi motsvarande &quot;Fyll i formulär&quot;-aktivitetsinformation inifr
 ## Sammanfoga
 
 >[!NOTE]
+>
 >Från och med den 31 mars 2026 kommer anrop som innehåller fler än 25 ID:n i parametern `leadIds` i ett API-anrop för kopplingsleads att resultera i en 1 080-felkod och anropet kommer att hoppas över. Jobb som kräver att mer än 25 poster slås samman till ett, bör delas upp i flera jobb för att säkerställa att dessa samtal blir framgångsrika.
 >
 
@@ -817,7 +818,7 @@ medlemskap
 Leadposter kan också hämtas baserat på medlemskap i en statisk lista eller ett program. Dessutom kan ni hämta alla statiska listor, program eller smarta kampanjer som en lead är medlem i.
 
 Svarsstrukturen och valfria parametrar är identiska med parametrarna för Hämta leads efter filtertyp, men `filterType` och `filterValues` kan inte användas med detta API.
-Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-**&#x200B;**.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
+Navigera till listan för att få åtkomst till list-ID via Marketo-gränssnittet. Listan `id` finns i URL:en för den statiska listan, `https://app-****.marketo.com/#ST1001A1`. I det här exemplet är 1001 `id` för listan.
 
 ## Hämta program efter lead-ID
 

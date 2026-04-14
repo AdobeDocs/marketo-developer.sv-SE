@@ -3,7 +3,7 @@ title: Kanaler
 feature: REST API
 description: Lär dig hur du frågar efter Marketo-kanaler via Asset REST API, bläddrar med sidnumrering eller hämtar efter namn, visar förloppsstatus och förstår regler för programtyper.
 exl-id: ec6c279f-a7b4-4a7c-b980-1a68045f37ce
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '151'
 ht-degree: 1%
@@ -12,7 +12,7 @@ ht-degree: 1%
 
 # Kanaler
 
-[Referens för kanalslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Channels)
+[Referens för kanalslutpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Channels)
 
 Kanaler är ett standardfält och obligatoriskt fält för alla programtyper. Varje kanaltyp kan bara användas med angiven `applicableProgramType` och innehåller en lista över tillgängliga programstatusvärden som är giltiga för programmedlemmar i varje program. Om en kanals programstatus ändras efter att ett program har skapats, kommer listan över programstatusvärden som en lead kan ändras till att matcha den lista som kanalen angav vid den tidpunkten, men den kommer inte att ändra programstatus retroaktivt för befintliga poster för programmedlemskap.
 

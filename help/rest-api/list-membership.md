@@ -3,7 +3,7 @@ title: Listmedlemskap (statiska listor)
 feature: REST API, Static Lists
 description: Använd Marketo Lead Database REST API:er för att lägga till leads till statiska listor, ta bort leads, hämta listmedlemmar och medlemskap för checklistor.
 exl-id: b8f74bcf-834a-44db-81fd-621048afeba4
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '482'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # Listmedlemskap (statiska listor)
 
-[Slutpunktsreferens för listmedlemskap](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists)
+[Slutpunktsreferens för listmedlemskap](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists)
 
 API:erna för listmedlemskap innehåller Lead Database-slutpunkter för arbete med statiska listmedlemmar. Dessa slutpunkter kan användas för att lägga till leads till en lista, ta bort leads från en lista, hämta medlemmar i en lista och avgöra om en eller flera leads är medlemmar i en lista.
 
@@ -27,7 +27,7 @@ API:erna för listmedlemskap innehåller Lead Database-slutpunkter för arbete m
 
 ## Lägg till i listan
 
-Slutpunkten [Lägg till i listan](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/addLeadsToListUsingPOST) används för att lägga till en eller flera medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
+Slutpunkten [Lägg till i listan](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/addLeadsToListUsingPOST) används för att lägga till en eller flera medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
@@ -60,7 +60,7 @@ POST /rest/v1/lists/{listId}/leads.json?id=318594&id=318595
 
 ## Ta bort från lista
 
-Slutpunkten [Ta bort från listan](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) används för att ta bort en eller flera medlemmar från en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
+Slutpunkten [Ta bort från listan](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/removeLeadsFromListUsingDELETE) används för att ta bort en eller flera medlemmar från en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 
@@ -97,7 +97,7 @@ DELETE /rest/v1/lists/{listId}/leads.json?id=318603&id=318595&id=999999
 
 ## Hämta leads efter list-ID
 
-Slutpunkten [Hämta leads efter list-ID](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/getLeadsByListIdUsingGET) används för att hämta medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och tillåter flera valfria frågeparametrar att ange filtervillkor.
+Slutpunkten [Hämta leads efter list-ID](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/getLeadsByListIdUsingGET) används för att hämta medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och tillåter flera valfria frågeparametrar att ange filtervillkor.
 
 Parametern `batchSize` används för att ange antalet lead-poster som ska returneras i ett enskilt anrop. Standardvärdet och maxvärdet är 300.
 
@@ -147,7 +147,7 @@ GET /rest/v1/lists/{listId}/leads.json?batchSize=3
 
 ## List-medlem
 
-[Medlemmen i List](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)-slutpunkten används för att se om en eller flera leads är medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
+[Medlemmen i List](https://developer.adobe.com/marketo-apis/api/mapi#tag/Static-Lists/operation/areLeadsMemberOfListUsingGET)-slutpunkten används för att se om en eller flera leads är medlemmar i en lista. Slutpunkten har en obligatorisk `listId`-sökvägsparameter och en eller flera `id`-frågeparametrar som innehåller lead-ID (maximalt tillåtet är 300).
 
 Svaret innehåller en `result`-matris som består av JSON-objekt med statusen för varje lead-ID som angavs i begäran.
 

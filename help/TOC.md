@@ -5,9 +5,9 @@ breadcrumb-title: Utvecklarhandbok för [!DNL Marketo]
 role: Admin
 feature-set: "Marketo Engage"
 index: true
-source-git-commit: 74964e90ddc68a611706afcad1f6016d05b060d6
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '284'
+source-wordcount: '286'
 ht-degree: 3%
 
 ---
@@ -165,6 +165,7 @@ ht-degree: 3%
 - [E-postskript](email-scripting.md)
 - [Exempel på e-postskript](examples.md)
 - [Marketo Objects](marketo-objects.md)
+- [MCP-server](mcp-server.md)
 - [Licens](api-license.md)
 - [Partnersandlåda](partner-sandbox.md)
 - [Självbetjäningsflödessteg](self-service-flow-steps.md)

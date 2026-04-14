@@ -3,7 +3,7 @@ title: Mappar
 feature: REST API
 description: Marketo REST API-guide för mappar som innehåller skapa, uppdatera, ta bort, fråga efter ID och namn, Bläddra bland flera med rot, arbetsyta, maxDepth och pagination.
 exl-id: 4b55c256-ef0a-42b4-9548-ff8a4106f064
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1099'
 ht-degree: 0%
@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Mappar
 
-[Referens för mappslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders)
+[Referens för mappslutpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders)
 
 Mappar är den viktigaste organisationsresursen i Marketo, och alla andra typer av resurser har minst en mapp som överordnad. Den överordnade mappen kan antingen vara en mapp som är helt organisatorisk eller ett program som har en funktionell relation till andra resurstyper och kan också vara överordnad andra resurser. Mappar kan skapas, frågas, uppdateras och tas bort via API:t, och även en lista över deras innehåll kan hämtas. Även om program kan returneras genom frågor till programmeringsgränssnittet måste du skapa, uppdatera och ta bort program via programmeringsgränssnittet.
 
 ## Fråga
 
-När mappar efterfrågas följer standardfrågetyperna för resurser i [via ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) och [bläddring](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET).
+När mappar efterfrågas följer standardfrågetyperna för resurser i [via ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) och [bläddring](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET).
 
 ### Efter ID
 
@@ -70,7 +70,7 @@ Typparametern är obligatorisk och måste vara antingen &quot;Mapp&quot; eller &
 
 ### Efter namn
 
-[Det är också tillåtet att fråga efter namn &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
+[Det är också tillåtet att fråga efter namn ](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET). Frågan efter namnslutpunkt har namn som den enda obligatoriska parametern. Namn utför en exakt strängmatchning mot namnfältet för mapparna i instansen och returnerar resultat för varje mapp som matchar det namnet. Den har också de valfria frågeparametrarna av typen &quot;type&quot;, som kan vara Mapp eller Program, &quot;root&quot;, ID:t för mappen som ska genomsökas, eller &quot;workspace&quot;, namnet på arbetsytan som ska genomsökas i. Om rotparametern är inställd måste även typparametern anges.
 
 ```http
 GET /rest/asset/v1/folder/byName.json?name=Test%2010%20-%20deverly
@@ -113,12 +113,12 @@ När du söker efter namn är det viktigt att tänka på att både marknadsföri
 
 ### Bläddra
 
-Mappar kan också [hämtas i bulk](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderUsingGET). Parametern root kan användas för att ange den överordnade mapp som frågan ska utföras under och formateras som ett JSON-objekt inbäddat som värde för frågeparametern. Roten har två medlemmar:
+Mappar kan också [hämtas i bulk](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderUsingGET). Parametern root kan användas för att ange den överordnade mapp som frågan ska utföras under och formateras som ett JSON-objekt inbäddat som värde för frågeparametern. Roten har två medlemmar:
 
 1. id - ID för mappen eller programmet.
 1. type - antingen Folder or Program, Beroende på vilken typ av rotmapp som ska webbläsas.
 
-Om rotmappen inte är känd, eller om avsikten är att hämta alla mappar i ett visst område, kan roten anges som områdena&quot;Marknadsföringsaktiviteter&quot;,&quot;Design Studio&quot; eller&quot;Lead Database&quot;. Du kan hämta ID:n för var och en av dem med API:t [Hämta mapp efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/getFolderByNameUsingGET) och ange namnet på det önskade området.
+Om rotmappen inte är känd, eller om avsikten är att hämta alla mappar i ett visst område, kan roten anges som områdena&quot;Marknadsföringsaktiviteter&quot;,&quot;Design Studio&quot; eller&quot;Lead Database&quot;. Du kan hämta ID:n för var och en av dem med API:t [Hämta mapp efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/getFolderByNameUsingGET) och ange namnet på det önskade området.
 
 Precis som andra slutpunkter för hämtning av bulkresurser är offset och maxReturn valfria parametrar för sidindelning.   Andra valfria parametrar är:
 
@@ -211,7 +211,7 @@ Sökvägen till en mapp visar sin hierarki i mappträdet, ungefär som en Unix-s
 
 ## Skapa och uppdatera
 
-[Det är enkelt att skapa mappar](https://developer.adobe.com/marketo-apis/api/asset/#tag/Folders/operation/createFolderUsingPOST) och det körs med ett program/x-www-form-urlencoded POST som har två obligatoriska parametrar, &quot;name&quot;, en sträng och &quot;parent&quot;, som är det överordnade objektet som skapar mappen i, vilket är ett inbäddat JSON-objekt med två medlemmar, id och typ, antingen Folder eller Program, beroende på målmappens typ. Om du vill kan du även använda&quot;description&quot;, en sträng, och den kan innehålla upp till 2 000 tecken.
+[Det är enkelt att skapa mappar](https://developer.adobe.com/marketo-apis/api/asset#tag/Folders/operation/createFolderUsingPOST) och det körs med ett program/x-www-form-urlencoded POST som har två obligatoriska parametrar, &quot;name&quot;, en sträng och &quot;parent&quot;, som är det överordnade objektet som skapar mappen i, vilket är ett inbäddat JSON-objekt med två medlemmar, id och typ, antingen Folder eller Program, beroende på målmappens typ. Om du vill kan du även använda&quot;description&quot;, en sträng, och den kan innehålla upp till 2 000 tecken.
 
 ```http
 POST /rest/asset/v1/folders.json

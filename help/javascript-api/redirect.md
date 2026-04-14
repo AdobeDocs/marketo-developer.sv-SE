@@ -3,9 +3,9 @@ title: Omdirigering
 description: Implementera omdirigerings-API:t för RTP för att skicka segmenterade besökare till riktade URL:er med hjälp av fält som ABM, organisation, plats och segment, med exempel och tips.
 feature: Javascript
 exl-id: bbf91245-42e5-47ae-a561-e522cc65ff49
-source-git-commit: 18d828b5d98c00f04739d417d043a33fcbb9c37a
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '500'
+source-wordcount: '502'
 ht-degree: 5%
 
 ---
@@ -14,7 +14,7 @@ ht-degree: 5%
 
 Med RTP:s omdirigerings-API kan du omdirigera segmenterade målgrupper till en mål-URL.
 
-- Du måste bli kund hos Web Personalization och ha [RTP-taggen &#x200B;](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
+- Du måste bli kund hos Web Personalization och ha [RTP-taggen ](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/web-personalization/rtp-tag-implementation/deploy-the-rtp-javascript) distribuerad till din webbplats innan du kan använda API:t för användarkontext.
 - RTP stöder inte kontobaserade marknadslistor för namngivna konton. ABM-listor och kod gäller endast de överförda kontolistorna (CSV-filer) som hanteras i RTP.
 
 ## Användning
@@ -86,7 +86,7 @@ rtp('get','campaign');
 
 ## Omdirigera spårade besökare
 
-1. Lägg till en parameter i slutet av mål-URL:en: d.v.s. &lt;www.marketo.com?rtp=redirect>
+1. Lägg till en parameter i slutet av mål-URL:en: det vill säga &lt;www.marketo.com?rtp=redirect>
 1. Skapa ett segment med namnet &quot;Omdirigerad av RTP&quot;
 1. Använd parametern&quot;Specifika sidor&quot; för att rikta in besökare som visar en sida med parametern som visas nedan.
 
@@ -105,7 +105,7 @@ Omdirigeringsanropet har stöd för flera samtal. Detta gör det möjligt att om
 | send | Obligatoriskt | Sträng | Metodåtgärd. |
 | &quot;redirect&quot; | Obligatoriskt | Sträng | Metodnamn. |
 | field_name | Obligatoriskt | Sträng | Fältnamn att matcha mot. Exempel: &quot;abm.name&quot; (se ovan). |
-| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<https://www.example.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]&rbrace; |
+| url_values_map | Obligatoriskt | Objekt | Mappa mellan omdirigerings-URL och värdelista. Exempel:{<https://www.example.com>}: [&#39;first_abm&#39;, &#39;second_abm&#39;]} |
 
 #### Exempel
 

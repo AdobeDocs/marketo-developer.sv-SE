@@ -3,9 +3,9 @@ title: Prestanda
 feature: REST API
 description: Förbättra Marketo REST API-prestanda med HTTP-komprimering. Aktivera gzip för att minska bandbredden. Massor av API:er som inte stöds och under 1 024 byte som inte är komprimerade.
 exl-id: 173a398a-9d36-4e8d-9dd3-7d0d375b085a
-source-git-commit: 7557b9957c87f63c2646be13842ea450035792be
+source-git-commit: 9c10469ffa3b763552d176329a426ef51eebe0f1
 workflow-type: tm+mt
-source-wordcount: '136'
+source-wordcount: '146'
 ht-degree: 0%
 
 ---
@@ -34,7 +34,7 @@ Marketo REST API komprimerar svarstexten och innehåller följande rubrik:
 Content-Encoding: gzip
 ```
 
-Här är ett exempel där Curl används för att anropa slutpunkten [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi/#tag/Leads/operation/getLeadsByFilterUsingGET) för att hämta 5 leads:
+Här är ett exempel där Curl används för att anropa slutpunkten [Hämta leads efter filtertyp](https://developer.adobe.com/marketo-apis/api/mapi#tag/Leads/operation/getLeadsByFilterUsingGET) för att hämta 5 leads:
 
 ```bash
 curl -H 'Accept-Encoding: gzip' 'https://123-ABC-456.mktorest.com/rest/v1/leads.json?filterType=id&filterValues=4,5,7,12,13'

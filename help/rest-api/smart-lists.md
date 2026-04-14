@@ -3,7 +3,7 @@ title: Smarta listor
 feature: REST API
 description: Lär dig hur du använder Marketo REST API:er för att fråga efter, klona och ta bort smarta listor som skapats av användare, inklusive slutpunkter efter ID, namn, kampanj och program med regler.
 exl-id: 4ba37e57-ee56-48c3-bb2b-b4ec8e907911
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '576'
 ht-degree: 0%
@@ -12,19 +12,19 @@ ht-degree: 0%
 
 # Smarta listor
 
-[Slutpunktsreferens för smarta listor](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists)
+[Slutpunktsreferens för smarta listor](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists)
 
 Marketo erbjuder en uppsättning REST API:er för att utföra åtgärder på smarta listor. Dessa API:er följer standardgränssnittsmönstret för resurs-API:er med alternativen Fråga, Ta bort och Klona.
 
-Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
+Obs! Dessa API:er stöds endast för användarskapade smarta listor. De kan inte användas för [inbyggda/systemsmarta listor](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/core-marketo-concepts/smart-lists-and-static-lists/using-smart-lists/use-built-in-system-smart-lists).
 
 ## Fråga
 
-När du frågar efter smarta listor används standardfrågetyperna för resurserna [via ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) och [bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET).
+När du frågar efter smarta listor används standardfrågetyperna för resurserna [via ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET), [efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET) och [bläddra](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET).
 
 ### Efter ID
 
-[Fråga efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByIdUsingGET) tar en enda smart lista `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
+[Fråga efter ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByIdUsingGET) tar en enda smart lista `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
 
 ![Smartlist-regler](assets/smartlist-rules.png)
 
@@ -99,7 +99,7 @@ GET /rest/asset/v1/smartList/{id}.json?includeRules=true
 
 ### Efter smart kampanj-ID
 
-[Fråga efter smart kampanj-ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) tar en smart kampanj `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
+[Fråga efter smart kampanj-ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Campaigns/operation/getSmartListBySmartCampaignIdUsingGET) tar en smart kampanj `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
 
 ```http
 GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
@@ -130,7 +130,7 @@ GET /rest/asset/v1/smartCampaign/{smartCampaignId}/smartList.json
 
 ### Per program-ID
 
-[Fråga efter program-ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Programs/operation/getSmartListByProgramIdUsingGET) tar ett enskilt e-postprogram `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
+[Fråga efter program-ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Programs/operation/getSmartListByProgramIdUsingGET) tar ett enskilt e-postprogram `id` som sökvägsparameter och returnerar en enda smart listpost. Du kan också skicka den booleska parametern `includeRules` för att inkludera regler för smarta listor i svaret.
 
 ```http
 GET /rest/asset/v1/program/{programId}/smartList.json
@@ -161,7 +161,7 @@ GET /rest/asset/v1/program/{programId}/smartList.json
 
 ### Efter namn
 
-[Fråga efter namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListByNameUsingGET) tar en smart lista `name` som parameter och returnerar en enda smart listpost.  En exakt strängmatchning utförs mot alla smarta listnamn i instansen och returnerar ett resultat för den smarta listan som matchar det namnet.
+[Fråga efter namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListByNameUsingGET) tar en smart lista `name` som parameter och returnerar en enda smart listpost.  En exakt strängmatchning utförs mot alla smarta listnamn i instansen och returnerar ett resultat för den smarta listan som matchar det namnet.
 
 ```http
 GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
@@ -191,7 +191,7 @@ GET /rest/asset/v1/smartList/byName.json?name=2018 Leads
 
 ### Bläddra
 
-Smarta listor kan också [hämtas i grupper](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/getSmartListsUsingGET). Parametern `folder` används för att ange den överordnade mapp som frågan utförs i. Det är formaterat som ett JSON-objekt som innehåller `id` och `type`. Precis som andra slutpunkter för hämtning av gruppresurser är `offset` och `maxReturn` valfria parametrar som kan användas för sidindelning. De valfria parametrarna `earliestUpdatedAt` och `latestUpdatedAt` datetime kan användas för att filtrera resultaten efter datumintervallet UpdatedAt.
+Smarta listor kan också [hämtas i grupper](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/getSmartListsUsingGET). Parametern `folder` används för att ange den överordnade mapp som frågan utförs i. Det är formaterat som ett JSON-objekt som innehåller `id` och `type`. Precis som andra slutpunkter för hämtning av gruppresurser är `offset` och `maxReturn` valfria parametrar som kan användas för sidindelning. De valfria parametrarna `earliestUpdatedAt` och `latestUpdatedAt` datetime kan användas för att filtrera resultaten efter datumintervallet UpdatedAt.
 
 ```http
 GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
@@ -245,7 +245,7 @@ GET /rest/asset/v1/smartLists.json?folder={"id":31,"type":"Folder"}
 
 ## Klona
 
-[Kloning av en smart lista](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/cloneSmartListUsingPOST) utförs med en POST som kodats med application/x-www-form-urlencoded. Den smarta lista som ska klonas har angetts i sökvägsparametern `id`. Parametern `folder` används för att ange den överordnade mappen som den smarta listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Den överordnade mappen måste vara antingen en Program- eller en Smart List-mapp. Parametern `name` används för att namnge den nya smarta listan och måste vara unik. Parametern `description` kan också användas för att beskriva den smarta listan.
+[Kloning av en smart lista](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/cloneSmartListUsingPOST) utförs med en POST som kodats med application/x-www-form-urlencoded. Den smarta lista som ska klonas har angetts i sökvägsparametern `id`. Parametern `folder` används för att ange den överordnade mappen som den smarta listan ska skapas i och formateras som ett JSON-objekt som innehåller id och typ. Den överordnade mappen måste vara antingen en Program- eller en Smart List-mapp. Parametern `name` används för att namnge den nya smarta listan och måste vara unik. Parametern `description` kan också användas för att beskriva den smarta listan.
 
 ```http
 POST /rest/asset/v1/smartList/{id}/clone.json
@@ -283,7 +283,7 @@ folder={"id":31,"type":"Folder"}&name=2018 Leads Qualified
 
 ## Ta bort
 
-[Om du tar bort en smart lista &#x200B;](https://developer.adobe.com/marketo-apis/api/asset/#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) används en smart lista `id` som sökvägsparameter.
+[Om du tar bort en smart lista ](https://developer.adobe.com/marketo-apis/api/asset#tag/Smart-Lists/operation/deleteSmartListByIdUsingPOST) används en smart lista `id` som sökvägsparameter.
 
 ```http
 POST /rest/asset/v1/smartList/{id}/delete.json

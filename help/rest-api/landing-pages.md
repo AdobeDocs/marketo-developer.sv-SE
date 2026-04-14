@@ -3,7 +3,7 @@ title: Landningssidor
 feature: REST API, Landing Pages
 description: Använd Marketo REST API för att fråga efter metadata och innehåll, skapa, uppdatera, godkänna, ta bort och klona landningssidor, inklusive guidade och friformstyper.
 exl-id: 2f986fb0-0a6b-469f-b199-1c526cd5a882
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1221'
 ht-degree: 0%
@@ -12,13 +12,13 @@ ht-degree: 0%
 
 # Landningssidor
 
-[Slutpunktsreferens för landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages)
+[Slutpunktsreferens för landningssida](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages)
 
 Landningssidor är webbsidor som lagras av Marketo.
 
 ## Fråga
 
-Liksom de flesta andra resurser kan landningssidor efterfrågas [med namn](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [med id](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) och med [bläddring](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Dessa frågor returnerar endast metadata, och listan över avsnitt med innehåll för en landningssida måste efterfrågas separat av ID:t för landningssidan.
+Liksom de flesta andra resurser kan landningssidor efterfrågas [med namn](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByNameUsingGET), [med id](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageByIdUsingGET) och med [bläddring](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/browseLandingPagesUsingGET). Dessa frågor returnerar endast metadata, och listan över avsnitt med innehåll för en landningssida måste efterfrågas separat av ID:t för landningssidan.
 
 Om du frågar innehållet på landningssidan returneras en lista med avsnitt som är tillgängliga på landningssidan. Det måste finnas ett avsnitt i innehållslistan på en sida för att innehållet ska kunna uppdateras:
 
@@ -56,9 +56,9 @@ Resultaten skiljer sig åt mellan guidade och friformsmallar, eftersom guidade l
 
 ## Skapa och uppdatera
 
-[Landningssidor skapas](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/createLandingPageUsingPOST) genom att referera tillbaka till en mall. De enda obligatoriska fälten som ska skapas är namn, mall (ID för mallen) och mappen där sidan ska placeras. Ytterligare metadata som kan fyllas i finns i slutpunktsreferensen.
+[Landningssidor skapas](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/createLandingPageUsingPOST) genom att referera tillbaka till en mall. De enda obligatoriska fälten som ska skapas är namn, mall (ID för mallen) och mappen där sidan ska placeras. Ytterligare metadata som kan fyllas i finns i slutpunktsreferensen.
 
-Giltiga innehållstyper för [landningssidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content) är: richText, HTML, Form, Image, Rectangle, Snippet.
+Giltiga innehållstyper för [landningssidans innehåll](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content) är: richText, HTML, Form, Image, Rectangle, Snippet.
 
 ```http
 POST rest/asset/v1/landingPages.json
@@ -105,7 +105,7 @@ name=createLandingPage&folder={"type": "Folder", "id": 11}&template=1&descriptio
 }
 ```
 
-Metadata för landningssidor kan uppdateras med [Update Landing Page Metadata endpoint](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
+Metadata för landningssidor kan uppdateras med [Update Landing Page Metadata endpoint](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/updateLandingPageUsingPOST).
 
 ## Godkännande
 
@@ -113,7 +113,7 @@ Landningssidor följer standardmodellen för utkast, där det kan finnas ett utk
 
 ## Ta bort
 
-Om du vill ta bort en landningssida måste den först vara ur bruk och inte refereras till av några andra Marketo-resurser, samt vara icke-godkänd. Sidorna tas bort individuellt med slutpunkten [Ta bort landningssida](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) . Det går inte att ta bort landningssidor med inbäddade sociala knappar via det här API:t.
+Om du vill ta bort en landningssida måste den först vara ur bruk och inte refereras till av några andra Marketo-resurser, samt vara icke-godkänd. Sidorna tas bort individuellt med slutpunkten [Ta bort landningssida](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/deleteLandingPageByIdUsingPOST) . Det går inte att ta bort landningssidor med inbäddade sociala knappar via det här API:t.
 
 ## Klona
 
@@ -173,7 +173,7 @@ name=MyNewLandingPage&folder={"type":"Program","id":1119}&template=57
 
 ## Hantera innehållsavsnitt
 
-Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enligt de CSS-regler som tillämpas när de visas av klienten. Innehållsavsnitt inkluderas och hanteras med motsvarande slutpunkter för [Lägg till](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Uppdatera](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) och [Ta bort](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) startsidans innehåll, och kan frågas med [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Varje avsnitt har en typ och en värdeparameter. Typen avgör vad som ska sättas in i värdet.  För dessa slutpunkter skickas data som POST x-www-form-urlencoded, inte som JSON.
+Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enligt de CSS-regler som tillämpas när de visas av klienten. Innehållsavsnitt inkluderas och hanteras med motsvarande slutpunkter för [Lägg till](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/addLandingPageContentUsingPOST), [Uppdatera](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) och [Ta bort](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/removeLandingPageContentUsingPOST) startsidans innehåll, och kan frågas med [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Varje avsnitt har en typ och en värdeparameter. Typen avgör vad som ska sättas in i värdet.  För dessa slutpunkter skickas data som POST x-www-form-urlencoded, inte som JSON.
 
 **Avsnittstyper**
 
@@ -189,11 +189,11 @@ Innehållsavsnitt ordnas efter deras indexegenskap och läggs slutligen ut enlig
 | SocialButton | ID för  den sociala knappen. |
 | Video | Videons id. |
 
-För frihandssidor måste alla önskade innehållsavsnitt läggas till och bäddas in i div-elementet med ID:t `mktoContent`. För guidade sidor kan det finnas en lista med fördefinierade element i listan från slutpunkten [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Mer kan läggas till eller deras [innehåll uppdateras](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) via deras respektive slutpunkter.
+För frihandssidor måste alla önskade innehållsavsnitt läggas till och bäddas in i div-elementet med ID:t `mktoContent`. För guidade sidor kan det finnas en lista med fördefinierade element i listan från slutpunkten [Hämta startsidans innehåll](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/getLandingPageContentUsingGET). Mer kan läggas till eller deras [innehåll uppdateras](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) via deras respektive slutpunkter.
 
 ### Dynamiskt innehåll
 
-Om du vill skapa ett avsnitt med dynamiskt innehåll måste det redan finnas i landningssidans innehållslista. [Slutpunkten för uppdatering av innehållet på landningssidan](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) måste sedan användas för att ange typen till DynamicContent. När ett avsnitt är inställt på dynamiskt innehåll skapas underliggande dynamiska avsnitt i innehållsavsnittet som alla ärver det konverterade elementets bastyp. Varje dynamiskt avsnitt ärver också innehållet från det konverterade avsnittet.
+Om du vill skapa ett avsnitt med dynamiskt innehåll måste det redan finnas i landningssidans innehållslista. [Slutpunkten för uppdatering av innehållet på landningssidan](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageContentUsingPOST) måste sedan användas för att ange typen till DynamicContent. När ett avsnitt är inställt på dynamiskt innehåll skapas underliggande dynamiska avsnitt i innehållsavsnittet som alla ärver det konverterade elementets bastyp. Varje dynamiskt avsnitt ärver också innehållet från det konverterade avsnittet.
 
 ```http
 GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
@@ -229,7 +229,7 @@ GET /rest/asset/v1/landingPage/{id}/dynamicContent/RVMtNDg=.json
 }
 ```
 
-[Uppdatering av innehållet](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) för varje enskilt segment görs utifrån segment-ID:t.
+[Uppdatering av innehållet](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Page-Content/operation/updateLandingPageDynamicContentUsingPOST) för varje enskilt segment görs utifrån segment-ID:t.
 
 ```http
 POST /rest/asset/v1/landingPage/{id}/dynamicContent/{dynamicContentId}.json
@@ -274,7 +274,7 @@ Variabler definieras som metataggar inuti elementet `<head>` i en landningssidma
 </head>
 ```
 
-Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/sv/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
+Mer information finns i avsnittet Redigerbar variabel i dokumentationen för [Skapa en guidad startsidmall](https://experienceleague.adobe.com/en/docs/marketo/using/product-docs/demand-generation/landing-pages/landing-page-templates/create-a-guided-landing-page-template).
 
 ### Fråga
 
@@ -338,7 +338,7 @@ POST /rest/asset/v1/landingPage/{id}/variable/{variableId}.json?value={newValue}
 
 ## Förhandsgranska landningssida
 
-Marketo tillhandahåller slutpunkten [Get Landing Page Full Content](https://developer.adobe.com/marketo-apis/api/asset/#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) för att hämta en direktförhandsvisning av en landningssida som den skulle återges i en webbläsare. Det finns en obligatorisk parameter, `id` path-parametern, som är ID:t för landningssidan som du vill förhandsgranska. Det finns ytterligare två valfria frågeparametrar:
+Marketo tillhandahåller slutpunkten [Get Landing Page Full Content](https://developer.adobe.com/marketo-apis/api/asset#tag/Landing-Pages/operation/getLandingPageFullContentUsingGET) för att hämta en direktförhandsvisning av en landningssida som den skulle återges i en webbläsare. Det finns en obligatorisk parameter, `id` path-parametern, som är ID:t för landningssidan som du vill förhandsgranska. Det finns ytterligare två valfria frågeparametrar:
 
 - segmentering: Accepterar en array med JSON-objekt som innehåller attributen segmentationId och segmentId. När det är inställt förhandsvisas landningssidan som om du var en lead som matchar de segmenten.
 - leadId:  Accepterar heltals-ID för en lead. När det är inställt förhandsgranskar landningssidan som om den betraktades av det valda leadet.

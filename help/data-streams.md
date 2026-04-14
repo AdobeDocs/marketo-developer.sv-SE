@@ -2,9 +2,9 @@
 title: Dataströmmar
 description: Översikt över Marketo Engage dataströmmar som möjliggör nästan ledande aktivitet i realtid och användargranskningshändelser, easing API-gränser för Performance Tier-kunder
 exl-id: 5617b6a5-ebc8-4d97-a290-e3b87f83e360
-source-git-commit: 6dc068f92d5b0c94035ca484fd1508dfe87bbd76
+source-git-commit: ff0a95e838cecd1d8b1f90ca029a320043824242
 workflow-type: tm+mt
-source-wordcount: '1714'
+source-wordcount: '1716'
 ht-degree: 0%
 
 ---
@@ -12,7 +12,8 @@ ht-degree: 0%
 # Dataströmmar
 
 >[!NOTE]
-> Aktuell information om dataströmmar finns nu på [Använda dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
+>
+>Aktuell information om dataströmmar finns nu på [Använda dataströmmar](https://developer.adobe.com/events/docs/guides/using/marketo/marketo-data-streams#).
 >
 
 Våra kunders marknadsföringsorganisationer förlitar sig på aktuella och fokuserade marknadsföringskampanjer för att ligga steget före sina affärer och vara konkurrenskraftiga. För att stödja snabba beslut och möjliggöra strategiska förändringar snabbt är det viktigt att ha data som stöder och driver de viktiga beslut som levererar fokuserade och målinriktade kampanjer. Det finns också vissa kunder som arbetar med marknadsföring i sina kundsegment både inom och utanför Marketo Engage. För att stödja dessa olika satsningar har Marketo skapat möjligheten att inhämta stora datavolymer i nära realtid via dataströmmar.

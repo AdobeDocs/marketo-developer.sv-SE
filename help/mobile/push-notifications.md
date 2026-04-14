@@ -3,7 +3,7 @@ title: Push-meddelanden
 feature: Mobile Marketing
 description: Guide för att aktivera push-meddelanden från iOS med Marketo, från APN-certifikat och Xcode-inställningar till Marketo SDK-integrering, tokenregistrering och -hantering.
 exl-id: 41d657d8-9eea-4314-ab24-fd4cb2be7f61
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '1338'
 ht-degree: 0%
@@ -28,7 +28,7 @@ Det finns tre steg för att aktivera push-meddelanden:
 1. Klicka på Certifikat, Identifierare och profiler.
 1. Klicka på mappen &quot;Certificates->All&quot; under &quot;iOS, tvOS, watchOS&quot;.
 1. Markera plustecknet (+) på den övre vänstra skärmen bredvid certifikaten ![](assets/certificates-plus.png)
-1. Aktivera kryssrutan&quot;Apple Push Notification service SSL (Sandbox &amp; Production)&quot; och klicka på&quot;Continue&quot;.
+1. Aktivera kryssrutan&quot;Apple Push Notification service SSL (Sandbox &amp; Production)&quot; och välj sedan Fortsätt.
 1. Välj det program-ID som du använder för att skapa appen.![](assets/push-appid.png)
 1. Skapa och överför CSR för att generera push-certifikatet. ![](assets/push-ssl.png)
 1. Hämta certifikatet till den lokala datorn och dubbelklicka för att installera. ![](assets/certificate-download.png)

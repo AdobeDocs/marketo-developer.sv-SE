@@ -3,7 +3,7 @@ title: E-post
 feature: REST API
 description: Använd Marketo Asset REST API för att fråga efter, skapa, uppdatera, klona, ta bort, godkänna och inspektera beroenden för e-postresurser.
 exl-id: b41a3ae5-2b25-4103-84b4-320fc2c44bd6
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
 source-wordcount: '497'
 ht-degree: 0%
@@ -12,7 +12,7 @@ ht-degree: 0%
 
 # E-post
 
-[Referens för e-postslutpunkt](https://developer.adobe.com/marketo-apis/api/asset/#tag/Emails_New)
+[Referens för e-postslutpunkt](https://developer.adobe.com/marketo-apis/api/asset#tag/Emails_New)
 
 E-postmeddelanden är resursposter som definierar meddelandemetadata, innehållskonfiguration, inställningar och godkännandetillstånd.
 

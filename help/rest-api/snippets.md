@@ -3,22 +3,22 @@ title: Fragment
 feature: REST API, Snippets
 description: Marketo Asset REST API för kodfragment, som omfattar fråga efter ID och bläddra med status, hämta innehåll, skapa och uppdatera HTML, text och dynamiskt innehåll.
 exl-id: 87901c29-ee59-4224-848d-3bd6a6c52718
-source-git-commit: e2606d6cb12c572603ff069617de58417e43ca63
+source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
 workflow-type: tm+mt
-source-wordcount: '511'
+source-wordcount: '512'
 ht-degree: 0%
 
 ---
 
 # Fragment
 
-[Utdragsslutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets)
+[Utdragsslutpunktsreferens](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets)
 
 Kodavsnitt är återanvändbara HTML-komponenter som kan bäddas in i e-postmeddelanden och landningssidor och som kan segmenteras för dynamiskt innehåll. Fragment har inga associerade mallar och kan skapas och distribueras i andra resurser i Marketo.
 
 ## Fråga
 
-När du frågar efter fragment används standardmönstret för resurser, förutom att det inte har någon By Name-metod. Med metoderna [Efter ID](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetByIdUsingGET) och [Bläddra](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/getSnippetUsingGET) kan du använda statusfältet för att hämta antingen godkända versioner eller utkastversioner av fragmentet.
+När du frågar efter fragment används standardmönstret för resurser, förutom att det inte har någon By Name-metod. Med metoderna [Efter ID](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetByIdUsingGET) och [Bläddra](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/getSnippetUsingGET) kan du använda statusfältet för att hämta antingen godkända versioner eller utkastversioner av fragmentet.
 
 ### Efter ID
 
@@ -143,7 +143,7 @@ Anropet returnerar en lista med innehållsavsnitt,  som består av avsnitt av t
 
 ## Skapa och uppdatera
 
-Fragment följer det komplexa mönstret för att skapa resurser, där anropet till [skapa fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/createSnippetUsingPOST) och dess innehåll görs separat, så det första anropet måste vara till slutpunkten för att skapa, med en valfri beskrivning.   Data skickas som x-www-form-urlencoded, inte som JSON.
+Fragment följer det komplexa mönstret för att skapa resurser, där anropet till [skapa fragment](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/createSnippetUsingPOST) och dess innehåll görs separat, så det första anropet måste vara till slutpunkten för att skapa, med en valfri beskrivning.   Data skickas som x-www-form-urlencoded, inte som JSON.
 
 ```http
 POST /rest/asset/v1/snippets.json
@@ -211,7 +211,7 @@ type=HTML&content=draft testUpdateSnippetContent1 HTML Content
 }
 ```
 
-[Uppdatering av metadata](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/updateSnippetUsingPOST) utförs även av ID. Endast namn och beskrivning kan uppdateras:
+[Uppdatering av metadata](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/updateSnippetUsingPOST) utförs även av ID. Endast namn och beskrivning kan uppdateras:
 
 ```http
 POST /rest/asset/v1/snippet/{id}.json
@@ -400,7 +400,7 @@ POST /rest/asset/v1/snippet/{id}/discardDraft.json
 
 ## Klona
 
-[Klona ett fragment](https://developer.adobe.com/marketo-apis/api/asset/#tag/Snippets/operation/cloneSnippetUsingPOST) med API:t är enkelt och följer standardmönstret med ett obligatoriskt namn, ID:t för det ursprungliga fragmentet och mappen, samt en valfri beskrivning.  Om det inte finns någon godkänd version klonas utkastversionen.
+[Klona ett fragment](https://developer.adobe.com/marketo-apis/api/asset#tag/Snippets/operation/cloneSnippetUsingPOST) med API:t är enkelt och följer standardmönstret med ett obligatoriskt namn, ID:t för det ursprungliga fragmentet och mappen, samt en valfri beskrivning.  Om det inte finns någon godkänd version klonas utkastversionen.
 
 ```http
 POST /rest/asset/v1/snippet/{id}/clone.json
