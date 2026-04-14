@@ -2,13 +2,13 @@
 title: MCP-server
 description: Lär dig hur du ansluter en AI-assistent till Marketo med hjälp av MCP-servern. Konfigurera Claude Desktop, Cursor, Claude Code eller VS Code med dina Marketo-uppgifter.
 hidefromtoc: true
-source-git-commit: a9946d79bfc4cabd27fe33d95f25ee99d777fb1b
+exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
+source-git-commit: 85285b49ce2540542d6169cd1466ced02955b586
 workflow-type: tm+mt
 source-wordcount: '1278'
 ht-degree: 0%
 
 ---
-
 
 # [!DNL Marketo] MCP-server
 
@@ -234,37 +234,37 @@ Exempelmeddelanden:
 
 ## Frågor och svar
 
-### Är mina data säkra?
-
++++Är mina data säkra?
 Autentiseringsuppgifter överförs i HTTP-huvuden med varje enskild begäran. Servern lagrar inte eller cachelagrar autentiseringsuppgifter mellan sessioner, och varje begäran är helt isolerad.
++++
 
-### Kan flera personer använda detta samtidigt?
-
++++Kan flera personer använda detta samtidigt?
 Ja. Servern är multi-tenant. Varje användare ansluter med sina egna inloggningsuppgifter och förfrågningar isoleras från varandra.
++++
 
-### Vad händer om min åtkomsttoken upphör att gälla?
-
++++Vad händer om min åtkomsttoken upphör att gälla?
 När du autentiserar med Klient-ID och Klienthemlighet hanterar servern automatiskt tokenuppdatering. Du behöver inte vidta några åtgärder.
++++
 
-### Behöver jag installera eller köra någonting?
-
++++Behöver jag installera eller köra någonting?
 Nej. MCP-servern hanteras av Adobe. Du behöver bara konfigurera AI-verktyget för att ansluta till det.
++++
 
-### Vilka [!DNL Marketo] behörigheter behöver min API-användare?
-
++++Vilka [!DNL Marketo] behörigheter behöver min API-användare?
 API-användaren behöver åtkomst till de resurstyper som du tänker hantera. Tilldela minst en skrivskyddad roll för bläddringsåtgärder och en skrivskyddad roll för att skapa eller ändra resurser. Använd din [!DNL Marketo]-administratör för att tilldela lämpliga behörigheter.
++++
 
-### Vilka är rabattgränserna?
-
++++Vilka är rabattgränserna?
 MCP-servern ärver API-hastighetsgränserna för Marketo-instansen. Använd en dedikerad API-användare för att spåra och hantera kvotförbrukning.
++++
 
-### Vilka AI-verktyg stöds?
-
++++Vilka AI-verktyg stöds?
 Claude Desktop, Cursor, Claude Code (CLI) och VS Code med GitHub Copilot. Alla AI-verktyg som stöder Model Context Protocol över HTTP bör fungera.
++++
 
-### Kan jag ansluta till flera [!DNL Marketo]-instanser?
-
++++Kan jag ansluta till flera [!DNL Marketo]-instanser?
 Ja. Lägg till flera poster i AI-verktygets MCP-konfiguration, var och en med ett unikt namn och autentiseringsuppgifter för motsvarande instans. Du kan till exempel konfigurera `marketo-prod` och `marketo-staging` som separata servrar.
++++
 
 ## Säkerhetsaspekter
 
