@@ -3,9 +3,9 @@ title: MCP-server
 description: Lär dig hur du ansluter en AI-assistent till Marketo med hjälp av MCP-servern. Konfigurera Claude Desktop, Cursor, Claude Code eller VS Code med dina Marketo-uppgifter.
 hidefromtoc: true
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: 3fe1c3e9fe572ef68d20ba10f93535aac9a98602
+source-git-commit: d659eb0f604a68d03d5b00c0109d59ff321415df
 workflow-type: tm+mt
-source-wordcount: '1278'
+source-wordcount: '1263'
 ht-degree: 0%
 
 ---
@@ -30,7 +30,6 @@ Du behöver följande värden från din [!DNL Marketo]-instans:
 - **Klient-ID**
 - **Klienthemlighet**
 - **Munchkin konto-ID**
-- **REST API-slutpunkt**
 
 Om du redan har dem går du till [Konfigurera ditt AI-verktyg](#configure-your-ai-tool).
 
@@ -44,11 +43,6 @@ Om du redan har dem går du till [Konfigurera ditt AI-verktyg](#configure-your-a
 
 1. Gå till **[!UICONTROL Admin]** > **[!UICONTROL Munchkin]**.
 1. Kopiera **[!UICONTROL Munchkin Account ID]**. Formatet är `XXX-XXX-XXX` och matchar prefixet för din instans-URL.
-
-### REST API-slutpunkt
-
-1. Gå till **[!UICONTROL Admin]** > **[!UICONTROL Web Services]**.
-1. Kopiera URL:en **[!UICONTROL Endpoint]** under **[!UICONTROL REST API]**. Formatet är `https://XXX-XXX-XXX.mktorest.com`.
 
 ## Konfigurera ditt AI-verktyg
 
