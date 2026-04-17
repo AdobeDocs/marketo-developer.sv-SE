@@ -4,9 +4,9 @@ description: Lär dig hur du ansluter en AI-assistent till Marketo med hjälp av
 hidefromtoc: true
 badgeBeta: label="Beta" type="informative" tooltip="Den här funktionen är för närvarande i en tidig betaversion"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: ad7c64f3e2cbc25db1c2ffe61e2d42b0acbbd573
+source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
 workflow-type: tm+mt
-source-wordcount: '1272'
+source-wordcount: '1391'
 ht-degree: 0%
 
 ---
@@ -16,6 +16,12 @@ ht-degree: 0%
 Model Context Protocol (MCP) är en öppen standard som gör att AI-verktyg kan kommunicera med externa tjänster. MCP-servern [!DNL Marketo] fungerar som en brygga mellan AI-assistenten och [!DNL Marketo]. Den visar över 100 operationer för formulär, program, smarta kampanjer, leads, e-post, fragment, listor och mappar.
 
 När AI-verktyget anropar MCP-servern, kör servern motsvarande REST API-anrop åt dig med de autentiseringsuppgifter som du anger i varje begäran. Du behöver inte installera, distribuera eller köra någon programvara på serversidan.
+
+>[!IMPORTANT]
+>
+>Model Context Protocol (MCP) är en ny öppen källkodsstandard som kan utgöra säkerhets- eller tillförlitlighetsrisker. Adobe MCP-serverintegreringar och relaterad dokumentation tillhandahålls &quot;i befintligt skick&quot; utan garantier av något slag.
+>Att ansluta MCP-klienter eller servrar till Adobe-produkter är en kundvald konfiguration och kunderna ansvarar för att utvärdera säkerheten och lämpligheten för alla MCP-integreringar. Adobe ansvarar inte för problem som uppstår vid felkonfigurering, felanvändning av MCP, säkerhetsluckor i implementeringar från tredje part eller oavsiktliga åtgärder som utförs via MCP-aktiverade arbetsflöden.
+>För att minska riskerna rekommenderar Adobe att man testar integreringar i en sandlådemiljö innan de används effektivt och att man noggrant granskar och validerar alla MCP-initierade åtgärder och svar innan man bekräftar eller förlitar sig på dem.
 
 ## Förutsättningar
 
