@@ -2,16 +2,20 @@
 title: MCP-server
 description: Lär dig hur du ansluter en AI-assistent till Marketo med hjälp av MCP-servern. Konfigurera Claude Desktop, Cursor, Claude Code eller VS Code med dina Marketo-uppgifter.
 hidefromtoc: true
-badgeBeta: label="Beta" type="informative" tooltip="Den här funktionen är för närvarande i en tidig betaversion"
+badgeBeta: label="Beta" type="informative" tooltip="Den här funktionen är för närvarande i en sluten betaversion"
 exl-id: ab446e56-6250-4af5-b03e-162991d09a5c
-source-git-commit: b21ecb7a4dd2730807b0ad601b95fe387498f8f0
+source-git-commit: c21ba0db3115c453f8ec35e18d4a8fd4c1ad8745
 workflow-type: tm+mt
-source-wordcount: '1391'
+source-wordcount: '1388'
 ht-degree: 0%
 
 ---
 
 # [!DNL Marketo] MCP-server
+
+>[!NOTE]
+>
+>MCP-servern är för närvarande i en stängd betaversion. Den är inte tillgänglig för alla användare för tillfället.
 
 Model Context Protocol (MCP) är en öppen standard som gör att AI-verktyg kan kommunicera med externa tjänster. MCP-servern [!DNL Marketo] fungerar som en brygga mellan AI-assistenten och [!DNL Marketo]. Den visar över 100 operationer för formulär, program, smarta kampanjer, leads, e-post, fragment, listor och mappar.
 
@@ -222,7 +226,6 @@ Exempelmeddelanden:
 
 | Fel | Orsak | Korrigera |
 | ------- | ------- | ----- |
-| &quot;Marketo-slutpunkt saknas&quot; | Rubriken `X-Marketo-Endpoint` saknas i konfigurationen. | Kontrollera MCP-konfigurationen igen och bekräfta att alla fyra rubrikerna finns. |
 | &quot;Marketo-autentiseringsuppgifter har inte angetts&quot; | En eller flera av `X-Marketo-Client-Id`, `X-Marketo-Client-Secret` eller `X-Marketo-Munchkin-Id` saknas. | Kontrollera att alla fyra rubrikerna finns i konfigurationen. |
 | &quot;Autentiseringsfel&quot; | Dina autentiseringsuppgifter är ogiltiga eller har upphört att gälla. | Kontrollera ditt klient-ID och klienthemlighet igen i **[!UICONTROL Admin]** > **[!UICONTROL LaunchPoint]**. |
 | &quot;403 Förbjuden&quot; | Ditt Munchkin-ID finns inte på tillåtelselista på servern. | Kontakta din [!DNL Marketo] MCP-administratör för att lägga till ditt Munchkin-ID. |
