@@ -4,7 +4,7 @@ description: Marketo API-licensavtal för intern utveckling och testning, detalj
 exl-id: f0720ba7-b15d-40c8-9145-d3fa3e064a0b
 hide: true
 hidefromtoc: true
-source-git-commit: 14ca3ca1f1aa07bb3e54802003190a4a2b4fbcb9
+source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
 workflow-type: tm+mt
 source-wordcount: '3113'
 ht-degree: 0%
@@ -18,6 +18,7 @@ MARKETO
 API-LICENSAVTAL
 
 Detta Marketo API-licensavtal (&quot;Avtalet&quot;) reglerar implementeringen och användningen av Marketo API:er och API-specifikationen så att ett programvaruprogram kan samverka med Marketo Solution för intern utveckling eller testning. Om du ingår det här avtalet på uppdrag av en organisation har du behörighet att binda din organisation till det här avtalet. Om du inte har den behörigheten, eller om du inte godkänner villkoren i detta Avtal, får du inte implementera Marketo API:er eller använda API-specifikationen. Genom att klicka på en knapp som anger att du godkänner detta Avtal, eller genom att implementera, hämta eller på annat sätt få tillgång till Marketo API:er, godkänner du villkoren i detta Avtal. Detta avtal gäller mellan dig och Marketo, Inc. (&quot;Marketo&quot;) från och med den dag du godkänner. Ni och Marketo kallas var och en för sig&quot;part&quot; och tillsammans&quot;parter&quot;.
+
 
 1. Definitioner
 

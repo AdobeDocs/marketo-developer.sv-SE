@@ -3,9 +3,9 @@ title: Verksamhet
 feature: REST API
 description: Använd Marketo Engage Activity REST API för att lista aktivitetstyper, hämta lead-aktiviteter med sidtoken och hantera anpassade ändringar och datavärdesändringar.
 exl-id: 1e69af23-2b0c-467a-897c-1dcf81343e73
-source-git-commit: 59684e1c5a8082ad12f1e4bfc854c0d2dde35d2a
+source-git-commit: 5260338681c4ea670f6f1b1a1603e30f6acc0865
 workflow-type: tm+mt
-source-wordcount: '2139'
+source-wordcount: '2218'
 ht-degree: 0%
 
 ---
@@ -77,7 +77,11 @@ Verkliga reaktioner innehåller mycket fler definitioner. I det här exemplet ä
 
 Om du vill hämta aktiviteter från Marketo anropar du slutpunkten [Hämta leadaktiviteter](https://developer.adobe.com/marketo-apis/api/mapi#tag/Activities/operation/getLeadActivitiesUsingGET). Du måste först hämta en växlingstoken för datetime som du vill börja hämta aktiviteter från. Du skickar sedan sidindelningstoken i frågeparametern `nextPageToken`. Dessutom skickar du upp till tio aktivitetstyp-ID:n i frågeparametern `activityTypeIds` som en kommaavgränsad lista.
 
-Du kan antingen inkludera en listId-frågeparameter för att begränsa sökningen till enbart de poster som ingår i en viss statisk lista, eller en leadIds-frågeparameter och söka efter aktiviteter från endast en angiven uppsättning leads. Du kan skicka upp till 30 leadIds som en kommaseparerad lista.
+Du kan antingen inkludera en `listId`-frågeparameter för att begränsa sökningen till enbart de poster som ingår i en viss statisk lista, eller en `leadIds`-frågeparameter och söka efter aktiviteter från endast en angiven uppsättning leads. Du kan skicka upp till 30 `leadIds` som en kommaavgränsad lista.
+
+>[!CAUTION]
+>
+>Från och med 2026-12-30 misslyckas anrop till slutpunkterna `Get Lead Activities` och `Get Lead Changes` som innehåller parametern `listId` (felkod 1003) om mållistorna innehåller 10 000 eller fler leads. För att undvika avbrott i tjänsten bör du se till att samtalen har rätt omfattning för att undvika denna gräns.
 
 ```http
 GET /rest/v1/activities.json?activityTypeIds=1&nextPageToken=WQV2VQVPPCKHC6AQYVK7JDSA3I3LCWXH3Y6IIZ7YSGQLXHCPVE5Q====
@@ -139,6 +143,10 @@ För datavärdesändringsaktiviteter finns en specialversion av aktivitets-API:t
 
 * Det finns ingen `activityTypeIds`-parameter eftersom slutpunkten bara returnerar datavärdesändring och nya lead-aktiviteter.
 * Frågeparametern `fields` krävs, där du kan skicka en kommaavgränsad lista med fält för att ange vilka fält du vill hämta ändringar för.
+
+>[!CAUTION]
+>
+>Från och med 2026-12-30 misslyckas anrop till slutpunkterna `Get Lead Activities` och `Get Lead Changes` som innehåller parametern `listId` (felkod 1003) om mållistorna innehåller 10 000 eller fler leads. För att undvika avbrott i tjänsten bör du se till att samtalen har rätt omfattning för att undvika denna gräns.
 
 ```http
 GET /rest/v1/activities/leadchanges.json?nextPageToken=GIYDAOBNGEYS2MBWKQYDAORQGA5DAMBOGAYDAKZQGAYDALBQ&fields=firstName,lastName,department
